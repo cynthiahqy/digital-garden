@@ -1,0 +1,20 @@
+---
+title: "About"
+image: profile.jpg
+about:
+  template: jolla
+  links:
+    - icon: twitter
+      text: Twitter
+      href: https://twitter.com/cynthiahqy
+    # - icon: linkedin
+    #   text: LinkedIn
+    #   href: https://linkedin.com/cynthiahqy
+    - icon: github
+      text: Github
+      href: https://github.com/cynthiahqy
+---
+
+🧙‍♀️ I am a hat collector with pronouns she/her. My many hats include economist, data scientist, research software engineer and teacher. Currently my main hat is PhD student at Monash University working on using deep learning on satellite images to predict flood extent.
+
+🤹🏻This blog is a seed nursery for holding ideas, thoughts and projects I'm juggling while I build my [digital garden](https://maggieappleton.com/garden-history). Expect anything from machine learning, data wrangling, reproducible workflows, teaching pedagogy to half-formed opinions on social issues, personal data-viz, and winding journeys through my special interests of the moment.

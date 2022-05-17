@@ -1,0 +1,69 @@
+---
+title: "Blueprints for my digital garden and display home"
+date: "2022-05-13"
+categories:
+  - design
+draft: true
+---
+
+# Resources
+
+-   [Writing checklist by gwern](https://www.gwern.net/About#writing-checklist) including lint-checking & linkchecking
+-   [Up and running with blogdown](https://www.apreshill.com/blog/2020-12-new-year-new-blogdown/)
+
+## Digital Garden Inspiration
+
+-   https://maggieappleton.com/garden-history
+-   https://maggieappleton.com/nontechnical-gardening
+-   https://maggieappleton.com/note-oppression
+-   Maggie appleton expresses all the things I have felt about blogging and posting online!
+
+## Post metadata ideas
+
+See source code for implementation details. Seems to be mostly just reading yaml metadata fields and linking them to
+
+-   [gwern.net](https://www.gwern.net/Sidenotes.page) - `created:` & `modified:` for date post was started & last edited
+-   `status:` seedling/budding/evergreen (conceptual)/deciduous (likely to break)
+-   assumed audience (maggie appleton colophon)
+-   reading time
+
+## Hugo themes
+
+-   [apvarun/digital-garden theme](https://github.com/apvarun/digital-garden-hugo-theme) might be suitable for academic/professional showcase
+
+## Hugo guides
+
+-   [How I built my Digital Garden using Hugo](https://rishikeshs.com/build-a-digital-garden/) has steps for setting up, good reference to send others to.
+-   [How much Hugo do I need to know?](https://alison.rbind.io/blog/2020-12-how-much-hugo/) by Alison Hill
+
+# What I want
+
+-   identity as hats/multi-faceted
+    -   [adjustable bio length](https://www.jason.af) on Jason Lengstorf's page
+
+    -   choose your own adventure between left/right brain; creative/analytical; a false dichotomy but a useful dimension reduction.
+-   professional identity/show home -- cynthiahqy.me
+    -   [now page](https://rishikeshs.com/now/) and listing on [Derek Silver's nownownow.com](https://nownownow.com/about)
+    -   project portfolio
+    -   data-driven CV
+        -   roles as "hats" à la [some people I've been](https://www.drcathicks.com/about) on Cat Hicks page
+    -   technical posts on coding, data sci, teaching, software dev
+-   mind-caving/digital garden - xyathium.xyz
+    -   [idea journal](https://rishikeshs.com/idea-journal/)
+    -   philosophical writings
+    -   mental health
+    -   neurodiversity
+-   Go on a retrieval mission to see how much of my past content I can still find
+    -   [ ] Wordpress -- updated the password!
+
+    -   [ ] dropbox drafts...
+
+    -   [ ] tumblr
+
+    -   [ ] bebo
+
+    -   [ ] live-journal
+
+    -   [ ] facebook posts
+
+    -   [ ] marginalia maps instagram

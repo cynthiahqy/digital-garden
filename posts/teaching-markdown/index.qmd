@@ -1,0 +1,29 @@
+---
+title: "Teaching Markdown"
+author: "Cynthia Huang"
+draft: true
+categories:
+  - teaching
+---
+
+## Other people's thoughts
+
+-   [How I teach R Markdown by Alison Hill](https://www.apreshill.com/blog/2020-05-how-i-teach-r-markdown/)
+
+## Glossary of terms, frameworks, tools
+
+try to peel back the layers. tutorials and guides that are written for tools are the same level have related information (e.g. chunk options)
+
+markdown extensions
+
+:   quarto, rmarkdown, git markdown
+
+    "languages" markdown that implement additional features via additional syntax and an engine that parses that syntax into jobs that it executes.
+
+static site generators
+
+:   hugo, jekyll
+
+    the layer underneath
+
+output formats
