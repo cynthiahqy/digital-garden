@@ -67,3 +67,7 @@ See source code for implementation details. Seems to be mostly just reading yaml
     -   [ ] facebook posts
 
     -   [ ] marginalia maps instagram
+    
+## Workflow
+
+-   template for new post should be `draft: true` by default!

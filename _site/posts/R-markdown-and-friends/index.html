@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.629">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Cynthia Huang">
+<meta name="dcterms.date" content="2022-08-10">
+<meta name="description" content="An experiment in using iframes and interactive slides to teach R Markdown">
+
+<title>Cynthia Huang - R Markdown and friends</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Cynthia Huang</span>
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html">About</a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/cynthiahqy"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/cynthiahqy"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">R Markdown and friends</h1>
+                  <div>
+        <div class="description">
+          An experiment in using iframes and interactive slides to teach R Markdown
+        </div>
+      </div>
+                          <div class="quarto-categories">
+                <div class="quarto-category">markdown</div>
+                <div class="quarto-category">teaching</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Cynthia Huang </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">August 10, 2022</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#key-takeaways" id="toc-key-takeaways" class="nav-link active" data-scroll-target="#key-takeaways">Key Takeaways</a>
+  <ul class="collapse">
+  <li><a href="#provide-context-and-motivation" id="toc-provide-context-and-motivation" class="nav-link" data-scroll-target="#provide-context-and-motivation">Provide context and motivation</a></li>
+  <li><a href="#flatten-the-learning-curve" id="toc-flatten-the-learning-curve" class="nav-link" data-scroll-target="#flatten-the-learning-curve">Flatten the learning curve</a></li>
+  <li><a href="#encourage-extension-questions" id="toc-encourage-extension-questions" class="nav-link" data-scroll-target="#encourage-extension-questions">Encourage extension questions</a></li>
+  <li><a href="#reduce-reuse-recycle" id="toc-reduce-reuse-recycle" class="nav-link" data-scroll-target="#reduce-reuse-recycle">Reduce, reuse, recycle</a></li>
+  </ul></li>
+  <li><a href="#workshop-design" id="toc-workshop-design" class="nav-link" data-scroll-target="#workshop-design">Workshop Design</a>
+  <ul class="collapse">
+  <li><a href="#audience" id="toc-audience" class="nav-link" data-scroll-target="#audience">Audience</a></li>
+  <li><a href="#objectives" id="toc-objectives" class="nav-link" data-scroll-target="#objectives">Objectives</a></li>
+  <li><a href="#lesson-plan" id="toc-lesson-plan" class="nav-link" data-scroll-target="#lesson-plan">Lesson Plan</a></li>
+  <li><a href="#prerequisites" id="toc-prerequisites" class="nav-link" data-scroll-target="#prerequisites">Prerequisites</a></li>
+  <li><a href="#resources" id="toc-resources" class="nav-link" data-scroll-target="#resources">Resources</a></li>
+  </ul></li>
+  <li><a href="#workshop-recap" id="toc-workshop-recap" class="nav-link" data-scroll-target="#workshop-recap">Workshop Recap</a>
+  <ul class="collapse">
+  <li><a href="#key-concepts" id="toc-key-concepts" class="nav-link" data-scroll-target="#key-concepts">Key Concepts</a></li>
+  <li><a href="#try-it-yourself" id="toc-try-it-yourself" class="nav-link" data-scroll-target="#try-it-yourself">Try it Yourself</a></li>
+  <li><a href="#what-about" id="toc-what-about" class="nav-link" data-scroll-target="#what-about">What About…?</a></li>
+  <li><a href="#getting-help" id="toc-getting-help" class="nav-link" data-scroll-target="#getting-help">Getting Help</a></li>
+  </ul></li>
+  <li><a href="#workshop-reflections" id="toc-workshop-reflections" class="nav-link" data-scroll-target="#workshop-reflections">Workshop Reflections</a>
+  <ul class="collapse">
+  <li><a href="#iframes-and-hyperlinks" id="toc-iframes-and-hyperlinks" class="nav-link" data-scroll-target="#iframes-and-hyperlinks">iframes and hyperlinks</a></li>
+  <li><a href="#slides.com-and-html-slides" id="toc-slides.com-and-html-slides" class="nav-link" data-scroll-target="#slides.com-and-html-slides">Slides.com and HTML slides</a></li>
+  </ul></li>
+  <li><a href="#summary" id="toc-summary" class="nav-link" data-scroll-target="#summary">Summary</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/publishing-robot-cynthiahqy.png" class="img-fluid figure-img" alt="A robot with four arms, no legs, three hex-stickers on its rectangular chest, and the pandoc logo on its two antennae. At the end of the top left arm it is holding a rectangular document with the title&quot;ESSAY.RMD&quot; and some example content. Underneath in the bottom left arm it is holding a folder with the label &quot;Resources&quot; on it. On the right side, its top right arm has &quot;LATEX&quot; written on it and is holding a document with the title &quot;ESSAY.PDF&quot;. Underneath in its bottom right arm it holds a blank document. Both documents on the right have squiggles and squares in them to show content. The hex-stickers on its chest are for knitr, bookdown and rmarkdown."></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Your friendly publishing robot as sketched by yours truly.</figcaption><p></p>
+</figure>
+</div>
+<p>I recently taught a short 2-hour hybrid workshop on R Markdown. Rather than deliver a standard <em>“open RStudio and knit a new document”</em> walk-through, I wanted to orientate students in the vast landscape of markdown based publishing tools, using R Markdown as a starting point. I tried to balance confidence building “try-it-yourself” style exercises with the excitement of exploring more advanced features. I also gave myself just one day<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> to prepare for the workshop and experiment with HTML slides. In the spirit of “learning in public” and for the benefit of future me, I thought I’d share some reflections.</p>
+<section id="key-takeaways" class="level2">
+<h2 class="anchored" data-anchor-id="key-takeaways">Key Takeaways</h2>
+<section id="provide-context-and-motivation" class="level3">
+<h3 class="anchored" data-anchor-id="provide-context-and-motivation">Provide context and motivation</h3>
+<ul>
+<li><p>Explain how R markdown relates to their existing publishing workflow</p></li>
+<li><p>Give students a metaphor for what’s happening “under the hood”</p></li>
+</ul>
+</section>
+<section id="flatten-the-learning-curve" class="level3">
+<h3 class="anchored" data-anchor-id="flatten-the-learning-curve">Flatten the learning curve</h3>
+<ul>
+<li><p>Focus on demonstrating a small set of functionality that provide immediate value</p></li>
+<li><p>Leverage R Studio’s visual mode as an alternative route for learning markdown syntax</p></li>
+<li><p>Give students the tools to navigate the ecosystem of R Markdown extensions and documentation</p></li>
+</ul>
+</section>
+<section id="encourage-extension-questions" class="level3">
+<h3 class="anchored" data-anchor-id="encourage-extension-questions">Encourage extension questions</h3>
+<ul>
+<li><p>Ask for specific questions about what R Markdown can add to their existing workflow – e.g.&nbsp;“I use STATA, could I ….?”</p></li>
+<li><p>Use a contrasting colour to highlight material that extends on workshop activities but can’t be covered or demonstrated in depth.</p></li>
+</ul>
+</section>
+<section id="reduce-reuse-recycle" class="level3">
+<h3 class="anchored" data-anchor-id="reduce-reuse-recycle">Reduce, reuse, recycle</h3>
+<ul>
+<li><p>Use <code>iframes</code> to leverage existing R Markdown learning resources and documentation.</p></li>
+<li><p>Search for and borrow open use images and diagrams!</p></li>
+<li><p>Use <strong>Slides.com</strong> to quickly experiment with HTML slide functionality without needing to learn <code>reveal.js</code></p></li>
+</ul>
+</section>
+</section>
+<section id="workshop-design" class="level2">
+<h2 class="anchored" data-anchor-id="workshop-design">Workshop Design</h2>
+<section id="audience" class="level3">
+<h3 class="anchored" data-anchor-id="audience">Audience</h3>
+<p>The workshop was for this year’s honours in economics cohort, roughly 13 or so students. Almost none of the students used R in their research, with STATA or Python being most common.</p>
+</section>
+<section id="objectives" class="level3">
+<h3 class="anchored" data-anchor-id="objectives">Objectives</h3>
+<p>At the end of the workshop I wanted students to:</p>
+<ul>
+<li>have a conceptual understanding of the ecosystem of reproducible publishing tools under the R Markdown authoring framework</li>
+<li>be able to render an .Rmd file into .pdf and .docx output</li>
+<li>be able to add code chunks, math equations, tables, images and citations to a .Rmd document</li>
+<li>have some ideas for using and extending the demonstrated functionality in their own publishing workflow</li>
+<li>know where to go for further information and troubleshooting</li>
+</ul>
+</section>
+<section id="lesson-plan" class="level3">
+<h3 class="anchored" data-anchor-id="lesson-plan">Lesson Plan</h3>
+<table class="table">
+<colgroup>
+<col style="width: 22%">
+<col style="width: 55%">
+<col style="width: 22%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>Time</th>
+<th>Activity</th>
+<th>Duration</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>0:00-0:30</td>
+<td><strong>Key Concepts</strong>, a short lecture</td>
+<td>30 mins</td>
+</tr>
+<tr class="even">
+<td>0:30-1:30</td>
+<td><strong>Try it Yourself</strong>, hands-on walk-through</td>
+<td>60 mins</td>
+</tr>
+<tr class="odd">
+<td>1:30-1:45</td>
+<td><strong>What About…?</strong>, direct interaction and troubleshooting with students</td>
+<td>15 mins</td>
+</tr>
+<tr class="even">
+<td>1:45-2:00</td>
+<td><strong>Getting Help</strong>, workshop wrap-up and further resources</td>
+<td>15 mins</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="prerequisites" class="level3">
+<h3 class="anchored" data-anchor-id="prerequisites">Prerequisites</h3>
+<p>Students were asked to install R, RStudio, and <code>{tinytex}</code> before the workshop using <a href="https://bookdown.org/yihui/rmarkdown/installation.html">instructions from R Markdown: The Definitive Guide.</a></p>
+</section>
+<section id="resources" class="level3">
+<h3 class="anchored" data-anchor-id="resources">Resources</h3>
+<p>Students were linked to the slides during the workshop, but no other resources were provided.</p>
+</section>
+</section>
+<section id="workshop-recap" class="level2">
+<h2 class="anchored" data-anchor-id="workshop-recap">Workshop Recap</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/paste-3915ED0C.png" class="img-fluid figure-img" alt="Thumbnail preview of workshop slides"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Overview thumbnails of slides from each workshop section. Dark blue slides were covered in detail, whilst orange slides were only briefly touched on. Iframes were used throughout to display external resources.</figcaption><p></p>
+</figure>
+</div>
+<section id="key-concepts" class="level3">
+<h3 class="anchored" data-anchor-id="key-concepts">Key Concepts</h3>
+<p>After introducing myself and giving a high-level overview of the workshop structure, I spent about 30 minutes explaining:</p>
+<ol type="1">
+<li><a href="https://slides.com/cynthiahuang/rmarkdown-and-friends#/1/1" title="Link to Slide"><strong>Benefits of a reproducible publishing workflow</strong></a>, using the specific example of eliminating the dreaded “copy-paste” updating cycle.</li>
+<li><a href="https://slides.com/cynthiahuang/rmarkdown-and-friends#/1/2"><strong>Why R Markdown is a great starting point for building a reproducible publishing workflow</strong></a><strong>.</strong> Rather than enumerate the many benefits, I directed them to the many “Why use R-Markdown” articles that have already been written, and emphasised the abundance of resources available.</li>
+<li>R Markdown as an <strong>authoring framework,</strong> your <a href="https://slides.com/cynthiahuang/rmarkdown-and-friends#/1/3" title="Link to Slide"><strong>friendly magical</strong> <strong>publishing wizards</strong></a> (c/o Allison Horst)<strong>,</strong> and/or your multi-talented <strong>publishing robot (</strong>c/o yours truly)<strong>.</strong></li>
+<li>The <a href="https://slides.com/cynthiahuang/rmarkdown-and-friends#/1/4"><strong>basic anatomy of an .Rmd file</strong></a>, and what’s happening <a href="https://slides.com/cynthiahuang/rmarkdown-and-friends#/1/5"><strong>under the hood</strong>.</a></li>
+<li>a brief what and why of <a href="https://slides.com/cynthiahuang/rmarkdown-and-friends#/1/6"><strong>Quarto</strong></a><strong>.</strong> I used the visual image and conceptual metaphor of a publishing robot to link R Markdown and Quarto, but also used a different colour, orange rather than blue, for the slide title to highlight it was just an FYI.</li>
+</ol>
+</section>
+<section id="try-it-yourself" class="level3">
+<h3 class="anchored" data-anchor-id="try-it-yourself">Try it Yourself</h3>
+<p>The next hour was spent doing a hands-on walk-through of basic R Markdown functionality. Students were expected to follow along on their own computers while I live-coded on the big screen. However, in practice, I find students generally progress at different speeds.</p>
+<!--# Follow Along:: hold my hand style // oh no, i missed a step -->
+<!--# Observe first::  let me watch first, then i'll do it all at once // show me where i'm going *narrows eyes* -->
+<!--# Go Ahead:: it's more fun on my own! // must be relevant -->
+<p>To try and cater for different needs, the walk-through was a mixture of pre-planned exercises, extension links and improvised demo based on student requests. The pre-planned activities were ones that I explicitly wrote instructions for on the slides. The basic learning loop was:</p>
+<ol type="1">
+<li>Do this</li>
+<li>Render</li>
+<li>Observe what happened</li>
+<li>Do something else</li>
+<li>Render</li>
+<li>Observe and compare</li>
+<li>Repeat from 1.</li>
+</ol>
+<!--# using coloured call-outs + links to give advanced students the option to go ahead; follow along, watch first, go ahead -->
+<p>For each pre-planned exercise, I also provided an extension activity in the form of a call-out box at the bottom of each slide. The call-out box was coloured orange, contained a “how can we do …?” style question and linked to a resource that answered the question. For example, the call-out in the slide below linked to section <a href="https://bookdown.org/yihui/rmarkdown-cookbook/figure-size.html">5.4 Control the size of plots/images</a> in the R Markdown Cookbook.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><a href="https://slides.com/cynthiahuang/rmarkdown-and-friends#/2/5"><img src="images/paste-8FEB3CC1.png" class="img-fluid figure-img" alt="Sample slide from workshop with the title &quot;Add Content: Images&quot;, instructions for the pre-planned exercise given in black dot points next to the code required to complete the exercise, and an orange call-out box at the bottom with the question &quot;How do we resize images?&quot;." width="679"></a></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Sample activity slide showing the orange coloured extension call-out.</figcaption><p></p>
+</figure>
+</div>
+<p>At the start of this activity, I explained the purpose of the extension call-outs, and reiterated that I would not be directly demonstrating any “orange content” in the walk-through.</p>
+
+<!--# why i sequenced them the way that I did // render > edit yaml & markdown > render // useful lego pieces for remixing: code, latex, math, table, images, citations // source code <-> visual mode back and forth -->
+<!--# why i picked the functionality I did // what kind of documents are they writing? toc! // what is too prone to bugs! keep up the momentum -->
+<p>I used a few different criteria and framings to choose and sequence the pre-planned and extension activities including:</p>
+<ul>
+<li>What kinds of documents are the students trying to write?</li>
+<li>What will be the most useful building block features for them to takeaway from the workshop?</li>
+<li>What features are least prone to bugs that might derail the momentum of the workshop?</li>
+<li>What are some logical extensions of the features shown in the workshop?</li>
+<li>Show and reinforce the “render &gt; edit &gt; render” loop within minimal waiting time.</li>
+<li>Show both source code and visual modes, but don’t switch back and forth too much to avoid losing students.</li>
+</ul>
+</section>
+<section id="what-about" class="level3">
+<h3 class="anchored" data-anchor-id="what-about">What About…?</h3>
+
+<!--# float around the tables, answered some questions, gathered some requests -->
+<p>Once I had finished the walk-through, I gave students a mini-break / troubleshooting session. This was mostly just me floating around and checking in with each table. After helping a few students troubleshoot some minor issues<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>, I brought the class back together and introduce them to some more advanced R Markdown functionality. I tried to pick examples that highlighted different ways in which the authoring framework could be extended or customised:</p>
+<ul>
+<li>cross-references using <code>{bookdown}</code> as an example of the “install package, get more markdown features” add-on ecosystem.</li>
+<li>pretty tables using <code>{gt}</code> as an example of extra features that require explicitly coding in R.</li>
+<li>Microsoft Word chapter from the <a href="https://bookdown.org/yihui/rmarkdown-cookbook/word.html">R Markdown cookbook</a> for more fine-tuned control of output formats.</li>
+</ul>
+<p>Again, all of these slides used orange titles to signal that the content was related to, but outside the scope of the workshop.</p>
+<!--# came back together and showed styles of extensions : 1) add package, get more markdown functionality; 2) use code to make pretty output {gt}; 3) templates, rendering/formatting level adjustments !! ALL ORANGE -- you are NOT expected to know how to do any of these things after this workshop, but isn't it cool? -->
+</section>
+<section id="getting-help" class="level3">
+<h3 class="anchored" data-anchor-id="getting-help">Getting Help</h3>
+<p>Finally, I provided a quick recap of what we covered, and provided some tips for keeping up the momentum from the workshop:</p>
+<ol type="1">
+<li><strong>Try R Studio Visual mode before looking up markdown syntax.</strong> I included the <a href="https://rstudio.github.io/visual-markdown-editing/">R Studio Visual R Markdown documentation</a> as an <code>iframe</code>.</li>
+<li><strong>Read this wonderful guide on troubleshooting written by the LearnR team.</strong> Again, I directly included the LearnR <a href="https://learnr.numbat.space/chapter3#3">Troubleshooting and asking for help</a> webpage as an <code>iframe</code>, and specifically drew their attention to “Section 3: Asking for Help”.</li>
+<li><strong>Understand the different kinds of R Markdown learning resources available.</strong> I used an adaptation of the <a href="https://diataxis.fr">Diataxis framework by Daniele Procida</a> to curate a short list of useful links. I also tried limit myself to these resources when providing answers for the earlier extension call-outs.</li>
+</ol>
+</section>
+</section>
+<section id="workshop-reflections" class="level2">
+<h2 class="anchored" data-anchor-id="workshop-reflections">Workshop Reflections</h2>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/paste-7E1AA882.png" class="img-fluid figure-img" alt="A screenshot of the Slides.com Editor showing a slide that has a page from the R Markdown Cookbook embedded an iframe"></p>
+<p></p><figcaption aria-hidden="true" class="figure-caption">Embedding content using iframes is easy!</figcaption><p></p>
+</figure>
+</div>
+<section id="iframes-and-hyperlinks" class="level3">
+<h3 class="anchored" data-anchor-id="iframes-and-hyperlinks">iframes and hyperlinks</h3>
+<p>The best part of this workshop opportunity was getting to play with HTML slides. I think the workshop slides are a fun proof of concept for slides as a dynamic map and portal to existing (polished) learning resources, rather just delivering static “original” lesson content. <code>iframes</code> allow you to directly interact with the linked webpage from the slide without opening a new tab. This meant I could:</p>
+<ul>
+<li>directly incorporate high quality learning resources,</li>
+<li>free up time for designing learning activities instead of writing content, and</li>
+<li>introduce students to content in the exact format they would be referencing on their own after the workshop.</li>
+</ul>
+<p>The downside of using <code>iframes</code> and hyperlinks is that it makes the slide deck rather “fragile” since links could break or get moved. I tried to mitigate this risk somewhat by:</p>
+<ul>
+<li>making copies of any images that I used, and only using hyperlinks in the source attribution labels</li>
+<li>limiting the number of source websites I linked to - i.e.&nbsp;prioritising more “stable” or prominent sources like the R Markdown Cookbook, or the Knitr package website, and avoiding personal blogs or social media posts.</li>
+<li>writing specific questions in the extension call-outs instead of a using generic “Try this!” call-out so that even if the link breaks, students can just Google the question.</li>
+</ul>
+<p>If I could do it again, I’d probably include an appendix slide listing all the <code>iframe</code> sources so they could be easily searched for if the links break. In any case, updating <code>iframe</code> links is still easier than updating static slide content so I’m going to keep experimenting with them in my teaching.</p>
+</section>
+<section id="slides.com-and-html-slides" class="level3">
+<h3 class="anchored" data-anchor-id="slides.com-and-html-slides">Slides.com and HTML slides</h3>
+<p>I have a whole other blog post lined up about my many attempts to break up with Microsoft PowerPoint and go all in with plain-text. Unfortunately, I usually give up after two slides because markdown slides never look how I want them to, but I really do want to stop accumulating piles of <code>final.pptx</code>, <code>final_final.pptx</code>, and <code>final_v4_after_edits.pptx</code> files. Long story short, it’s happening, slowly but surely — and with a combination of Quarto and <code>reveal.js</code>.</p>
+<p>For this post, I only wanted to say that <strong>Slides.com</strong> is a great way to try out HTML slide functionality, without have to go down the very deep rabbit hole of learning <code>reveal.js</code>, figuring out how Quarto markdown interacts with <code>reveal.js</code>, and how to port all the different PowerPoint features I use into plain-text. I used an out-of-the-box template and managed to get pretty much everything I wanted to work. I did however have a minor hiccup during the workshop with the two different sharing modes. Initially, I linked students to the “<a href="http://help.slid.es/knowledgebase/articles/333924">Present Live”</a> URL. However, this mode only shows the slide you are currently presenting, which meant students couldn’t go ahead or backtrack in the Try-it-Yourself exercises. What I had actually wanted to do was link students to the slide deck. It was a relative easy fix, but did disrupt the flow of the workshop slightly.</p>
+</section>
+</section>
+<section id="summary" class="level2">
+<h2 class="anchored" data-anchor-id="summary">Summary</h2>
+<p>This workshop was the first time I have had full control over lesson content, design and delivery. Prior to starting my PhD, I worked for a few years as a casual tutor (amongst other things). I must have delivered hundreds of economics, econometrics and business statistics tutorials by now, but always using someone else’s content, never my own. Although it was only a small group of about 10 students<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>, I’m really grateful I got the opportunity to write my very first set of teaching materials and deliver this workshop.</p>
+<p>Hopefully, some of these ideas are useful for someone else.</p>
+<p>Here are the slides:</p>
+<iframe src="https://slides.com/cynthiahuang/rmarkdown-and-friends/embed?style=light" width="576" height="420" title="20220809_Rmarkdown-and-friends" scrolling="no" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="">
+</iframe>
+
+
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1" role="doc-endnote"><p>I ended up spending about 1.5 days on preparation, so I was close…<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>e.g.&nbsp;quotation marks instead of back ticks; migrating citation from an overleaf .bib file; image path issues etc.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>Informally the feedback was really positive and, aside from some technical difficulties with the hybrid set-up, everything went pretty much exactly as planned. I even finished 10mins before the room booking was up, giving me enough time to pack up and vacate before the next class!<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>

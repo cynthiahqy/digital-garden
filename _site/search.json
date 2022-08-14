@@ -1,5 +1,68 @@
 [
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "🤹🏻This blog is a seed nursery for holding ideas, thoughts and projects I’m juggling while I build my digital garden. Expect anything from machine learning, data wrangling, reproducible workflows, teaching pedagogy to half-formed opinions on social issues, personal data-viz, and winding journeys through my special interests of the moment."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Blog",
+    "section": "",
+    "text": "markdown\n\n\nteaching\n\n\n\n\nAn experiment in using iframes and interactive slides to teach R Markdown\n\n\n\n\n\n\nAug 10, 2022\n\n\nCynthia Huang\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nmarkdown\n\n\ntext-editing\n\n\n\n\nA collection of resources on how to insert emojis into your documents, when and how to use emojis, and a sprinkle of emoji trivia 🌟\n\n\n\n\n\n\nMay 16, 2022\n\n\nCynthia Huang\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "notes/Rstats/index.html",
+    "href": "notes/Rstats/index.html",
+    "title": "Cynthia Huang",
+    "section": "",
+    "text": "commands\nmessages/prompts\nMeaning of common message when install a package “There are binary versions available but the source versions are later”"
+  },
+  {
+    "objectID": "posts/R-markdown-and-friends/index.html",
+    "href": "posts/R-markdown-and-friends/index.html",
+    "title": "R Markdown and friends",
+    "section": "",
+    "text": "Your friendly publishing robot as sketched by yours truly.\nI recently taught a short 2-hour hybrid workshop on R Markdown. Rather than deliver a standard “open RStudio and knit a new document” walk-through, I wanted to orientate students in the vast landscape of markdown based publishing tools, using R Markdown as a starting point. I tried to balance confidence building “try-it-yourself” style exercises with the excitement of exploring more advanced features. I also gave myself just one day1 to prepare for the workshop and experiment with HTML slides. In the spirit of “learning in public” and for the benefit of future me, I thought I’d share some reflections."
+  },
+  {
+    "objectID": "posts/R-markdown-and-friends/index.html#key-takeaways",
+    "href": "posts/R-markdown-and-friends/index.html#key-takeaways",
+    "title": "R Markdown and friends",
+    "section": "Key Takeaways",
+    "text": "Key Takeaways\n\nProvide context and motivation\n\nExplain how R markdown relates to their existing publishing workflow\nGive students a metaphor for what’s happening “under the hood”\n\n\n\nFlatten the learning curve\n\nFocus on demonstrating a small set of functionality that provide immediate value\nLeverage R Studio’s visual mode as an alternative route for learning markdown syntax\nGive students the tools to navigate the ecosystem of R Markdown extensions and documentation\n\n\n\nEncourage extension questions\n\nAsk for specific questions about what R Markdown can add to their existing workflow – e.g. “I use STATA, could I ….?”\nUse a contrasting colour to highlight material that extends on workshop activities but can’t be covered or demonstrated in depth.\n\n\n\nReduce, reuse, recycle\n\nUse iframes to leverage existing R Markdown learning resources and documentation.\nSearch for and borrow open use images and diagrams!\nUse Slides.com to quickly experiment with HTML slide functionality without needing to learn reveal.js"
+  },
+  {
+    "objectID": "posts/R-markdown-and-friends/index.html#workshop-design",
+    "href": "posts/R-markdown-and-friends/index.html#workshop-design",
+    "title": "R Markdown and friends",
+    "section": "Workshop Design",
+    "text": "Workshop Design\n\nAudience\nThe workshop was for this year’s honours in economics cohort, roughly 13 or so students. Almost none of the students used R in their research, with STATA or Python being most common.\n\n\nObjectives\nAt the end of the workshop I wanted students to:\n\nhave a conceptual understanding of the ecosystem of reproducible publishing tools under the R Markdown authoring framework\nbe able to render an .Rmd file into .pdf and .docx output\nbe able to add code chunks, math equations, tables, images and citations to a .Rmd document\nhave some ideas for using and extending the demonstrated functionality in their own publishing workflow\nknow where to go for further information and troubleshooting\n\n\n\nLesson Plan\n\n\n\n\n\n\n\n\nTime\nActivity\nDuration\n\n\n\n\n0:00-0:30\nKey Concepts, a short lecture\n30 mins\n\n\n0:30-1:30\nTry it Yourself, hands-on walk-through\n60 mins\n\n\n1:30-1:45\nWhat About…?, direct interaction and troubleshooting with students\n15 mins\n\n\n1:45-2:00\nGetting Help, workshop wrap-up and further resources\n15 mins\n\n\n\n\n\nPrerequisites\nStudents were asked to install R, RStudio, and {tinytex} before the workshop using instructions from R Markdown: The Definitive Guide.\n\n\nResources\nStudents were linked to the slides during the workshop, but no other resources were provided."
+  },
+  {
+    "objectID": "posts/R-markdown-and-friends/index.html#workshop-recap",
+    "href": "posts/R-markdown-and-friends/index.html#workshop-recap",
+    "title": "R Markdown and friends",
+    "section": "Workshop Recap",
+    "text": "Workshop Recap\n\n\n\nOverview thumbnails of slides from each workshop section. Dark blue slides were covered in detail, whilst orange slides were only briefly touched on. Iframes were used throughout to display external resources.\n\n\n\nKey Concepts\nAfter introducing myself and giving a high-level overview of the workshop structure, I spent about 30 minutes explaining:\n\nBenefits of a reproducible publishing workflow, using the specific example of eliminating the dreaded “copy-paste” updating cycle.\nWhy R Markdown is a great starting point for building a reproducible publishing workflow. Rather than enumerate the many benefits, I directed them to the many “Why use R-Markdown” articles that have already been written, and emphasised the abundance of resources available.\nR Markdown as an authoring framework, your friendly magical publishing wizards (c/o Allison Horst), and/or your multi-talented publishing robot (c/o yours truly).\nThe basic anatomy of an .Rmd file, and what’s happening under the hood.\na brief what and why of Quarto. I used the visual image and conceptual metaphor of a publishing robot to link R Markdown and Quarto, but also used a different colour, orange rather than blue, for the slide title to highlight it was just an FYI.\n\n\n\nTry it Yourself\nThe next hour was spent doing a hands-on walk-through of basic R Markdown functionality. Students were expected to follow along on their own computers while I live-coded on the big screen. However, in practice, I find students generally progress at different speeds.\n\n\n\nTo try and cater for different needs, the walk-through was a mixture of pre-planned exercises, extension links and improvised demo based on student requests. The pre-planned activities were ones that I explicitly wrote instructions for on the slides. The basic learning loop was:\n\nDo this\nRender\nObserve what happened\nDo something else\nRender\nObserve and compare\nRepeat from 1.\n\n\nFor each pre-planned exercise, I also provided an extension activity in the form of a call-out box at the bottom of each slide. The call-out box was coloured orange, contained a “how can we do …?” style question and linked to a resource that answered the question. For example, the call-out in the slide below linked to section 5.4 Control the size of plots/images in the R Markdown Cookbook.\n\n\n\nSample activity slide showing the orange coloured extension call-out.\n\n\nAt the start of this activity, I explained the purpose of the extension call-outs, and reiterated that I would not be directly demonstrating any “orange content” in the walk-through.\n\n\n\nI used a few different criteria and framings to choose and sequence the pre-planned and extension activities including:\n\nWhat kinds of documents are the students trying to write?\nWhat will be the most useful building block features for them to takeaway from the workshop?\nWhat features are least prone to bugs that might derail the momentum of the workshop?\nWhat are some logical extensions of the features shown in the workshop?\nShow and reinforce the “render > edit > render” loop within minimal waiting time.\nShow both source code and visual modes, but don’t switch back and forth too much to avoid losing students.\n\n\n\nWhat About…?\n\n\nOnce I had finished the walk-through, I gave students a mini-break / troubleshooting session. This was mostly just me floating around and checking in with each table. After helping a few students troubleshoot some minor issues2, I brought the class back together and introduce them to some more advanced R Markdown functionality. I tried to pick examples that highlighted different ways in which the authoring framework could be extended or customised:\n\ncross-references using {bookdown} as an example of the “install package, get more markdown features” add-on ecosystem.\npretty tables using {gt} as an example of extra features that require explicitly coding in R.\nMicrosoft Word chapter from the R Markdown cookbook for more fine-tuned control of output formats.\n\nAgain, all of these slides used orange titles to signal that the content was related to, but outside the scope of the workshop.\n\n\n\nGetting Help\nFinally, I provided a quick recap of what we covered, and provided some tips for keeping up the momentum from the workshop:\n\nTry R Studio Visual mode before looking up markdown syntax. I included the R Studio Visual R Markdown documentation as an iframe.\nRead this wonderful guide on troubleshooting written by the LearnR team. Again, I directly included the LearnR Troubleshooting and asking for help webpage as an iframe, and specifically drew their attention to “Section 3: Asking for Help”.\nUnderstand the different kinds of R Markdown learning resources available. I used an adaptation of the Diataxis framework by Daniele Procida to curate a short list of useful links. I also tried limit myself to these resources when providing answers for the earlier extension call-outs."
+  },
+  {
+    "objectID": "posts/R-markdown-and-friends/index.html#workshop-reflections",
+    "href": "posts/R-markdown-and-friends/index.html#workshop-reflections",
+    "title": "R Markdown and friends",
+    "section": "Workshop Reflections",
+    "text": "Workshop Reflections\n\n\n\nEmbedding content using iframes is easy!\n\n\n\niframes and hyperlinks\nThe best part of this workshop opportunity was getting to play with HTML slides. I think the workshop slides are a fun proof of concept for slides as a dynamic map and portal to existing (polished) learning resources, rather just delivering static “original” lesson content. iframes allow you to directly interact with the linked webpage from the slide without opening a new tab. This meant I could:\n\ndirectly incorporate high quality learning resources,\nfree up time for designing learning activities instead of writing content, and\nintroduce students to content in the exact format they would be referencing on their own after the workshop.\n\nThe downside of using iframes and hyperlinks is that it makes the slide deck rather “fragile” since links could break or get moved. I tried to mitigate this risk somewhat by:\n\nmaking copies of any images that I used, and only using hyperlinks in the source attribution labels\nlimiting the number of source websites I linked to - i.e. prioritising more “stable” or prominent sources like the R Markdown Cookbook, or the Knitr package website, and avoiding personal blogs or social media posts.\nwriting specific questions in the extension call-outs instead of a using generic “Try this!” call-out so that even if the link breaks, students can just Google the question.\n\nIf I could do it again, I’d probably include an appendix slide listing all the iframe sources so they could be easily searched for if the links break. In any case, updating iframe links is still easier than updating static slide content so I’m going to keep experimenting with them in my teaching.\n\n\nSlides.com and HTML slides\nI have a whole other blog post lined up about my many attempts to break up with Microsoft PowerPoint and go all in with plain-text. Unfortunately, I usually give up after two slides because markdown slides never look how I want them to, but I really do want to stop accumulating piles of final.pptx, final_final.pptx, and final_v4_after_edits.pptx files. Long story short, it’s happening, slowly but surely — and with a combination of Quarto and reveal.js.\nFor this post, I only wanted to say that Slides.com is a great way to try out HTML slide functionality, without have to go down the very deep rabbit hole of learning reveal.js, figuring out how Quarto markdown interacts with reveal.js, and how to port all the different PowerPoint features I use into plain-text. I used an out-of-the-box template and managed to get pretty much everything I wanted to work. I did however have a minor hiccup during the workshop with the two different sharing modes. Initially, I linked students to the “Present Live” URL. However, this mode only shows the slide you are currently presenting, which meant students couldn’t go ahead or backtrack in the Try-it-Yourself exercises. What I had actually wanted to do was link students to the slide deck. It was a relative easy fix, but did disrupt the flow of the workshop slightly."
+  },
+  {
+    "objectID": "posts/R-markdown-and-friends/index.html#summary",
+    "href": "posts/R-markdown-and-friends/index.html#summary",
+    "title": "R Markdown and friends",
+    "section": "Summary",
+    "text": "Summary\nThis workshop was the first time I have had full control over lesson content, design and delivery. Prior to starting my PhD, I worked for a few years as a casual tutor (amongst other things). I must have delivered hundreds of economics, econometrics and business statistics tutorials by now, but always using someone else’s content, never my own. Although it was only a small group of about 10 students3, I’m really grateful I got the opportunity to write my very first set of teaching materials and deliver this workshop.\nHopefully, some of these ideas are useful for someone else.\nHere are the slides:"
+  },
+  {
     "objectID": "posts/emoji-tricks/index.html",
     "href": "posts/emoji-tricks/index.html",
     "title": "A brief guide to inserting Emojis everywhere!",
@@ -26,19 +89,5 @@
     "title": "A brief guide to inserting Emojis everywhere!",
     "section": "Emoji Trivia 🎰",
     "text": "Emoji Trivia 🎰\nLastly, some trivia about how new emojis get added to the Unicode Standard,\n\n🧘 Episode 272: Person in Lotus Position️ of the 99% Invisible podcast\n\nthe emoji “math” that powers skin-tone modifications and multiple people emojis,\n\n👪 Emoji ZWJ Sequences: Three Letters, Many Possibilities by Jeremy Burge on the Emojipedia Blog\n\nand some cool things people have done with emojis:\n\n📝 Eight Tiny Stories, Translated From the Emoji by James Hannaham and John W. Bateman\n🐛 Emoji guide for your commit messages by Carlos Cuesta\n️✅ Personal emoji table in Notion by 177. The “How I use emoji” video is in Chinese, but the Notion table and pages have English translations.\n😃 Emoji Sentiment Ranking extracted from the human annotated sentiment of English language Twitter posts9\n🎭 Emoji Quizzes - basically charades but with emojis. For example, guess this movie10: 5️⃣0️⃣0️⃣☀️💌"
-  },
-  {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Blog",
-    "section": "",
-    "text": "markdown\n\n\ntext-editing\n\n\n\n\nA collection of resources on how to insert emojis into your documents, when and how to use emojis, and a sprinkle of emoji trivia 🌟\n\n\n\n\n\n\nMay 16, 2022\n\n\n\n\n\n\nNo matching items"
-  },
-  {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "🤹🏻This blog is a seed nursery for holding ideas, thoughts and projects I’m juggling while I build my digital garden. Expect anything from machine learning, data wrangling, reproducible workflows, teaching pedagogy to half-formed opinions on social issues, personal data-viz, and winding journeys through my special interests of the moment."
   }
 ]

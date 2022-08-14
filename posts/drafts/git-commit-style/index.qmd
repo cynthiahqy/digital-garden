@@ -1,0 +1,21 @@
+---
+title: "Designing and enforcing your git log style"
+draft: true
+editor: visual
+---
+
+## design inspo
+
+-   git commit features
+    -   subject, description
+
+    -   gitmoji
+-   styleguides
+    -   📚[slashbin/styleguide-git-commit-message](https://github.com/slashsBin/styleguide-git-commit-message#suggested-emojis)
+
+    -   🕸️[Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)
+
+## helpers and linters
+
+-   📦[jakeasmith/commit](https://github.com/jakeasmith/commit) cli for composing git commit messages
+-   

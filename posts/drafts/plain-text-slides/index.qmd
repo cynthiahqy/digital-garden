@@ -1,0 +1,11 @@
+---
+title: "HTML slides"
+draft: TRUE
+editor: visual
+---
+
+It's a little embarrassing as a big proponent of plain text workflows and version control, but I have not yet managed to part ways with PowerPoint despite its many flaws. I recently accumulated another folder of `slides_draft.pptx`, `slides_runthrough-edits.pptx` and `final_final_slides.pptx` files while preparing for my confirmation milestone. It's not that I haven't tried switching to plain text slides. I have. I even tried to draft my confirmation presentation slides using Quarto. I got about two slides in and promptly gave up. Markdown down slides just never look how I want them to, and don't even get me started about how the whole "real academics use Beamer" culture limits effective research communication.
+
+Nevertheless, there are so many benefits to plain text that I am committed to transitioning... slowly but surely. Unfortunately, I have a pretty long list of tools and features that I use when designing slides -- flow charts, animations, links between slides, progress indicators and more. There's lots to be said about simple slides in the style of
+
+This workshop was a great chance for me to try out HTML slides, especially since I was willing to be much more flexible with slide design relative to my milestone presentation.

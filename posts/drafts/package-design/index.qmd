@@ -1,0 +1,20 @@
+---
+title: "designing and building R Packages"
+draft: true
+---
+
+## Considerations
+
+-   Should it be a package? or a tutorial?
+-   Dependencies?
+-   What to build first?
+
+Use docs for everyone!
+
+## Functional OOP
+
+<!--# consider separating into own post, with drawings! -->
+
+-   many armed sandwich making // wrapper functions
+-   variations of different sandwich shop/restaurant // OOP
+-   standard operating procedures that can be mixed and matched in your shop // Functional OOP

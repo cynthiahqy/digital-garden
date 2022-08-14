@@ -1,5 +1,8 @@
 project:
   type: website
+  render:
+    - "*.qmd"
+    - "!posts/drafts/"
 
 website:
   title: "Cynthia Huang"

@@ -2,6 +2,7 @@
   {
     "listing": "/index.html",
     "items": [
+      "/posts/R-markdown-and-friends/index.html",
       "/posts/emoji-tricks/index.html"
     ]
   }

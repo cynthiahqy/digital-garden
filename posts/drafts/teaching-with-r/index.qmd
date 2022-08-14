@@ -1,0 +1,43 @@
+---
+title: "teaching *with* R and Rmarkdown"
+draft: true
+---
+
+There are heaps of tutorials, guides, blog posts about teaching R to students, and for learning, but what about using R to automate away the boring stuff of teaching? <!--# maybe this should be a series? -->
+
+# Find and replace, (mail) merge and friends
+
+This section is basically about ways to avoid manual copy/paste when you need to customise feedback, content or instructions. An obvious example is dropping student names into feedback templates.
+
+## Concepts
+
+-   **template** text with placeholders
+-   **details** to put in the placeholders
+-   (optional) **rules** for matching details with specific templates
+-   **assembler** to stick it all together
+
+|           | MS Office                                              | RMarkdown                             |
+|-----------|-------------------------------|-------------------------------|
+| Template  | word document, excel file                              | light-weight markup, or straight text |
+| Details   | student names, grades in some order                    | tidy table                            |
+| Rules     | different comments for different grades                | if/else, case statements              |
+| Assembler | Copy -\> Paste -\> Save, or maybe MS Office Mail Merge | mailmerge, rmarkdown params, glue     |
+
+## RMarkdown toolkit
+
+-   Why do we need?
+    -   Rmarkdown (quarto also would work)
+    -   R
+    -   tidyverse
+
+## Walk-through
+
+<!--# does this need to be its own repo? -->
+
+## How-to
+
+## tutorials/walk-throughs
+
+-   [Mail merge with RMarkdown](https://rmarkdown.rstudio.com/articles_mail_merge.html)
+-   📦[mailmerge](https://andrie.github.io/mailmerge/index.html)
+-   [Mail merge using R Markdown for loop - stack overflow](https://stackoverflow.com/questions/58389331/mail-merge-using-r-markdown-for-loop)
