@@ -7,10 +7,10 @@ categories:
   - markdown
   - how-to
 image: featured.png
-image-alt: "Screenshot of the About Twitter Cards documentation page on Twitter's Development Platform"
+image-alt: "Hand-drawn black and white wireframe sketch of a tweet containing a preview frame showing the text 'TWITTER CARD?!?'"
 ---
 
-![](images/paste-C20DED4F.png){fig-alt="Screenshot of the About Twitter Cards documentation page on Twitter's Development Platform" width="622"}
+![Screenshot of the [About Twitter Cards](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards) documentation page on Twitter's Development Platform](images/paste-C20DED4F.png){fig-alt="Screenshot of the About Twitter Cards documentation page on Twitter's Development Platform" width="622"}
 
 So, I just spent an hour preparing the tweet for my [latest blog post](https://www.cynthiahqy.com/posts/r-markdown-and-friends/)[^1]. Why? Because I wanted the tweet to show a preview of the blog post, but no matter how many times I copy and pasted the link, no preview appeared. Thus, I had no choice but to go down the rabbit hole of trying to Google how to do something without knowing what that thing is called...
 
