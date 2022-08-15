@@ -19,6 +19,9 @@ website:
         href: https://github.com/cynthiahqy
       - icon: twitter
         href: https://twitter.com/cynthiahqy
+  page-footer:
+    right: "This blog is built with ❤️  and [Quarto](https://quarto.org/), by Cynthia Huang. License: [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/)."
+
 format:
   html:
     theme: simplex

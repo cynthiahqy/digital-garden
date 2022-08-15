@@ -105,17 +105,17 @@
     "text": "Social Metadata Options!\nLong story short2, I needed to do BOTH of the following:\n\nInclude my website URL in _quarto.yml:\n\nwebsite:\n  site-url: https://www.cynthiahqy.com\nYou can publish your website without including the site-url: option (I know because I did that), but quarto render won’t produce robots.txt or sitemap.xml for you, and your image links won’t be properly prepended:\n\n\nTurn on Social Metadata options in _quarto.yml\n\nQuarto very helpfully includes tools for generating the metadata required by Twitter to generate preview cards. However, you need to turn those tools on:\nwebsite:\n  site-url: https://www.cynthiahqy.com\n  open-graph: true\n  twitter-card:\n    creator: \"@cynthiahqy\""
   },
   {
-    "objectID": "posts/twitter-card-quarto/index.html#make-your-own-quarto-blog",
-    "href": "posts/twitter-card-quarto/index.html#make-your-own-quarto-blog",
-    "title": "Quarto Blog Previews on Twitter (for Dummies)",
-    "section": "Make your own Quarto Blog",
-    "text": "Make your own Quarto Blog\nIf you are interested in using Quarto to make your own blog, a good place to start is Bea Milz’s blog post Creating a blog with Quarto in 10 steps."
-  },
-  {
     "objectID": "posts/twitter-card-quarto/index.html#resources-and-references",
     "href": "posts/twitter-card-quarto/index.html#resources-and-references",
     "title": "Quarto Blog Previews on Twitter (for Dummies)",
     "section": "Resources and References",
     "text": "Resources and References\nA quick reference for the social metadata options can be found in the Reference/Projects/Websites section of the Quarto official docs, but the examples in Guide/Websites/Social Metadata are much easier to understand.\nThe Getting started with Cards guide on the Twitter Developer Platform helped me understand the difference between the site: and creator: YAML options. Basically, use site: for “Website Attribution” of the publisher (e.g.\"@nytimes\"), and creator for the individual user who created the content inside the card (e.g. \"@cynthiahqy\")."
+  },
+  {
+    "objectID": "posts/twitter-card-quarto/index.html#make-your-own-quarto-blog",
+    "href": "posts/twitter-card-quarto/index.html#make-your-own-quarto-blog",
+    "title": "Quarto Blog Previews on Twitter (for Dummies)",
+    "section": "Make your own Quarto Blog",
+    "text": "Make your own Quarto Blog\nIf you are interested in using Quarto to make your own blog, a good place to start is Bea Milz’s blog post Creating a blog with Quarto in 10 steps."
   }
 ]
