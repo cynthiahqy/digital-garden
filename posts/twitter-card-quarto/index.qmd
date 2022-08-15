@@ -1,0 +1,69 @@
+---
+title: "Quarto Blog Previews on Twitter (for Dummies)"
+description: "A short note on turning on Twitter Cards for my Quarto blog."
+date: 2022-08-15
+categories:
+  - quarto
+  - markdown
+  - how-to
+image: featured.png
+image-alt: "Screenshot of the About Twitter Cards documentation page on Twitter's Development Platform"
+---
+
+![](images/paste-C20DED4F.png){fig-alt="Screenshot of the About Twitter Cards documentation page on Twitter's Development Platform" width="622"}
+
+So, I just spent an hour preparing the tweet for my [latest blog post](https://www.cynthiahqy.com/posts/r-markdown-and-friends/)[^1]. Why? Because I wanted the tweet to show a preview of the blog post, but no matter how many times I copy and pasted the link, no preview appeared. Thus, I had no choice but to go down the rabbit hole of trying to Google how to do something without knowing what that thing is called...
+
+[^1]: The [post](https://www.cynthiahqy.com/posts/r-markdown-and-friends/) is about teaching R Markdown using iframes and interaction HTML slides. Check it out!
+
+## Twitter Cards?
+
+I started by searching `blogdown image default`, because:
+
+-   there's way more **Blogdown** content out in the wild than **Quarto** (for now..) and,
+-   my mission started from a stubborn (and not at all time-efficient) refusal to separately upload the thumbnail image of my blog post to Twitter.
+
+Unfortunately, this search yielded nothing useful... so I resorted to snooping the `.html` source code and Github repo of the wonderful [**A quarto tip a day**](https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day) website:
+
+![](images/paste-7285ABD4.png){fig-alt="Screenshot of a page from \"A Quarto Tip a Day\" website, with the source code inspector pane open in the bottom half of the screenshot."}
+
+I managed to eventually work out that the preview things I wanted to make appear were called **Twitter Cards**. So I turned them on... or so I thought. I edited my Quarto project metadata (`_quarto.yml`), pushed the changes to my GitHub repo, refreshed my Netlify hosted website multiple times, but still no **Twitter Card**...
+
+## Social Metadata Options!
+
+Long story short[^2], I needed to do BOTH of the following:
+
+[^2]: In fact, this post has taken less time to write than figuring out how to set up Twitter Cards did...
+
+1.  Include my website URL in `_quarto.yml`:
+
+``` yaml
+website:
+  site-url: https://www.cynthiahqy.com
+```
+
+You can publish your website without including the `site-url:` option (I know because I did that), but `quarto render` won't produce `robots.txt` or `sitemap.xml` for you, and your image links won't be properly prepended:
+
+![](images/paste-076546FF.png)
+
+2.  Turn on **Social Metadata** options in `_quarto.yml`
+
+Quarto very helpfully includes tools for generating the metadata required by Twitter to generate preview cards. However, you need to turn those tools on:
+
+``` yaml
+website:
+  site-url: https://www.cynthiahqy.com
+  open-graph: true
+  twitter-card:
+    creator: "@cynthiahqy"
+```
+
+## Resources and References
+
+A quick reference for the social metadata options can be found in the ***Reference/Projects/Websites*** section of the Quarto official docs, but the examples in [***Guide/Websites/Social Metadata***](https://quarto.org/docs/websites/website-tools.html#social-metadata) are much easier to understand.
+
+The [***Getting started with Cards***](https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started) guide on the Twitter Developer Platform helped me understand the difference between the `site:` and `creator:` YAML options. Basically, use `site:` for "Website Attribution" of the publisher (e.g.`"@nytimes"`), and `creator` for the individual user who created the content inside the card (e.g. `"@cynthiahqy"`).
+
+## Make your own Quarto Blog
+
+If you are interested in using Quarto to make your own blog, a good place to start is Bea Milz's blog post [***Creating a blog with Quarto in 10 steps***](https://beamilz.com/posts/2022-06-05-creating-a-blog-with-quarto/en/).

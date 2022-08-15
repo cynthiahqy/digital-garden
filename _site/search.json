@@ -11,7 +11,7 @@
     "href": "index.html",
     "title": "Blog",
     "section": "",
-    "text": "markdown\n\n\nteaching\n\n\n\n\nAn experiment in using iframes and interactive slides to teach R Markdown\n\n\n\n\n\n\nAug 10, 2022\n\n\nCynthia Huang\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nmarkdown\n\n\ntext-editing\n\n\n\n\nA collection of resources on how to insert emojis into your documents, when and how to use emojis, and a sprinkle of emoji trivia 🌟\n\n\n\n\n\n\nMay 16, 2022\n\n\nCynthia Huang\n\n\n\n\n\n\nNo matching items"
+    "text": "quarto\n\n\nmarkdown\n\n\nhow-to\n\n\n\n\nA short note on turning on Twitter Cards for my Quarto blog.\n\n\n\n\n\n\nAug 15, 2022\n\n\nCynthia Huang\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nmarkdown\n\n\nteaching\n\n\n\n\nAn experiment in using iframes and interactive slides to teach R Markdown\n\n\n\n\n\n\nAug 10, 2022\n\n\nCynthia Huang\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nmarkdown\n\n\ntext-editing\n\n\n\n\nA collection of resources on how to insert emojis into your documents, when and how to use emojis, and a sprinkle of emoji trivia 🌟\n\n\n\n\n\n\nMay 16, 2022\n\n\nCynthia Huang\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "posts/R-markdown-and-friends/index.html",
@@ -82,5 +82,40 @@
     "title": "A brief guide to inserting Emojis everywhere!",
     "section": "Emoji Trivia 🎰",
     "text": "Emoji Trivia 🎰\nLastly, some trivia about how new emojis get added to the Unicode Standard,\n\n🧘 Episode 272: Person in Lotus Position️ of the 99% Invisible podcast\n\nthe emoji “math” that powers skin-tone modifications and multiple people emojis,\n\n👪 Emoji ZWJ Sequences: Three Letters, Many Possibilities by Jeremy Burge on the Emojipedia Blog\n\nand some cool things people have done with emojis:\n\n📝 Eight Tiny Stories, Translated From the Emoji by James Hannaham and John W. Bateman\n🐛 Emoji guide for your commit messages by Carlos Cuesta\n️✅ Personal emoji table in Notion by 177. The “How I use emoji” video is in Chinese, but the Notion table and pages have English translations.\n😃 Emoji Sentiment Ranking extracted from the human annotated sentiment of English language Twitter posts9\n🎭 Emoji Quizzes - basically charades but with emojis. For example, guess this movie10: 5️⃣0️⃣0️⃣☀️💌"
+  },
+  {
+    "objectID": "posts/twitter-card-quarto/index.html",
+    "href": "posts/twitter-card-quarto/index.html",
+    "title": "Quarto Blog Previews on Twitter (for Dummies)",
+    "section": "",
+    "text": "So, I just spent an hour preparing the tweet for my latest blog post1. Why? Because I wanted the tweet to show a preview of the blog post, but no matter how many times I copy and pasted the link, no preview appeared. Thus, I had no choice but to go down the rabbit hole of trying to Google how to do something without knowing what that thing is called…"
+  },
+  {
+    "objectID": "posts/twitter-card-quarto/index.html#twitter-cards",
+    "href": "posts/twitter-card-quarto/index.html#twitter-cards",
+    "title": "Quarto Blog Previews on Twitter (for Dummies)",
+    "section": "Twitter Cards?",
+    "text": "Twitter Cards?\nI started by searching blogdown image default, because:\n\nthere’s way more Blogdown content out in the wild than Quarto (for now..) and,\nmy mission started from a stubborn (and not at all time-efficient) refusal to separately upload the thumbnail image of my blog post to Twitter.\n\nUnfortunately, this search yielded nothing useful… so I resorted to snooping the .html source code and Github repo of the wonderful A quarto tip a day website:\n\nI managed to eventually work out that the preview things I wanted to make appear were called Twitter Cards. So I turned them on… or so I thought. I edited my Quarto project metadata (_quarto.yml), pushed the changes to my GitHub repo, refreshed my Netlify hosted website multiple times, but still no Twitter Card…"
+  },
+  {
+    "objectID": "posts/twitter-card-quarto/index.html#social-metadata-options",
+    "href": "posts/twitter-card-quarto/index.html#social-metadata-options",
+    "title": "Quarto Blog Previews on Twitter (for Dummies)",
+    "section": "Social Metadata Options!",
+    "text": "Social Metadata Options!\nLong story short2, I needed to do BOTH of the following:\n\nInclude my website URL in _quarto.yml:\n\nwebsite:\n  site-url: https://www.cynthiahqy.com\nYou can publish your website without including the site-url: option (I know because I did that), but quarto render won’t produce robots.txt or sitemap.xml for you, and your image links won’t be properly prepended:\n\n\nTurn on Social Metadata options in _quarto.yml\n\nQuarto very helpfully includes tools for generating the metadata required by Twitter to generate preview cards. However, you need to turn those tools on:\nwebsite:\n  site-url: https://www.cynthiahqy.com\n  open-graph: true\n  twitter-card:\n    creator: \"@cynthiahqy\""
+  },
+  {
+    "objectID": "posts/twitter-card-quarto/index.html#make-your-own-quarto-blog",
+    "href": "posts/twitter-card-quarto/index.html#make-your-own-quarto-blog",
+    "title": "Quarto Blog Previews on Twitter (for Dummies)",
+    "section": "Make your own Quarto Blog",
+    "text": "Make your own Quarto Blog\nIf you are interested in using Quarto to make your own blog, a good place to start is Bea Milz’s blog post Creating a blog with Quarto in 10 steps."
+  },
+  {
+    "objectID": "posts/twitter-card-quarto/index.html#resources-and-references",
+    "href": "posts/twitter-card-quarto/index.html#resources-and-references",
+    "title": "Quarto Blog Previews on Twitter (for Dummies)",
+    "section": "Resources and References",
+    "text": "Resources and References\nA quick reference for the social metadata options can be found in the Reference/Projects/Websites section of the Quarto official docs, but the examples in Guide/Websites/Social Metadata are much easier to understand.\nThe Getting started with Cards guide on the Twitter Developer Platform helped me understand the difference between the site: and creator: YAML options. Basically, use site: for “Website Attribution” of the publisher (e.g.\"@nytimes\"), and creator for the individual user who created the content inside the card (e.g. \"@cynthiahqy\")."
   }
 ]
