@@ -6,6 +6,7 @@ project:
 
 website:
   title: "Cynthia Huang"
+  site-url: https://www.cynthiahqy.com
   
   open-graph: true
   twitter-card: 
