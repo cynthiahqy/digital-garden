@@ -6,6 +6,11 @@ project:
 
 website:
   title: "Cynthia Huang"
+  
+  open-graph: true
+  twitter-card: 
+    creator: "@cynthiahqy"
+  
   navbar:
     right:
       - about.qmd
