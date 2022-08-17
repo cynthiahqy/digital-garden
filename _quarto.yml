@@ -4,6 +4,8 @@ project:
     - "*.qmd"
     - "!blueprint.qmd"
     - "!posts/drafts/**/*.qmd"
+  resources: 
+    - "_redirects"
     
 
 website:
