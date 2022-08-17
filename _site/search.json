@@ -88,7 +88,7 @@
     "href": "posts/twitter-card-quarto/index.html",
     "title": "Quarto Blog Previews on Twitter (for Dummies)",
     "section": "",
-    "text": "Screenshot of the About Twitter Cards documentation page on Twitter’s Development Platform\nSo, I just spent an hour preparing the tweet for my latest blog post1. Why? Because I wanted the tweet to show a preview of the blog post, but no matter how many times I copy and pasted the link, no preview appeared. Thus, I had no choice but to go down the rabbit hole of trying to Google how to do something without knowing what that thing is called…"
+    "text": "Screenshot of the About Twitter Cards documentation page on Twitter’s Development Platform\nSo, I almost spent an hour preparing the tweet for my latest blog post1. Why? Because I wanted the tweet to show a preview of the blog post, but no matter how many times I copy and pasted the link, no preview appeared. Thus, I had no choice but to go down the rabbit hole of trying to Google how to do something without knowing what that something is called…"
   },
   {
     "objectID": "posts/twitter-card-quarto/index.html#twitter-cards",
@@ -102,14 +102,14 @@
     "href": "posts/twitter-card-quarto/index.html#social-metadata-options",
     "title": "Quarto Blog Previews on Twitter (for Dummies)",
     "section": "Social Metadata Options!",
-    "text": "Social Metadata Options!\nLong story short2, I needed to do BOTH of the following:\n\nInclude my website URL in _quarto.yml:\n\nwebsite:\n  site-url: https://www.cynthiahqy.com\nYou can publish your website without including the site-url: option (I know because I did that), but quarto render won’t produce robots.txt or sitemap.xml for you, and your image links won’t be properly prepended:\n\n\nTurn on Social Metadata options in _quarto.yml\n\nQuarto very helpfully includes tools for generating the metadata required by Twitter to generate preview cards. However, you need to turn those tools on:\nwebsite:\n  site-url: https://www.cynthiahqy.com\n  open-graph: true\n  twitter-card:\n    creator: \"@cynthiahqy\""
+    "text": "Social Metadata Options!\nLong story short2, I needed to do BOTH of the following:\n\nInclude my website URL in _quarto.yml:\n\nwebsite:\n  site-url: https://www.cynthiahqy.com\nYou can publish your website without including the site-url: option (I know because I did that), but quarto render won’t produce robots.txt or sitemap.xml for you, and your image links won’t be properly prepended:\n\nTurn on Social Metadata options in _quarto.yml\n\nQuarto very helpfully includes tools for generating the metadata required by Twitter to generate preview cards. However, you need to turn those tools on:\nwebsite:\n  site-url: https://www.cynthiahqy.com\n  open-graph: true\n  twitter-card:\n    creator: \"@cynthiahqy\"\nCombined the two steps above added the appropriate `\n\n` tags into the .html output files rendered by Quarto:"
   },
   {
     "objectID": "posts/twitter-card-quarto/index.html#resources-and-references",
     "href": "posts/twitter-card-quarto/index.html#resources-and-references",
     "title": "Quarto Blog Previews on Twitter (for Dummies)",
     "section": "Resources and References",
-    "text": "Resources and References\nA quick reference for the social metadata options can be found in the Reference/Projects/Websites section of the Quarto official docs, but the examples in Guide/Websites/Social Metadata are much easier to understand.\nThe Getting started with Cards guide on the Twitter Developer Platform helped me understand the difference between the site: and creator: YAML options. Basically, use site: for “Website Attribution” of the publisher (e.g.\"@nytimes\"), and creator for the individual user who created the content inside the card (e.g. \"@cynthiahqy\")."
+    "text": "Resources and References\nA quick reference for the social metadata options can be found in the Reference/Projects/Websites section of the Quarto official docs, but the examples in Guide/Websites/Social Metadata are much easier to understand.\nThe Getting started with Cards guide on the Twitter Developer Platform helped me understand the difference between the site: and creator: YAML options. Basically, use site: for “Website Attribution” of the publisher (e.g.\"@nytimes\"), and creator for the individual user who created the content inside the card (e.g. \"@cynthiahqy\").\nIf you want to preview how your link will appear you can use the Open Graph preview tool."
   },
   {
     "objectID": "posts/twitter-card-quarto/index.html#make-your-own-quarto-blog",
@@ -119,10 +119,10 @@
     "text": "Make your own Quarto Blog\nIf you are interested in using Quarto to make your own blog, a good place to start is Bea Milz’s blog post Creating a blog with Quarto in 10 steps."
   },
   {
-    "objectID": "posts/twitter-card-quarto/index.html#epilogue",
-    "href": "posts/twitter-card-quarto/index.html#epilogue",
+    "objectID": "posts/twitter-card-quarto/index.html#epilogue-more-adventures-in-quarto-and-website-debugging",
+    "href": "posts/twitter-card-quarto/index.html#epilogue-more-adventures-in-quarto-and-website-debugging",
     "title": "Quarto Blog Previews on Twitter (for Dummies)",
-    "section": "Epilogue",
-    "text": "Epilogue\n\nDebugging: https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/troubleshooting-cards#missing_text\nTried changing the image multiple times BUT the link was the same because I used featured.png, i.e. Twitter didn’t re-fetch the image"
+    "section": "Epilogue: More Adventures in Quarto and Website Debugging",
+    "text": "Epilogue: More Adventures in Quarto and Website Debugging\n\nAs I went to share this post on twitter, I found the card was being generated but the image I wanted use didn’t show up… leading me to another convoluted troubleshooting session. I tried:\n\nchanging the featured image to a different one\nchanging the name of the featured image file\ndoing all sorts of card debugging fixes suggested by the Internet.\n\nBut it turned out it wasn’t a metadata issue. Quarto hadn’t copied the image file over into my output directory (_site/ by default), so the image wasn’t being hosted on website to be shown in a twitter card. I think the underlying issue was that I had left the draft: true option on, which apparently means images don’t get copied over, not just that the post wont be shown in listings.\nIn any case, removing that option fixed the issue, and thus continues the saga of learning website design through the convenient but somewhat opaque framework of Quarto website projects."
   }
 ]

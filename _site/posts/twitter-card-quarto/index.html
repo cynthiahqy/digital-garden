@@ -222,7 +222,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
   <li><a href="#social-metadata-options" id="toc-social-metadata-options" class="nav-link" data-scroll-target="#social-metadata-options">Social Metadata Options!</a></li>
   <li><a href="#resources-and-references" id="toc-resources-and-references" class="nav-link" data-scroll-target="#resources-and-references">Resources and References</a></li>
   <li><a href="#make-your-own-quarto-blog" id="toc-make-your-own-quarto-blog" class="nav-link" data-scroll-target="#make-your-own-quarto-blog">Make your own Quarto Blog</a></li>
-  <li><a href="#epilogue" id="toc-epilogue" class="nav-link" data-scroll-target="#epilogue">Epilogue</a></li>
+  <li><a href="#epilogue-more-adventures-in-quarto-and-website-debugging" id="toc-epilogue-more-adventures-in-quarto-and-website-debugging" class="nav-link" data-scroll-target="#epilogue-more-adventures-in-quarto-and-website-debugging">Epilogue: More Adventures in Quarto and Website Debugging</a></li>
   </ul>
 </nav>
     </div>
@@ -238,7 +238,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <p></p><figcaption aria-hidden="true" class="figure-caption">Screenshot of the <a href="https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards">About Twitter Cards</a> documentation page on Twitter’s Development Platform</figcaption><p></p>
 </figure>
 </div>
-<p>So, I just spent an hour preparing the tweet for my <a href="https://www.cynthiahqy.com/posts/r-markdown-and-friends/">latest blog post</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Why? Because I wanted the tweet to show a preview of the blog post, but no matter how many times I copy and pasted the link, no preview appeared. Thus, I had no choice but to go down the rabbit hole of trying to Google how to do something without knowing what that thing is called…</p>
+<p>So, I almost spent an hour preparing the tweet for my <a href="https://www.cynthiahqy.com/posts/r-markdown-and-friends/">latest blog post</a><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. Why? Because I wanted the tweet to show a preview of the blog post, but no matter how many times I copy and pasted the link, no preview appeared. Thus, I had no choice but to go down the rabbit hole of trying to Google how to do something without knowing what that something is called…</p>
 <section id="twitter-cards" class="level2">
 <h2 class="anchored" data-anchor-id="twitter-cards">Twitter Cards?</h2>
 <p>I started by searching <code>blogdown image default</code>, because:</p>
@@ -259,7 +259,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">website</span><span class="kw">:</span></span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">site-url</span><span class="kw">:</span><span class="at"> https://www.cynthiahqy.com</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>You can publish your website without including the <code>site-url:</code> option (I know because I did that), but <code>quarto render</code> won’t produce <code>robots.txt</code> or <code>sitemap.xml</code> for you, and your image links won’t be properly prepended:</p>
-<p><img src="images/paste-076546FF.png" class="img-fluid"></p>
 <ol start="2" type="1">
 <li>Turn on <strong>Social Metadata</strong> options in <code>_quarto.yml</code></li>
 </ol>
@@ -269,23 +268,32 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">open-graph</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">twitter-card</span><span class="kw">:</span></span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">creator</span><span class="kw">:</span><span class="at"> </span><span class="st">"@cynthiahqy"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+Combined the two steps above added the appropriate `
+<meta property="">
+<p>` tags into the .html output files rendered by Quarto:</p>
+<p><img src="images/paste-076546FF.png" class="img-fluid"></p>
 </section>
 <section id="resources-and-references" class="level2">
 <h2 class="anchored" data-anchor-id="resources-and-references">Resources and References</h2>
 <p>A quick reference for the social metadata options can be found in the <strong><em>Reference/Projects/Websites</em></strong> section of the Quarto official docs, but the examples in <a href="https://quarto.org/docs/websites/website-tools.html#social-metadata"><strong><em>Guide/Websites/Social Metadata</em></strong></a> are much easier to understand.</p>
 <p>The <a href="https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/getting-started"><strong><em>Getting started with Cards</em></strong></a> guide on the Twitter Developer Platform helped me understand the difference between the <code>site:</code> and <code>creator:</code> YAML options. Basically, use <code>site:</code> for “Website Attribution” of the publisher (e.g.<code>"@nytimes"</code>), and <code>creator</code> for the individual user who created the content inside the card (e.g.&nbsp;<code>"@cynthiahqy"</code>).</p>
+<p>If you want to preview how your link will appear you can use the <a href="https://www.opengraph.xyz">Open Graph preview tool</a>.</p>
 </section>
 <section id="make-your-own-quarto-blog" class="level2">
 <h2 class="anchored" data-anchor-id="make-your-own-quarto-blog">Make your own Quarto Blog</h2>
 <p>If you are interested in using Quarto to make your own blog, a good place to start is Bea Milz’s blog post <a href="https://beamilz.com/posts/2022-06-05-creating-a-blog-with-quarto/en/"><strong><em>Creating a blog with Quarto in 10 steps</em></strong></a>.</p>
 </section>
-<section id="epilogue" class="level2">
-<h2 class="anchored" data-anchor-id="epilogue">Epilogue</h2>
+<section id="epilogue-more-adventures-in-quarto-and-website-debugging" class="level2">
+<h2 class="anchored" data-anchor-id="epilogue-more-adventures-in-quarto-and-website-debugging">Epilogue: More Adventures in Quarto and Website Debugging</h2>
+<p><img src="images/paste-951FF404.png" class="img-fluid" alt="Screenshot of the Twitter compose box with a link in the body of the tweet and a preview of the link showing a placeholder image instead of the intended feature image."></p>
+<p>As I went to share this post on twitter, I found the card was being generated but the image I wanted use didn’t show up… leading me to another convoluted troubleshooting session. I tried:</p>
 <ul>
-<li>Debugging: https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/troubleshooting-cards#missing_text</li>
-<li>Tried changing the image multiple times BUT the link was the same because I used <code>featured.png</code>, i.e.&nbsp;Twitter didn’t re-fetch the image</li>
+<li>changing the featured image to a different one</li>
+<li>changing the name of the featured image file</li>
+<li>doing all sorts of card debugging fixes suggested by the Internet.</li>
 </ul>
-<p><img src="images/paste-8E87B50C.png" class="img-fluid"></p>
+<p>But it turned out it wasn’t a metadata issue. Quarto hadn’t copied the image file over into my output directory (<code>_site/</code> by default), so the image wasn’t being hosted on website to be shown in a twitter card. I think the underlying issue was that I had left the <code>draft: true</code> option on, which apparently means images don’t get copied over, not just that the post wont be shown in listings.</p>
+<p>In any case, removing that option fixed the issue, and thus continues the saga of learning website design through the convenient but somewhat opaque framework of Quarto website projects.</p>
 
 
 </section>
