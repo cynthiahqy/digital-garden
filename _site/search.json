@@ -1,17 +1,17 @@
 [
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
+    "objectID": "blog.html",
+    "href": "blog.html",
+    "title": "Blog",
     "section": "",
-    "text": "🤹🏻This blog is a seed nursery for holding ideas, thoughts and projects I’m juggling while I build my digital garden. Expect anything from machine learning, data wrangling, reproducible workflows, teaching pedagogy to half-formed opinions on social issues, personal data-viz, and winding journeys through my special interests of the moment."
+    "text": "quarto\n\n\nmarkdown\n\n\nhow-to\n\n\n\n\nA short note on turning on Twitter Cards for my Quarto blog.\n\n\n\n\n\n\nAug 15, 2022\n\n\nCynthia Huang\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nmarkdown\n\n\nteaching\n\n\n\n\nAn experiment in using iframes and interactive slides to teach R Markdown\n\n\n\n\n\n\nAug 10, 2022\n\n\nCynthia Huang\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nmarkdown\n\n\ntext-editing\n\n\n\n\nA collection of resources on how to insert emojis into your documents, when and how to use emojis, and a sprinkle of emoji trivia 🌟\n\n\n\n\n\n\nMay 16, 2022\n\n\nCynthia Huang\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "Blog",
+    "title": "About",
     "section": "",
-    "text": "quarto\n\n\nmarkdown\n\n\nhow-to\n\n\n\n\nA short note on turning on Twitter Cards for my Quarto blog.\n\n\n\n\n\n\nAug 15, 2022\n\n\nCynthia Huang\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nmarkdown\n\n\nteaching\n\n\n\n\nAn experiment in using iframes and interactive slides to teach R Markdown\n\n\n\n\n\n\nAug 10, 2022\n\n\nCynthia Huang\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nmarkdown\n\n\ntext-editing\n\n\n\n\nA collection of resources on how to insert emojis into your documents, when and how to use emojis, and a sprinkle of emoji trivia 🌟\n\n\n\n\n\n\nMay 16, 2022\n\n\nCynthia Huang\n\n\n\n\n\n\nNo matching items"
+    "text": "🤹🏻This blog is a seed nursery for holding ideas, thoughts and projects I’m juggling while I build my digital garden. Expect anything from machine learning, data wrangling, reproducible workflows, teaching pedagogy to half-formed opinions on social issues, personal data-viz, and winding journeys through my special interests of the moment."
   },
   {
     "objectID": "posts/R-markdown-and-friends/index.html",
