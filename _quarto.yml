@@ -2,7 +2,8 @@ project:
   type: website
   render:
     - "*.qmd"
-    - "!posts/drafts/*.qmd"
+    - "!blueprint.qmd"
+    - "!posts/drafts/**/*.qmd"
     
 
 website:
