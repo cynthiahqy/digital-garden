@@ -8,6 +8,7 @@ categories:
   - how-to
 image: featured.png
 image-alt: "Hand-drawn black and white wireframe sketch of a tweet containing a preview frame showing the text 'TWITTER CARD?!?'"
+card-style: "summary"
 ---
 
 ![Screenshot of the [About Twitter Cards](https://developer.twitter.com/en/docs/twitter-for-websites/cards/overview/abouts-cards) documentation page on Twitter's Development Platform](images/paste-C20DED4F.png){fig-alt="Screenshot of the About Twitter Cards documentation page on Twitter's Development Platform" width="622"}
@@ -31,9 +32,7 @@ I managed to eventually work out that the preview things I wanted to make appear
 
 ## Social Metadata Options!
 
-Long story short[^2], I needed to do BOTH of the following:
-
-[^2]: In fact, this post has taken less time to write than figuring out how to set up Twitter Cards did...
+Long story short, I needed to do BOTH of the following:
 
 1.  Include my website URL in `_quarto.yml`:
 
@@ -56,7 +55,7 @@ website:
     creator: "@cynthiahqy"
 ```
 
-Combined the two steps above added the appropriate \`<meta property>\` tags into the .html output files rendered by Quarto:
+Combining the two steps above added the appropriate `<meta property>` tags into the .html output files rendered by Quarto:
 
 ![](images/paste-076546FF.png)
 
