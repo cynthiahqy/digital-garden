@@ -2,7 +2,8 @@ project:
   type: website
   render:
     - "*.qmd"
-    - "!posts/drafts/"
+    - "!posts/drafts/*.qmd"
+    
 
 website:
   title: "Cynthia Huang"

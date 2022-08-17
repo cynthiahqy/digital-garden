@@ -117,5 +117,12 @@
     "title": "Quarto Blog Previews on Twitter (for Dummies)",
     "section": "Make your own Quarto Blog",
     "text": "Make your own Quarto Blog\nIf you are interested in using Quarto to make your own blog, a good place to start is Bea Milz’s blog post Creating a blog with Quarto in 10 steps."
+  },
+  {
+    "objectID": "posts/twitter-card-quarto/index.html#epilogue",
+    "href": "posts/twitter-card-quarto/index.html#epilogue",
+    "title": "Quarto Blog Previews on Twitter (for Dummies)",
+    "section": "Epilogue",
+    "text": "Epilogue\n\nDebugging: https://developer.twitter.com/en/docs/twitter-for-websites/cards/guides/troubleshooting-cards#missing_text\nTried changing the image multiple times BUT the link was the same because I used featured.png, i.e. Twitter didn’t re-fetch the image"
   }
 ]

@@ -69,7 +69,7 @@ At the end of the workshop I wanted students to:
 ### Lesson Plan
 
 | Time      | Activity                                                                 | Duration |
-|-----------|--------------------------------------------------------------------------|----------|
+|------------|------------------------------------------------|------------|
 | 0:00-0:30 | **Key Concepts**, a short lecture                                        | 30 mins  |
 | 0:30-1:30 | **Try it Yourself**, hands-on walk-through                               | 60 mins  |
 | 1:30-1:45 | **What About...?**, direct interaction and troubleshooting with students | 15 mins  |
