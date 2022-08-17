@@ -1,5 +1,5 @@
 ---
-title: "Quarto Blog Previews on Twitter (for Dummies)"
+title: "Thumbnail Previews for Quarto Websites (for Dummies)"
 description: "A short note on turning on Twitter Cards for my Quarto blog."
 date: "2022-08-15"
 categories:
