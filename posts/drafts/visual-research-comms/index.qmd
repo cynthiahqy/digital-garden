@@ -1,0 +1,116 @@
+---
+title: "Visual Design for Interdisciplinary Research"
+description: "Design notes on using illustrations, concept maps and diagrams to develop and communicate interdisciplinary research, with examples from my PhD project"
+date: "2022-08-17"
+categories: [research communication, design]
+tags: [slide design, presentations, visual design]
+image: featured.png
+image-alt: ""
+draft: true
+---
+
+<!-- SA: I think we need more clear, thoughtful pictures of the science we are doing, not less. It is just that few people have the skills to a) understand conceptually what they are doing; and b) communicate that visually. Both are important, and you are strong in each! -->
+
+<!--# background of talks given -->
+
+Over the last month, I've had the opportunity to present my current and planned PhD research work in two very different talks. The first was my confirmation milestone,
+
+The second, a short 5-minute lightning talk with a much more diverse audience,
+
+For both of these
+
+<!--# why develop visual maps // cut across discipline specific framings (same vocab/ different meanings OR diff vocab/same concept) -->
+
+<!-- Not data viz -->
+
+## Key takeaways
+
+#### Illuminate hidden perspectives
+
+Even if you don't have the time to develop the skills to make polished visual illustrations, there are still benefits from incorporating some visual exercises in your research workflow <!--# visual note-taking -->.
+
+-   Drawing and sketching can help clarify or uncover new and useful links or ideas.
+
+<!--# math bridges -->
+
+<!--# what are you borrowing from each discipline, how "deep" are you going, and how are you using it? -->
+
+#### Improve your research communication
+
+Research projects are long and winding endeavours.
+
+<!--# why is it a worthwile investment? -- research projects are long! -->
+
+<!--# visual aid for research exchange // Luke, Isabella -->
+
+#### Streamline the design process
+
+<!--# beamer templates -->
+
+<!--# colours, style, shape etc. -- likely to be limited by your skill set -->
+
+<!--# open-use images, harder to achieve a distinct/strong visual style, but easier -->
+
+#### Have empathy for your audience
+
+<!--# Chedmond's presentation tip -->
+
+<!--# help avoid deep diving down a rabbit hole -->
+
+#### Iterate and experiment!
+
+<!--# started with black and white -->
+
+<!--# experiment with one "dimension/channel" at a time -- colour, shape, positioning -->
+
+## Design Process
+
+### Concept Sketches
+
+![](images/paste-6C67DF06.png){fig-alt="infrastructure-project" width="301"}
+
+![spatial sampling ideas](images/paste-BFFCE502.png)
+
+![](images/paste-78139662.png){fig-alt="Note 5 May 2022"}
+
+<!--# INSERT: notability sketches; shown to my supervisors -->
+
+<!--# idea development tool AS well as potential communication tool -->
+
+### Polishing Illustrations
+
+<!--# warning! this is optional // also try searching for open-use images // SKIP! -->
+
+<!--# step-by-step process: vector drawing apps, exporting -->
+
+### Narrative Slide Design
+
+<!--# sketching out each slide // key-takeaway (from case comp days) -->
+
+![](images/paste-0BF78CF8.png){fig-alt="[slides] MDFI lightning talk"}
+
+<!--# animation in support of narrative and pacing // animation is 1/2 slide extra-->
+
+<!--# consistency throughout the presentation // IF possible! -->
+
+### Feedback and Iteration
+
+<!--# add hierarchy and flow (arrows, data/models) -->
+
+<!--# add different labels for different audiences // 1) thesis overview map -->
+
+<!--# add colour (changed colour palette to support heatmap visualisation) -->
+
+## Summary/Resources
+
+### Effectiveness?
+
+<!--# reflection on effectiveness -->
+
+<!--# general compliments? -->
+
+### Try it yourself
+
+<!--# resources...? just suggest an exercise -->
+
+<!--# where all these skills came from: case-comp, corporate consulting, sketchnoting (RSA animate), mind mapping, "the art of slide design", lots of teaching, design-thinking, ugly doodles -->
