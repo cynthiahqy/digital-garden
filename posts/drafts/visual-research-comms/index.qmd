@@ -13,59 +13,39 @@ draft: true
 
 <!--# background of talks given -->
 
-Over the last month, I've had the opportunity to present my current and planned PhD research work in two very different talks. The first was my confirmation milestone,
+Over the last month, I've had a few opportunities to present my proposed PhD research to rather different audiences. For all of these talks I've used visual concept maps to illustrate the key components of my research, and the interdisciplinary landscape to which I hope to contribute. The design and utility of conceptual illustrations for research communication is much less often discussed compared to more "concrete" visualisation mediums like data plots or infographics. But as my supervisor said -- "we can always use more clear, thoughtful pictures of the science we are doing". So here are some notes on my conceptual and visual design process.
 
-The second, a short 5-minute lightning talk with a much more diverse audience,
+## The Design
 
-For both of these
+### The Simple Promise and Complex Reality of Interdisciplinary Research
+
+A key challenge in integrating and reconciling perspectives from different disciplines is that often the same concept is given different names, or the same word describes completely distinct concepts depending on the discipline. This is where visual maps can really help cut across discipline specific paradigms, and illuminate the opportunities and synergy between them. 
+
+The broad vision of my PhD is the catchy and topical idea of using artificial intelligence to directly "look at" satellite radar imagery to create near-real time flood predictions and monitoring. The outcome focus of this single sentence overview hides the complexity of connecting insights and choosing appropriate methods from the various disciplines hinted at in this description. 
+
+Interdisciplinary research <!--#definition-->. Add Artificial Intelligence, Deep Learning and Satellite Earth Observation and pretty soon it's hard to distinguish between my (hopefully) feasible research objectives and buzzword soup. My design challenge was to produce a set of visual assets that could help me communicate the overall vision of my research, as well as the depth and complexity of work required to execute such a vision.
+
+I ended up producing and iterating two main illustrations, with audience specific variations for both --
+
+### Visual Project Plan
+
+### Interdisciplinary Heat Map
+
 
 <!--# why develop visual maps // cut across discipline specific framings (same vocab/ different meanings OR diff vocab/same concept) -->
 
 <!-- Not data viz -->
 
-## Key takeaways
-
-#### Illuminate hidden perspectives
-
-Even if you don't have the time to develop the skills to make polished visual illustrations, there are still benefits from incorporating some visual exercises in your research workflow <!--# visual note-taking -->.
-
--   Drawing and sketching can help clarify or uncover new and useful links or ideas.
-
-<!--# math bridges -->
-
-<!--# what are you borrowing from each discipline, how "deep" are you going, and how are you using it? -->
-
-#### Improve your research communication
-
-Research projects are long and winding endeavours.
-
-<!--# why is it a worthwile investment? -- research projects are long! -->
-
-<!--# visual aid for research exchange // Luke, Isabella -->
-
-#### Streamline the design process
-
-<!--# beamer templates -->
-
-<!--# colours, style, shape etc. -- likely to be limited by your skill set -->
-
-<!--# open-use images, harder to achieve a distinct/strong visual style, but easier -->
-
-#### Have empathy for your audience
-
-<!--# Chedmond's presentation tip -->
-
-<!--# help avoid deep diving down a rabbit hole -->
-
-#### Iterate and experiment!
-
-<!--# started with black and white -->
-
-<!--# experiment with one "dimension/channel" at a time -- colour, shape, positioning -->
 
 ## Design Process
 
 ### Concept Sketches
+
+Scattered throughout my research notebooks are sketches like the flow-chart and sketchnotes below. The level of detail and even the number of visual elements varies depending on how much time I have, how developed the idea is, and whether I already have suitable visual vocabulary in mind (and if I've practised sketching those motifs before). Things I might sketch include:
+- text in boxes with arrows connecting them together
+- sketches of data -- either as tables, or plots I could make with data
+- thumbnails of individual slides
+- rough outlines of a process or workflow
 
 ![](images/paste-6C67DF06.png){fig-alt="infrastructure-project" width="301"}
 
@@ -77,7 +57,20 @@ Research projects are long and winding endeavours.
 
 <!--# idea development tool AS well as potential communication tool -->
 
+Even without developing my hand-drawn sketches any further, the exercise of distilling my thoughts into visual units improves my ability to explain my ideas clearly. Depending on how brief or abstract the sketches are and who I'm talking to, I might choose not to share the sketch itself -- the last thing I want is for people to get distracted or confused trying to decipher my sketches.
+
 ### Polishing Illustrations
+
+The process of turning a rough sketch into a polished illustration is still something I'm experimenting with.
+
+My current process involves:
+
+- breaking down a rough sketch into component visual elements and layers. This is basically a work plan of all the different things I need to make into order to create the final visual map or illustration.
+- redrawing or tracing each visual element in a vector drawing app. I try to keep a consistent style across all elements, and I might also draw a few different versions of a given visual motif or icon.
+- composing the overall illustration by arranging, resizing, duplicating the various icons
+- adding colour and/or annotations on a new layer
+
+Beyond the "mechanical" process, there's also a lot of thought and experimentation that goes into developing my illustration style. There's lots of good advice on developing your personal illustration and design style. What I personally found most helpful was the KISS principle -- "Keep it Simple Stupid". I limit myself to drawing in black and white, usually with just one pen width, and I try not to edit too much as I draw. When I first began sketch-noting I experimented with sketching first in pencil, using different pens and colours, amongst other things. However, these were mostly all just distraction and slowed down the process of getting ideas onto paper in visual form. Basically, don't over complicate things.
 
 <!--# warning! this is optional // also try searching for open-use images // SKIP! -->
 
@@ -100,6 +93,56 @@ Research projects are long and winding endeavours.
 <!--# add different labels for different audiences // 1) thesis overview map -->
 
 <!--# add colour (changed colour palette to support heatmap visualisation) -->
+
+## Key takeaways
+
+### Developing your visual vocabulary
+
+Just like any other language, you can pick up the basic principles and structure of visual language relatively quickly. Ideas like using relative size, position, and colour to convey meaning and relationships are not too difficult to grasp. However, the real work of visual communication, and the part that there aren't any easy shortcuts for -- or at least none that I have found -- is developing your visual vocabulary. Your visual vocabulary includes both "passive" understanding of conceptual links between images and ideas, as well as the ability to actively "write" using that vocabulary. For instance, using the light bulb emoji to signify an idea, is likely already part of you visual vocabulary. 
+
+So, what are some ways to develop your visual vocabulary? Well, it probably depends on how you learn best, and how your brain makes links between concepts and images. 
+
+
+#### Illuminate hidden perspectives
+
+Even if you don't have the time to develop the skills to make polished visual illustrations, there are still benefits from incorporating some visual exercises in your research workflow <!--# visual note-taking -->.
+
+-   Drawing and sketching can help clarify or uncover new and useful links or ideas.
+
+<!--# math bridges -->
+
+<!--# what are you borrowing from each discipline, how "deep" are you going, and how are you using it? -->
+
+#### Improve your research communication
+
+Research projects are long and winding endeavours. If you're anything like me, you might often bite off more than you can chew. Visual maps help me see exactly how much I've bitten of, and where I might need to curb my ambitions somewhat. They also help clarify what areas and ideas I'm building upon, and where in the existing knowledge landscape I hope to contribute. 
+
+<!--# why is it a worthwile investment? -- research projects are long! -->
+
+<!--# visual aid for research exchange // Luke, Isabella -->
+
+#### Streamline the design process
+
+
+
+<!--# beamer templates ? -->
+
+<!--# colours, style, shape etc. -- likely to be limited by your skill set -->
+
+<!--# open-use images, harder to achieve a distinct/strong visual style, but easier -->
+
+#### Have empathy for your audience
+
+<!--# Chedmond's presentation tip -->
+
+<!--# help avoid deep diving down a rabbit hole -->
+
+#### Iterate and experiment!
+
+<!--# started with black and white -->
+
+<!--# experiment with one "dimension/channel" at a time -- colour, shape, positioning -->
+
 
 ## Summary/Resources
 
