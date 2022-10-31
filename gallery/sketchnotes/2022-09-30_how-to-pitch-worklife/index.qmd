@@ -1,0 +1,35 @@
+---
+title: "How to Pitch Your Best Ideas"
+image: how-to-pitch_worklife-adam-grant.png
+image-alt: "sketchnote of the podcast episode How to Pitch Your Best Ideas from WorkLife with Adam Grant"
+date: 2022-10-31
+resources:
+  - "how-to-pitch.svg"
+---
+
+![](how-to-pitch_worklife-adam-grant.png)
+
+As svg:
+
+:::{.column-page}
+![](how-to-pitch.svg)
+:::
+
+:::{.column-screen}
+  <object type="image/svg+xml" data="how-to-pitch.svg">
+  Kiwi Logo <!-- fallback image in CSS -->
+</object>  
+:::
+
+
+
+
+
+About:
+
+
+
+Links to:
+
+- [Episode Page](https://www.ted.com/talks/worklife_with_adam_grant_how_to_pitch_your_best_ideas?referrer=playlist-worklife_with_adam_grant_season_5)
+- [Episode Transcript](https://www.ted.com/podcasts/worklife/how-to-pitch-your-best-ideas-transcript)

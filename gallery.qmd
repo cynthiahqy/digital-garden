@@ -1,0 +1,43 @@
+---
+title: "Gallery"
+listing:
+  - id: sketchnotes
+    contents: "gallery/sketchnotes/"
+    type: grid
+    image-height: 350px
+    grid-columns: 2
+    fields: [image, title, subtitle]
+    grid-item-align: center
+    sort: sortby
+page-layout: full
+#title-block-banner: true
+---
+
+## Sketchnotes
+
+:::{#sketchnotes}
+:::
+
+Something Something
+
+```{r write-redirects}
+#| echo: false
+
+## CH: https://blog.djnavarro.net/posts/2022-04-20_porting-to-quarto/#netlify-redirects
+
+# list names of gallery folders
+posts <- list.dirs(
+  path = here::here("gallery"),
+  full.names = FALSE,
+  recursive = FALSE
+)
+
+# extract the slugs
+slugs <- gsub("^.*_", "", posts)
+
+# lines to insert to a netlify _redirect file
+redirects <- paste0("/", slugs, " ", "/gallery/", posts)
+
+# write the _redirect file
+writeLines(redirects, here::here("_site", "_redirects"))
+```

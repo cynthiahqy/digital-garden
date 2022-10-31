@@ -1,0 +1,15 @@
+---
+title: "RSEAA Strategy & Policy Panel"
+image: "RSE-Unconf-2022_01.png"
+image-alt: "sketchnote of discussions at the Research Software Engineering Strategy & Policy Panel at the 2022 RSEAA Unconference"
+date: 2022-10-31
+---
+
+:::{.column-page}
+  ![](RSE-Unconf-2022_01.png)
+  ![](RSE-Unconf-2022_02.png)
+:::
+
+Notes from this event:
+
+![](https://rse-aunz.github.io/assets/RSEAA031__Flyer_Panel.png)

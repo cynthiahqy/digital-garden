@@ -6,5 +6,12 @@
       "/posts/R-markdown-and-friends/index.html",
       "/posts/emoji-tricks/index.html"
     ]
+  },
+  {
+    "listing": "/gallery.html",
+    "items": [
+      "/gallery/sketchnotes/2022-09-16_RSE-unconf-2022/index.html",
+      "/gallery/sketchnotes/2022-09-30_how-to-pitch-worklife/index.html"
+    ]
   }
 ]
