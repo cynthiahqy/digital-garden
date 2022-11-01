@@ -2,7 +2,6 @@ project:
   type: website
   render:
     - "*.qmd"
-    - "!blueprint.qmd"
     - "!posts/drafts/**/*.qmd"
   resources: 
     - "_redirects"
@@ -31,7 +30,6 @@ website:
 format:
   html:
     theme: simplex
-    toc: true
     css: styles.css
 
 
