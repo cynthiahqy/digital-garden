@@ -1,0 +1,9 @@
+---
+title: "You are Burned Out and Don't Even Know It" 
+image: featured.png
+image-alt: "insert alt text here"
+date: 2022-11-01
+params:
+  drawing_tool: "notability"
+---
+

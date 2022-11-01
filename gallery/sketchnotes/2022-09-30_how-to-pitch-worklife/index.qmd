@@ -3,22 +3,46 @@ title: "How to Pitch Your Best Ideas"
 image: how-to-pitch_worklife-adam-grant.png
 image-alt: "sketchnote of the podcast episode How to Pitch Your Best Ideas from WorkLife with Adam Grant"
 date: 2022-10-31
+format:
+  html:
+    code-tools: true
 resources:
   - "how-to-pitch.svg"
+params:
+  drawing_tool: "notability"
 ---
 
-![](how-to-pitch_worklife-adam-grant.png)
+As .png:
+![](images/how-to-pitch_worklife-adam-grant.png)
 
-As svg:
+As `<img>` 9from`![]()`) inside `column-page`:
+
+- simple to include but anchors (hyperlinks) don't work
+- converts to `<img class="img-fluid">`
 
 :::{.column-page}
-![](how-to-pitch.svg)
+![](images/how-to-pitch.svg)
 :::
 
-:::{.column-screen}
-  <object type="image/svg+xml" data="how-to-pitch.svg">
-  Kiwi Logo <!-- fallback image in CSS -->
-</object>  
+As object inside `.column-page` div:
+
+- hyperlink works but size doesn't adjust correctly
+- fixed it by adding `width=100%` attribute to match the `.img-fluid` class defined in [quarto-cli/~/_bootstrap-rules.scss](https://github.com/quarto-dev/quarto-cli/blob/6c44f1181301d1241cd48e2bb7a5253d370cfe15/src/resources/formats/html/bootstrap/_bootstrap-rules.scss#L473-L481)
+
+:::{.column-page style="border: solid black"}
+  <object type="image/svg+xml" data="images/how-to-pitch.svg" width=80% style= "border: solid blue">
+  
+  Sketchnote of How to Pitch Your Best Ideas episode on Work Life with Adam Grant   
+  <!-- fallback image in CSS -->
+
+  </object>  
+  
+  <object type="image/svg+xml" data="images/how-to-pitch.svg" class="img-fluid">
+  
+  Sketchnote of How to Pitch Your Best Ideas episode on Work Life with Adam Grant   
+  <!-- fallback image in CSS -->
+
+  </object>  
 :::
 
 
