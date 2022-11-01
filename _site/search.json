@@ -158,6 +158,27 @@
     "href": "gallery.html#sketchnotes",
     "title": "Gallery",
     "section": "Sketchnotes",
-    "text": "Sketchnotes\n\n\n\n\n\n\n\n\n\n\nRSEAA Strategy & Policy Panel\n\n\n\n\n\n\n\n\n\n\n\n\n\nHow to Pitch Your Best Ideas\n\n\n\n\n\n\n\n\n\n\n\n\n\nYou are Burned Out and Don’t Even Know It\n\n\n\n\n\n\n\n\n\n\n\n\n\nTemplate for Sketchnote Page\n\n\n\n\n\n\n\nNo matching items"
+    "text": "Sketchnotes\n\n\n\n\n\n\n\n\n\n\nRSEAA Strategy & Policy Panel\n\n\n\n\n\n\n\n\n\n\n\n\n\nHow to Pitch Your Best Ideas\n\n\n\n\n\n\n\n\n\n\n\n\n\nYou are Burned Out and Don’t Even Know It\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "gallery/templates/sketchnote/index.html",
+    "href": "gallery/templates/sketchnote/index.html",
+    "title": "Sketchnote Page",
+    "section": "",
+    "text": "Notes on source code\n\n\n\n\n\nToggle the </> code menu to see the source code for the .qmd file. The class=\"sketchnote\"\n\n\n\nThis is some text about the sketchnote.\nSome links related to this image: - link to media (show/book/media etc.)\n\n\n\n\n\n\nBelow is some parameterised text about the sketchnote\n\n\n\n\n\nUses values set in params: option in this documents YAML header. Toggle </> code to see source.\n\n\n\nThis sketchnote is interactive. Try clicking around various parts of the image. Links in the image:\n\nInkspace\nQuarto\n\n\n\n\nThis sketchnote © 2022 was drawn with Notability in Nov 2022 and edited with Inkscape."
+  },
+  {
+    "objectID": "gallery.html#templates",
+    "href": "gallery.html#templates",
+    "title": "Gallery",
+    "section": "Templates",
+    "text": "Templates\n\n\n\n\n\n\n\n\n\n\nSketchnote Page\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "gallery.html#maps-of-concepts",
+    "href": "gallery.html#maps-of-concepts",
+    "title": "Gallery",
+    "section": "Maps of Concepts",
+    "text": "Maps of Concepts\n\n\n\n\n\nNo matching items"
   }
 ]

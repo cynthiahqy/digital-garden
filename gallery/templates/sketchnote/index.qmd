@@ -1,5 +1,5 @@
 ---
-title: "Template for Sketchnote Page"
+title: "Sketchnote Page"
 date: 2022-11-01
 
 image: "images/featured.png"
@@ -46,7 +46,7 @@ Some links related to this image:
 ```{r params-prep}
 #| echo: false
 
-source("../_params-dict.R")
+source("../../_params-dict.R")
 
 # https://statisticsglobe.com/r-capitalize-first-letter-of-character-string-containing-multiple-words
 dtool <- gsub("(^|[[:space:]])([[:alpha:]])", "\\1\\U\\2",

@@ -83,6 +83,62 @@ ul.task-list{list-style: none;}
       window['quarto-listing-loaded']();
     }
   })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-mocs .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: [],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-mocs'] = new List('listing-mocs', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  
+
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-templates .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-image','listing-title',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-templates'] = new List('listing-templates', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
   </script>
 
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -212,15 +268,36 @@ You are Burned Out and Don’t Even Know It
 </div>
 </a>
 </div>
-<div class="g-col-1" data-index="3" data-listing-date-sort="1667221200000" data-listing-file-modified-sort="1667311168559" data-listing-reading-time-sort="1.11">
-<a href="./gallery/sketchnotes/template/index.html" class="quarto-grid-link">
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+</section>
+<section id="maps-of-concepts" class="level2">
+<h2 class="anchored" data-anchor-id="maps-of-concepts">Maps of Concepts</h2>
+<div id="listing-mocs" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-2">
+
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div>
+</section>
+<section id="templates" class="level2">
+<h2 class="anchored" data-anchor-id="templates">Templates</h2>
+<div id="listing-templates" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-listing-date-sort="1667221200000" data-listing-file-modified-sort="1667312230615" data-listing-reading-time-sort="0.795">
+<a href="./gallery/templates/sketchnote/index.html" class="quarto-grid-link">
 <div class="quarto-grid-item card h-100 card-center">
 <p class="card-img-top">
-<img src="./gallery/sketchnotes/template/images/featured.png" class="thumbnail-image card-img" style="height: 350px;" alt="alt-text for featured image">
+<img src="./gallery/templates/sketchnote/images/featured.png" class="thumbnail-image card-img" style="height: 150px;" alt="alt-text for featured image">
 </p>
 <div class="card-body post-contents">
 <h5 class="no-anchor card-title listing-title">
-Template for Sketchnote Page
+Sketchnote Page
 </h5>
 </div>
 </div>

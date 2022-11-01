@@ -10,6 +10,20 @@ listing:
     fields: [image, title]
     grid-item-align: center
     sort: date asc
+  - id: mocs
+    contents: "gallery/mocs/"
+    type: grid
+    image-height: 350px
+    grid-columns: 2
+    fields: [image, title]
+    grid-item-align: center
+    sort: date asc
+  - id: templates
+    contents:
+      - "gallery/templates/"
+    type: grid
+    grid-item-align: center
+    fields: [image, title]
 page-layout: full
 #title-block-banner: true
 ---
@@ -19,6 +33,16 @@ page-layout: full
 ## Sketchnotes
 
 :::{#sketchnotes}
+:::
+
+## Maps of Concepts
+
+:::{#mocs}
+:::
+
+## Templates
+
+:::{#templates}
 :::
 
 ```{r write-redirects}
