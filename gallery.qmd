@@ -2,23 +2,24 @@
 title: "Gallery"
 listing:
   - id: sketchnotes
-    contents: "gallery/sketchnotes/"
+    contents: 
+      - "gallery/sketchnotes/"
     type: grid
     image-height: 350px
     grid-columns: 2
-    fields: [image, title, subtitle]
+    fields: [image, title]
     grid-item-align: center
-    sort: sortby
+    sort: date asc
 page-layout: full
 #title-block-banner: true
 ---
 
 ## Sketchnotes
 
+
+
 :::{#sketchnotes}
 :::
-
-Something Something
 
 ```{r write-redirects}
 #| echo: false

@@ -6,7 +6,6 @@ project:
   resources: 
     - "_redirects"
     
-
 website:
   title: "Cynthia Huang"
   site-url: https://www.cynthiahqy.com
@@ -31,6 +30,8 @@ format:
   html:
     theme: simplex
     css: styles.css
+    
+author: "Cynthia Huang"
 
 
 

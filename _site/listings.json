@@ -10,9 +10,10 @@
   {
     "listing": "/gallery.html",
     "items": [
-      "/gallery/sketchnotes/2022-03-20_burnout-healthy-gamer/index.html",
       "/gallery/sketchnotes/2022-09-16_RSE-unconf-2022/index.html",
-      "/gallery/sketchnotes/2022-09-30_how-to-pitch-worklife/index.html"
+      "/gallery/sketchnotes/2022-09-30_how-to-pitch-worklife/index.html",
+      "/gallery/sketchnotes/2022-03-20_burnout-healthy-gamer/index.html",
+      "/gallery/sketchnotes/template/index.html"
     ]
   }
 ]

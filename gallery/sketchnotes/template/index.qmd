@@ -1,0 +1,59 @@
+---
+title: "Template for Sketchnote Page"
+date: 2022-11-01
+
+image: "images/featured.png"
+image-alt: "alt-text for featured image"
+resources:
+  - "images/how-to-publish-a-sketchnote.svg"
+
+params:
+  drawing_tool: "notability"
+  date_drawn: 2022-11-01
+  interactive: TRUE
+  
+format:
+  html:
+    code-tools: true
+---
+
+:::{.column-page}
+  <object data="images/how-to-publish-a-sketchnote.svg" class="sketchnote" aria-label="insert alt text here">
+  </object>
+:::
+
+:::{.callout-note collapse="true"}
+## Notes on source code
+  Toggle the `</> code` menu to see the source code for the `.qmd` file.
+  The `class="sketchnote"`
+:::
+
+This is some text about the sketchnote.
+
+Some links related to this image:
+- link to media (show/book/media etc.)
+
+:::{.callout-note collapse="true"}
+## Below is some parameterised text about the sketchnote
+  Uses values set in `params:` option in this documents YAML header. Toggle `</> code` to see source.
+:::
+
+`r if(params$interactive){"This sketchnote is interactive. Try clicking around various parts of the image"}`
+
+```{r params-prep}
+#| echo: false
+
+source("../_params-dict.R")
+
+# https://statisticsglobe.com/r-capitalize-first-letter-of-character-string-containing-multiple-words
+dtool <- gsub("(^|[[:space:]])([[:alpha:]])", "\\1\\U\\2",
+              params$drawing_tool,
+              perl = TRUE) ## to uppercase
+dtool_url <- dtools[tolower(dtools$tool) == tolower(dtool), c("url")]
+dtool_link <- glue::glue("[{dtool}]({dtool_url})")
+
+ddate <- as.Date(params$date_drawn)
+```
+
+This sketchnote was drawn with `r dtool_link` in `r format(ddate, "%b %Y")`. This website is licensed under a CC BY 4.0. This means you are free to share or adapt these materials however you see fit as long as you provide attribution (@cynthiahqy)
+

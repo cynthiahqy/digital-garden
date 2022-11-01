@@ -1,1 +1,8 @@
 /* css styles */
+
+/*---gallery---*/
+.sketchnote {
+	type: image/svg+xml;
+	width: 100%;
+	style: "border: solid black"
+}

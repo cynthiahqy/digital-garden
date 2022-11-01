@@ -1,6 +1,6 @@
 ---
 title: "How to Pitch Your Best Ideas"
-image: how-to-pitch_worklife-adam-grant.png
+image: "images/featured.png"
 image-alt: "sketchnote of the podcast episode How to Pitch Your Best Ideas from WorkLife with Adam Grant"
 date: 2022-10-31
 format:
