@@ -4,14 +4,14 @@
     "href": "blog.html",
     "title": "Blog",
     "section": "",
-    "text": "quarto\n\n\nmarkdown\n\n\nhow-to\n\n\n\n\nA short note on turning on Twitter Cards for my Quarto blog.\n\n\n\n\n\n\nAug 15, 2022\n\n\nCynthia Huang\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nmarkdown\n\n\nteaching\n\n\n\n\nAn experiment in using iframes and interactive slides to teach R Markdown\n\n\n\n\n\n\nAug 10, 2022\n\n\nCynthia Huang\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\n\n\nmarkdown\n\n\ntext-editing\n\n\n\n\nA collection of resources on how to insert emojis into your documents, when and how to use emojis, and a sprinkle of emoji trivia 🌟\n\n\n\n\n\n\nMay 16, 2022\n\n\nCynthia Huang\n\n\n\n\n\n\nNo matching items"
+    "text": "A short note on turning on Twitter Cards for my Quarto blog.\n\n\n\n\n\n\nAug 15, 2022\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\nAn experiment in using iframes and interactive slides to teach R Markdown\n\n\n\n\n\n\nAug 10, 2022\n\n\n\n\n\n\n  \n\n\n\n\n\n\n\n\nA collection of resources on how to insert emojis into your documents, when and how to use emojis, and a sprinkle of emoji trivia 🌟\n\n\n\n\n\n\nMay 16, 2022\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "gallery.html",
     "href": "gallery.html",
     "title": "Gallery",
     "section": "",
-    "text": "No matching items"
+    "text": "Unless otherwise stated all illustrations on this website are by Cynthia Huang (@cynthiahqy) and are licensed under CC BY-SA 4.0. This means you are free to reuse the work as long as you provide attribution (@cynthiahqy), and use the same licence for any derivative works."
   },
   {
     "objectID": "gallery/sketchnotes/2022-09-16_RSE-unconf-2022/index.html",
@@ -32,7 +32,7 @@
     "href": "gallery/sketchnotes/template/index.html",
     "title": "Template for Sketchnote Page",
     "section": "",
-    "text": "Notes on source code\n\n\n\n\n\nToggle the </> code menu to see the source code for the .qmd file. The class=\"sketchnote\"\n\n\n\nThis is some text about the sketchnote.\nSome links related to this image: - link to media (show/book/media etc.)\n\n\n\n\n\n\nBelow is some parameterised text about the sketchnote\n\n\n\n\n\nUses values set in params: option in this documents YAML header. Toggle </> code to see source.\n\n\n\nThis sketchnote is interactive. Try clicking around various parts of the image. Links in the image:\n\nInkspace\nQuarto\n\n\n\n\nThis sketchnote was drawn with Notability in Nov 2022.\nThis sketchnote © 2022 by Cynthia Huang (@cynthiahqy) is licensed under CC BY 4.0\n\nThis sketchnote by Cynthia Huang (@cynthiahqy) is licensed under CC BY 4.0"
+    "text": "Notes on source code\n\n\n\n\n\nToggle the </> code menu to see the source code for the .qmd file. The class=\"sketchnote\"\n\n\n\nThis is some text about the sketchnote.\nSome links related to this image: - link to media (show/book/media etc.)\n\n\n\n\n\n\nBelow is some parameterised text about the sketchnote\n\n\n\n\n\nUses values set in params: option in this documents YAML header. Toggle </> code to see source.\n\n\n\nThis sketchnote is interactive. Try clicking around various parts of the image. Links in the image:\n\nInkspace\nQuarto\n\n\n\n\nThis sketchnote © 2022 was drawn with Notability in Nov 2022 and edited with Inkscape.\n\nUnless otherwise stated all illustrations on this website are by Cynthia Huang (@cynthiahqy) and are licensed under CC BY-SA 4.0. This means you are free to reuse the work as long as you provide attribution (@cynthiahqy), and use the same licence for any derivative works."
   },
   {
     "objectID": "index.html",
@@ -152,5 +152,12 @@
     "title": "Thumbnail Previews for Quarto Websites (for Dummies)",
     "section": "Epilogue: More Adventures in Quarto and Website Debugging",
     "text": "Epilogue: More Adventures in Quarto and Website Debugging\n\nAs I went to share this post on twitter, I found the card was being generated but the image I wanted use didn’t show up… leading me to another convoluted troubleshooting session. I tried:\n\nchanging the featured image to a different one\nchanging the name of the featured image file\ndoing all sorts of card debugging fixes suggested by the Internet.\n\nBut it turned out it wasn’t a metadata issue. Quarto hadn’t copied the image file over into my output directory (_site/ by default), so the image wasn’t being hosted on website to be shown in a twitter card. I think the underlying issue was that I had left the draft: true option on, which apparently means images don’t get copied over, not just that the post wont be shown in listings.\nIn any case, removing that option fixed the issue, and thus continues the saga of learning website design through the convenient but somewhat opaque framework of Quarto website projects."
+  },
+  {
+    "objectID": "gallery.html#sketchnotes",
+    "href": "gallery.html#sketchnotes",
+    "title": "Gallery",
+    "section": "Sketchnotes",
+    "text": "Sketchnotes\n\n\n\n\n\n\n\n\n\n\nRSEAA Strategy & Policy Panel\n\n\n\n\n\n\n\n\n\n\n\n\n\nHow to Pitch Your Best Ideas\n\n\n\n\n\n\n\n\n\n\n\n\n\nYou are Burned Out and Don’t Even Know It\n\n\n\n\n\n\n\n\n\n\n\n\n\nTemplate for Sketchnote Page\n\n\n\n\n\n\n\nNo matching items"
   }
 ]

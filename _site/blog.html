@@ -65,7 +65,7 @@ ul.task-list{list-style: none;}
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-date','listing-title','listing-description','listing-image',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
       searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
     };
@@ -181,19 +181,6 @@ Thumbnail Previews for Quarto Websites (for Dummies)
 <div class="listing-subtitle">
 
 </div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('quarto'); return false;">
-quarto
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('markdown'); return false;">
-markdown
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('how-to'); return false;">
-how-to
-</div>
-</div>
-<a href="./posts/twitter-card-quarto/index.html">
 <div class="listing-description">
 <p>A short note on turning on Twitter Cards for my Quarto blog.</p>
 </div>
@@ -203,9 +190,6 @@ how-to
 <a href="./posts/twitter-card-quarto/index.html">
 <div class="listing-date">
 Aug 15, 2022
-</div>
-<div class="listing-author">
-Cynthia Huang
 </div>
 </a>
 </div>
@@ -222,16 +206,6 @@ R Markdown and friends
 <div class="listing-subtitle">
 
 </div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('markdown'); return false;">
-markdown
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('teaching'); return false;">
-teaching
-</div>
-</div>
-<a href="./posts/R-markdown-and-friends/index.html">
 <div class="listing-description">
 <p>An experiment in using iframes and interactive slides to teach R Markdown</p>
 </div>
@@ -241,9 +215,6 @@ teaching
 <a href="./posts/R-markdown-and-friends/index.html">
 <div class="listing-date">
 Aug 10, 2022
-</div>
-<div class="listing-author">
-Cynthia Huang
 </div>
 </a>
 </div>
@@ -260,16 +231,6 @@ A brief guide to inserting Emojis everywhere!
 <div class="listing-subtitle">
 
 </div>
-</a>
-<div class="listing-categories">
-<div class="listing-category" onclick="window.quartoListingCategory('markdown'); return false;">
-markdown
-</div>
-<div class="listing-category" onclick="window.quartoListingCategory('text-editing'); return false;">
-text-editing
-</div>
-</div>
-<a href="./posts/emoji-tricks/index.html">
 <div class="listing-description">
 <p>A collection of resources on how to insert emojis into your documents, when and how to use emojis, and a sprinkle of emoji trivia 🌟</p>
 </div>
@@ -279,9 +240,6 @@ text-editing
 <a href="./posts/emoji-tricks/index.html">
 <div class="listing-date">
 May 16, 2022
-</div>
-<div class="listing-author">
-Cynthia Huang
 </div>
 </a>
 </div>
@@ -373,7 +331,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div> <!-- /content -->
 <footer class="footer">
   <div class="nav-footer">
-    <div class="nav-footer-right">This blog is built with ❤️ and <a href="https://quarto.org/">Quarto</a>, by Cynthia Huang. License: <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC BY-SA 2.0</a>.</div>
+    <div class="nav-footer-right">This website is built with ❤️ and <a href="https://quarto.org/">Quarto</a>, by Cynthia Huang. License: <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>.</div>
   </div>
 </footer>
 

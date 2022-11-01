@@ -24,14 +24,12 @@ website:
         href: https://twitter.com/cynthiahqy
 
   page-footer:
-    right: "This blog is built with ❤️  and [Quarto](https://quarto.org/), by Cynthia Huang. License: [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0/)."
+    right: "This website is built with ❤️  and [Quarto](https://quarto.org/), by Cynthia Huang. License: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)."
 
 format:
   html:
     theme: simplex
     css: styles.css
-    
-author: "Cynthia Huang"
 
 
 
