@@ -38,7 +38,10 @@ Some links related to this image:
   Uses values set in `params:` option in this documents YAML header. Toggle `</> code` to see source.
 :::
 
-`r if(params$interactive){"This sketchnote is interactive. Try clicking around various parts of the image"}`
+`r if(params$interactive){"This sketchnote is interactive. Try clicking around various parts of the image"}`. Links in the image:
+
+- [Inkspace](https://inkscape.org)
+- [Quarto](https://quarto.org)
 
 ```{r params-prep}
 #| echo: false

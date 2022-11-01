@@ -247,7 +247,11 @@ Below is some parameterised text about the sketchnote
 </div>
 </div>
 </div>
-<p>This sketchnote is interactive. Try clicking around various parts of the image</p>
+<p>This sketchnote is interactive. Try clicking around various parts of the image. Links in the image:</p>
+<ul>
+<li><a href="https://inkscape.org">Inkspace</a></li>
+<li><a href="https://quarto.org">Quarto</a></li>
+</ul>
 <div class="cell">
 
 </div>
@@ -428,24 +432,27 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 <span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a>  Uses values set in <span class="in">`params:`</span> option in this documents YAML header. Toggle <span class="in">`&lt;/&gt; code`</span> to see source.</span>
 <span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a>:::</span>
 <span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="in">`r if(params$interactive){"This sketchnote is interactive. Try clicking around various parts of the image"}`</span></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a><span class="in">`r if(params$interactive){"This sketchnote is interactive. Try clicking around various parts of the image"}`</span>. Links in the image:</span>
 <span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="in">```{r params-prep}</span></span>
-<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Inkspace</span><span class="co">](https://inkscape.org)</span></span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span><span class="co">[</span><span class="ot">Quarto</span><span class="co">](https://quarto.org)</span></span>
 <span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"../_params-dict.R"</span>)</span>
-<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a><span class="co"># https://statisticsglobe.com/r-capitalize-first-letter-of-character-string-containing-multiple-words</span></span>
-<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>dtool <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"(^|[[:space:]])([[:alpha:]])"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">1</span><span class="sc">\\</span><span class="st">U</span><span class="sc">\\</span><span class="st">2"</span>,</span>
-<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a>              params<span class="sc">$</span>drawing_tool,</span>
-<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a>              <span class="at">perl =</span> <span class="cn">TRUE</span>) <span class="do">## to uppercase</span></span>
-<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>dtool_url <span class="ot">&lt;-</span> dtools[<span class="fu">tolower</span>(dtools<span class="sc">$</span>tool) <span class="sc">==</span> <span class="fu">tolower</span>(dtool), <span class="fu">c</span>(<span class="st">"url"</span>)]</span>
-<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>dtool_link <span class="ot">&lt;-</span> glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"[{dtool}]({dtool_url})"</span>)</span>
-<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>ddate <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(params<span class="sc">$</span>date_drawn)</span>
-<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a><span class="in">```{r params-prep}</span></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(<span class="st">"../_params-dict.R"</span>)</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="co"># https://statisticsglobe.com/r-capitalize-first-letter-of-character-string-containing-multiple-words</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a>dtool <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"(^|[[:space:]])([[:alpha:]])"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">1</span><span class="sc">\\</span><span class="st">U</span><span class="sc">\\</span><span class="st">2"</span>,</span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>              params<span class="sc">$</span>drawing_tool,</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a>              <span class="at">perl =</span> <span class="cn">TRUE</span>) <span class="do">## to uppercase</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a>dtool_url <span class="ot">&lt;-</span> dtools[<span class="fu">tolower</span>(dtools<span class="sc">$</span>tool) <span class="sc">==</span> <span class="fu">tolower</span>(dtool), <span class="fu">c</span>(<span class="st">"url"</span>)]</span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>dtool_link <span class="ot">&lt;-</span> glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"[{dtool}]({dtool_url})"</span>)</span>
 <span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>This sketchnote was drawn with <span class="in">`r dtool_link`</span> in <span class="in">`r format(ddate, "%b %Y")`</span>. This website is licensed under a CC BY 4.0. This means you are free to share or adapt these materials however you see fit as long as you provide attribution (@cynthiahqy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a>ddate <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(params<span class="sc">$</span>date_drawn)</span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-60"><a href="#cb1-60" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-61"><a href="#cb1-61" aria-hidden="true" tabindex="-1"></a>This sketchnote was drawn with <span class="in">`r dtool_link`</span> in <span class="in">`r format(ddate, "%b %Y")`</span>. This website is licensed under a CC BY 4.0. This means you are free to share or adapt these materials however you see fit as long as you provide attribution (@cynthiahqy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">

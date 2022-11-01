@@ -32,7 +32,7 @@
     "href": "gallery/sketchnotes/template/index.html",
     "title": "Template for Sketchnote Page",
     "section": "",
-    "text": "Notes on source code\n\n\n\n\n\nToggle the </> code menu to see the source code for the .qmd file. The class=\"sketchnote\"\n\n\n\nThis is some text about the sketchnote.\nSome links related to this image: - link to media (show/book/media etc.)\n\n\n\n\n\n\nBelow is some parameterised text about the sketchnote\n\n\n\n\n\nUses values set in params: option in this documents YAML header. Toggle </> code to see source.\n\n\n\nThis sketchnote is interactive. Try clicking around various parts of the image\n\n\n\nThis sketchnote was drawn with Notability in Nov 2022. This website is licensed under a CC BY 4.0. This means you are free to share or adapt these materials however you see fit as long as you provide attribution (@cynthiahqy)"
+    "text": "Notes on source code\n\n\n\n\n\nToggle the </> code menu to see the source code for the .qmd file. The class=\"sketchnote\"\n\n\n\nThis is some text about the sketchnote.\nSome links related to this image: - link to media (show/book/media etc.)\n\n\n\n\n\n\nBelow is some parameterised text about the sketchnote\n\n\n\n\n\nUses values set in params: option in this documents YAML header. Toggle </> code to see source.\n\n\n\nThis sketchnote is interactive. Try clicking around various parts of the image. Links in the image:\n\nInkspace\nQuarto\n\n\n\n\nThis sketchnote was drawn with Notability in Nov 2022. This website is licensed under a CC BY 4.0. This means you are free to share or adapt these materials however you see fit as long as you provide attribution (@cynthiahqy)"
   },
   {
     "objectID": "index.html",
