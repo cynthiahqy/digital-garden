@@ -7,5 +7,9 @@ author: "Cynthia Huang"
 # (see https://quarto.org/docs/projects/code-execution.html#freeze)
 freeze: true
 
-# Enable banner style title blocks
+# blog page layout options
+format:
+  html:
+    toc: true
 title-block-banner: true
+
