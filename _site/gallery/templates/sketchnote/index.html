@@ -6,7 +6,6 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="dcterms.date" content="2022-11-01">
 
 <title>Cynthia Huang - Sketchnote Page</title>
 <style>
@@ -192,12 +191,6 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div class="quarto-title-meta">
 
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">November 1, 2022</p>
-    </div>
-  </div>
     
   </div>
   
@@ -209,7 +202,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div class="column-page">
 <figure class="figure">
-<object data="images/featured.svg" class="sketchnote">
+<object data="images/main.svg" class="sketchnote">
 </object>
 <figcaption style="text-align: right" class="figure-caption">
 Cynthia Huang © 2022, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>
@@ -229,10 +222,8 @@ Cynthia Huang © 2022, <a href="https://creativecommons.org/licenses/by-sa/4.0/"
 <li>embedded links</li>
 </ul>
 <p>This illustration/sketchnote was drawn with <a href="https://notability.com">Notability</a> in Nov 2022 and edited with <a href="https://inkscape.org">Inkscape</a>. (Cynthia Huang © 2022, <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>)</p>
-<section id="template-notes" class="level2">
-<h2 class="anchored" data-anchor-id="template-notes">Template Notes</h2>
-<section id="web-design-with-quarto-and-svg" class="level3">
-<h3 class="anchored" data-anchor-id="web-design-with-quarto-and-svg">Web Design with Quarto and SVG</h3>
+<section id="how-to-use-this-template" class="level2">
+<h2 class="anchored" data-anchor-id="how-to-use-this-template">How to Use this Template</h2>
 <div class="callout-note callout callout-style-default callout-captioned">
 <div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-1-contents" aria-controls="callout-1" aria-expanded="false" aria-label="Toggle callout">
 <div class="callout-icon-container">
@@ -245,286 +236,18 @@ View page source code
 </div>
 <div id="callout-1" class="callout-1-contents callout-collapse collapse">
 <div class="callout-body-container callout-body">
-<p>Toggle the <code>&lt;/&gt; code</code> menu to see <code>.qmd</code> file source code. The <code>class="sketchnote"</code> is defined in <code>styles.css</code>.</p>
+<p>Toggle the <code>&lt;/&gt; code</code> menu (if available) to see <code>.qmd</code> file source code.</p>
 </div>
 </div>
 </div>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-2-contents" aria-controls="callout-2" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Add parameterised text using <code>params:</code> field
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-2" class="callout-2-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Set values in the <code>params:</code> field of the YAML header – e.g.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">params</span><span class="kw">:</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">drawing_tool</span><span class="kw">:</span><span class="at"> </span><span class="st">"notability"</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">date_drawn</span><span class="kw">:</span><span class="at"> 2022-11-01</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">interactive</span><span class="kw">:</span><span class="at"> </span><span class="ch">TRUE</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>This is an inline code chunk for conditional inclusion of text:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="in">`r if(params$interactive){"This sketchnote is interactive. Try clicking around various parts of the image"}`</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Toggle the <code>&lt;/&gt;</code> code menu to see the R code chunk <code>params-prep</code> used to prepare variables used in text about the sketchnote.</p>
-</div>
-</div>
-</div>
-<div class="callout-note callout callout-style-simple callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-3-contents" aria-controls="callout-3" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-All about the YAML
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-3" class="callout-3-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<p>Include these values every time:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">"Sketchnote Page"</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">subtitle</span><span class="kw">:</span><span class="at"> </span><span class="st">"for visual summaries, illustrations, etc."</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> 2022-11-01</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="fu">params</span><span class="kw">:</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">drawing_tool</span><span class="kw">:</span><span class="at"> </span><span class="st">"notability/concepts"</span><span class="co"> ## must be in _params-dict.R ##</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">date_drawn</span><span class="kw">:</span><span class="at"> 2022-11-01</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">draw_type</span><span class="kw">:</span><span class="at"> </span><span class="st">"illustration/sketchnote"</span><span class="co"> ## pick one</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">interactive</span><span class="kw">:</span><span class="at"> </span><span class="ch">TRUE</span><span class="co"> ## if SVG contains any links or interactivity</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">main_alt_text</span><span class="kw">:</span><span class="at"> </span><span class="st">""</span><span class="co"> ## write this using the relevant alt-text strategy ##</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Include only if you want to override the default values <code>gallery/_metadata.yml</code>:</p>
-<ul>
-<li>just save images/objects using the correct name (<code>featured.*</code>)</li>
-<li>add any resources embedded using HTML tags to the <code>resources:</code> list. If not, they won’t get copied into the output directory.</li>
-</ul>
-<div class="sourceCode" id="cb4"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">image</span><span class="kw">:</span><span class="at"> </span><span class="st">"images/featured.png"</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">image-alt</span><span class="kw">:</span><span class="at"> </span><span class="st">"A hand-drawn illustration/sketchnote described in this article"</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="fu">resources</span><span class="kw">:</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="kw">-</span><span class="at"> </span><span class="st">"images/featured.svg"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Specific to template posts:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span><span class="kw">:</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">code-tools</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-4-contents" aria-controls="callout-4" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Add anchors (links) nodes to to .svg using Inkscape
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-4" class="callout-4-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<ol start="0" type="1">
-<li>Export sketch from ipad to <code>images/ipad.png</code> or <code>images/ipad.svg</code> (depending on app support)</li>
-<li>Start a new Inkscape document and import the sketch.</li>
-<li>Crop the image to remove excess white space (i.e.&nbsp;if iPad export was A4): <a href="https://www.selfmadedesigner.com/cropping-inkscape/">how-to</a></li>
-<li>Resize the canvas to fit: <code>File &gt; Document Properties &gt; Fit Page to Selection</code></li>
-<li>Convert image <code>Object to Pattern</code></li>
-<li>Divide image into anchor regions by adding a line (<code>b</code>) or shape, add the image pattern to the selection (<code>s</code>), and applying <code>Path &gt; Division (⌘/)</code>: <a href="https://logosbynick.com/slice-objects-in-inkscape/">tutorial</a></li>
-<li>Right click divided region and select <code>Create anchors</code>. Add URL to <code>href</code> field, and set <code>target=_blank</code></li>
-<li>Inspect XML tree to check anchor nodes (optional)</li>
-<li>Save graphic to <code>images/feature.svg</code></li>
-</ol>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/inkscape-add-anchors.png" class="img-fluid figure-img"></p>
-<p></p><figcaption aria-hidden="true" class="figure-caption">Screenshot of inkscape menu dialogues and options for adding anchor</figcaption><p></p>
-</figure>
-</div>
-</div>
-</div>
-</div>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-5-contents" aria-controls="callout-5" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-HTML Snippet for embedding SVG using <code>&lt;object&gt;</code>
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-5" class="callout-5-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>The default snippet <code>../../_figure-snippet.md</code> assumes the sketchnote/svg is named <code>feature.svg</code></p>
-<p>To customise the display or caption of the sketchnote/illustration, or to display multiple SVGs, modify and include the snippet below in place of the <code>{{&lt; include ... &gt;}}</code> shortcode.</p>
-<ul>
-<li><code>.column-page</code> class is predefined by Quarto theme<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></li>
-<li><code>&lt;figure&gt;</code> tag provides support for a <code>&lt;figcaption&gt;</code><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></li>
-<li><code>&lt;object&gt;</code> embeds the SVG, with <code>.sketchnote</code> class defined in <code>styles.css</code> specifying <code>type="image/svg+xml"</code> and other custom attributes</li>
-</ul>
-<div class="sourceCode" id="cb6"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;figure&gt;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;object</span> <span class="er">data</span><span class="ot">=</span><span class="st">"images/featured.svg"</span> <span class="er">class</span><span class="ot">=</span><span class="st">"sketchnote"</span><span class="kw">&gt;</span> <span class="kw">&lt;/object&gt;</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;figcaption</span> <span class="er">style</span><span class="ot">=</span><span class="st">"text-align: right"</span><span class="kw">&gt;</span>Cynthia Huang © <span class="in">`r format(ddate, "%Y")`</span>, <span class="co">[</span><span class="ot">CC BY-SA 4.0</span><span class="co">](https://creativecommons.org/licenses/by-sa/4.0/)</span><span class="kw">&lt;/figcaption&gt;</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/figure&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</div>
-</div>
-<div class="callout-note callout callout-style-simple callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-6-contents" aria-controls="callout-6" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Including interactive SVGs
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-6" class="callout-6-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<p>There are four ways to include SVG in Web pages:</p>
-<ol type="1">
-<li>as an <code>&lt;img&gt;</code> element. This is what <code>![](sketchnote.svg)</code> will render as and essentially converts the SVG into a raster image (which means no child element interactions).</li>
-<li>as a CSS background. Haven’t tried this; seems to be recommended for decorative images.</li>
-<li>Inline SVG. Also haven’t tried this; would likely preclude GUI editing of the SVG so probably only suitable for simple vector graphics (which don’t have the complicated pattern elements of sketchnotes)</li>
-<li>as an application embedded via <code>&lt;object&gt;</code> element. This preserves any links embedded inside the SVG, and supports interfacing between the parent document and the SVG object via SVG DOM (which I don’t yet understand how to use).</li>
-</ol>
-<p>Reference Resources:</p>
-<ul>
-<li><a href="https://www.oreilly.com/library/view/modern-svg/9781492048527/ch01.html">Chapter 1. Using SVG in Web Pages of Modern SVG by Amelia Bellamy-Royds and Kurt Cagle</a> for extended discussion</li>
-<li><a href="https://css-tricks.com/using-svg/">Using SVG by Chris Coyier on CSS-tricks</a> for short tutorial</li>
-</ul>
-<p><strong>2022-11-02</strong>: I picked embedding via the <code>&lt;object&gt;</code> element because it was the only one where hyperlinks I inserted into the .svg using Inkspace still worked. I plan to experiment with more advanced interactivity in the future.</p>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="web-accessibility" class="level2">
-<h2 class="anchored" data-anchor-id="web-accessibility">Web Accessibility</h2>
-<div class="callout-warning callout callout-style-simple callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-7-contents" aria-controls="callout-7" aria-expanded="true" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Notes on SVG and Sketchnote Accessibility
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-7" class="callout-7-contents callout-collapse collapse show">
-<div class="callout-body-container callout-body">
-<p>About SVGs and alt-text attributes:</p>
-<ul>
-<li>SVG is not an image, it is a graphics-document (defined using XML)</li>
-<li><code>alt-text</code> for the sketchnote is defined in <code>params: main_alt_text:</code> using the strategies detailed below</li>
-<li><code>aria-label</code> or <code>aria-labelledby</code> attributes are recommended for objects.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></li>
-<li>Fallback content (inside <code>&lt;object&gt;</code> tags) is only rendered when the object embedding is not successful, so is not a suitable place to put text for accessibility <a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></li>
-<li>including <code>&lt;title&gt;</code> and <code>&lt;desc&gt;</code> directly in the SVG is often recommended but only suitable for inline SVG.<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a></li>
-</ul>
-<p>About sketchnote/data-viz accessibility:</p>
-<ul>
-<li>if the SVG is interactive you can make it screen reader traversable… but it’s complicated and involves ordering and naming nodes appropriately, amongst other things. One would need to adapt these instructions for <a href="https://css-tricks.com/accessible-svgs/#aa-complex-images-an-accessible-graph">creating an Accessible Graph</a>.</li>
-<li>an option for 301 level WCAG conformance offered by Nitya Narasimhan in this <a href="https://dev.to/meganesulli/accessible-sketchnotes-3i8c#comment-1f5a8">discussion thread</a> started by Megan Sullivan is turning the graphic into a “interactive information guide”</li>
-</ul>
-<p>Resources List:</p>
-<ul>
-<li><a href="https://www.unimelb.edu.au/accessibility/techniques/accessible-svgs">Accessible SVGs - University of Melbourne</a> for background context and simple code exampes</li>
-<li><a href="https://css-tricks.com/accessible-svgs">Accessible SVGs by Heather Migliorisi</a> for more extended discussion and complex code examples</li>
-<li><a href="https://medium.com/@kamppari/sketch-note-accessibility-99c6ec5abd1a">Sketch Note Accessibility by Saara Kamppari-Miller</a> for example of extending alt-text accessibility with a Talk-Through Video which describes the emergent information structure of a sketchnote.</li>
-<li><a href="https://www.w3.org/WAI/WCAG21/Understanding/non-text-content">Web Content Accessibility Guidelines (WCAG) 2.1 Success Criterion 1.1.1: Non-text Content</a>) for in-depth discussion and detailed alt-text techniques and scenarios.<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a></li>
-</ul>
-<p><strong>2022-11-02</strong>: At the moment, all alt-text is provided below the SVG figure. I don’t think this is optimal for screen-readers but embedding alt-text is complicated and beyond me right now.<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> My approach will likely evolve as I learn more html/css/svg concepts.</p>
-</div>
-</div>
-</div>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-8-contents" aria-controls="callout-8" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Alt Text Strategy for Illustrations
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-8" class="callout-8-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Use some or all of the following elements to describe the purpose, content and “flow” of the illustration. The description can be more comprehensive compared to a sketchnote.</p>
-<ul>
-<li><strong>Illustration Type:</strong>
-<ul>
-<li>cartoon</li>
-<li>schematic</li>
-<li>illlustration</li>
-<li>(line) plot</li>
-<li>visual representations</li>
-</ul></li>
-<li><strong>Description of visual elements with position context</strong>:
-<ul>
-<li>On the left…</li>
-<li>A row of…</li>
-<li>Left panel… Right panel…</li>
-<li>The progression goes from…</li>
-</ul></li>
-<li><strong>Text quotes and labels in context</strong>:
-<ul>
-<li>Text above… quotes Jenny Bryan: “Collaboration is…”</li>
-<li>Text above the laptop reads: “Plan on it.”</li>
-<li>several anchors, each labeled “Commit”</li>
-<li>a cape that reads “code hero”…</li>
-</ul></li>
-<li><strong>Clarification of key message or takeaway</strong>
-<ul>
-<li>The point being: …</li>
-<li>Main text:</li>
-</ul></li>
-</ul>
-<p><em>Strategy and examples adapted from <a href="https://github.com/allisonhorst/stats-illustrations">Allison Horst’s Stats Illustrations</a></em></p>
-</div>
-</div>
-</div>
-<div class="callout-tip callout callout-style-default callout-captioned">
-<div class="callout-header d-flex align-content-center" data-bs-toggle="collapse" data-bs-target=".callout-9-contents" aria-controls="callout-9" aria-expanded="false" aria-label="Toggle callout">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-caption-container flex-fill">
-Alt Text Strategy for Visual Summaries
-</div>
-<div class="callout-btn-toggle d-inline-block border-0 py-1 ps-1 pe-0 float-end"><i class="callout-toggle"></i></div>
-</div>
-<div id="callout-9" class="callout-9-contents callout-collapse collapse">
-<div class="callout-body-container callout-body">
-<p>Follow this recipe for image descriptions which provide context and some key details about the sketchnote. Remember the point isn’t to share every visual and text element of the sketchnote in the alt-text, but to describe the function provided by the sketchnote.</p>
-<ol type="1">
-<li><strong>Visual Context:</strong> black and white {digital/hand-drawn} visual notes</li>
-<li><strong>Content Context:</strong> summarising {title of source media or event}</li>
-<li><strong>Key takeaway:</strong> {key quote or note}</li>
-<li><strong>Prominent visual element:</strong> {any signature elements for which visual description should be included}</li>
-</ol>
-<p><em>Adapted from <a href="https://medium.com/@kamppari/sketch-note-accessibility-99c6ec5abd1a">Sketch Note Accessibility by Saara Kamppari-Miller</a></em></p>
-</div>
-</div>
-</div>
+<p>See <a href="../about/">Templates Cheatsheet</a> for explanation of source code, design notes, and steps for preparing the sketchnote.</p>
 
 
 <!-- -->
 
 </section>
 
-
-<div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
-
-<ol>
-<li id="fn1" role="doc-endnote"><p>See <a href="https://quarto.org/docs/authoring/article-layout.html#page-column">Article Layout</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2" role="doc-endnote"><p>See <a href="https://www.w3schools.com/tags/tag_figure.asp">HTML</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3" role="doc-endnote"><p>See this <a href="https://stackoverflow.com/a/72199049">stackoverflow answer</a> for example code<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4" role="doc-endnote"><p>as explained by this <a href="https://stackoverflow.com/a/27885394">stackoverflow answer</a><a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5" role="doc-endnote"><p>See <a href="https://webdesign.tutsplus.com/tutorials/accessible-svg-methods-for-adding-alternative-content--cms-32205">Accessible SVG: Methods for Adding Alternative Content by Carie Fisher</a><a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn6" role="doc-endnote"><p>This is not a light read. It’s much further down the rabbit hole than most people (myself included) have time for.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn7" role="doc-endnote"><p>See <a href="https://css-tricks.com/accessible-svgs/#aa-3-embed-svg-via-object-or-iframe">discussion in Sketch Note Accessibility by Saara Kamppari-Miller</a><a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
-</section></div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const icon = "";
@@ -655,60 +378,65 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
 });
 </script><div class="modal fade" id="quarto-embedded-source-code-modal" tabindex="-1" aria-labelledby="quarto-embedded-source-code-modal-label" aria-hidden="true"><div class="modal-dialog modal-dialog-scrollable"><div class="modal-content"><div class="modal-header"><h5 class="modal-title" id="quarto-embedded-source-code-modal-label">Source Code</h5><button class="btn-close" data-bs-dismiss="modal"></button></div><div class="modal-body"><div class="">
-<div class="sourceCode" id="cb7" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Sketchnote Page"</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "for visual summaries, illustrations, etc."</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="an">date:</span><span class="co"> 2022-11-01</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="an">params:</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="co">  drawing_tool: "notability"</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="co">  date_drawn: 2022-11-01</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="co">  draw_type: "illustration/sketchnote"</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a><span class="co">  interactive: TRUE</span></span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a><span class="co">  main_alt_text: "This black and white illustration shows an iPad with a drawing app open to a sketchnote in the top left quadrant, which is linked by an arrow to a computer in the bottom left quadrant. The computer has three windows showing the logo of tools used to process a sketchnote: Inkscape, Quarto and file explorer. The computer is linked by an arrow to a webpage on the right side of the image with the title 'How to Publish a Sketchnote'."</span></span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a><span class="co">  </span></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="an">format:</span></span>
-<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="co">  html:</span></span>
-<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="co">    code-tools: true</span></span>
-<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
-<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="in">```{r params-prep}</span></span>
-<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
-<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-21"><a href="#cb7-21" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"gallery/_params-dict.R"</span>)) <span class="co"># reads in table containing URL for drawing_tool</span></span>
-<span id="cb7-22"><a href="#cb7-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-23"><a href="#cb7-23" aria-hidden="true" tabindex="-1"></a><span class="co"># https://statisticsglobe.com/r-capitalize-first-letter-of-character-string-containing-multiple-words</span></span>
-<span id="cb7-24"><a href="#cb7-24" aria-hidden="true" tabindex="-1"></a>dtool <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"(^|[[:space:]])([[:alpha:]])"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">1</span><span class="sc">\\</span><span class="st">U</span><span class="sc">\\</span><span class="st">2"</span>,</span>
-<span id="cb7-25"><a href="#cb7-25" aria-hidden="true" tabindex="-1"></a>              params<span class="sc">$</span>drawing_tool,</span>
-<span id="cb7-26"><a href="#cb7-26" aria-hidden="true" tabindex="-1"></a>              <span class="at">perl =</span> <span class="cn">TRUE</span>) <span class="do">## to uppercase</span></span>
-<span id="cb7-27"><a href="#cb7-27" aria-hidden="true" tabindex="-1"></a>dtool_url <span class="ot">&lt;-</span> dtools[<span class="fu">tolower</span>(dtools<span class="sc">$</span>tool) <span class="sc">==</span> <span class="fu">tolower</span>(dtool), <span class="fu">c</span>(<span class="st">"url"</span>)]</span>
-<span id="cb7-28"><a href="#cb7-28" aria-hidden="true" tabindex="-1"></a>dtool_link <span class="ot">&lt;-</span> glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"[{dtool}]({dtool_url})"</span>)</span>
-<span id="cb7-29"><a href="#cb7-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-30"><a href="#cb7-30" aria-hidden="true" tabindex="-1"></a>ddate <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(params<span class="sc">$</span>date_drawn)</span>
-<span id="cb7-31"><a href="#cb7-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-32"><a href="#cb7-32" aria-hidden="true" tabindex="-1"></a>dtype <span class="ot">&lt;-</span> params<span class="sc">$</span>draw_type</span>
-<span id="cb7-33"><a href="#cb7-33" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-34"><a href="#cb7-34" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
-<span id="cb7-35"><a href="#cb7-35" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-36"><a href="#cb7-36" aria-hidden="true" tabindex="-1"></a>:::{.column-page}</span>
-<span id="cb7-37"><a href="#cb7-37" aria-hidden="true" tabindex="-1"></a>{{&lt; include ../../_figure-snippet.md &gt;}}</span>
-<span id="cb7-38"><a href="#cb7-38" aria-hidden="true" tabindex="-1"></a>:::</span>
-<span id="cb7-39"><a href="#cb7-39" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-40"><a href="#cb7-40" aria-hidden="true" tabindex="-1"></a>Description of <span class="in">`r dtype`</span>:</span>
-<span id="cb7-41"><a href="#cb7-41" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-42"><a href="#cb7-42" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; </span><span class="in">`r params$main_alt_text`</span></span>
-<span id="cb7-43"><a href="#cb7-43" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-44"><a href="#cb7-44" aria-hidden="true" tabindex="-1"></a>Links related to this <span class="in">`r dtype`</span>:</span>
-<span id="cb7-45"><a href="#cb7-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-46"><a href="#cb7-46" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>link to media (podcast/book/media etc.)</span>
-<span id="cb7-47"><a href="#cb7-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-48"><a href="#cb7-48" aria-hidden="true" tabindex="-1"></a><span class="in">`r if(params$interactive){"Links embedded in the sketchnote:"}`</span>.</span>
-<span id="cb7-49"><a href="#cb7-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-50"><a href="#cb7-50" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>embedded links</span>
-<span id="cb7-51"><a href="#cb7-51" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-52"><a href="#cb7-52" aria-hidden="true" tabindex="-1"></a>This <span class="in">`r dtype`</span> was drawn with <span class="in">`r dtool_link`</span> in <span class="in">`r format(ddate, "%b %Y")`</span> and edited with <span class="co">[</span><span class="ot">Inkscape</span><span class="co">](https://inkscape.org)</span>. (Cynthia Huang © <span class="in">`r format(ddate, "%Y")`</span>, <span class="co">[</span><span class="ot">CC BY-SA 4.0</span><span class="co">](https://creativecommons.org/licenses/by-sa/4.0/)</span>)</span>
-<span id="cb7-53"><a href="#cb7-53" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-54"><a href="#cb7-54" aria-hidden="true" tabindex="-1"></a>{{&lt; include ../_template-notes.qmd &gt;}}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode" id="cb1" data-shortcodes="false"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="an">title:</span><span class="co"> "Sketchnote Page"</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="an">subtitle:</span><span class="co"> "for visual summaries, illustrations, etc."</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="an">category:</span><span class="co"> "illustrations"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="an">date-modified:</span><span class="co"> 2022-11-03</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="an">params:</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co">  drawing_tool: "notability"</span></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co">  date_drawn: 2022-11-01</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="co">  draw_type: "illustration/sketchnote"</span></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="co">  interactive: TRUE</span></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="co">  main_alt_text: "This black and white illustration shows an iPad with a drawing app open to a sketchnote in the top left quadrant, which is linked by an arrow to a computer in the bottom left quadrant. The computer has three windows showing the logo of tools used to process a sketchnote: Inkscape, Quarto and file explorer. The computer is linked by an arrow to a webpage on the right side of the image with the title 'How to Publish a Sketchnote'."</span></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co">---</span></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="in">```{r params-prep}</span></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co">#| echo: false</span></span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="fu">source</span>(here<span class="sc">::</span><span class="fu">here</span>(<span class="st">"gallery/_params-dict.R"</span>)) <span class="co"># reads in table containing URL for drawing_tool</span></span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co"># https://statisticsglobe.com/r-capitalize-first-letter-of-character-string-containing-multiple-words</span></span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>dtool <span class="ot">&lt;-</span> <span class="fu">gsub</span>(<span class="st">"(^|[[:space:]])([[:alpha:]])"</span>, <span class="st">"</span><span class="sc">\\</span><span class="st">1</span><span class="sc">\\</span><span class="st">U</span><span class="sc">\\</span><span class="st">2"</span>,</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>              params<span class="sc">$</span>drawing_tool,</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>              <span class="at">perl =</span> <span class="cn">TRUE</span>) <span class="do">## to uppercase</span></span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>dtool_url <span class="ot">&lt;-</span> dtools[<span class="fu">tolower</span>(dtools<span class="sc">$</span>tool) <span class="sc">==</span> <span class="fu">tolower</span>(dtool), <span class="fu">c</span>(<span class="st">"url"</span>)]</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>dtool_link <span class="ot">&lt;-</span> glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">"[{dtool}]({dtool_url})"</span>)</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>ddate <span class="ot">&lt;-</span> <span class="fu">as.Date</span>(params<span class="sc">$</span>date_drawn)</span>
+<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>dtype <span class="ot">&lt;-</span> params<span class="sc">$</span>draw_type</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>:::{.column-page}</span>
+<span id="cb1-34"><a href="#cb1-34" aria-hidden="true" tabindex="-1"></a>{{&lt; include ../../_figure-snippet.md &gt;}}</span>
+<span id="cb1-35"><a href="#cb1-35" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-36"><a href="#cb1-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-37"><a href="#cb1-37" aria-hidden="true" tabindex="-1"></a>Description of <span class="in">`r dtype`</span>:</span>
+<span id="cb1-38"><a href="#cb1-38" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-39"><a href="#cb1-39" aria-hidden="true" tabindex="-1"></a><span class="at">&gt; </span><span class="in">`r params$main_alt_text`</span></span>
+<span id="cb1-40"><a href="#cb1-40" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-41"><a href="#cb1-41" aria-hidden="true" tabindex="-1"></a>Links related to this <span class="in">`r dtype`</span>:</span>
+<span id="cb1-42"><a href="#cb1-42" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-43"><a href="#cb1-43" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>link to media (podcast/book/media etc.)</span>
+<span id="cb1-44"><a href="#cb1-44" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-45"><a href="#cb1-45" aria-hidden="true" tabindex="-1"></a><span class="in">`r if(params$interactive){"Links embedded in the sketchnote:"}`</span>.</span>
+<span id="cb1-46"><a href="#cb1-46" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-47"><a href="#cb1-47" aria-hidden="true" tabindex="-1"></a><span class="ss">-   </span>embedded links</span>
+<span id="cb1-48"><a href="#cb1-48" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-49"><a href="#cb1-49" aria-hidden="true" tabindex="-1"></a>This <span class="in">`r dtype`</span> was drawn with <span class="in">`r dtool_link`</span> in <span class="in">`r format(ddate, "%b %Y")`</span> and edited with <span class="co">[</span><span class="ot">Inkscape</span><span class="co">](https://inkscape.org)</span>. (Cynthia Huang © <span class="in">`r format(ddate, "%Y")`</span>, <span class="co">[</span><span class="ot">CC BY-SA 4.0</span><span class="co">](https://creativecommons.org/licenses/by-sa/4.0/)</span>)</span>
+<span id="cb1-50"><a href="#cb1-50" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-51"><a href="#cb1-51" aria-hidden="true" tabindex="-1"></a><span class="fu">## How to Use this Template</span></span>
+<span id="cb1-52"><a href="#cb1-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-53"><a href="#cb1-53" aria-hidden="true" tabindex="-1"></a>::: {.callout-note collapse="true"}</span>
+<span id="cb1-54"><a href="#cb1-54" aria-hidden="true" tabindex="-1"></a><span class="fu">## View page source code</span></span>
+<span id="cb1-55"><a href="#cb1-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-56"><a href="#cb1-56" aria-hidden="true" tabindex="-1"></a>Toggle the <span class="in">`&lt;/&gt; code`</span> menu (if available) to see <span class="in">`.qmd`</span> file source code.</span>
+<span id="cb1-57"><a href="#cb1-57" aria-hidden="true" tabindex="-1"></a>:::</span>
+<span id="cb1-58"><a href="#cb1-58" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-59"><a href="#cb1-59" aria-hidden="true" tabindex="-1"></a>See <span class="co">[</span><span class="ot">Templates Cheatsheet</span><span class="co">](../about/)</span> for explanation of source code, design notes, and steps for preparing the sketchnote.</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div></div></div></div></div>
 </div> <!-- /content -->
 <footer class="footer">
