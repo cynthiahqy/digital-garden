@@ -1,0 +1,193 @@
+## Template Notes
+
+### Web Design with Quarto and SVG
+
+::: {.callout-note collapse="true"}
+## View page source code
+
+Toggle the `</> code` menu to see `.qmd` file source code. The `class="sketchnote"` is defined in `styles.css`.
+:::
+
+::: {.callout-tip collapse="true"}
+## Add parameterised text using `params:` field
+
+Set values in the `params:` field of the YAML header -- e.g.
+
+``` yaml
+params:
+  drawing_tool: "notability"
+  date_drawn: 2022-11-01
+  interactive: TRUE
+```
+
+This is an inline code chunk for conditional inclusion of text:
+
+```{verbatim, lang="markdown"}
+`r if(params$interactive){"This sketchnote is interactive. Try clicking around various parts of the image"}`
+```
+
+Toggle the `</>` code menu to see the R code chunk `params-prep` used to prepare variables used in text about the sketchnote.
+:::
+
+:::{.callout-note collapse="false" appearance="simple"}
+## All about the YAML
+
+Include these values every time:
+```yaml
+title: "Sketchnote Page"
+subtitle: "for visual summaries, illustrations, etc."
+date: 2022-11-01
+
+params:
+  drawing_tool: "notability/concepts" ## must be in _params-dict.R ##
+  date_drawn: 2022-11-01
+  draw_type: "illustration/sketchnote" ## pick one
+  interactive: TRUE ## if SVG contains any links or interactivity
+  main_alt_text: "" ## write this using the relevant alt-text strategy ##
+```
+
+Include only if you want to override the default values `gallery/_metadata.yml`: 
+
+- just save images/objects using the correct name (`featured.*`)
+- add any resources embedded using HTML tags to the `resources:` list. If not, they won't get copied into the output directory.
+
+```yaml
+image: "images/featured.png"
+image-alt: "A hand-drawn illustration/sketchnote described in this article"
+resources:
+  - "images/featured.svg"
+```
+
+Specific to template posts:
+```yaml
+format:
+  html:
+    code-tools: true
+```
+:::
+
+::: {.callout-tip collapse="true"}
+## Add anchors (links) nodes to to .svg using Inkscape
+
+0.  Export sketch from ipad to `images/ipad.png` or `images/ipad.svg` (depending on app support)
+1.  Start a new Inkscape document and import the sketch.
+3.  Crop the image to remove excess white space (i.e. if iPad export was A4): [how-to](https://www.selfmadedesigner.com/cropping-inkscape/)
+4.  Resize the canvas to fit: `File > Document Properties > Fit Page to Selection`
+5.  Convert image `Object to Pattern`
+6.  Divide image into anchor regions by adding a line (`b`) or shape, add the image pattern to the selection (`s`), and applying `Path > Division (⌘/)`: [tutorial](https://logosbynick.com/slice-objects-in-inkscape/)
+7.  Right click divided region and select `Create anchors`. Add URL to `href` field, and set `target=_blank`
+8.  Inspect XML tree to check anchor nodes (optional)
+9.  Save graphic to `images/feature.svg`
+
+![Screenshot of inkscape menu dialogues and options for adding anchor](images/inkscape-add-anchors.png)
+:::
+
+:::{.callout-tip collapse="true"}
+## HTML Snippet for embedding SVG using `<object>`
+
+The default snippet `../../_figure-snippet.md` assumes the sketchnote/svg is named `feature.svg`
+
+To customise the display or caption of the sketchnote/illustration, or to display multiple SVGs, modify and include the snippet below in place of the `{{{< include ... >}}}` shortcode.
+
+- `.column-page` class is predefined by Quarto theme^[See [Article Layout](https://quarto.org/docs/authoring/article-layout.html#page-column)]
+- `<figure>` tag provides support for a `<figcaption>`^[See [HTML <figure> Tag reference](https://www.w3schools.com/tags/tag_figure.asp)]
+- `<object>` embeds the SVG, with `.sketchnote` class defined in `styles.css` specifying `type="image/svg+xml"` and other custom attributes
+
+```{verbatim, file="../../_figure-snippet.md", lang="markdown"}
+:::{.column-page}
+<figure>
+  <object data="images/featured.svg" class="sketchnote"> </object>
+  <figcaption style="text-align: right">Cynthia Huang © `r format(ddate, "%Y")`, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)</figcaption>
+</figure>
+:::
+```
+
+:::
+
+:::{.callout-note collapse="false" appearance="simple"}
+## Including interactive SVGs
+
+There are four ways to include SVG in Web pages:
+
+1. as an `<img>` element. This is what `![](sketchnote.svg)` will render as and essentially converts the SVG into a raster image (which means no child element interactions).
+2. as a CSS background. Haven't tried this; seems to be recommended for decorative images.
+3. Inline SVG. Also haven't tried this; would likely preclude GUI editing of the SVG so probably only suitable for simple vector graphics (which don't have the complicated pattern elements of sketchnotes)
+4. as an application embedded via `<object>` element. This preserves any links embedded inside the SVG, and supports interfacing between the parent document and the SVG object via SVG DOM (which I don't yet understand how to use).
+
+Reference Resources:
+
+- [Chapter 1. Using SVG in Web Pages of Modern SVG by Amelia Bellamy-Royds and Kurt Cagle](https://www.oreilly.com/library/view/modern-svg/9781492048527/ch01.html) for extended discussion
+- [Using SVG by Chris Coyier on CSS-tricks](https://css-tricks.com/using-svg/) for short tutorial
+
+**2022-11-02**: I picked embedding via the `<object>` element because it was the only one where hyperlinks I inserted into the .svg using Inkspace still worked. I plan to experiment with more advanced interactivity in the future.
+:::
+
+## Web Accessibility
+
+::: {.callout-warning collapse="false" appearance="simple"}
+## Notes on SVG and Sketchnote Accessibility
+
+About SVGs and alt-text attributes:
+
+-   SVG is not an image, it is a graphics-document (defined using XML)
+-   `alt-text` for the sketchnote is defined in `params: main_alt_text:` using the strategies detailed below
+-   `aria-label` or `aria-labelledby` attributes are recommended for objects.^[See this [stackoverflow answer](https://stackoverflow.com/a/72199049) for example code]
+-   Fallback content (inside `<object>` tags) is only rendered when the object embedding is not successful, so is not a suitable place to put text for accessibility ^[as explained by this [stackoverflow answer](https://stackoverflow.com/a/27885394)]
+-   including `<title>` and `<desc>` directly in the SVG is often recommended but only suitable for inline SVG.^[See [Accessible SVG: Methods for Adding Alternative Content by Carie Fisher](https://webdesign.tutsplus.com/tutorials/accessible-svg-methods-for-adding-alternative-content--cms-32205)]
+
+About sketchnote/data-viz accessibility:
+
+-   if the SVG is interactive you can make it screen reader traversable... but it's complicated and involves ordering and naming nodes appropriately, amongst other things. One would need to adapt these instructions for [creating an Accessible Graph](https://css-tricks.com/accessible-svgs/#aa-complex-images-an-accessible-graph).
+-   an option for 301 level WCAG conformance offered by Nitya Narasimhan in this [discussion thread](https://dev.to/meganesulli/accessible-sketchnotes-3i8c#comment-1f5a8) started by Megan Sullivan is turning the graphic into a "interactive information guide"
+
+Resources List:
+
+-   [Accessible SVGs - University of Melbourne](https://www.unimelb.edu.au/accessibility/techniques/accessible-svgs) for background context and simple code exampes
+-   [Accessible SVGs by Heather Migliorisi](https://css-tricks.com/accessible-svgs) for more extended discussion and complex code examples
+-   [Sketch Note Accessibility by Saara Kamppari-Miller](https://medium.com/@kamppari/sketch-note-accessibility-99c6ec5abd1a) for example of extending alt-text accessibility with a Talk-Through Video which describes the emergent information structure of a sketchnote.
+-   [Web Content Accessibility Guidelines (WCAG) 2.1 Success Criterion 1.1.1: Non-text Content](https://www.w3.org/WAI/WCAG21/Understanding/non-text-content) for comprehensive discussion and detailed alt-text techniques and scenarios.^[This is not a light read. It's much further down the rabbit hole than most people (myself included) have time for.]
+
+**2022-11-02**: At the moment, all alt-text is provided below the SVG figure. I don't think this is optimal for screen-readers but embedding alt-text is complicated and beyond me right now.^[See [discussion in Sketch Note Accessibility by Saara Kamppari-Miller](https://css-tricks.com/accessible-svgs/#aa-3-embed-svg-via-object-or-iframe)] My approach will likely evolve as I learn more html/css/svg concepts.
+:::
+
+:::{.callout-tip collapse="true"}
+## Alt Text Strategy for Illustrations
+
+Use some or all of the following elements to describe the purpose, content and "flow" of the illustration. The description can be more comprehensive compared to a sketchnote.
+
+- **Illustration Type:**
+    - cartoon
+    - schematic
+    - illlustration
+    - (line) plot
+    - visual representations
+- **Description of visual elements with position context**: 
+    - On the left...
+    - A row of...
+    - Left panel... Right panel...
+    - The progression goes from...
+- **Text quotes and labels in context**:
+    - Text above... quotes Jenny Bryan: "Collaboration is..."
+    - Text above the laptop reads: "Plan on it."
+    - several anchors, each labeled "Commit"
+    - a cape that reads "code hero"...
+- **Clarification of key message or takeaway**
+    - The point being: ...
+    - Main text:
+    
+_Strategy and examples adapted from [Allison Horst's Stats Illustrations](https://github.com/allisonhorst/stats-illustrations)_
+
+:::
+
+:::{.callout-tip collapse="true"}
+## Alt Text Strategy for Visual Summaries
+
+Follow this recipe for image descriptions which provide context and some key details about the sketchnote. Remember the point isn't to share every visual and text element of the sketchnote in the alt-text, but to describe the function provided by the sketchnote.
+
+1.  **Visual Context:** black and white {digital/hand-drawn} visual notes
+2.  **Content Context:** summarising {title of source media or event}
+3.  **Key takeaway:** {key quote or note}
+4.  **Prominent visual element:** {any signature elements for which visual description should be included}
+
+_Adapted from [Sketch Note Accessibility by Saara Kamppari-Miller](https://medium.com/@kamppari/sketch-note-accessibility-99c6ec5abd1a)_
+:::

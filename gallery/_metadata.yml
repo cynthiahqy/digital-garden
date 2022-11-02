@@ -4,3 +4,9 @@
 format:
   html:
     toc: false
+
+## defaults for featured image and svg
+image: "images/featured.png"
+image-alt: "A hand-drawn illustration/sketchnote described in this article"
+resources:
+  - "images/featured.svg"

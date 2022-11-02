@@ -2,11 +2,11 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.cynthiahqy.com/blog.html</loc>
-    <lastmod>2022-11-01T14:09:34.439Z</lastmod>
+    <lastmod>2022-11-02T07:41:18.774Z</lastmod>
   </url>
   <url>
     <loc>https://www.cynthiahqy.com/gallery.html</loc>
-    <lastmod>2022-11-01T14:25:14.453Z</lastmod>
+    <lastmod>2022-11-02T13:37:35.403Z</lastmod>
   </url>
   <url>
     <loc>https://www.cynthiahqy.com/gallery/sketchnotes/2022-03-20_burnout-healthy-gamer/index.html</loc>
@@ -26,7 +26,7 @@
   </url>
   <url>
     <loc>https://www.cynthiahqy.com/index.html</loc>
-    <lastmod>2022-11-01T13:18:08.838Z</lastmod>
+    <lastmod>2022-11-02T11:33:52.258Z</lastmod>
   </url>
   <url>
     <loc>https://www.cynthiahqy.com/posts/R-markdown-and-friends/index.html</loc>
@@ -42,6 +42,10 @@
   </url>
   <url>
     <loc>https://www.cynthiahqy.com/gallery/templates/sketchnote/index.html</loc>
-    <lastmod>2022-11-01T14:17:19.827Z</lastmod>
+    <lastmod>2022-11-02T13:37:38.519Z</lastmod>
+  </url>
+  <url>
+    <loc>https://www.cynthiahqy.com/gallery/templates/dataviz/index.html</loc>
+    <lastmod>2022-11-02T10:28:39.671Z</lastmod>
   </url>
 </urlset>

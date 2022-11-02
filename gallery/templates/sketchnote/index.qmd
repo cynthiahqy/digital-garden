@@ -1,52 +1,24 @@
 ---
 title: "Sketchnote Page"
+subtitle: "for visual summaries, illustrations, etc."
 date: 2022-11-01
-
-image: "images/featured.png"
-image-alt: "alt-text for featured image"
-resources:
-  - "images/how-to-publish-a-sketchnote.svg"
 
 params:
   drawing_tool: "notability"
   date_drawn: 2022-11-01
+  draw_type: "illustration/sketchnote"
   interactive: TRUE
+  main_alt_text: "This black and white illustration shows an iPad with a drawing app open to a sketchnote in the top left quadrant, which is linked by an arrow to a computer in the bottom left quadrant. The computer has three windows showing the logo of tools used to process a sketchnote: Inkscape, Quarto and file explorer. The computer is linked by an arrow to a webpage on the right side of the image with the title 'How to Publish a Sketchnote'."
   
 format:
   html:
     code-tools: true
 ---
 
-:::{.column-page}
-  <object data="images/how-to-publish-a-sketchnote.svg" class="sketchnote" aria-label="insert alt text here">
-  </object>
-:::
-
-:::{.callout-note collapse="true"}
-## Notes on source code
-  Toggle the `</> code` menu to see the source code for the `.qmd` file.
-  The `class="sketchnote"`
-:::
-
-This is some text about the sketchnote.
-
-Some links related to this image:
-- link to media (show/book/media etc.)
-
-:::{.callout-note collapse="true"}
-## Below is some parameterised text about the sketchnote
-  Uses values set in `params:` option in this documents YAML header. Toggle `</> code` to see source.
-:::
-
-`r if(params$interactive){"This sketchnote is interactive. Try clicking around various parts of the image"}`. Links in the image:
-
-- [Inkspace](https://inkscape.org)
-- [Quarto](https://quarto.org)
-
 ```{r params-prep}
 #| echo: false
 
-source("../../_params-dict.R")
+source(here::here("gallery/_params-dict.R")) # reads in table containing URL for drawing_tool
 
 # https://statisticsglobe.com/r-capitalize-first-letter-of-character-string-containing-multiple-words
 dtool <- gsub("(^|[[:space:]])([[:alpha:]])", "\\1\\U\\2",
@@ -56,7 +28,27 @@ dtool_url <- dtools[tolower(dtools$tool) == tolower(dtool), c("url")]
 dtool_link <- glue::glue("[{dtool}]({dtool_url})")
 
 ddate <- as.Date(params$date_drawn)
+
+dtype <- params$draw_type
+
 ```
 
-This sketchnote © `r format(ddate, "%Y")` was drawn with `r dtool_link` in `r format(ddate, "%b %Y")` and edited with [Inkscape](https://inkscape.org).
+:::{.column-page}
+{{< include ../../_figure-snippet.md >}}
+:::
 
+Description of `r dtype`:
+
+> `r params$main_alt_text`
+
+Links related to this `r dtype`:
+
+-   link to media (podcast/book/media etc.)
+
+`r if(params$interactive){"Links embedded in the sketchnote:"}`.
+
+-   embedded links
+
+This `r dtype` was drawn with `r dtool_link` in `r format(ddate, "%b %Y")` and edited with [Inkscape](https://inkscape.org). (Cynthia Huang © `r format(ddate, "%Y")`, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/))
+
+{{< include ../_template-notes.qmd >}}

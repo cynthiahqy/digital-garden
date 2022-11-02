@@ -9,7 +9,7 @@
    id="svg5"
    xml:space="preserve"
    inkscape:version="1.2.1 (9c6d41e4, 2022-07-14)"
-   sodipodi:docname="how-to-publish-a-sketchnote.svg"
+   sodipodi:docname="how-to-publish-a-sketchnote.svg.2022_11_02_00_14_12.0.svg"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -26,8 +26,8 @@
      inkscape:document-units="px"
      showgrid="false"
      inkscape:zoom="0.914906"
-     inkscape:cx="656.35158"
-     inkscape:cy="514.26048"
+     inkscape:cx="476.00519"
+     inkscape:cy="314.23993"
      inkscape:window-width="1910"
      inkscape:window-height="1205"
      inkscape:window-x="0"
@@ -73,8 +73,8 @@
          d="M 257.94922 288.55468 L 257.94922 390.20312 L 460.15624 390.20312 L 460.15624 288.55468 L 257.94922 288.55468 z "
          transform="matrix(0.26458334,0,0,0.26458334,-60.528893,55.621143)" /></a><a
        id="a1064"
-       target="_blank"
-       href="https://inkscape.org"><path
+       xlink:href="https://inkscape.org"
+       target="_blank"><path
          id="path371"
          style="stroke:none;fill:url(#pattern366)"
          d="M 106.02148 287.46093 L 106.02148 472.17968 L 252.48437 472.17968 L 252.48437 287.46093 L 106.02148 287.46093 z "
