@@ -1,12 +1,29 @@
-## Template Notes
+---
+title: "Templates Cheatsheet"
+subtitle: "Design Notes and How-To Guide for Gallery Posts"
+date-modified: 2022-11-03
 
-### Web Design with Quarto and SVG
+image-alt: "A black and white hand-drawn illustration of a web browser showing a webpage with the title 'How to Publish a Sketchnote'"
 
-::: {.callout-note collapse="true"}
-## View page source code
+format:
+  html:
+    toc: true
 
-Toggle the `</> code` menu to see `.qmd` file source code. The `class="sketchnote"` is defined in `styles.css`.
-:::
+engine: knitr
+---
+
+These notes accompany my templates for posting different types of visual content: 
+
+-   [sketchnotes](../sketchnotes/)
+-   dataviz (coming soon)
+
+They detail commonly used processes, relevant tools, and notes on design and accessibility considerations.
+
+This notes were last compiled on `r format(Sys.Date(), "%B %d, %Y")`.
+
+## Web Design
+
+### Quarto
 
 ::: {.callout-tip collapse="true"}
 ## Add parameterised text using `params:` field
@@ -36,6 +53,7 @@ Include these values every time:
 ```yaml
 title: "Sketchnote Page"
 subtitle: "for visual summaries, illustrations, etc."
+category: "illustrations/visual-summaries/conceptual-maps/dataviz/misc"
 date: 2022-11-01
 
 params:
@@ -66,6 +84,8 @@ format:
 ```
 :::
 
+### SVG
+
 ::: {.callout-tip collapse="true"}
 ## Add anchors (links) nodes to to .svg using Inkscape
 
@@ -85,21 +105,16 @@ format:
 :::{.callout-tip collapse="true"}
 ## HTML Snippet for embedding SVG using `<object>`
 
-The default snippet `../../_figure-snippet.md` assumes the sketchnote/svg is named `feature.svg`
+The default snippet assumes the sketchnote/svg is named `main.svg`
 
-To customise the display or caption of the sketchnote/illustration, or to display multiple SVGs, modify and include the snippet below in place of the `{{{< include ... >}}}` shortcode.
+To customise the display or caption of the sketchnote/illustration, or to display multiple SVGs, modify and include the snippet below in place of the `{{{< include ../../_figure-snippet.md >}}}` shortcode .
 
 - `.column-page` class is predefined by Quarto theme^[See [Article Layout](https://quarto.org/docs/authoring/article-layout.html#page-column)]
 - `<figure>` tag provides support for a `<figcaption>`^[See [HTML <figure> Tag reference](https://www.w3schools.com/tags/tag_figure.asp)]
 - `<object>` embeds the SVG, with `.sketchnote` class defined in `styles.css` specifying `type="image/svg+xml"` and other custom attributes
 
 ```{verbatim, file="../../_figure-snippet.md", lang="markdown"}
-:::{.column-page}
-<figure>
-  <object data="images/featured.svg" class="sketchnote"> </object>
-  <figcaption style="text-align: right">Cynthia Huang © `r format(ddate, "%Y")`, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)</figcaption>
-</figure>
-:::
+
 ```
 
 :::
@@ -150,6 +165,8 @@ Resources List:
 **2022-11-02**: At the moment, all alt-text is provided below the SVG figure. I don't think this is optimal for screen-readers but embedding alt-text is complicated and beyond me right now.^[See [discussion in Sketch Note Accessibility by Saara Kamppari-Miller](https://css-tricks.com/accessible-svgs/#aa-3-embed-svg-via-object-or-iframe)] My approach will likely evolve as I learn more html/css/svg concepts.
 :::
 
+### Alt Text Strategies
+
 :::{.callout-tip collapse="true"}
 ## Alt Text Strategy for Illustrations
 
@@ -191,3 +208,5 @@ Follow this recipe for image descriptions which provide context and some key det
 
 _Adapted from [Sketch Note Accessibility by Saara Kamppari-Miller](https://medium.com/@kamppari/sketch-note-accessibility-99c6ec5abd1a)_
 :::
+
+

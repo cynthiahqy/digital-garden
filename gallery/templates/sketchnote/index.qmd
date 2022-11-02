@@ -1,7 +1,8 @@
 ---
 title: "Sketchnote Page"
 subtitle: "for visual summaries, illustrations, etc."
-date: 2022-11-01
+category: "illustrations"
+date-modified: 2022-11-03
 
 params:
   drawing_tool: "notability"
@@ -9,10 +10,6 @@ params:
   draw_type: "illustration/sketchnote"
   interactive: TRUE
   main_alt_text: "This black and white illustration shows an iPad with a drawing app open to a sketchnote in the top left quadrant, which is linked by an arrow to a computer in the bottom left quadrant. The computer has three windows showing the logo of tools used to process a sketchnote: Inkscape, Quarto and file explorer. The computer is linked by an arrow to a webpage on the right side of the image with the title 'How to Publish a Sketchnote'."
-  
-format:
-  html:
-    code-tools: true
 ---
 
 ```{r params-prep}
@@ -51,4 +48,12 @@ Links related to this `r dtype`:
 
 This `r dtype` was drawn with `r dtool_link` in `r format(ddate, "%b %Y")` and edited with [Inkscape](https://inkscape.org). (Cynthia Huang © `r format(ddate, "%Y")`, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/))
 
-{{< include ../_template-notes.qmd >}}
+## How to Use this Template
+
+::: {.callout-note collapse="true"}
+## View page source code
+
+Toggle the `</> code` menu (if available) to see `.qmd` file source code.
+:::
+
+See [Templates Cheatsheet](../about/) for explanation of source code, design notes, and steps for preparing the sketchnote.

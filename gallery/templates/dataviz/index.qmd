@@ -8,6 +8,8 @@ image-alt: "alt-text for featured image"
 format:
   html:
     code-tools: true
+
+draft: true
 ---
 
 :::{.callout-note collapse="true" appearance="simple"}

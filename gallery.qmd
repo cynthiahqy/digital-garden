@@ -22,8 +22,10 @@ listing:
     contents:
       - "gallery/templates/"
     type: grid
+    image-height: 200px
     grid-item-align: center
     fields: [image, title]
+    sort: date-modified desc
 page-layout: full
 #title-block-banner: true
 ---

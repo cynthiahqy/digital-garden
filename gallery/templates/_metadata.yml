@@ -1,0 +1,7 @@
+## to snoop the code
+format:
+  html:
+    code-tools: true
+    
+## bind to knitr engine
+engine: knitr
