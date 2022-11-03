@@ -19,7 +19,7 @@ These notes accompany my templates for posting different types of visual content
 
 They detail commonly used processes, relevant tools, and notes on design and accessibility considerations.
 
-This notes were last compiled on `r format(Sys.Date(), "%B %d, %Y")`.
+_This page was last compiled on `r format(Sys.Date(), "%B %d, %Y")`._
 
 ## Web Design
 
@@ -28,14 +28,7 @@ This notes were last compiled on `r format(Sys.Date(), "%B %d, %Y")`.
 ::: {.callout-tip collapse="true"}
 ## Add parameterised text using `params:` field
 
-Set values in the `params:` field of the YAML header -- e.g.
-
-``` yaml
-params:
-  drawing_tool: "notability"
-  date_drawn: 2022-11-01
-  interactive: TRUE
-```
+Set values in the `params:` field of the YAML header.
 
 This is an inline code chunk for conditional inclusion of text:
 
@@ -55,7 +48,10 @@ title: "Sketchnote Page"
 subtitle: "for visual summaries, illustrations, etc."
 category: "illustrations/visual-summaries/conceptual-maps/dataviz/misc"
 date: 2022-11-01
+```
 
+These are used to generate text:
+```yaml
 params:
   drawing_tool: "notability/concepts" ## must be in _params-dict.R ##
   date_drawn: 2022-11-01
@@ -107,13 +103,13 @@ format:
 
 The default snippet assumes the sketchnote/svg is named `main.svg`
 
-To customise the display or caption of the sketchnote/illustration, or to display multiple SVGs, modify and include the snippet below in place of the `{{{< include ../../_figure-snippet.md >}}}` shortcode .
+To customise the display or caption of the sketchnote/illustration, or to display multiple SVGs, modify and include the snippet below in place of the `{{{< include ../../_snippet-main-svg.md >}}}` shortcode .
 
 - `.column-page` class is predefined by Quarto theme^[See [Article Layout](https://quarto.org/docs/authoring/article-layout.html#page-column)]
 - `<figure>` tag provides support for a `<figcaption>`^[See [HTML <figure> Tag reference](https://www.w3schools.com/tags/tag_figure.asp)]
 - `<object>` embeds the SVG, with `.sketchnote` class defined in `styles.css` specifying `type="image/svg+xml"` and other custom attributes
 
-```{verbatim, file="../../_figure-snippet.md", lang="markdown"}
+```{verbatim, file="../../_snippet-main-svg.qmd", lang="markdown"}
 
 ```
 

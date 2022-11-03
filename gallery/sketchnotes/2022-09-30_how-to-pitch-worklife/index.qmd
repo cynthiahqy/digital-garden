@@ -1,59 +1,28 @@
 ---
 title: "How to Pitch Your Best Ideas"
-image: "images/featured.png"
-image-alt: "sketchnote of the podcast episode How to Pitch Your Best Ideas from WorkLife with Adam Grant"
+subtitle: "from WorkLife with Adam Grant"
+category: "visual-summaries"
 date: 2022-10-31
-format:
-  html:
-    code-tools: true
-resources:
-  - "how-to-pitch.svg"
+
 params:
   drawing_tool: "notability"
+  date_drawn: 2022-09-30
+  draw_type: "visual summary"
+  interactive: TRUE
+  main_alt_text: "Black and white hand-drawn visual notes summarising the episode 'How to Pitch Your Best Ideas' from the podcast 'WorkLife with Adam Grant'. The top half of the sketchnote illustrates three myths about making good elevator pitches. The bottom half summarises advice on making ongoing pitches. The key takeaway is written at the bottom of the sketchnote: 'Remember, everyone want you to pitch them the best idea they've ever heard'"
+
+resources:
+  - "how-to-pitch.svg"
 ---
 
-As .png:
-![](images/how-to-pitch_worklife-adam-grant.png)
+{{< include ../../_snippet-main-png.qmd >}}
 
-As `<img>` 9from`![]()`) inside `column-page`:
+- [WorkLife with Adam Grant: A TED original podcast](https://www.ted.com/podcasts/worklife)
 
-- simple to include but anchors (hyperlinks) don't work
-- converts to `<img class="img-fluid">`
-
-:::{.column-page}
-![](images/how-to-pitch.svg)
-:::
-
-As object inside `.column-page` div:
-
-- hyperlink works but size doesn't adjust correctly
-- fixed it by adding `width=100%` attribute to match the `.img-fluid` class defined in [quarto-cli/~/_bootstrap-rules.scss](https://github.com/quarto-dev/quarto-cli/blob/6c44f1181301d1241cd48e2bb7a5253d370cfe15/src/resources/formats/html/bootstrap/_bootstrap-rules.scss#L473-L481)
-
-:::{.column-page style="border: solid black"}
-  <object type="image/svg+xml" data="images/how-to-pitch.svg" width=80% style= "border: solid blue">
-  
-  Sketchnote of How to Pitch Your Best Ideas episode on Work Life with Adam Grant   
-  <!-- fallback image in CSS -->
-
-  </object>  
-  
-  <object type="image/svg+xml" data="images/how-to-pitch.svg" class="img-fluid">
-  
-  Sketchnote of How to Pitch Your Best Ideas episode on Work Life with Adam Grant   
-  <!-- fallback image in CSS -->
-
-  </object>  
-:::
-
-
-
-
-
-About:
-
-
-
-Links to:
+Other links related to this `r dtype`:
 
 - [Episode Page](https://www.ted.com/talks/worklife_with_adam_grant_how_to_pitch_your_best_ideas?referrer=playlist-worklife_with_adam_grant_season_5)
 - [Episode Transcript](https://www.ted.com/podcasts/worklife/how-to-pitch-your-best-ideas-transcript)
+
+{{< include ../../_snippet-drawtools.qmd >}}
+

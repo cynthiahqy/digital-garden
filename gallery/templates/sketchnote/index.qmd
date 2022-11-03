@@ -12,48 +12,25 @@ params:
   main_alt_text: "This black and white illustration shows an iPad with a drawing app open to a sketchnote in the top left quadrant, which is linked by an arrow to a computer in the bottom left quadrant. The computer has three windows showing the logo of tools used to process a sketchnote: Inkscape, Quarto and file explorer. The computer is linked by an arrow to a webpage on the right side of the image with the title 'How to Publish a Sketchnote'."
 ---
 
-```{r params-prep}
-#| echo: false
+{{< include ../../_snippet-main-svg.qmd >}}
 
-source(here::here("gallery/_params-dict.R")) # reads in table containing URL for drawing_tool
+-   [Inkscape](https://inkscape.org)
+-   [Quarto](https://quarto.org)
 
-# https://statisticsglobe.com/r-capitalize-first-letter-of-character-string-containing-multiple-words
-dtool <- gsub("(^|[[:space:]])([[:alpha:]])", "\\1\\U\\2",
-              params$drawing_tool,
-              perl = TRUE) ## to uppercase
-dtool_url <- dtools[tolower(dtools$tool) == tolower(dtool), c("url")]
-dtool_link <- glue::glue("[{dtool}]({dtool_url})")
 
-ddate <- as.Date(params$date_drawn)
-
-dtype <- params$draw_type
-
-```
-
-:::{.column-page}
-{{< include ../../_figure-snippet.md >}}
-:::
-
-Description of `r dtype`:
-
-> `r params$main_alt_text`
-
-Links related to this `r dtype`:
+Other links related to this `r dtype`:
 
 -   link to media (podcast/book/media etc.)
 
-`r if(params$interactive){"Links embedded in the sketchnote:"}`.
-
--   embedded links
-
-This `r dtype` was drawn with `r dtool_link` in `r format(ddate, "%b %Y")` and edited with [Inkscape](https://inkscape.org). (Cynthia Huang © `r format(ddate, "%Y")`, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/))
+{{< include ../../_snippet-drawtools.qmd >}}
 
 ## How to Use this Template
 
 ::: {.callout-note collapse="true"}
 ## View page source code
 
-Toggle the `</> code` menu (if available) to see `.qmd` file source code.
+Toggle the `</> code` menu to see `.qmd` file source code.
+
 :::
 
-See [Templates Cheatsheet](../about/) for explanation of source code, design notes, and steps for preparing the sketchnote.
+See [Templates Cheatsheet](../about/) for explanation of source code, design notes, and steps for preparing the graphics and alt-text.

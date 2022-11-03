@@ -1,0 +1,30 @@
+```{r params-prep}
+#| echo: false
+
+source(here::here("gallery/_params-dict.R")) # reads in table containing URL for drawing_tool
+
+# https://statisticsglobe.com/r-capitalize-first-letter-of-character-string-containing-multiple-words
+dtool <- gsub("(^|[[:space:]])([[:alpha:]])", "\\1\\U\\2",
+              params$drawing_tool,
+              perl = TRUE) ## to uppercase
+dtool_url <- dtools[tolower(dtools$tool) == tolower(dtool), c("url")]
+dtool_link <- glue::glue("[{dtool}]({dtool_url})")
+
+ddate <- as.Date(params$date_drawn)
+
+dtype <- params$draw_type
+
+```
+
+:::{.column-page}
+<figure>
+  <object data="images/main.svg" class="sketchnote"> </object>
+  <figcaption style="text-align: right">Cynthia Huang © `r format(ddate, "%Y")`, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)</figcaption>
+</figure>
+:::
+
+Description of `r dtype`:
+
+> `r params$main_alt_text`
+
+`r if(params$interactive) {"Links embedded in the graphic:"}`
