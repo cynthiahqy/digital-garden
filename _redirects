@@ -2,4 +2,4 @@
 # http and https need separate rules if you don’t force_ssl!
 http://blog.cynthiahqy.com/* https://www.cynthiahqy.com/posts/:splat 301!
 https://blog.cynthiahy.com/* https://www.cynthiahqy.com/posts/:splat 301!
-https://blog.cynthiahy.com https://www.cynthiahqy.com/blog :splat 301!
+https://blog.cynthiahy.com https://www.cynthiahqy.com/blog 301!
