@@ -1,8 +1,12 @@
 ---
 title: "How to Pitch Your Best Ideas"
-subtitle: "from WorkLife with Adam Grant"
-category: "visual-summaries"
+based-on: ":headphones: WorkLife with Adam Grant"
+categories: podcasts 
 date: 2022-10-31
+image: "images/featured.png"
+image-alt: "A hand-drawn illustration/sketchnote described in this article"
+resources:
+  - "images/main.svg"
 
 params:
   drawing_tool: "notability"
@@ -10,17 +14,14 @@ params:
   draw_type: "visual summary"
   interactive: TRUE
   main_alt_text: "Black and white hand-drawn visual notes summarising the episode 'How to Pitch Your Best Ideas' from the podcast 'WorkLife with Adam Grant'. The top half of the sketchnote illustrates three myths about making good elevator pitches. The bottom half summarises advice on making ongoing pitches. The key takeaway is written at the bottom of the sketchnote: 'Remember, everyone want you to pitch them the best idea they've ever heard'"
-
-resources:
-  - "how-to-pitch.svg"
 ---
 
+{{< include ../../_snippet-params-prep.qmd >}}
 {{< include ../../_snippet-main-png.qmd >}}
 
+<!-- links -->
+
 - [WorkLife with Adam Grant: A TED original podcast](https://www.ted.com/podcasts/worklife)
-
-Other links related to this `r dtype`:
-
 - [Episode Page](https://www.ted.com/talks/worklife_with_adam_grant_how_to_pitch_your_best_ideas?referrer=playlist-worklife_with_adam_grant_season_5)
 - [Episode Transcript](https://www.ted.com/podcasts/worklife/how-to-pitch-your-best-ideas-transcript)
 

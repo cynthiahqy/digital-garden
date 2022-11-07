@@ -1,5 +1,5 @@
 ---
-title: "Templates Cheatsheet"
+title: "Gallery Cheatsheet"
 subtitle: "Design Notes and How-To Guide for Gallery Posts"
 date-modified: 2022-11-03
 
@@ -62,14 +62,14 @@ params:
 
 Include only if you want to override the default values `gallery/_metadata.yml`: 
 
-- just save images/objects using the correct name (`featured.*`)
+- just save images/objects using the correct name (`featured.*`, `main.*`)
 - add any resources embedded using HTML tags to the `resources:` list. If not, they won't get copied into the output directory.
 
 ```yaml
 image: "images/featured.png"
 image-alt: "A hand-drawn illustration/sketchnote described in this article"
 resources:
-  - "images/featured.svg"
+  - "images/main.svg"
 ```
 
 Specific to template posts:
@@ -164,7 +164,7 @@ Resources List:
 ### Alt Text Strategies
 
 :::{.callout-tip collapse="true"}
-## Alt Text Strategy for Illustrations
+## Alt Text Strategy for Conceptual Illustrations
 
 Use some or all of the following elements to describe the purpose, content and "flow" of the illustration. The description can be more comprehensive compared to a sketchnote.
 
@@ -204,5 +204,3 @@ Follow this recipe for image descriptions which provide context and some key det
 
 _Adapted from [Sketch Note Accessibility by Saara Kamppari-Miller](https://medium.com/@kamppari/sketch-note-accessibility-99c6ec5abd1a)_
 :::
-
-

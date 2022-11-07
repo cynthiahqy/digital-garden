@@ -1,10 +1,16 @@
 ---
-title: "RSEAA Strategy & Policy Panel"
-image: "RSE-Unconf-2022_01.png"
-image-alt: "sketchnote of discussions at the Research Software Engineering Strategy & Policy Panel at the 2022 RSEAA Unconference"
-date: 2022-10-31
+title: "Research Software Strategy & Policy Panel"
+subtitle: ":date: [RSEAA Unconference 2022](https://rse-aunz.github.io/2022-Asia-Australia-unconference/)"
+category: events
+date: 2022-11-20
+draft: TRUE
+
 params:
   drawing_tool: "notability"
+  date_drawn: 2022-09-16
+  draw_type: "visual summary"
+  interactive: FALSE
+  main_alt_text: 
 ---
 
 :::{.column-page}
@@ -13,6 +19,7 @@ params:
 :::
 
 Links:
+
 - [Key Takeaways Board on Padlet](https://padlet.com/rse2022/longform)
 - [RSEAA program information](https://rse-aunz.github.io/2022-Asia-Australia-unconference/)
 - [Unconference Notes](https://docs.google.com/document/d/1FCCV8i5PCJ9EooXGE1xVU8_VPKIAGpI_p9VLK-JWZj0/edit#)

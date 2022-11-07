@@ -1,8 +1,10 @@
 ---
 title: "Sketchnote Page"
-subtitle: "for visual summaries, illustrations, etc."
+subtitle: "Example for visual summaries, illustrations, etc."
 category: "illustrations"
 date-modified: 2022-11-03
+
+## images paths are specified in _metadata.yml
 
 params:
   drawing_tool: "notability"
@@ -12,11 +14,11 @@ params:
   main_alt_text: "This black and white illustration shows an iPad with a drawing app open to a sketchnote in the top left quadrant, which is linked by an arrow to a computer in the bottom left quadrant. The computer has three windows showing the logo of tools used to process a sketchnote: Inkscape, Quarto and file explorer. The computer is linked by an arrow to a webpage on the right side of the image with the title 'How to Publish a Sketchnote'."
 ---
 
+{{< include ../../_snippet-params-prep.qmd >}}
 {{< include ../../_snippet-main-svg.qmd >}}
 
 -   [Inkscape](https://inkscape.org)
 -   [Quarto](https://quarto.org)
-
 
 Other links related to this `r dtype`:
 
@@ -24,13 +26,10 @@ Other links related to this `r dtype`:
 
 {{< include ../../_snippet-drawtools.qmd >}}
 
-## How to Use this Template
-
 ::: {.callout-note collapse="true"}
-## View page source code
+## How to Use this Template
 
 Toggle the `</> code` menu to see `.qmd` file source code.
 
-:::
+See [Templates Cheatsheet](../about/) for explanation of source code, design notes, and steps for preparing the graphics and alt-text.  :::
 
-See [Templates Cheatsheet](../about/) for explanation of source code, design notes, and steps for preparing the graphics and alt-text.
