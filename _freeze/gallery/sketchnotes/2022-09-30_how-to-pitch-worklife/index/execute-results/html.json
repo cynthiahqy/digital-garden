@@ -1,0 +1,14 @@
+{
+  "hash": "fe79a4b221a8f8b3d20c812c00e3bec8",
+  "result": {
+    "markdown": "---\ntitle: \"How to Pitch Your Best Ideas\"\nbased-on: \":headphones: WorkLife with Adam Grant\"\ncategories: podcasts \ndate: 2022-10-31\nimage: \"images/featured.png\"\nimage-alt: \"A hand-drawn illustration/sketchnote described in this article\"\nresources:\n  - \"images/main.svg\"\n\nparams:\n  drawing_tool: \"notability\"\n  date_drawn: 2022-09-30\n  draw_type: \"visual summary\"\n  interactive: TRUE\n  main_alt_text: \"Black and white hand-drawn visual notes summarising the episode 'How to Pitch Your Best Ideas' from the podcast 'WorkLife with Adam Grant'. The top half of the sketchnote illustrates three myths about making good elevator pitches. The bottom half summarises advice on making ongoing pitches. The key takeaway is written at the bottom of the sketchnote: 'Remember, everyone want you to pitch them the best idea they've ever heard'\"\n---\n::: {.cell}\n\n:::\n\n\n:::{.COLUmn-page}\n<figure>\n  <img src=\"images/main.png\" class=\"sketchnote\">\n  <figcaption style=\"text-align: right\">Cynthia Huang © 2022, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)</figcaption>\n</figure>\n:::\n\nDescription of visual summary:\n\n> Black and white hand-drawn visual notes summarising the episode 'How to Pitch Your Best Ideas' from the podcast 'WorkLife with Adam Grant'. The top half of the sketchnote illustrates three myths about making good elevator pitches. The bottom half summarises advice on making ongoing pitches. The key takeaway is written at the bottom of the sketchnote: 'Remember, everyone want you to pitch them the best idea they've ever heard'\n\nLinks related to this visual summary:\n\n\n\n\n<!-- links -->\n\n- [WorkLife with Adam Grant: A TED original podcast](https://www.ted.com/podcasts/worklife)\n- [Episode Page](https://www.ted.com/talks/worklife_with_adam_grant_how_to_pitch_your_best_ideas?referrer=playlist-worklife_with_adam_grant_season_5)\n- [Episode Transcript](https://www.ted.com/podcasts/worklife/how-to-pitch-your-best-ideas-transcript)\n\nThis visual summary was drawn with [Notability](https://notability.com) in Sep 2022 and edited with [Inkscape](https://inkscape.org). (Cynthia Huang © 2022, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/))\n\n\n",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

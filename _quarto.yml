@@ -6,6 +6,8 @@ project:
   resources: 
     - "_redirects"
 
+execute:
+  freeze: auto 
 
 website:
   title: "Cynthia Huang"
