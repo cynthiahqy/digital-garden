@@ -5,13 +5,30 @@ date: "2022-05-16"
 categories:
   - markdown
   - text-editing
+  - quarto
 tags: 
   - emoji
   - quarto
   - rstudio visual mode
 bibliography: references.bib
 image: "https://blog.emojipedia.org/content/images/size/w1600/2022/05/Emojipedia-Google-Noto-Emoji-Opening-Image.jpg"
+
+html:
+  from: markdown+emoji
 ---
+
+:::{.callout-tip}
+## Quarto extension for emoji shortcodes
+
+Since publishing this article, I have since discovered that emoji shortcodes can be added as an [rendering extension](https://quarto.org/docs/reference/formats/html.html#rendering) to the html format as follows:
+
+```yaml
+html:
+  from: markdown+emoji
+```
+
+This means you can write `:smile:` in your document, and it will render to :smile:
+:::
 
 I use emojis everywhere. They make me happy. I use them to quickly capture sparks of feelings and idea, to decorate otherwise boring plain-text, to categorise things like to-do tasks and time-blocks, and in my journal to write "emoji stories" about things that happen in my life[^1]. For example, this emoji story is about making seafood ravioli and lasagne from scratch with my partner: 🐟🦐🦪➕👨🏼‍🍳🧑🏻‍🍳🔜🍝🥟.
 
@@ -33,9 +50,7 @@ Shortcodes are supported in most extended markdown formats and markdown editors:
 
 -   Available with auto-complete prompts in applications like [Slack](https://slack.com/intl/en-au/help/articles/202931348-Use-emoji-and-reactions), [RStudio Visual Mode](https://rstudio.github.io/visual-markdown-editing/content.html#emojis) and [Notion](https://www.notion.so/Learn-the-shortcuts-66e28cec810548c3a4061513126766b0#233636b0d3d043c9b08416aec33f1bbc).
 -   Some platforms like Slack even support [custom shortcode aliases and additional emojis](https://slack.com/intl/en-gb/help/articles/206870177-Add-customised-emoji-and-aliases-to-your-workspace).
--   The [`{emo}`](https://github.com/hadley/emo) R package provides support for adding emojis as in-line code chunks to Rmarkdown via shortcode. E.g. `` `r emo::ji("smile")` `` renders to `r emo::ji("smile")`.[^3]
-
-[^3]: I tend not to use this method though because it requires executing R code.
+-   The [`{emo}`](https://github.com/hadley/emo) R package USED TO provide support for adding emojis as in-line code chunks to Rmarkdown via shortcode (but doesn't work for R version 4.2)
 
 **PRO:**
 
