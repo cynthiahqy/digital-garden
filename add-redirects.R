@@ -1,3 +1,5 @@
+# website section redirects
+
 # list names of gallery folders
 posts <- list.dirs(
   path = here::here("gallery/sketchnotes"),
@@ -12,5 +14,7 @@ slugs <- gsub("^.*_", "", posts)
 redirects <- paste0("/", slugs, " ", "/gallery/sketchnotes/", posts)
 
 # write the _redirect file
-writeLines(redirects,
-           file.path(Sys.getenv("QUARTO_PROJECT_OUTPUT_DIR"), "_redirects"))
+write(redirects,
+      file=file.path(Sys.getenv("QUARTO_PROJECT_OUTPUT_DIR"), "_redirects"),
+      append=TRUE
+)

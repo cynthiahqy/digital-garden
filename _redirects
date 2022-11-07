@@ -1,5 +1,16 @@
 # see: https://docs.netlify.com/routing/redirects/redirect-options/#domain-level-redirects
-# http and https need separate rules if you don’t force_ssl!
-http://blog.cynthiahqy.com/* https://www.cynthiahqy.com/posts/:splat 301!
-https://blog.cynthiahy.com/* https://www.cynthiahqy.com/posts/:splat 301!
-https://blog.cynthiahy.com https://www.cynthiahqy.com/blog 301!
+
+# ---- website sections ----
+
+https://blog.cynthiahqy.com https://www.cynthiahqy.com/blog 301!
+https://gallery.cynthiahqy.com https://www.cynthiahqy.com/gallery 301!
+
+# ---- post slugs ----
+http://blog.cynthiahqy.com/* https://www.cynthiahqy.com/posts/2022/:splat 301!
+https://blog.cynthiahqy.com/* https://www.cynthiahqy.com/posts/2022/:splat 301!
+
+http://gallery.cynthiahqy.com/* https://www.cynthiahqy.com/gallery/:splat 301!
+https://gallery.cynthiahqy.com/* https://www.cynthiahqy.com/gallery/:splat 301!
+
+/gallery/* /gallery/sketchnotes/2022/:splat 301!
+
