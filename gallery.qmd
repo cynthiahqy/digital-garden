@@ -7,24 +7,20 @@ listing:
     type: grid
     image-height: 350px
     grid-columns: 2
-    fields: [image, title]
-    grid-item-align: center
-    sort: date asc
-  - id: mocs
-    contents: "gallery/mocs/"
-    type: grid
-    image-height: 350px
-    grid-columns: 2
-    fields: [image, title]
+    fields: [image, title, based-on]
+    field-display-names:
+      based-on: "from:"
+    categories: true
     grid-item-align: center
     sort: date asc
   - id: templates
     contents:
       - "gallery/templates/"
-    type: grid
+    type: default 
+    image-align: left
     image-height: 200px
-    grid-item-align: center
-    fields: [image, title]
+    image-placeholder: "templates/placeholder.png"
+    fields: [image, title, description]
     sort: date-modified desc
 page-layout: full
 #title-block-banner: true
@@ -32,24 +28,21 @@ page-layout: full
 
 **Visual Thinking / Conceptual Illustration / Information Design** by yours truly.
 
-:::{.callout}
-## Attribution
-{{< include gallery/_attribution.md >}}
-:::
-
 ## Sketchnotes
 
 Visual notes which summarise lectures, talks, podcast episodes, youtube videos, books, and more.
 
+:::{.callout}
+## Attribution
+{{< include gallery/_snippet-attribution.md >}}
+:::
+
 :::{#sketchnotes}
 :::
 
-## Maps of Concepts
+## Design Notes and Templates
 
-:::{#mocs}
-:::
-
-## Templates
+Notes to self on sketching, Inkscape, Quarto, SVG, CSS/HTML, web accessibility.^[Disclaimer: the primary audience for these notes is myself, and I make no guarantees about accuracy or quality of the content inside.]
 
 :::{#templates}
 :::
