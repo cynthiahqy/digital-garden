@@ -5,8 +5,6 @@ project:
     - "!posts/drafts/**/*.qmd"
   resources: 
     - "_redirects"
-  post-render:
-    - add-redirects.R
 
 execute:
   freeze: auto 
