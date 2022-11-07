@@ -31,5 +31,8 @@ Other links related to this `r dtype`:
 
 Toggle the `</> code` menu to see `.qmd` file source code.
 
-See [Templates Cheatsheet](../about/) for explanation of source code, design notes, and steps for preparing the graphics and alt-text.  :::
+See [Templates Cheatsheet](../about/) for explanation of source code, design notes, and steps for preparing the graphics and alt-text. 
+
+:::
+
 
