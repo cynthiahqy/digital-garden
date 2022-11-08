@@ -17,3 +17,13 @@ for post in $posts
 do
     echo gallery/${${post:t}##*_} ${post:1} >> _redirects
 done
+
+## gallery templates
+
+echo "## template posts" >> _redirects
+posts=($(find ./gallery/templates -type d -depth 1))
+
+for post in $posts
+do
+    echo gallery/${post:t} ${post:1} >> _redirects
+done

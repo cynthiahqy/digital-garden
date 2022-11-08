@@ -10,10 +10,13 @@ https://blog.cynthiahqy.com/* https://www.cynthiahqy.com/posts/:splat 301!
 
 http://gallery.cynthiahqy.com/* https://www.cynthiahqy.com/gallery/:splat 301!
 https://gallery.cynthiahqy.com/* https://www.cynthiahqy.com/gallery/:splat 301!
-
 # ---- from add-redirects.zsh ----
 ## date-free sketchnote slugs
 gallery/burnout-healthy-gamer /gallery/sketchnotes/2022-03-20_burnout-healthy-gamer
 gallery/how-to-pitch-worklife /gallery/sketchnotes/2022-09-30_how-to-pitch-worklife
 gallery/RSE-unconf-2022 /gallery/sketchnotes/2022-09-16_RSE-unconf-2022
-
+## template posts
+gallery/dataviz /gallery/templates/dataviz
+gallery/main-sketchnote /gallery/templates/main-sketchnote
+gallery/sketchnote /gallery/templates/sketchnote
+gallery/cheatsheet /gallery/templates/cheatsheet
