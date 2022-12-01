@@ -16,6 +16,12 @@ image-alt: "thumbnails of slides from the R Markdown and friends workshop"
 
 ![Your friendly publishing robot as sketched by yours truly.](images/publishing-robot-cynthiahqy.png){fig-alt="A robot with four arms, no legs, three hex-stickers on its rectangular chest, and the pandoc logo on its two antennae. At the end of the top left arm it is holding a rectangular document with the title\"ESSAY.RMD\" and some example content. Underneath in the bottom left arm it is holding a folder with the label \"Resources\" on it. On the right side, its top right arm has \"LATEX\" written on it and is holding a document with the title \"ESSAY.PDF\". Underneath in its bottom right arm it holds a blank document. Both documents on the right have squiggles and squares in them to show content. The hex-stickers on its chest are for knitr, bookdown and rmarkdown."}
 
+
+::: {.callout-type collapse="false" style="note"}
+  This is a blog-post about teaching R Markdown, not for learning R Markdown. If you're looking to learn R Markdown, a good place to start is this [RStudio guide](https://rmarkdown.rstudio.com/lesson-1.html)
+:::
+
+
 I recently taught a short 2-hour hybrid workshop on R Markdown. Rather than deliver a standard *"open RStudio and knit a new document"* walk-through, I wanted to orientate students in the vast landscape of markdown based publishing tools, using R Markdown as a starting point. I tried to balance confidence building "try-it-yourself" style exercises with the excitement of exploring more advanced features. I also gave myself just one day[^1] to prepare for the workshop and experiment with HTML slides. In the spirit of "learning in public" and for the benefit of future me, I thought I'd share some reflections.
 
 [^1]: I ended up spending about 1.5 days on preparation, so I was close...
