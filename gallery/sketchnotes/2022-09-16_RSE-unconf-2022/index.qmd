@@ -1,10 +1,9 @@
 ---
 title: "Research Software Strategy & Policy Panel"
-subtitle: ":date: [RSEAA Unconference 2022](https://rse-aunz.github.io/2022-Asia-Australia-unconference/)"
+based-on: ":date: [RSEAA Unconference 2022](https://rse-aunz.github.io/2022-Asia-Australia-unconference/)"
 category: events
 date: 2022-11-20
-draft: TRUE
-
+image: "images/panel-notes.png"
 params:
   drawing_tool: "notability"
   date_drawn: 2022-09-16
@@ -13,17 +12,16 @@ params:
   main_alt_text: 
 ---
 
-:::{.column-page}
-  ![](RSE-Unconf-2022_01.png)
-  ![](RSE-Unconf-2022_02.png)
+::: column-page
+![](images/panel-notes.png)
 :::
 
 Links:
 
-- [Key Takeaways Board on Padlet](https://padlet.com/rse2022/longform)
-- [RSEAA program information](https://rse-aunz.github.io/2022-Asia-Australia-unconference/)
-- [Unconference Notes](https://docs.google.com/document/d/1FCCV8i5PCJ9EooXGE1xVU8_VPKIAGpI_p9VLK-JWZj0/edit#)
+-   [Key Takeaways Board on Padlet](https://padlet.com/rse2022/longform)
+-   [RSEAA program information](https://rse-aunz.github.io/2022-Asia-Australia-unconference/)
+-   [Unconference Notes](https://docs.google.com/document/d/1FCCV8i5PCJ9EooXGE1xVU8_VPKIAGpI_p9VLK-JWZj0/edit#)
 
-Notes from this event:
+Panel at this event:
 
 ![](https://rse-aunz.github.io/assets/RSEAA031__Flyer_Panel.png)
