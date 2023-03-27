@@ -7,7 +7,7 @@ project:
     - "_redirects"
 
 execute:
-  freeze: auto 
+  freeze: true
 
 website:
   title: "Cynthia Huang"
