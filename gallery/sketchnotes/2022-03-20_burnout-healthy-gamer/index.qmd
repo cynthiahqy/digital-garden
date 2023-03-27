@@ -10,7 +10,5 @@ params:
   date_drawn: 2022-11-01
   draw_type: "visual summary" 
   interactive: TRUE
-  main_alt_text: "" ## write this using the relevant alt-text strategy ##arams:
-  drawing_tool: "notability"
+  main_alt_text: ""
 ---
-
