@@ -6,3 +6,11 @@
 	width: 100%;
 	style: "border: solid black"
 }
+
+
+/*---cv---*/
+
+.cvdate {
+  float: right;
+  font-style: italic
+}

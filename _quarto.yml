@@ -21,6 +21,7 @@ website:
     right:
       - blog.qmd
       - gallery.qmd
+      - CV.qmd
       - icon: github
         href: https://github.com/cynthiahqy
       - icon: twitter
