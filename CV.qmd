@@ -92,8 +92,19 @@ Worked collaboratively to deliver work in Corporate Finance, Forensic Investigat
 -   Digital marketing strategy and implementation plan including identification of key platforms, competitor and industry analysis, target client activity, resourcing, and risk analysis.
 -   People and Culture Review including recommendations on intranet design, staff engagement, and internal communication tools and policy.
 
-## WORKSHOPS & TALKS
+## PRESENTATIONS AND WORKSHOPS
 
--   Workshop: "Writing academic papers with Rmarkdown and friends" (9 Aug 2022, Monash University)
--   Talk: "Misadventures with Reproducibility in R" (30 Nov 2022, R Ladies Melbourne Meetup)
--   Co-Host of The Random Sample Podcast
+```{r echo=FALSE}
+other_exp <- tibble::tribble(
+  ~type, ~title, ~date, ~host, ~link,
+  "Talk", "Misadventures with Reproducibility in R", 20221130, "R Ladies Melbourne Meetup", "https://github.com/cynthiahqy/rladies-2022-11",
+  "Talk", "Quarto Websites as Research Compendiums", 20220816, "Monash EBS Data Science Research Software Study Group", "https://github.com/cynthiahqy/quarto-wiki-template",
+  "Talk", "Designing R Packages", 20221004, "Monash EBS Data Science Research Software Study Group", "https://github.com/cynthiahqy/design-r-magic_2022-10",
+  "Workshop", "Writing academic papers with Rmarkdown and friends", 20220909, "Dept. of Economics, Monash University", "https://www.cynthiahqy.com/posts/r-markdown-and-friends/"
+)
+```
+
+-   Talk: [Misadventures with Reproducibility in R](https://github.com/cynthiahqy/rladies-2022-11) (30 Nov 2022, R Ladies Melbourne Meetup)
+-   Talk: [Designing R Packages](https://github.com/cynthiahqy/design-r-magic_2022-10) (4 Oct 2022, Monash EBS Data Science Research Software Study Group)
+-   Talk: [Quarto Websites as Research Compendiums](https://github.com/cynthiahqy/quarto-wiki-template) (16 Aug 2022, Monash EBS Data Science Research Software Study Group)
+-   Workshop: [Writing academic papers with Rmarkdown and friends](https://www.cynthiahqy.com/posts/r-markdown-and-friends/) (9 Aug 2022, Monash University)
