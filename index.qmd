@@ -15,6 +15,6 @@ about:
       href: https://github.com/cynthiahqy
 ---
 
-🧙‍♀️ I am a hat collector with pronouns she/her. My many hats include economist, data scientist, research software engineer, teacher. Currently, my main hat is PhD student at Monash University working on principles and methods for data preparation and preprocessing. My favourite side hats at the moment are co-host of the [Random Sample](https://www.therandomsample.com.au/) podcast, and [Quarto](https://quarto.org) evangelist and tinkerer.
+🧙‍♀️ I am a hat collector with pronouns she/her. My many hats include economist, data scientist, research software engineer, teacher. Currently, my main hat is PhD student at Monash University working on principles and methods for data preparation and preprocessing, under the supervision of [Rob J Hyndman](https://robjhyndman.com), [Emi Tanaka](https://emitanaka.org) and [Sarah Goodwin](https://research.monash.edu/en/persons/sarah-goodwin). My favourite side hats at the moment are co-host of the [Random Sample](https://www.therandomsample.com.au/) podcast, and [Quarto](https://quarto.org) evangelist and tinkerer.
 
 🤹🏻This blog is a seed nursery for holding ideas, thoughts and projects I'm juggling while I build my [digital garden](https://maggieappleton.com/garden-history). Expect anything from machine learning, data wrangling, reproducible workflows, teaching pedagogy to half-formed opinions on social issues, personal data-viz, and winding journeys through my special interests of the moment.

@@ -26,24 +26,41 @@ page-layout: full
 #title-block-banner: true
 ---
 
-**Visual Thinking / Conceptual Illustration / Information Design** by yours truly.
+## Podcast Episodes
+
+Episodes of [The Random Sample](https://www.therandomsample.com.au/) hosted by yours truly:
+
+-   [EP 75: Probing Large Language Models & ChatGPT with Simon Angus](https://www.therandomsample.com.au/podcast/chatgpt/)
+-   [EP 72: Future Proofing as Data Changes the World with Dana Ma](https://www.therandomsample.com.au/podcast/future-proofing/)
+-   [EP 70: The Statistical Society of Australia's 60th Birthday with Ian Gordon and Jessica Kasza](https://www.therandomsample.com.au/podcast/ssa-60th/)
+
+## Interviews and Profiles
+
+About me published by:
+
+-   Australian Research Data Commons (May 2023): [Shaping Research Software: An Interview With Cynthia Huang](https://ardc.edu.au/article/shaping-research-software-an-interview-with-cynthia-huang/)
+-   Monash Data Future Institute (Mar 2022): [Monash Data Futures Institute PhD Students](https://www.monash.edu/data-futures-institute/about-us/people/monash-data-futures-institute-phd-students)
 
 ## Sketchnotes
 
-Visual notes which summarise lectures, talks, podcast episodes, youtube videos, books, and more.
+**Visual Thinking / Conceptual Illustration / Information Design** by yours truly.
 
-:::{.callout}
+Sketchnotes for lectures, talks, podcast episodes, youtube videos, books, and more.
+
+::: callout
 ## Attribution
+
 {{< include gallery/_snippet-attribution.md >}}
 :::
 
-:::{#sketchnotes}
+::: {#sketchnotes}
 :::
 
 ## Design Notes and Templates
 
-Notes to self on sketching, Inkscape, Quarto, SVG, CSS/HTML, web accessibility.^[Disclaimer: the primary audience for these notes is myself, and I make no guarantees about accuracy or quality of the content inside.]
+Notes to self on sketching, Inkscape, Quarto, SVG, CSS/HTML, web accessibility.[^1]
 
-:::{#templates}
+[^1]: Disclaimer: the primary audience for these notes is myself, and I make no guarantees about accuracy or quality of the content inside.
+
+::: {#templates}
 :::
-
