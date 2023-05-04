@@ -1,0 +1,32 @@
+---
+title: "ggplot2 and ggraph: Geoms, Stats and Autoplot, Oh My!"
+description: "Geoms, Stats and Autoplot, Oh My!"
+date: today
+date-modified: last-modified
+categories:
+  - data-viz
+  - how-to
+  - ggplot2
+tags:
+  - ggplot2
+  - ggraph
+  - tidygraph
+  - igraph
+  - xmap
+fig-cap-location: bottom
+cache: true
+draft: true
+---
+
+More learnings:
+
+- about `geom_edge_*` and `geom_node_*`; variants on `geom_point`, `geom_segment` etc.
+
+How to reverse engineer, fill in the blanks documentation:
+
+- search the source code (`/` on the github repo)
+
+Reading List:
+
+- [Extending ggplot2](https://ggplot2-book.org/extensions.html#new-stats)
+- [Chapter 4: Building Data Visualisation Tools](https://bookdown.org/rdpeng/RProgDA/building-data-visualization-tools.html)
