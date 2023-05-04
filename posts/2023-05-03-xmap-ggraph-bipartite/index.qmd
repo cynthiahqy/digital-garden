@@ -1,0 +1,416 @@
+---
+title: "Visualising data recoding as Bipartite Graphs using igraph, tidygraph, ggraph and ggplot2"
+description: "The closest thing to a mystery-thriller that I've experienced in the ggplot2 ecosystem"
+date: today
+date-modified: last-modified
+categories:
+  - data-viz
+  - how-to
+  - ggplot2
+tags:
+  - ggplot2
+  - ggraph
+  - tidygraph
+  - igraph
+  - xmap
+fig-cap-location: bottom
+cache: true
+---
+
+## Bipartite Graphs? What and why?
+
+I promise this post is about making ggplots, but first some background. I've been working on a new approach to validating data pipelines which involve recoding or redistributing values between categories. The core idea of approach is to validate *Mapping Objects* instead of, or in addition, to the data itself. For more details about the appraoch see [this interview](https://ardc.edu.au/article/shaping-research-software-an-interview-with-cynthia-huang/) or the [docs for the {xmap}](https://xmap-r-pkg.netlify.app) package (pronounced "crossmap").
+
+Mapping objects can include named vectors or lists, as well as lookup tables and crosswalks -- basically anything that encodes instructions of the form "category A connects to category B". For instance, when using `forcats::fct_recode()`, you might store the `new = old` mappings as a named vector specifying which `old` level "connects" to which `new` level as below:
+
+```{r}
+library(forcats)
+x <- factor(c("apple", "bear", "banana", "dear"))
+fruit_levels <- c(fruit = "apple", fruit = "banana")
+fct_recode(x, !!!fruit_levels)
+```
+
+Now given a particular mapping object, you might want to verify that it has certain properties before using it. For example, when renaming columns with `dplyr::rename(...)`, where the `…` takes `new = old` pairs, you probably only want 1-to-1 relations. No 2 `old` columns should get the same `new` name, and a single `old` column being renamed into 2 `new` columns is just duplicating data.
+
+Of course this is a somewhat trivial example that you could quickly check by looking at the code, but as mappings get more complex and involve more categories, it becomes less obvious how to ensure you're actually performing the intended transformations. Add a combination of recoding, aggregating and disaggregating numeric counts (e.g. occupation level statistics, or population by administrative area) to your data wrangling pipeline and you're only one coding mistake away from accidentally (and often silently) dropping or corrupting some of your data (trust me, I've done it before).
+
+Now, where do graphs come in? Well, assertive programming is a good preventive measure against funny business in your data wrangling pipelines. However, it's not always obvious what assertions you should be checking. In the case of recoding or redistributing data, it turns out that thinking of mapping objects as directed bipartite weighted graphs is quite informative for designing assertions.
+
+As a quick reminder, bipartite graphs are graphs where the nodes or vertices can be split into two disjoint sets, and edges or links are only allowed between the two sets, not within. The weighted part refers to the addition of a numeric attribute to each link. When the graph represents recoding or redistributing (i.e. collapsing or splitting) values, weights will be between 0 and 1. I call this graph-based representation a *Crossmap*.
+
+![A hand-drawn sketch of the Crossmap structure as a weighted directed bigraph.](images/image-1769111021.png)
+
+With this representation we can identify assertions like if we only want 1-to-1 relations, we should check that the `old` and `new` sets have the same number of unique elements:
+
+![](images/image-1921602619.png){fig-align="center" width="483"}
+
+Notice that this condition doesn't hold in the example above, since that is a many-to-one relation.
+
+```{r}
+# old set has 2 unique elements
+unique(unname(fruit_levels))
+# new set has only 1 unique element
+unique(names(fruit_levels))
+```
+
+You can take these assertions and check them using existing assertive programming tools like [`{assertr}`](https://docs.ropensci.org/assertr/) and [`{validate}`](https://cran.r-project.org/web/packages/validate/vignettes/cookbook.html) or even just using [`{testthat}`](https://www.milesmcbain.com/posts/assertive-programming-for-pipelines/). Alternatively, the `{xmap}` (crossmap) package wraps these conditions into assertive functions that you can call before using a mapping object:
+
+```{r}
+library(xmap)
+
+fruit_color <- c(green = "apple", yellow = "banana") |>
+  xmap::verify_named_all_1to1()
+
+fct_recode(x, !!!fruit_color)
+```
+
+Ok, so what else can we do with these graph representations? Well, wouldn't it be nice if could easily summarise and visualise mapping objects? especially more complex ones?... and thus began my journey down the rabbit hole of graph data structures and ggplot2 extensions.
+
+## Show me the plots!
+
+<!--- insert final plot --->
+
+I'll spare you the lengthier rabbit hole detours for now (skip ahead for some failed experiments), but I've landed on using a combination of `{ggraph}`, `{tidygraph}` and `{igraph}` to power the `autoplot()` method I want to add to the `{xmap}` package. I'm still wrapping my head around `ggproto` and how to implement new Geoms and Stats, but here's what I've learnt so far.
+
+Before we begin, a little context:
+
+-   [`{igraph}`](https://r.igraph.org/articles/igraph.html) provides R bindings to the [core igraph](https://igraph.org/c/) network analysis library written in C. It has its own class for graphs (`igraph`) and offers a lot of graph analysis and layout algorithms that are meant much more complex graphs than a humble bipartite representation of data recoding objects.
+-   [`{tidygraph}`](https://tidygraph.data-imaginist.com) provides an tidy API for graph/network manipulation, including the `tbl_graph` class which is a thin wrapper around an `igraph` object.
+-   [`{ggraph}`](https://ggraph.data-imaginist.com/index.html) is a `ggplot2` extension which lets you turn graphs (`tbl_graph`) into ggplots using layouts, nodes and edges.
+
+And a note on the types of mappings I'm trying to plot. I think the crossmap format is particularly useful when you are working with combinations of one-to-one, one-to-many, many-to-one and many-to-many relations, rather than just one type of relation. For example, if you're just doing one-to-one recodings, a two-column look up table is a much more space and time efficient summary method.
+
+With that in mind, let's see how far I got plotting the following simple crossmap that connects some nodes with `lower`case names with ones with `upper`case names with :
+
+```{r}
+edges_abc <- tibble::tribble(
+  ~lower, ~upper, ~share,
+  "a", "AA", 1,       # one-to-one
+  "b", "BB", 1,       # one-FROM-many / many-TO-one
+  "c", "BB", 1,
+  "d", "CC", 0.3,     # one-to-many
+  "d", "DD", 0.6,
+  "d", "EE", 0.1
+)
+```
+
+### A Crossmap is a Bipartite Graph, isn't it?
+
+```{r setup}
+#| message: false
+library(ggraph)
+library(tidygraph)
+```
+
+To start with we need to convert our table of edges into a graph object. Luckily `{tidygraph}` handles this for us with ease:
+
+```{r}
+(tg_abc <- edges_abc |>
+  as_tbl_graph())
+```
+
+From here we just need to generate a layout and add some `geom_edge_*`s and `geom_node_*`s.
+
+What's a layout you ask? I had the same question. According to [`vignette("Layouts", package = "ggraph")`](https://ggraph.data-imaginist.com/articles/Layouts.html):
+
+> In very short terms, a layout is the vertical and horizontal placement of nodes when plotting a particular graph structure. Conversely, a layout algorithm is an algorithm that takes in a graph structure (and potentially some additional parameters) and return the vertical and horizontal position of the nodes.
+
+Ok, so we just need to pick a sensible layout algorithm, and lucky for me `ggraph` offers the option of using the `igraph::layout_as_bipartite()` algorithm. But wait a minute, apparently I haven't supplied a bipartite graph? And what's this `types` argument?
+
+```{r error=TRUE, class.error="bg-warning"}
+tg_abc |>
+  ggraph(layout = "igraph", algorithm = "bipartite")
+```
+
+### Bipartite Graphs are a special `type` of graph, maybe too special.
+
+It turns out that `igraph` only recognises graphs as bipartite if you add a logical `type` attribute to each of the vertices. It's not clear to me if there's an easy way to add this attribute once you've jumbled all your `to` and `from` nodes together into the `Node Data` component of a tidygraph `tbl_graph`.
+
+A somewhat cumbersome workaround is to coerce the edge list into a matrix first and then use the `as_tbl_graph.matrix()` method which handles the creation of the `type` attribute. Again lucky for me, I've been experimenting with this in the `xmap` package (because matrix representations also reveal useful assertions but I digress):
+
+```{r}
+library(xmap)
+(mtx_abc <- edges_abc |>
+  as_xmap_df(from = lower, to = upper, weights = share) |>
+  xmap_to_matrix())
+```
+
+The function currently returns a sparse matrix by default, but we can easily switch that into a base `matrix` that [`as_tbl_graph()`](https://tidygraph.data-imaginist.com/reference/tbl_graph.html) can handle:
+
+```{r}
+(tgm_abc <- mtx_abc |>
+  as.matrix() |>
+  as_tbl_graph())
+```
+
+Notice that we now have a logical `type` attribute indicating the two disjoint `lower` and `upper` node sets. Let's try again with the bipartite layout algorithm:
+
+```{r}
+tgm_abc |>
+  ggraph(layout = "igraph", algorithm = "bipartite") +
+  geom_node_point() +
+  geom_edge_link()
+```
+
+Success! We have something that loosely resembles my earlier hand-drawn sketch. So now we can move on to customisation using the familiar layered ggplot grammar and the extra features offered by `ggraph`'s `geom_edge_*` and `geom_node_*` families.
+
+But before that, maybe we don't need to mess around with converting to matrices after all.
+
+### Multipartite graphs and the Sugiyama layout algorithm
+
+As a general rule, I like things to be efficient and elegant, and the edgelist to matrix detour is neither. So, I started to dig around in the `igraph` and `tidygraph` documentation and code base to see if I could find a less clunky way of generating a bigraph layout.
+
+Now, you have to remember that I'm not a graph theorist, or network researcher so a lot of the documentation was basically gibberish to me. Then there's the added layer of traversing between `ggraph` and `igraph` layout functions (via `tidygraph`?), and untangling the relationship between the `tbl_graph` and `igraph` classes.
+
+Nevertheless, I eventually stumbled across this little breadcrumb in the `igraph::layout.bipartite()` manual entry:
+
+> The layout is created by first placing the vertices in two rows, according to their types. Then the positions within the rows are optimized to minimize edge crossings, using the Sugiyama algorithm (see `layout_with_sugiyama()`).
+
+At first glance, the [examples in `igraph::layout_with_sugiyama()`](https://r.igraph.org/reference/layout_with_sugiyama.html) don't bear much resemblance to the bipartite graph I sketched earlier. Take this example:
+
+```{r}
+#| code-fold: true
+#| message: false
+library(igraph, quietly = TRUE)
+## Another example, from the following paper:
+## Markus Eiglsperger, Martin Siebenhaller, Michael Kaufmann:
+## An Efficient Implementation of Sugiyama's Algorithm for
+## Layered Graph Drawing, Journal of Graph Algorithms and
+## Applications 9, 305--325 (2005).
+
+ex <- graph_from_literal(
+  0 -+ 29:6:5:20:4,
+  1 -+ 12,
+  2 -+ 23:8,
+  3 -+ 4,
+  4,
+  5 -+ 2:10:14:26:4:3,
+  6 -+ 9:29:25:21:13,
+  7,
+  8 -+ 20:16,
+  9 -+ 28:4,
+  10 -+ 27,
+  11 -+ 9:16,
+  12 -+ 9:19,
+  13 -+ 20,
+  14 -+ 10,
+  15 -+ 16:27,
+  16 -+ 27,
+  17 -+ 3,
+  18 -+ 13,
+  19 -+ 9,
+  20 -+ 4,
+  21 -+ 22,
+  22 -+ 8:9,
+  23 -+ 9:24,
+  24 -+ 12:15:28,
+  25 -+ 11,
+  26 -+ 18,
+  27 -+ 13:19,
+  28 -+ 7,
+  29 -+ 25
+)
+
+layers <- list(
+  0, c(5, 17), c(2, 14, 26, 3), c(23, 10, 18), c(1, 24),
+  12, 6, c(29, 21), c(25, 22), c(11, 8, 15), 16, 27, c(13, 19),
+  c(9, 20), c(4, 28), 7
+)
+
+layex <- layout_with_sugiyama(ex, layers = apply(
+  sapply(
+    layers,
+    function(x) V(ex)$name %in% as.character(x)
+  ),
+  1, which
+))
+
+origvert <- c(rep(TRUE, vcount(ex)), rep(FALSE, nrow(layex$layout.dummy)))
+realedge <- as_edgelist(layex$extd_graph)[, 2] <= vcount(ex)
+plot(layex$extd_graph,
+  vertex.label.cex = 0.5,
+  edge.arrow.size = .5,
+  vertex.size = ifelse(origvert, 5, 0),
+  vertex.shape = ifelse(origvert, "square", "none"),
+  vertex.label = ifelse(origvert, V(ex)$name, ""),
+  edge.arrow.mode = ifelse(realedge, 2, 0)
+)
+```
+
+But wait, let's take a closer look at the documentation (emphasis mine):
+
+> This layout algorithm is designed for *directed acyclic graphs* where each vertex is assigned to a layer. Layers are indexed from zero, and vertices of the same layer will be placed on the same horizontal line. The X coordinates of vertices within each layer are decided by the heuristic proposed by Sugiyama et al. to minimize edge crossings.
+
+the usage:
+
+``` r
+layout_with_sugiyama(
+  graph,
+  layers = NULL,
+  hgap = 1,
+  vgap = 1,
+  maxiter = 100,
+  weights = NULL,
+  attributes = c("default", "all", "none")
+)
+```
+
+and the `layers` argument:
+
+> layers
+>
+> :   A numeric vector or NULL. If not NULL, then it should specify the layer index of the vertices. Layers are numbered from one. If NULL, then igraph calculates the layers automatically.
+
+Are you following? Not quite? Well, what if I told you that *directed bipartite graphs* are just a special kind of directed acyclic graph?
+
+Then, we've found a way to bypass the `type` requirement for using `layout_as_bipartite()`, which as far as I can tell probably just converts the logical `type` attribute into a numeric vector (i.e. 0 or 1) assigning a "layer index" to the two types of nodes, and then calls `layout_with_sugiyama()`.
+
+Translating this back to `ggraph::create_layout()`/`ggraph()` syntax we can get around our earlier error without fiddling with matrices by letting `layout_with_sugiyama()` work out the disjoint `lower` and `upper` sets:
+
+```{r}
+tg_abc |>
+  ggraph(layout = "igraph", algorithm = "sugiyama") +
+  geom_node_point() +
+  geom_edge_link()
+```
+
+Another benefit of using the Sugiyama algorithm directly is that it lends itself nicely to plotting multi-step transformations as directed multipartite graphs. We would just need to calculate a "layer index" for each step and let the [`ggraph`/`tidygraph` handle the rest](https://ggraph.data-imaginist.com/articles/tidygraph.html#nse-in-layout-specifications). Instead of just two disjoint sets, we could have three or more classification schemes that we transform our data between. For example, we could extend my earlier hand draw example by adding an aggregation step:
+
+![A hand-drawn multi-partite graph showing two sequential crossmap transformations](images/image-1203247235.png)
+
+### Finally, a ggplot
+
+Now, for the grand reveal:
+
+```{r}
+#| code-fold: true
+tg_abc |>
+  ## calculating edge properties
+  activate(edges) |>
+  mutate(frac_weight = ifelse(share < 1, TRUE, FALSE)) |>
+  mutate(edge_linetype = ifelse(frac_weight, "dashed", "solid")) |>
+  mutate(edge_label_pos = ifelse(frac_weight, 0.8, 0.2)) |>
+  ## calculating node properties
+  activate(nodes) |>
+  mutate(n_from = centrality_degree(mode = "in"),
+         in_from = n_from == 0,
+         collapse = n_from > 1) |>
+  ## now we plot...
+  ggraph::ggraph(layout = "sugiyama") +
+  ## unit weight links,
+  ggraph::geom_edge_diagonal(
+    aes(edge_linetype = I(edge_linetype),
+        edge_alpha = share,
+        filter = !frac_weight),
+    end_cap = circle(6, 'mm'),
+    show.legend = FALSE
+    ) +
+  ## frac weight links,
+  ggraph::geom_edge_diagonal(
+    aes(edge_linetype = I(edge_linetype),
+        edge_alpha = share,
+        filter = frac_weight,
+        label = share,
+        label_pos = edge_label_pos,
+        ),
+    end_cap = circle(6, 'mm'),
+    show.legend = FALSE,
+    angle_calc = "along",
+    label_dodge = grid::unit(2, "mm")
+    ) +
+  ## from nodes,
+  ggraph::geom_node_label(aes(label = name,
+                              filter=in_from),
+                          ) +
+  ## to nodes,
+  ggraph::geom_node_label(aes(label = name,
+                              fill = collapse,
+                              filter=!in_from
+                              ),
+                          show.legend = FALSE,
+                          ) +
+  scale_fill_brewer() +
+  ## and finally modify coordinates, scale and theme
+  coord_flip() +
+  scale_y_reverse() +
+  theme_minimal() +
+  ggraph::th_no_axes()
+```
+
+### Let's rewind the instant replay
+
+The first modification I made was to swap the basic `geom_node_point()` and `geom_edge_link()` for their fancier cousins `geom_node_label()` and `geom_edge_diagonal()`:
+
+```{r}
+tg_abc |>
+  ggraph(layout = "sugiyama") +
+  geom_node_label(aes(label = name)) + # was: geom_node_point()
+  geom_edge_diagonal() # was: geom_edge_link()
+```
+
+Then I shuffled the layer order and tweaked the coordinates, scales and theme:
+
+```{r}
+tg_abc |>
+  ggraph(layout = "sugiyama") +
+  geom_edge_diagonal() +
+  geom_node_label(aes(label = name)) +
+  coord_flip() +
+  scale_y_reverse() +
+  theme_minimal() +
+  ggraph::th_no_axes()
+```
+
+The final set of modifications required a bit of set up and rely heavily on the very useful but lightly documented [`filter` aesthetic](https://github.com/thomasp85/ggraph/blob/1952710711cd27929b7dd1cd14d39f493a2fd88e/vignettes/Nodes.Rmd#L79-L81) offered in all `ggraph` geoms. If you unfold the code above in [Finally, a ggplot], you'll see that I calculated a bunch of variables to partition the edges (by having or not having `frac_weight`) and nodes (by being `in_from` or in the target set). I then mapped these variables to various aesthetics in standard ggplot style.
+
+## To be continued...
+
+That's it for today. If you want more `ggplot2` stories keep reading, otherwise stay tuned for updates from the next phase of my journey to add `autoplot()` to the `xmap` package: *Geoms, Stats and autoplot, Oh My!*
+
+## Prologue: ggplot2 Fails?
+
+Obviously I'm not the first person to try and plot bipartite graphs, but navigating the wonderfully rich R and ggplot2 ecosystems to find what I needed proved much more difficult than I anticipated. Here are selections of my experiments using `geoms` from various ggplot2 extension packages:
+
+::: {layout="[[45,55], [1]]"}
+![ggalluvial](https://raw.githubusercontent.com/cynthiahqy/viz-panel-maps/57272c61692ece2d2b94874d12fe7f0619c6e864/docs/plots/viz-country-concord/ggalluvial.png)
+
+![ggsankey](https://raw.githubusercontent.com/cynthiahqy/viz-panel-maps/57272c61692ece2d2b94874d12fe7f0619c6e864/docs/plots/viz-country-concord/ggsankey.png)
+
+![ggbump](https://raw.githubusercontent.com/cynthiahqy/viz-panel-maps/57272c61692ece2d2b94874d12fe7f0619c6e864/docs/plots/viz-country-concord/ggbump-sigmoid-graph-edges.jpg)
+
+Attempts at plotting bipartite graphs using `{ggalluvial}`, `{ggsankey}` and `{ggbump}`.
+:::
+
+As you can see, my most successful Frankenstein was the `{ggbump}` graphic. Young, naive, and too intimidated to even think about reading the ["Extending ggplot2" vignette](https://ggplot2.tidyverse.org/articles/extending-ggplot2.html), I shoved a creative combination of `geom_text()`, `geom_label()`, `ggbump::geom_sigmoid()` and far too many ad-hoc computations in a [wrapper function](https://github.com/cynthiahqy/viz-panel-maps/blob/57272c61692ece2d2b94874d12fe7f0619c6e864/R/plt_pm_df.R) and hoped for the best. Unfortunately, I soon ran into problems because as Thomas Lin Pedersen notes in the [`{ggraph}` package](https://ggraph.data-imaginist.com/articles/Edges.html):
+
+![One does not simply draw a line between two nodes](https://raw.githubusercontent.com/thomasp85/ggraph/febab71076d7cf277cdb79b823f262b626651703/vignettes/edge_meme_wide.jpg)
+
+I made some truly unsightly ggplots with my Frankenstein wrapper function including this monstrosity:
+
+```{r echo=FALSE}
+knitr::include_graphics("https://user-images.githubusercontent.com/29718979/222634595-b7d8192f-a6be-4af7-ac6e-c4210a255175.png")
+```
+
+After which, I did not stop and rethink my approach, but came up with this workaround:
+
+![A crossmap for converting Australian occupation categories (ANZSCO22) to an international standard (ISCO8) visualised as a two-column bigraph with a lookup table underneath.](https://raw.githubusercontent.com/cynthiahqy/conformr-xmap-project/7dc4f4d9e1febda1999c415a1cbf0e31a4c85148/xmap/vignettes/plot-anzsco-isco-bigraph.png)
+
+On the surface, this workaround looks pretty good, but don't even think about resizing it, and against all principles of reproducibility, the image above is actually a screenshot of a ggplot with two tables underneath it. I couldn't work out how to get `patchwork` and `GridExtra` to hold onto my two tables with top alignment, and so I just placed a ggplot chunk on top of a `knitr::kable()` chunk and took a screenshot...
+
+### So, what did I learn?
+
+It turns out if you squint hard enough, almost anything can be a graph. This can be both useful and frustrating, but definitely lead me to a few realisations:
+
+-   a whole lot of ggplot2 extensions and network analysis packages offer slight variations on what I'm trying to do:
+    -   [`{ggsankey}`](https://github.com/davidsjoberg/ggsankey), [`{ggalluvial}`](https://github.com/corybrunson/ggalluvial) and [`{ggparallel}`](https://github.com/heike/ggparallel) all seem to expect a meaningful aesthetic mapping for the edge width (e.g. flow amount)
+
+    -   [`{ggbump}`](https://github.com/davidsjoberg/ggbump#tutorial) produces bump charts that look a lot like directed graphs, but there's some mental gymnastics required to work out what the nodes, edges and attributes are. `ggbump::geom_sigmoid()` can probably be thought of as a more rigid variant of `ggraph::geom_edge_diagonal()`
+
+    -   [`{ggdag}`](https://github.com/r-causal/ggdag), [`{ggbipart}`](https://pedroj.github.io/bipartite_plots/), [`{ggnet2}`](https://briatte.github.io/ggnet/) also offer plots that look a bit like what I'm after, but I couldn't quite connect the dots between their network / DAG syntax and my use case.
+    -   [`{multigraph}`](https://github.com/mplex/multigraph) offers functions for plotting two-mode data, but doesn't seem to use `ggplot2` making it difficult to customise the appearance of the plots.
+-   multipartite graphs seem to get the worst of both worlds:
+    -   they are too complicated to be neatly wrapped up into a simple ggplot2 pipeline and retain a sensible amount of flexibility (because they are graphs, and graphs are tricky).
+    -   but they also need much more rigid and specific layout features and aesthetic mappings compared to network, hierarchical and matrix layouts.
+-   BUT many things are possible once we separate the creation and analysis of graphs (i.e. [`{tidygraph}`](https://tidygraph.data-imaginist.com)) from the visualisation (i.e [`{ggraph}`](https://ggraph.data-imaginist.com/)). Thanks Thomas Lin Pedersen!
+
+And on that note, thanks for reading! Please feel free to \@me on [Twitter](http://twitter.com/cynthiahqy), [Mastodon](https://fosstodon.org/@cynthiahqy), or [GitHub](https://github.com/cynthiahqy/digital-garden) with suggestions, corrections and/or ideas.
