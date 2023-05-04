@@ -6,6 +6,7 @@ author: "Cynthia Huang"
 # freeze computational output
 # (see https://quarto.org/docs/projects/code-execution.html#freeze)
 freeze: true
+citation: true
 
 # blog page layout options
 format:
