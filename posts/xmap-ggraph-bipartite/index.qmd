@@ -13,6 +13,7 @@ tags:
   - tidygraph
   - igraph
   - xmap
+image: featured.png
 fig-cap-location: bottom
 cache: true
 ---
