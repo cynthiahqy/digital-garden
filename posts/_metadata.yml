@@ -2,6 +2,9 @@
 
 # default post metadata
 author: "Cynthia Huang"
+image: featured.png
+card-style: "summary"
+date-modified: last-modified
 
 # freeze computational output
 # (see https://quarto.org/docs/projects/code-execution.html#freeze)
@@ -13,4 +16,16 @@ format:
   html:
     toc: true
 title-block-banner: true
+
+# comments
+comments:
+  giscus:
+    theme: light
+    repo: cynthiahqy/digital-garden
+    repo-id: R_kgDOHWPqTQ
+    category: Blog
+    category-id: DIC_kwDOHWPqTc4CWS_Y
+    mapping: pathname
+    reactions-enabled: true
+    input-position: top
 
