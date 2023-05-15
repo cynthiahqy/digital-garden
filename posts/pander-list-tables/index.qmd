@@ -1,0 +1,143 @@
+---
+title: 'Generating bulleted lists inside pandoc markdown tables in R with pander'
+description: 'A short how-to on using pander in quarto/rmarkdown to generate markdown grid tables with bullet lists.'
+date: '2023-05-15'
+categories:
+  - markdown
+  - how-to
+tags:
+  - tables
+  - pander
+---
+
+I recently put together this markdown table for a [vignette](https://xmap-r-pkg.netlify.app/articles/making-xmaps.html#cheatsheet-for-verifying-mapping-objects) in the [`{xmap}` package](https://github.com/cynthiahqy/xmap/) using [Visual Mode in Rstudio](https://rstudio.github.io/visual-markdown-editing/):
+
+```md
++------------------+-------------------------------------------------------------+------------------------------------------------------------------+-------------------------------------------------------------------------------------+
+| x                | **Recoding** (1-to-1)                                       | **Collapsing** (M-to-1)                                          | **Splitting** (1-to-M)                                                              |
++==================+=============================================================+==================================================================+=====================================================================================+
+| Assertions       | -   every link weight is either 1 or 0 (implied by absence) | -   link weights are binary                                      | -   link weights are fractional or absent                                           |
+|                  | -   cardinality of the source and target sets is the same   | -   there are more source categories than target categories      | -   there are more target categories than source categories                         |
+|                  |                                                             | -   each source category is assigned to only one target category | -   each source category has at least two outgoing links to the target nomenclature |
++------------------+-------------------------------------------------------------+------------------------------------------------------------------+-------------------------------------------------------------------------------------+
+| xmap functions   | `verify_named_all_1to1()`                                   | `verify_named_all_values_unique()`                               | `verify_named_all_names_unique()`                                                   |
+|                  |                                                             |                                                                  |                                                                                     |
+|                  | `verify_pairs_all_1to1()`                                   | `verify_named_matchset`                                          | `verify_named_matchset`                                                             |
+|                  |                                                             |                                                                  |                                                                                     |
+|                  | ...                                                         | ...                                                              | ...                                                                                 |
++------------------+-------------------------------------------------------------+------------------------------------------------------------------+-------------------------------------------------------------------------------------+
+| base R           | -   `all(weights == 1)`                                     | -   `all(weights == 1)`                                          | -   `all(weights < 1)`                                                              |
+|                  | -   `length(unique(from) == length(unique(to))`             | -   `length(unique(from) > length(unique(to))`                   | -   `length(unique(from)) < length(unique(to))`                                     |
+| conditions       |                                                             | -   `length(unique(from)) == length(from)`                       | -   `length(from) > length(unique(from))`                                           |
++------------------+-------------------------------------------------------------+------------------------------------------------------------------+-------------------------------------------------------------------------------------+
+| Graph Conditions | -   $w_{ij} \in \{0,1\} \ \forall i,j$                      | -   $w_{ij} \in \{0,1\} \forall i,j$                             | -   $w_{ij} \in [0, 1) \forall i,j$                                                 |
+|                  | -   $|U| = |V|$                                             | -   $|U| > |V|$                                                  | -   $|U| < |V|$                                                                     |
+|                  | -   $Out_i = In_j = 1 \ \forall i,j$                        | -   $Out_i = 1 \ \forall i \in U$                                | -   $Out_i > 1 \ \forall i \in U$                                                   |
++------------------+-------------------------------------------------------------+------------------------------------------------------------------+-------------------------------------------------------------------------------------+
+```
+
+[Visual mode](https://rstudio.github.io/visual-markdown-editing/content.html#editing-tables) generated a grid style pandoc markdown table, which renders into a table just fine except for the fact that it spills over into the navigation column...
+
+## Awkward table spillover
+
+::: mytable
+
++------------------+-------------------------------------------------------------+------------------------------------------------------------------+-------------------------------------------------------------------------------------+
+| x                | **Recoding** (1-to-1)                                       | **Collapsing** (M-to-1)                                          | **Splitting** (1-to-M)                                                              |
++==================+=============================================================+==================================================================+=====================================================================================+
+| Assertions       | -   every link weight is either 1 or 0 (implied by absence) | -   link weights are binary                                      | -   link weights are fractional or absent                                           |
+|                  | -   cardinality of the source and target sets is the same   | -   there are more source categories than target categories      | -   there are more target categories than source categories                         |
+|                  |                                                             | -   each source category is assigned to only one target category | -   each source category has at least two outgoing links to the target nomenclature |
++------------------+-------------------------------------------------------------+------------------------------------------------------------------+-------------------------------------------------------------------------------------+
+| xmap functions   | `verify_named_all_1to1()`                                   | `verify_named_all_values_unique()`                               | `verify_named_all_names_unique()`                                                   |
+|                  |                                                             |                                                                  |                                                                                     |
+|                  | `verify_pairs_all_1to1()`                                   | `verify_named_matchset`                                          | `verify_named_matchset`                                                             |
+|                  |                                                             |                                                                  |                                                                                     |
+|                  | ...                                                         | ...                                                              | ...                                                                                 |
++------------------+-------------------------------------------------------------+------------------------------------------------------------------+-------------------------------------------------------------------------------------+
+| base R           | -   `all(weights == 1)`                                     | -   `all(weights == 1)`                                          | -   `all(weights < 1)`                                                              |
+|                  | -   `length(unique(from) == length(unique(to))`             | -   `length(unique(from) > length(unique(to))`                   | -   `length(unique(from)) < length(unique(to))`                                     |
+| conditions       |                                                             | -   `length(unique(from)) == length(from)`                       | -   `length(from) > length(unique(from))`                                           |
++------------------+-------------------------------------------------------------+------------------------------------------------------------------+-------------------------------------------------------------------------------------+
+| Graph Conditions | -   $w_{ij} \in \{0,1\} \ \forall i,j$                      | -   $w_{ij} \in \{0,1\} \forall i,j$                             | -   $w_{ij} \in [0, 1) \forall i,j$                                                 |
+|                  | -   $|U| = |V|$                                             | -   $|U| > |V|$                                                  | -   $|U| < |V|$                                                                     |
+|                  | -   $Out_i = In_j = 1 \ \forall i,j$                        | -   $Out_i = 1 \ \forall i \in U$                                | -   $Out_i > 1 \ \forall i \in U$                                                   |
++------------------+-------------------------------------------------------------+------------------------------------------------------------------+-------------------------------------------------------------------------------------+
+
+:::
+
+Now, in addition to the spillover issue (which I did not figure out how to fix...), markdown tables can quite awkward to edit, and not that straight forward to version control. So, I thought I'd see if I could generate an similar table using one of the many awesome table rendering packages in R.
+
+Usually when I want to make tables I just call `knitr::kable()` and hope for the best. Unsuprisingly this did not work. I'm not sure if/how `knitr::kable()` can handle mixed cell types (i.e. text, code, math notation, lists), but luckily for me, it turns out the `{pander}` package has all the functionality I needed.
+
+With the help of this stackoverflow answer, [How to write (bullet) lists in a table using rmarkdown and pandoc](https://stackoverflow.com/questions/31011265/how-to-write-bullet-lists-in-a-table-using-rmarkdown-and-pandoc), this is what I came up with:
+
+## Enter cell contents
+
+First, let's get put all the cell contents into R as character strings. For readability, I chose to enter each column as its own list and each bullet point as a separate element in a string vector. Notice that I had to escape all the backslashes using `\\`.
+```{r}
+recoding = list()
+recoding$assertions = c("every link weight is either 1 or 0 (implied by absence)",
+                        "cardinality of the source and target sets is the same")
+recoding$xmap = c("`verify_named_all_1to1()`",
+                  "`verify_pairs_all_1to1()`")
+recoding$baseR = c("`all(weights == 1)`",
+                   "`length(unique(from) == length(unique(to))`")
+recoding$graph = c("$w_{ij} \\in \\{0,1\\} \\ \\forall i,j$",
+                   "$|U| = |V|$",
+                   "$Out_i = In_j = 1 \\ \\forall i,j$")
+
+collapse = list()
+collapse$assertions = c("link weights are binary",
+                        "there are more source categories than target categories",
+                        "each source category is assigned to only one target category")
+collapse$xmap = c("`verify_named_all_values_unique()`",
+                  "`verify_named_matchset()`")
+collapse$baseR = c("`all(weights == 1)`",
+                   "`length(unique(from) > length(unique(to))`")
+collapse$graph = c("$w_{ij} \\in \\{0,1\\} \\forall i,j$",
+                   "$|U| > |V|$",
+                   "$Out_i = 1 \\ \\forall i \\in U$")
+
+split = list()
+split$assertions = c("link weights are fractional or absent",
+                     "there are more target categories than source categories",
+                     "each source category has at least two outgoing links to the target nomenclature")
+split$xmap = c("`verify_named_all_names_unique()`",
+               "`verify_named_matchset()`")
+split$baseR = c("`all(weights < 1)`",
+                "`length(unique(from)) < length(unique(to))`",
+                "`length(from) > length(unique(from))`")
+split$graph = c("$w_{ij} \\in [0, 1) \\forall i,j$",
+                "$|U| < |V|$",
+                "$Out_i > 1 \\ \\forall i \\in U$")
+```
+
+## Pander the table
+
+Next, I collapse all the string vectors and unlist everything into data.frame columns:
+
+```{r}
+my_table = data.frame(recode = recoding |> lapply(function(x) paste0(paste("*", x), collapse = "\\\n")) |> unlist(),
+                      collapse = collapse |> lapply(function(x) paste0(paste("*", x), collapse = "\\\n")) |> unlist(),
+                      split = split |> lapply(function(x) paste0(paste("*",x), collapse = "\\\n")) |> unlist())
+```
+
+Note that `function(x)` basically takes a string vector `x` and turns it into a single string of bulleted items by:
+
+1. attaching bullets to each element using `y = paste("*", x)`
+2. collapsing the elements with line breaks using `paste0(y, collapse = "\\\n")`. I think the `\\\` is required because we have to escape twice?
+
+Finally, we pass the table to `pander::pander()` to turn it into a markdown table:
+
+```{r output='asis'}
+my_table |>
+    pander::pander(caption = "Special Cases {#tbl-special}",
+                   keep.line.breaks = TRUE,
+                   style = "grid",
+                   split.table = Inf,
+                   justify = "left",
+                   split.cells = 20)
+```
+
+The various available options are pretty well documented in `?pander::pandoc.table()` and in the [Markdown tables section of the package documentation](http://rapporter.github.io/pander/#markdown-tables)
