@@ -1,6 +1,12 @@
 ---
 title: "Curriculum Vitae"
-toc: true
+format:
+  html:
+    toc: true
+  pdf:
+    pdf-engine: weasyprint
+    css: jimjam-slam-styles.css
+format-links: [pdf]
 ---
 
 ## EDUCATION
@@ -9,7 +15,7 @@ toc: true
 
 -   Researching principles and methods for data preparation with applications in economics, official statistics, and satellite deep learning
 -   Monash Data Futures Institute PhD Top-Up Scholarship (2021-2024)
--   Expected graduation date: Nov 2024
+-   Expected submission date: Nov 2024
 
 **Bachelor of Commerce (Honours) -- Economics**<br> *The University of Melbourne* [*Feb 2016 --- Nov 2016*]{.cvdate}
 
