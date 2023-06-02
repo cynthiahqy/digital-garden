@@ -1,0 +1,45 @@
+---
+title: "Adding a Gallery to my Quarto Website"
+description: "Sketchnotes, Quarto listings, parameterised documents, alt-text and web-accessibility strategies, SVG/CSS/HTML struggles and more"
+draft: true
+author: Cynthia Huang
+date: 2022-11-16
+---
+
+My main creative outlet outside (and sometimes alongside) my PhD research is a mixed bag of sketching, data-viz and graphic design. I make sketchnotes, ggplots, concept illustrations and more. Drawing helps me process and retain information, organise and communicate my thoughts and ideas, capture conversations, feelings and memories. I draw almost everyday, either on paper, on my iPad, or using ggplot and friends.
+
+When I first started sketching 5 years ago, I could barely draw a light bulb. But many many hours of practice and experimentation later, I've developed a pretty decent visual vocabulary and something of my own style. Sharing my visual creations online beyond the occasional tweet or Instagram post has been on my personal projects list for quite some time.
+
+Unfortunately, I had a non-trivial set of requirements for sharing my visual creations, namely:
+
+-   **a low-friction and/or engaging publishing process:** My ADHD brain is basically done with things as I finish making them (sometimes even just in my imagination) so publishing has to either be super effortless, someone else's problem, or stimulating enough to keep me engaged.
+-   **visually appealing (to me) web-design**: I have a really strong (and annoyingly stubborn) sense of aesthetic style, but also quite limited front-end dev skills... not exactly a winning combination.
+-   **a half-decent web-accessibility strategy**: I particularly wanted to make my sketchnotes accessible; both to exercise my "be an inclusive ally" muscles, and also because it seemed like an excuse to play with interactivity... but again I was way out of my depth on all counts...
+
+After many days of diving through Quarto and knitr documentation, GitHub snooping, researching accessibility guidelines, I managed to come up with a prototype Gallery. You can find the first iteration in the top navigation bar of this website.
+
+v0.1.0 of the Gallery includes:
+
+Solution:
+- Quarto building blocks: quarto website, listings, bootstrap grid layout, parameterised text using knitr
+- Customisation: CSS classes via `.scss`, fall-back to <img> tag,  SVG interactions
+- Accessibility: alt-text strategy
+
+
+
+Below are some links and resources I used to build the Gallery
+
+
+
+Resources list:
+- official technical documentation: [sass](https://sass-lang.com/documentation/at-rules/mixin)
+- quartoand.me by Mara Averick
+	- 	down the front end rabbit hole
+	- 	article layouts
+
+Future plans:
+-	Accessibility trees
+	- 	css grid and accessibility
+- SVG improvements
+	- 	SVG aria labels,
+	- 	image size optimisation (SVGOMG), clipping/masking??

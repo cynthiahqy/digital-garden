@@ -1,0 +1,30 @@
+---
+title: 'Gantt project charts using mermaid.js in Quarto'
+description: ''
+date: ''
+date-modified: last-modified
+draft: true
+categories:
+  - quarto
+  - markdown
+tags:
+  - mermaid.js
+image: featured.png
+---
+
+## Project Timelines
+
+table vs gantt diagram?
+
+- gantt format is balances easy of data entry and rendering at the expense of customisation
+- ggplot2 solutions... are so much more finicky, and require a lot more data wrangling and date calculation
+
+Official docs:
+- https://quarto.org/docs/authoring/diagrams.html#mermaid
+
+### Warning: Rendering Issues
+
+## Bonus: Syntax Highlighting and Previewing in VSCode
+
+- extension .mmd
+- pull in using `%%| file:` option

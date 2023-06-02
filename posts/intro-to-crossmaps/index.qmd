@@ -1,0 +1,21 @@
+---
+title: 'Assertive validation for category recoding using graphs and matrices'
+description: 'Introducing the crossmap approach and {xmap} package'
+date: ''
+draft: true
+categories:
+  - xmap
+  - data-preprocessing
+---
+
+I mentioned in my last blog post about plotting bipartite graphs using {ggraph} that I've been working on a new approach to recoding or redistributing categorical data that uses
+
+## Assertive Programming
+
+What did I mean by "validate the mapping objects, instead of the data before and after transformation?"
+
+## Cheatsheet for the Crossmap Approach
+
+## {xmap} package
+
+The {xmap} packages offers tools to implement the crossmap approach, verify exisiting workflows and summarise mappings.
