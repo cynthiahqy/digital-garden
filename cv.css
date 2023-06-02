@@ -24,6 +24,10 @@ from: https://github.com/quarto-dev/quarto-cli/discussions/2538#discussioncommen
 @media print {
   @page {
       size: a4 portrait;
+      counter-increment: page;
+      @bottom-center {
+        content: counter(page)
+      }
   }
   .no-print {
       display: none;
