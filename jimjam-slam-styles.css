@@ -1,3 +1,25 @@
+/* additions */
+
+.cvdate {
+  float: right;
+  font-style: italic
+}
+
+@media print {
+  @page {
+      size: a4 portrait;
+  }
+  .print-only {
+      display: block;
+  }
+  .no-print {
+      display: none;
+  }
+  header h1.title {
+      display: none;
+  }
+}
+
 /* stylesheet from: https://github.com/quarto-dev/quarto-cli/discussions/2538#discussioncomment-4081842 */
 
 /* add adobe fonts web project to use itc frnaklin gothic font */
@@ -26,39 +48,6 @@ header .date {
 
 header {
   margin-block-end: 5em;
-}
-
-/* table of contents */
-
-#TOC {
-  padding: 1em;
-  background-color: #2d3494;
-  color: white;
-  font-size: larger;
-}
-
-#toc-title {
-  margin-block-start: 0;
-}
-
-#TOC ul {
-  list-style: none;
-  padding-inline-start: 0;
-  margin-block-end: 0;
-}
-
-#TOC li a {
-  color: white;
-  font-weight: normal;
-}
-
-#TOC li + li {
-  margin-block-start: 0.35em;
-}
-
-/* individual story bodies are sandwiched with a div.story or div.framing when processing so that we can have our title blocks run across the page while still having a 2 column layout for the story body */
-.story, .framing {
-  column-count: 2;
 }
 
 h1 {

@@ -9,6 +9,10 @@ format:
 format-links: [pdf]
 ---
 
+::: {.print-only}
+
+:::
+
 ## EDUCATION
 
 **Doctor of Philosophy -- Econometrics and Business Statistics** <br> *Monash University* [*Aug 2021 --- Present*]{.cvdate}
