@@ -1,3 +1,6 @@
+/* add adobe fonts web project to use itc frnaklin gothic font */
+@import url('https://use.typekit.net/har7kij.css');
+
 /* all formats */
 
 .cvdate {
@@ -17,9 +20,6 @@ from: https://github.com/quarto-dev/quarto-cli/discussions/2538#discussioncommen
   page-break-before: always;
   page-break-after: always;
 */
-
-/* add adobe fonts web project to use itc frnaklin gothic font */
-@import url('https://use.typekit.net/har7kij.css');
 
 @media print {
   @page {

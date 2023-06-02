@@ -3,11 +3,10 @@ title: "Curriculum Vitae"
 format:
   html:
     toc: true
-    css: jimjam-slam-styles.css
   pdf:
     author: Cynthia A Huang
     pdf-engine: weasyprint
-    css: jimjam-slam-styles.css
+css: cv.css
 format-links: [pdf]
 ---
 
@@ -19,7 +18,7 @@ cynthia.huang@monash.edu
 
 **Doctor of Philosophy -- Econometrics and Business Statistics** <br> *Monash University* [*Aug 2021 --- Present*]{.cvdate}
 
--   Researching principles and methods for data preparation with applications in economics, official statistics, and satellite deep learning
+-   New principles and methods for complex data preparation and integration, with applications to official statistics, web-scrapped data and satellite raster images
 -   Monash Data Futures Institute PhD Top-Up Scholarship (2021-2024)
 -   Expected submission date: Nov 2024
 
@@ -122,4 +121,9 @@ other_exp <- tibble::tribble(
 -   Talk: [Quarto Websites as Research Compendiums](https://github.com/cynthiahqy/quarto-wiki-template) (16 Aug 2022, Monash EBS Data Science Research Software Study Group)
 -   Workshop: [Writing academic papers with Rmarkdown and friends](https://www.cynthiahqy.com/posts/r-markdown-and-friends/) (9 Aug 2022, Monash University)
 
+:::
+
+::: {.print-only}
+## References
+Available upon request
 :::
