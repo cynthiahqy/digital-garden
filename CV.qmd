@@ -5,7 +5,7 @@ format:
     toc: true
     css: jimjam-slam-styles.css
   pdf:
-    author: Cynthia Huang
+    author: Cynthia A Huang
     pdf-engine: weasyprint
     css: jimjam-slam-styles.css
 format-links: [pdf]
@@ -40,7 +40,7 @@ cynthia.huang@monash.edu
 
 -   Australian Tertiary Admission Rank (ATAR): 98.95
 
-## WORK EXPERIENCE
+## WORK EXPERIENCE{style="page-break-before: always"}
 
 ### Data Scientist
 

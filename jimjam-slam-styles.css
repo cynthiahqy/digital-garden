@@ -7,11 +7,16 @@
 
 .print-only {
   display: none;
-  color: aquamarine;
+  /*color: aquamarine;*/
 }
 
 /* adapt stylesheet for print
 from: https://github.com/quarto-dev/quarto-cli/discussions/2538#discussioncomment-4081842 */
+
+/* for page-breaks use style spans
+  page-break-before: always;
+  page-break-after: always;
+*/
 
 /* add adobe fonts web project to use itc frnaklin gothic font */
 @import url('https://use.typekit.net/har7kij.css');
@@ -26,6 +31,7 @@ from: https://github.com/quarto-dev/quarto-cli/discussions/2538#discussioncommen
   .print-only {
       display: block;
   }
+
   .contact-block {
       margin-top: 0%;
       text-align: center;
@@ -53,13 +59,21 @@ from: https://github.com/quarto-dev/quarto-cli/discussions/2538#discussioncommen
   h2 {
     font-weight: 900;
     text-transform: uppercase;
-    color: blueviolet;
+    /* color: blueviolet; */
   }
 
   h3 {
     font-weight: 700;
     text-transform: uppercase;
-    color: green;
+    /* color: green; */
+  }
+
+  p {
+    font-size: small;
+  }
+
+  ul li{
+    font-size: smaller;
   }
 
   a {
