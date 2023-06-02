@@ -56,12 +56,7 @@ Let's keep things simple with just two sections:
 list it out!
 ````
 
-### Quarto Multi-Format Output
-
-Since Quarto v1.3??
-https://quarto.org/docs/output-formats/html-multi-format.html
-
-### Make it pretty with CSS magic
+### Now add the CSS magic
 
 - at-rules (@media, @page): https://developer.mozilla.org/en-US/docs/Web/CSS/@page
 - adjusting dimensions: https://doc.courtbouillon.org/weasyprint/stable/common_use_cases.html#adjust-document-dimensions
@@ -72,6 +67,11 @@ https://quarto.org/docs/output-formats/html-multi-format.html
 still to fix:
 - font-size
 - spacing between elements
+
+### BONUS: Quarto Multi-Format Links
+
+Since Quarto v1.3??
+https://quarto.org/docs/output-formats/html-multi-format.html
 
 ### BONUS: Deploying on Netlify
 
