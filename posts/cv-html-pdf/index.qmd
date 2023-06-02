@@ -1,0 +1,80 @@
+---
+title: 'Rendering my Quarto CV in HTML and PDF without LaTex'
+description: 'Forget LaTex. Publish multi-format documents from a single .qmd using weasyprint and some CSS stylesheet magic!'
+date: '20230603'
+date-modified: last-modified
+draft: true
+categories:
+  - css
+  - markdown
+  - quarto
+  - how-to
+image: featured.png
+---
+
+## Multi-Format Sourcery
+
+### The Brief?
+
+<!--- multi-format CV using dynamic generation features of quarto --->
+<!--- Rob kindly wrote me a latex template... but it didn't quite translate to html --->
+
+### The Current Product
+
+- insert images
+
+## How I built it
+
+### A Chance Encounter and some sample code
+
+- Ran into @jimjam-slam at Mine's "What's new in the tidyverse?" talk
+- kindly pointed me to this issue where he worked through html2pdf options
+- https://github.com/quarto-dev/quarto-cli/discussions/2538
+
+### Hacking it together with some help of ChatGPT
+
+- color selectors
+- delete stuff and see if it still works
+- ask chatgpt to explain with examples! (started out asking about something else, but it was useful nonetheless)
+  - https://chat.openai.com/c/c5b58373-bf42-4c60-a2bd-ea4accd8c114
+
+## Do it yourself!
+
+### Dynamic content
+
+Let's keep things simple with just two sections:
+
+````md
+## Education
+
+```{r}
+# import from orcid
+```
+
+## Work Experience
+
+list it out!
+````
+
+### Quarto Multi-Format Output
+
+Since Quarto v1.3??
+https://quarto.org/docs/output-formats/html-multi-format.html
+
+### Make it pretty with CSS magic
+
+- at-rules (@media, @page): https://developer.mozilla.org/en-US/docs/Web/CSS/@page
+- adjusting dimensions: https://doc.courtbouillon.org/weasyprint/stable/common_use_cases.html#adjust-document-dimensions
+- print-only / no-print classes
+- page breaks via style spans: https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/posts/11-spans/
+- page numbers: https://github.com/Kozea/WeasyPrint/issues/838
+
+still to fix:
+- font-size
+- spacing between elements
+
+### BONUS: Deploying on Netlify
+
+- Render locally and publish `_site/`
+- Use the quarto-netlify-plugin
+- Add `weasyprint==59.0` to `requirements.txt` as in docs: https://docs.netlify.com/configure-builds/manage-dependencies/#install-using-pip
