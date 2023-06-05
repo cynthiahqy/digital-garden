@@ -1,0 +1,78 @@
+---
+title: "Curriculum Vitae"
+format:
+  html:
+    toc: true
+  pdf:
+    author: John Doe
+    pdf-engine: weasyprint
+css: sample-styles.css
+format-links: [pdf]
+---
+
+::: {.content-hidden unless-format="pdf" .contact-block}
+john.doe@email.com
+:::
+
+## Education
+
+### Master of Business Administration (MBA)
+**University of XYZ** *(2018-2020)*
+
+- Concentration: Finance
+- GPA: 3.8/4.0
+
+### Bachelor of Science in Computer Science
+**ABC University** *(2014-2018)*
+
+- Major: Computer Science
+- Minor: Mathematics
+- Honors: Cum Laude
+
+## Work Experience
+
+### Senior Financial Analyst
+**XYZ Corporation** *(2020-Present)*
+
+- Conduct financial analysis and forecasting to support strategic decision-making.
+- Prepare and present financial reports to senior management.
+- Collaborate with cross-functional teams to optimize financial performance.
+- Implement cost-saving initiatives resulting in a 15% reduction in expenses.
+- Streamlined financial processes, reducing monthly close time by 20%.
+
+### Financial Intern
+**ABC Bank** *(2019-2020)*
+
+- Assisted in analyzing financial statements and evaluating creditworthiness.
+- Conducted research on market trends and competitor analysis.
+- Prepared presentations for client meetings and board presentations.
+- Collaborated with the team to develop investment strategies.
+
+:::{style="page-break-before: always"}
+:::
+
+## Skills
+
+- Financial analysis
+- Budgeting and forecasting
+- Data analysis and modeling
+- Financial reporting
+- Risk management
+- Proficient in Excel, PowerPoint, and financial software
+
+::: {.content-visible when-format="html" }
+## Certifications
+
+- Chartered Financial Analyst (CFA) Level II Candidate
+- Certified Financial Planner (CFP)
+
+## Awards and Achievements
+
+- Dean's List, University of XYZ, 2018-2020
+- Outstanding Performance Award, XYZ Corporation, 2021
+
+## Languages
+
+- English (Native)
+- Spanish (Intermediate)
+:::
