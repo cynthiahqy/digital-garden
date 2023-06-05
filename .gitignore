@@ -257,3 +257,5 @@ rsconnect/
 # End of https://www.toptal.com/developers/gitignore/api/macos,r,python
 
 /.quarto/
+
+/.luarc.json
