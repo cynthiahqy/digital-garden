@@ -1,5 +1,6 @@
 /* add adobe fonts web project to use itc frnaklin gothic font */
-@import url('https://use.typekit.net/har7kij.css');
+/* @import url('https://fonts.googleapis.com/css2?family=Public+Sans'); */
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;700&display=swap');
 
 /* all formats */
 
@@ -54,7 +55,7 @@ from: https://github.com/quarto-dev/quarto-cli/discussions/2538#discussioncommen
   }
 
   html {
-    font-family: franklin-gothic-urw, sans-serif;
+    font-family: 'Public Sans', sans-serif;
   }
   header {
     margin-block-end: 5em;
