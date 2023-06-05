@@ -1,15 +1,26 @@
 ---
 title: "Curriculum Vitae"
-toc: true
+format:
+  html:
+    toc: true
+  pdf:
+    author: Cynthia A Huang
+    pdf-engine: weasyprint
+css: cv.css
+format-links: [pdf]
 ---
+
+::: {.print-only .contact-block}
+cynthia.huang@monash.edu
+:::
 
 ## EDUCATION
 
 **Doctor of Philosophy -- Econometrics and Business Statistics** <br> *Monash University* [*Aug 2021 --- Present*]{.cvdate}
 
--   Researching principles and methods for data preparation with applications in economics, official statistics, and satellite deep learning
+-   New principles and methods for complex data preparation and integration, with applications to official statistics, web-scrapped data and satellite raster images
 -   Monash Data Futures Institute PhD Top-Up Scholarship (2021-2024)
--   Expected graduation date: Nov 2024
+-   Expected submission date: Nov 2024
 
 **Bachelor of Commerce (Honours) -- Economics**<br> *The University of Melbourne* [*Feb 2016 --- Nov 2016*]{.cvdate}
 
@@ -28,7 +39,7 @@ toc: true
 
 -   Australian Tertiary Admission Rank (ATAR): 98.95
 
-## WORK EXPERIENCE
+## WORK EXPERIENCE{style="page-break-before: always"}
 
 ### Data Scientist
 
@@ -92,6 +103,7 @@ Worked collaboratively to deliver work in Corporate Finance, Forensic Investigat
 -   Digital marketing strategy and implementation plan including identification of key platforms, competitor and industry analysis, target client activity, resourcing, and risk analysis.
 -   People and Culture Review including recommendations on intranet design, staff engagement, and internal communication tools and policy.
 
+::: {.no-print}
 ## PRESENTATIONS AND WORKSHOPS
 
 ```{r echo=FALSE}
@@ -108,3 +120,10 @@ other_exp <- tibble::tribble(
 -   Talk: [Designing R Packages](https://github.com/cynthiahqy/design-r-magic_2022-10) (4 Oct 2022, Monash EBS Data Science Research Software Study Group)
 -   Talk: [Quarto Websites as Research Compendiums](https://github.com/cynthiahqy/quarto-wiki-template) (16 Aug 2022, Monash EBS Data Science Research Software Study Group)
 -   Workshop: [Writing academic papers with Rmarkdown and friends](https://www.cynthiahqy.com/posts/r-markdown-and-friends/) (9 Aug 2022, Monash University)
+
+:::
+
+::: {.print-only}
+## References
+Available upon request
+:::
