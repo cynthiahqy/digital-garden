@@ -43,7 +43,7 @@ website:
 
 You can publish your website without including the `site-url:` option (I know because I did that), but `quarto render` won't produce `robots.txt` or `sitemap.xml` for you, and your image links won't be properly prepended:
 
-2.  Turn on **Social Metadata** options in `_quarto.yml`
+2.  Turn on [**Social Metadata**](https://quarto.org/docs/websites/website-tools.html#social-metadata) options in `_quarto.yml`
 
 Quarto very helpfully includes tools for generating the metadata required by Twitter to generate preview cards. However, you need to turn those tools on:
 
@@ -58,6 +58,17 @@ website:
 Combining the two steps above added the appropriate `<meta property>` tags into the .html output files rendered by Quarto:
 
 ![](images/paste-076546FF.png)
+
+## BONUS: Featured Images
+
+To add a custom image to your twitter card make sure to specify a featured image in your document YAML. You can also specify the type of card you want displayed:
+
+``` yaml
+image: featured.png
+card-style: summary
+```
+
+See Quarto docs for more on [Twitter-Card options](https://quarto.org/docs/websites/website-tools.html#twitter-cards).
 
 ## Resources and References
 
