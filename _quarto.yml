@@ -16,6 +16,9 @@ website:
   twitter-card: 
     creator: "@cynthiahqy"
   
+  repo-url: https://github.com/cynthiahqy/digital-garden
+  repo-actions: [edit, issue]
+
   navbar:
     right:
       - blog.qmd
