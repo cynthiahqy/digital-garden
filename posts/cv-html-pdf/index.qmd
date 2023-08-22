@@ -1,6 +1,6 @@
 ---
 title: 'Publishing HTML and PDF versions of a Quarto CV without LaTex'
-description: 'Forget LaTex. Publish multi-format documents from a single .qmd using weasyprint and some CSS stylesheet magic!'
+description: 'Forget LaTex. Publish multi-format Quarto documents using weasyprint and some CSS stylesheet magic!'
 date: '20230603'
 date-modified: last-modified
 categories:
