@@ -1,0 +1,76 @@
+### The Brief? A data driven and quarto powered CV and resume machine!
+
+This is a bit embarrasing to admit as a Quarto and Markdown enthusiast but I've been using the same Microsoft Word template to write my resumes and CVs since my first year of university. I know, outrageous! There are so many great markdown based CV and resume tools out there. The thing is, updating my CV something I tend to avoid at all costs. When I do update it, it's usually just before I need to send it off so I don't exactly have time to play around with a different set up. For a long time, it's just been edit the word doc, save as pdf, send it off and forget about it until next time. As embarrassing as it was to have folder full of `cv-20180721.docx` and `resume-20220315_monash-ta.pdf` files, I just couldn't see the point of changing something that wasn't broken.
+
+<!-- Then along came quarto, multi-format links, and the hackathon and hacky hours organised by the NUMBATs research group at Monash.  -->
+
+Still, this didn't feel right given I'm such a huge fan of Quarto. I spent most of my time at the NUMBATs hackathon earlier this year working on bunch of Quarto projects including a template for Monash branded presentation slides, the People listing page on the new quarto powered NUMBATS website and privately publishing a quarto based research compendium. I just needed an interesting and useful enough project to finally motivate me to switch my CV from MS Word to Quarto. After some looking online for some inspiration and horrifying my PhD supervisors with my secret, I settled on challenging myself with designing and building a system that could:
+
+1.   generate a data driven Curriculum Vitae
+2.   generate shorter resumés tailored to specific applications from the same data
+3.   output slightly different versions of the same document to HTML and PDF so I can use the same source file for both my website and applications
+4.   format the output similar to or better than my MS Word template
+
+This blog post is about how I achieved the last two features using Quarto, the [weasyprint](https://weasyprint.org) html-to-pdf engine and some css magic. I haven't gotten around to the first two features but I will...
+
+### BONUS: Quarto Multi-Format Links
+
+Since Quarto v1.3?? https://quarto.org/docs/output-formats/html-multi-format.html
+
+### BONUS: print/no-print rules
+
+-   print-only / no-print classes
+
+## Detours along the way
+
+### Attempt One: What the `\hfill\mbox{}` LaTex?
+
+After getting over his initial horror and disappointment about my MS Word secret, my PhD supervisor Rob Hyndman kindly wrote me a LaTex template which approximated my existing format:
+
+::: {layout-ncol="2" layout-valign="bottom"}
+![Original MS Word template](images/paste-8.png){height="300px"}
+
+![Quarto + LaTex output](images/paste-7.png){height="300px"}
+:::
+
+It looked pretty similar, apart from the margins and losing the two-column layout at the top of the file. Still, it had an unsatisfactory number of finicky LaTex kinks, and I didn't have the expertise or patience to iron them out. Moreover, the kinks weren't just in the tex template -- the quarto source file was an unsightly mixture of LaTex commands and markdown syntax:
+
+<!-- It had `\hfill\mbox{}` commands to emulate the grid positioning of dates and the text styling was limited to markdown syntax which could be parsed into LaTex: -->
+
+```markdown
+# EDUCATION
+
+**Doctor of Philosophy -- Econometrics and Business Statistics**, *Monash University*\hfill\mbox{}  *Aug 2021 --- Present*
+
+-   Researching principles and methods for data preparation with applications in economics, official statistics, and satellite deep learning
+-   Monash Data Futures Institute PhD Top-Up Scholarship (2021-2024)
+-   Expected graduation date: Nov 2024
+
+**Bachelor of Commerce (Honours) -- Economics**, *The University of Melbourne*\hfill\mbox{} *Feb 2016 --- Nov 2016*
+
+-   Graduated with First Class Honours
+-   Completed research essay modelling information escrows for victims of domestic violence
+
+**Bachelor of Commerce -- Economics & Management**, *The University of Melbourne*\hfill\mbox{} *Mar 2012 --- Oct 2014*
+
+-   Graduated with First Class Honours, and inclusion on Dean's Honours List
+```
+
+This meant that I couldn't just render the same file into HTML to put on my website. I started to think I would have to generate two separate markdown files, one for PDF via LaTex and another for HTML... so back into my pile of unfinished projects this went.
+
+### weasyprint to the rescue!
+
+It turns out that we can skip LaTex all together and instead go from markdown to HTML to PDF. After a chance meeting at the latest R Ladies / SSA event, James Goldie kindly pointed me to this [github issue](https://github.com/quarto-dev/quarto-cli/discussions/2538). In it, he shows how to use `weasyprint` and some CSS to render a quarto doc into a nicely formatted PDF.
+
+### Hacking it together with some help of ChatGPT
+
+-   color selectors
+-   delete stuff and see if it still works
+-   ask chatgpt to explain with examples! (started out asking about something else, but it was useful nonetheless)
+    -   https://chat.openai.com/c/c5b58373-bf42-4c60-a2bd-ea4accd8c114
+
+### BONUS: Deploying on Netlify
+
+-   Render locally and publish `_site/`
+-   Use the quarto-netlify-plugin
+-   Add `weasyprint==59.0` to `requirements.txt` as in docs: https://docs.netlify.com/configure-builds/manage-dependencies/#install-using-pip

@@ -1,5 +1,5 @@
 ---
-title: 'Rendering my Quarto CV in HTML and PDF without LaTex'
+title: 'Publishing HTML and PDF versions of a Quarto CV without LaTex'
 description: 'Forget LaTex. Publish multi-format documents from a single .qmd using weasyprint and some CSS stylesheet magic!'
 date: '20230603'
 date-modified: last-modified
@@ -10,34 +10,23 @@ categories:
   - quarto
   - how-to
 image: featured.png
+format:
+  html:
+    code-fold: true
 filters:
   - include-code-files
 ---
 
 ## Multi-Format Sourcery
 
-### The Brief? A data driven and quarto powered CV and resume machine!
+So I think we all know that you can render multiple formats from the same Quarto document. But did you know that from Quarto 1.3 onwards, HTML pages can automatically include links to other formats via [Multi-format Publishing](https://quarto.org/docs/blog/posts/2023-03-15-multi-format/)?
 
-This is a bit embarrasing to admit as a Quarto and Markdown enthusiast but I've been using the same Microsoft Word template to write my resumes and CVs since my first year of university. I know, outrageous! There are so many great markdown based CV and resume tools out there. The thing is, updating my CV something I tend to avoid at all costs. When I do update it, it's usually just before I need to send it off so I don't exactly have time to play around with a different set up. For a long time, it's just been edit the word doc, save as pdf, send it off and forget about it until next time. As embarrassing as it was to have folder full of `cv-20180721.docx` and `resume-20220315_monash-ta.pdf` files, I just couldn't see the point of changing something that wasn't broken.
+I used this neat new feature to add two versions of my CV to my website:
 
-<!-- Then along came quarto, multi-format links, and the hackathon and hacky hours organised by the NUMBATs research group at Monash.  -->
-
-Still, this didn't feel right given I'm such a huge fan of Quarto. I spent most of my time at the NUMBATs hackathon earlier this year working on bunch of Quarto projects including a template for Monash branded presentation slides, the People listing page on the new quarto powered NUMBATS website and privately publishing a quarto based research compendium. I just needed an interesting and useful enough project to finally motivate me to switch my CV from MS Word to Quarto. After some looking online for some inspiration and horrifying my PhD supervisors with my secret, I settled on challenging myself with designing and building a system that could:
-
-1.   generate a data driven Curriculum Vitae
-2.   generate shorter resumés tailored to specific applications from the same data
-3.   output slightly different versions of the same document to HTML and PDF so I can use the same source file for both my website and applications
-4.   format the output similar to or better than my MS Word template
-
-This blog post is about how I achieved the last two features using Quarto, the [weasyprint](https://weasyprint.org) html-to-pdf engine and some css magic. I haven't gotten around to the first two features but I will...
-
-### What I managed to make (so far)
-
-Before I bore you with more side stories, let me show you what I managed to make. From the same Quarto markdown file, I was able to render a HTML version for my website, as well as a PDF version that can be downloaded from the same HTML webpage via the link under "Other Formats":
+- a HTML webpage version and,
+- a PDF version that can be downloaded from the same HTML webpage via the link under "Other Formats":
 
 ![HTML webpage](images/other-format-link.png)
-
-I still need to tweak the formatting on the linked PDF so everything fits on two pages, but I'm pretty happy with how it looks for now:
 
 ![PDF output](images/pdf-multi-format.png)
 
@@ -45,102 +34,94 @@ I still need to tweak the formatting on the linked PDF so everything fits on two
 
 To replicate something similar, you will need to:
 
-1. write a Quarto markdown document with all your CV content in it.
-2. Customise some Quarto YAML options
-4. add some CSS magic to your CV document
-3. install `weasyprint` and render!
+1. Write a Quarto markdown document with all your CV content in it.
+2. Add html and pdf format YAML options
+4. Add some CSS magic to your CV document
+3. Install `weasyprint` and render!
 
 ### Quarto CV Template
 
-Here's a template with content helpfully written by ChatGPT:
+Here's an abridged version of Quarto CV document for steps 1 & 2:
 
-````{.markdown include="_sample-cv.qmd" filename="sample-cv.qmd"}
+````{.markdown code-line-numbers="true"}
+---
+title: "Curriculum Vitae"
+format:
+  html:
+    toc: true
+  pdf:
+    author: Cynthia A Huang
+    pdf-engine: weasyprint
+css: cv.css
+format-links: [pdf]
+---
 
+::: {.print-only .contact-block}
+cynthia.huang@monash.edu
+:::
+
+## EDUCATION
+
+**Doctor of Philosophy -- Econometrics and Business Statistics** <br> *Monash University* [*Aug 2021 --- Present*]{.cvdate}
+
+-   New principles and methods for complex data preparation and integration, with applications to official statistics, web-scrapped data and satellite raster images
+-   Monash Data Futures Institute PhD Top-Up Scholarship (2021-2024)
+-   Expected submission date: Nov 2024
+
+## WORK EXPERIENCE{style="page-break-before: always"}
+
+### Data Scientist
+
+***Freelance, Multiple Clients*** [Jan 2020 -- June 2021]{.cvdate}
+
+Providing data collection, pre-processing, exploratory analysis and modelling services to clients in the early R&D stages of developing data driven products. Projects include:
+
+-   Data description and preliminary product feasibility insights for a start-up real estate bond platform; including assessing suitability of various property transaction databases for use in initial product prototype.
+-   Development of statistical anomaly detection regimes and key historical insights from internet quality time-series data for use in parametric insurance products, including documenting analysis tools in an R package.
+
+::: {.no-print}
+## PRESENTATIONS AND WORKSHOPS
+
+-   Talk: [Misadventures with Reproducibility in R](https://github.com/cynthiahqy/rladies-2022-11) (30 Nov 2022, R Ladies Melbourne Meetup)
+-   Talk: [Designing R Packages](https://github.com/cynthiahqy/design-r-magic_2022-10) (4 Oct 2022, Monash EBS Data Science Research Software Study Group)
+-   Talk: [Quarto Websites as Research Compendiums](https://github.com/cynthiahqy/quarto-wiki-template) (16 Aug 2022, Monash EBS Data Science Research Software Study Group)
+-   Workshop: [Writing academic papers with Rmarkdown and friends](https://www.cynthiahqy.com/posts/r-markdown-and-friends/) (9 Aug 2022, Monash University)
+:::
+
+::: {.print-only}
+## References
+Available upon request
+:::
 ````
 
 ### Now for the CSS magic
 
-I used a mixture of built-in Quarto CSS classes and custom classes. The custom classes are mostly for text formatting and page layout, while built-in the [Conditional Content](https://quarto.org/docs/authoring/conditional.html) classes are used for varying content between PDF and HTML formats.
-
-Here's the stylesheet I used^[adapted from this [GitHub Issue](https://github.com/quarto-dev/quarto-cli/discussions/2538#discussioncomment-4081842)]:
+Here's the stylesheet I used^[adapted from this [GitHub Issue](https://github.com/quarto-dev/quarto-cli/discussions/2538#discussioncomment-4081842) by [James Goldie (@jimjam-slam)](https://github.com/jimjam-slam)]:
 
 ```{.css include="../../cv.css" filename="cv.css"}
 ```
 
--   at-rules (@media, @page): https://developer.mozilla.org/en-US/docs/Web/CSS/@page
--   adjusting dimensions: https://doc.courtbouillon.org/weasyprint/stable/common_use_cases.html#adjust-document-dimensions
+I am an absolute CSS beginner, so I won't attempt to explain what the custom CSS does exactly, but these links might be helpful if you (or future me) are curious:
 
--   page breaks via style spans: https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/posts/11-spans/
--   page numbers: https://github.com/Kozea/WeasyPrint/issues/838
+-   at-rules (`@media`, `@page`):
+    - <https://developer.mozilla.org/en-US/docs/Web/CSS/@page>
+-   adjusting print (PDF) page dimensions:
+    - <https://doc.courtbouillon.org/weasyprint/stable/common_use_cases.html#adjust-document-dimensions>
+-   add page numbers to PDF print:
+    - <https://github.com/Kozea/WeasyPrint/issues/838>
+-   style spans (used to insert `page-break-before`):
+    - <https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/posts/11-spans/>
 
-still to fix: - font-size - spacing between elements
+I used custom CSS to define a `.print-only` class for PDF content, and `.no-print` class for HTML only content. This is a somewhat hacky way of getting different content that relies on the fact that the `weasyprint` engine basically prints the HTML webpage and then gives you a PDF of the printed pages.
 
--   quarto conditional content: https://quarto.org/docs/authoring/conditional.html
+Quarto offers built-in [Conditional Content](https://quarto.org/docs/authoring/conditional.html) classes for varying content formats but I haven't had time to experiement with them.
 
 ### Install weasyprint and render to PDF
 
-Now, follow [these instructions](https://doc.courtbouillon.org/weasyprint/stable/first_steps.html#installation) to install `weasyprint`
+Finally, follow [these instructions](https://doc.courtbouillon.org/weasyprint/stable/first_steps.html#installation) to install `weasyprint` and then render your `.qmd` file as normal.
 
+If you are on macOS like me, use Homebrew:
 
-
-### BONUS: Quarto Multi-Format Links
-
-Since Quarto v1.3?? https://quarto.org/docs/output-formats/html-multi-format.html
-
-### BONUS: print/no-print rules
-
--   print-only / no-print classes
-
-## Detours along the way
-
-### Attempt One: What the `\hfill\mbox{}` LaTex?
-
-After getting over his initial horror and disappointment about my MS Word secret, my PhD supervisor Rob Hyndman kindly wrote me a LaTex template which approximated my existing format:
-
-::: {layout-ncol="2" layout-valign="bottom"}
-![Original MS Word template](images/paste-8.png){height="300px"}
-
-![Quarto + LaTex output](images/paste-7.png){height="300px"}
-:::
-
-It looked pretty similar, apart from the margins and losing the two-column layout at the top of the file. Still, it had an unsatisfactory number of finicky LaTex kinks, and I didn't have the expertise or patience to iron them out. Moreover, the kinks weren't just in the tex template -- the quarto source file was an unsightly mixture of LaTex commands and markdown syntax:
-
-<!-- It had `\hfill\mbox{}` commands to emulate the grid positioning of dates and the text styling was limited to markdown syntax which could be parsed into LaTex: -->
-
-```markdown
-# EDUCATION
-
-**Doctor of Philosophy -- Econometrics and Business Statistics**, *Monash University*\hfill\mbox{}  *Aug 2021 --- Present*
-
--   Researching principles and methods for data preparation with applications in economics, official statistics, and satellite deep learning
--   Monash Data Futures Institute PhD Top-Up Scholarship (2021-2024)
--   Expected graduation date: Nov 2024
-
-**Bachelor of Commerce (Honours) -- Economics**, *The University of Melbourne*\hfill\mbox{} *Feb 2016 --- Nov 2016*
-
--   Graduated with First Class Honours
--   Completed research essay modelling information escrows for victims of domestic violence
-
-**Bachelor of Commerce -- Economics & Management**, *The University of Melbourne*\hfill\mbox{} *Mar 2012 --- Oct 2014*
-
--   Graduated with First Class Honours, and inclusion on Dean's Honours List
+```bash
+brew install weasyprint
 ```
-
-This meant that I couldn't just render the same file into HTML to put on my website. I started to think I would have to generate two separate markdown files, one for PDF via LaTex and another for HTML... so back into my pile of unfinished projects this went.
-
-### weasyprint to the rescue!
-
-It turns out that we can skip LaTex all together and instead go from markdown to HTML to PDF. After a chance meeting at the latest R Ladies / SSA event, James Goldie kindly pointed me to this [github issue](https://github.com/quarto-dev/quarto-cli/discussions/2538). In it, he shows how to use `weasyprint` and some CSS to render a quarto doc into a nicely formatted PDF.
-
-### Hacking it together with some help of ChatGPT
-
--   color selectors
--   delete stuff and see if it still works
--   ask chatgpt to explain with examples! (started out asking about something else, but it was useful nonetheless)
-    -   https://chat.openai.com/c/c5b58373-bf42-4c60-a2bd-ea4accd8c114
-
-### BONUS: Deploying on Netlify
-
--   Render locally and publish `_site/`
--   Use the quarto-netlify-plugin
--   Add `weasyprint==59.0` to `requirements.txt` as in docs: https://docs.netlify.com/configure-builds/manage-dependencies/#install-using-pip
