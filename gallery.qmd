@@ -30,10 +30,13 @@ page-layout: full
 
 Episodes of [The Random Sample](https://www.therandomsample.com.au/) hosted by yours truly:
 
+-   [EP 81: Open-sourcing Data Science Education with Professor Mine Çetinkaya-Rundel](https://www.therandomsample.com.au/podcast/open-education/)
 -   [EP 79: Law & Stats: What's a Statistician Doing in Court? with Ian Gordon](https://www.therandomsample.com.au/podcast/statisticians-in-legal-cases/)
 -   [EP 75: Probing Large Language Models & ChatGPT with Simon Angus](https://www.therandomsample.com.au/podcast/chatgpt/)
 -   [EP 72: Future Proofing as Data Changes the World with Dana Ma](https://www.therandomsample.com.au/podcast/future-proofing/)
 -   [EP 70: The Statistical Society of Australia's 60th Birthday with Ian Gordon and Jessica Kasza](https://www.therandomsample.com.au/podcast/ssa-60th/)
+
+<iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/73TelUFx5Vrfdx8ilNEBXE?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
 
 ## Interviews and Profiles
 

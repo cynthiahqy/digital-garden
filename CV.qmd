@@ -120,6 +120,7 @@ other_exp <- tibble::tribble(
 -   Talk: [Designing R Packages](https://github.com/cynthiahqy/design-r-magic_2022-10) (4 Oct 2022, Monash EBS Data Science Research Software Study Group)
 -   Talk: [Quarto Websites as Research Compendiums](https://github.com/cynthiahqy/quarto-wiki-template) (16 Aug 2022, Monash EBS Data Science Research Software Study Group)
 -   Workshop: [Writing academic papers with Rmarkdown and friends](https://www.cynthiahqy.com/posts/r-markdown-and-friends/) (9 Aug 2022, Monash University)
+-   Workshop: [Meeting AEA Replication Standards using Quarto](https://github.com/cynthiahqy/monash-quarto-aea) (18-20 Aug 2023, Monash University)
 
 :::
 
