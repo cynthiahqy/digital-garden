@@ -10,7 +10,7 @@ css: sample-styles.css
 format-links: [pdf]
 ---
 
-::: {.content-hidden unless-format="pdf" .contact-block}
+::: {.print-only .contact-block}
 john.doe@email.com
 :::
 

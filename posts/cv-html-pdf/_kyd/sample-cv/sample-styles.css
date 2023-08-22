@@ -1,4 +1,4 @@
-/* add adobe fonts web project to use itc frnaklin gothic font */
+/* import fonts */
 @import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;500;700&display=swap');
 
 /* all formats */
@@ -6,6 +6,11 @@
 .cvdate {
   float: right;
   font-style: italic
+}
+
+.print-only {
+  display: none;
+  /*color: aquamarine;*/
 }
 
 /* for page-breaks use style spans
@@ -34,7 +39,7 @@
   }
   
   html {
-    font-family: franklin-gothic-urw, sans-serif;
+    font-family: 'Public Sans', sans-serif;
   }
 
   /* hide title */
