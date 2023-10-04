@@ -30,6 +30,8 @@ page-layout: full
 
 Episodes of [The Random Sample](https://www.therandomsample.com.au/) hosted by yours truly:
 
+-   [EP 87: What you need to know about Referendum Polling with Professor Simon Jackman](https://www.therandomsample.com.au/podcast/referendum-polling/)
+-   [EP 86: Communicating Statistics & Probability with Prof. Jeffrey Rosenthal](https://www.therandomsample.com.au/podcast/jeffrey-rosenthal/)
 -   [EP 81: Open-sourcing Data Science Education with Professor Mine Çetinkaya-Rundel](https://www.therandomsample.com.au/podcast/open-education/)
 -   [EP 79: Law & Stats: What's a Statistician Doing in Court? with Ian Gordon](https://www.therandomsample.com.au/podcast/statisticians-in-legal-cases/)
 -   [EP 75: Probing Large Language Models & ChatGPT with Simon Angus](https://www.therandomsample.com.au/podcast/chatgpt/)
