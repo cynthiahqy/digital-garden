@@ -7,34 +7,35 @@ date-modified: last-modified
 categories:
   - quarto
   - teaching
+  - slide design
 image: carbon.png
 # https://carbon.now.sh/?bg=rgba%28255%2C255%2C255%2C1%29&t=blackboard&wt=none&l=yaml&width=340&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=69px&ph=55px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=project%253A%250A%2520%2520output-dir%253A%2520_output%250A%2520%2520%250Ametadata-files%253A%250A%2520%2520-%2520_slides.yml
 ---
 
-I recently ran a _Slidecraft_ show-and-tell session as part of a weekly Hacky Hour meetup. The idea was for everyone to share something slide related like:
+I recently ran a _Slidecraft_ show-and-tell session as part of a weekly Hacky Hour meetup for the NUMBATS research group in my department^[NUMBATS is the Non-Uniform Monash Business Analytics Team in the Department of Econometrics and Business Statistics at Monash Business School. See [this website](https://numbat.space/about.html) for more.]. The idea was for everyone to share something slide related like:
 
 - Slide design tips, tricks and/or opinions,
 - Slide-related problems that need solving,
 - Quarto slide customisations or features.
 
-I talked about how I used Quarto features to share metadata and content across slides for a multi-day _Quarto for Economists_ workshop I recently taught. Here's a recap of what I talked about.
+I talked about how I used Quarto features to share metadata and content across slides for a multi-day _Quarto for Economists_ workshop I recently taught. This post is a longer, more documented version of what I discussed.
 
 ## Types of Includes
 
-There are a few ways to include and reuse existing content in Quarto HTML documents (e.g. webpages and Revealjs slides). I won't explain in detail how these features work, but the footnotes include links to the relevant sections in the official Quarto documentation:
+A few ways exist to include and reuse existing content in Quarto HTML documents (e.g., webpages and Revealjs slides). I won't explain in detail how these features work, but the footnotes include links to the relevant sections in the official Quarto documentation:
 
-- share YAML config options between `.qmd` files using Project and Directory metadata files, or the `metadata-files:` YAML option.^[See [Shared Metadata](https://quarto.org/docs/projects/quarto-projects.html#shared-metadata)]
-- include the contents of code scripts as executable code chunks using the `#| file:` cell option.^[See [Code Cells: Knitr > Include](https://quarto.org/docs/reference/cells/cells-knitr.html#include)]
-- include contents from any text file, at specific points in a `.qmd` file using the `{{< include >}}` shortcode.^[See [content and code examples](https://quarto.org/docs/authoring/includes.html)]
-- include the contents of code scripts, _verbatim_, as syntax-highlighted read-only code blocks using the `include-code-files` extension.^[See [quarto-ext/include-code-files](https://github.com/quarto-ext/include-code-files)]
-- include the contents of another file, _verbatim_, at pre-defined locations using the `include-in-header:`, `include-before-body:` and `include-after-body:` YAML options.^[See [HTML example](https://quarto.org/docs/output-formats/html-basics.html#includes) and [LaTex example](https://quarto.org/docs/output-formats/pdf-basics.html#latex-includes)]
+- Share YAML config options between `.qmd` files using Project and Directory metadata files or the `metadata-files:` YAML option.^[See [Shared Metadata](https://quarto.org/docs/projects/quarto-projects.html#shared-metadata)]
+- Include the contents of code scripts as executable code chunks using the `#| file:` cell option.^[See [Code Cells: Knitr > Include](https://quarto.org/docs/reference/cells/cells-knitr.html#include)]
+- Include contents from any text file at specific points in a `.qmd` file using the `{{< include >}}` shortcode.^[See [content and code examples](https://quarto.org/docs/authoring/includes.html)]
+- Include the contents of code scripts, _verbatim_, as syntax-highlighted read-only code blocks using the `include-code-files` extension.^[See [quarto-ext/include-code-files](https://github.com/quarto-ext/include-code-files)]
+- Include the contents of another file, _verbatim_, at pre-defined locations using the `include-in-header:`, `include-before-body:` and `include-after-body:` YAML options.^[See [HTML example](https://quarto.org/docs/output-formats/html-basics.html#includes) and [LaTex example](https://quarto.org/docs/output-formats/pdf-basics.html#latex-includes)]
 
-The workshop had 4 sessions, with 3 content modules and a wrap up within each session. It was my first time running this workshop so I knew I'd probably need to update content for later sessions and move modules between sessions based on how the first day went. I used a combination of these features to:
+The workshop had four sessions, with three content modules and a wrap-up within each session. It was my first time running this workshop, so I knew I'd probably need to update content for later sessions and move modules between sessions based on how the first day went. I used a combination of these features to:
 
-- harmonise Revealjs slide options and features across all content modules, and
-- easily update each sessions wrap-up slides using content from within each module folder
+- harmonise Revealjs slide options and features across all content modules and,
+- easily update each session's wrap-up slides using content from within each module folder
 
-I also used the `include-code-files` extension to show how STATA scripts can be included in Quarto documents as part of the workshop content, but I won't go into that here.
+I also used the `include-code-files` extension to include STATA scripts in Quarto documents as part of the workshop content, but I won't go into that here.
 
 ## Project structure
 
@@ -63,11 +64,12 @@ I used the following Quarto project structure for the workshop website and mater
     └── slides.scss
 ```
 
-Each module was contained in a single folder, and I used the `XXd-wrap-up` folders for session planning notes and summary content. Note that every module had both a website page (`index.qmd`) and a set of slides (`slides.qmd`). Here's the website page for the `01a-hello-quarto` module: [cynthiahqy.github.io/monash-quarto-aea/01a-hello-quarto/](https://cynthiahqy.github.io/monash-quarto-aea/01a-hello-quarto/)
+Every module had its own folder, and I used the `XXd-wrap-up` folders for session planning notes and summary content. Note that every module had both a website page (`index.qmd`) and a set of slides (`slides.qmd`). Here's the website page for the `01a-hello-quarto` module: [cynthiahqy.github.io/monash-quarto-aea/01a-hello-quarto/](https://cynthiahqy.github.io/monash-quarto-aea/01a-hello-quarto/)
 
 ## Includes for slide format and features
 
-This was how I set up each module's slide file:
+The slides for each module were all formatted the same way, with the same Revealjs theme options, slide transitions, slide numbers, etc.. I used the `#| file:` cell option to include a setup code chunk from the shared `_slides-setup.R` file:
+
 
 ````{.yaml filename="01a-hello-quarto/slides.qmd" code-line-numbers="true"}
 ---
@@ -86,7 +88,7 @@ metadata-files:
 ```
 ````
 
-Since all of my slides were in different folders, sharing YAML options using the Directory metadata file `_metadata.yml` wasn't an option. Instead I used the `metadata-files:` YAML option to share the same `_slides.yml` file across all of my slides. The only thing I had to be careful about was making sure I got the relative references correct. Even though `_slides.yml` and the `style/` folder were both in the root directory of my repo, I had to use `../style/slides.scss` to reference the custom CSS file. This is because the relative links are evaluated from the location of the `slides.qmd` file (i.e. inside the module folder `01a-hello-quarto/`) not the root directory of the repo.
+Since all my slides were in different folders, sharing YAML options using the directory metadata file `_metadata.yml` wasn't an option. Instead I used the `metadata-files:` YAML option to share the same `_slides.yml` file across all of my slides. The only thing I had to be careful about was making sure I got the relative references correct. Even though `_slides.yml` and the `style/` folder were both in the root directory of my repo, I had to use `../style/slides.scss` to reference the custom CSS file. This is because the relative links are evaluated from the location of the `slides.qmd` file (i.e. inside the module folder `01a-hello-quarto/`) not the root directory of the repo.
 
 ```{.yaml filename="_slides.yml" code-line-numbers="false"}
 author: "Cynthia Huang"
@@ -110,7 +112,7 @@ metadata-files:
   - _slides.yml
 ```
 
-In addition to sharing YAML options, I also used a shared setup R script across all my slides. It mostly just saved me from having to remember to load the `{countdown}` package for inserting countdown timers in my slide, but could be used for other setup tasks as well.
+In addition to sharing YAML options, I also used a shared setup R script across all my slides. I used it to load the `{countdown}` package to insert countdown timers, but you could include other setup tasks too.
 
 ```{.r filename="_slides-setup.R" code-line-numbers="false"}
 # set width of code output
@@ -122,7 +124,7 @@ library(countdown)
 
 ## Includes for wrap-up slides
 
-At the end of each session, I showed a set of summary slides with key-takeaways from each module. I used the `{{< include >}}` shortcode to pull in the content from each module's `_wrap-up.qmd` file:
+At the end of each session, I showed summary slides with key takeaways from each module. I used the `{{< include >}}` shortcode to pull in the content from each module's `_wrap-up.qmd` file:
 
 ```{.md filename="01d-wrap-up/slides.qmd" code-line-numbers="true"}
 ---
@@ -153,7 +155,7 @@ Suggestions / requests for things to cover in Thursday's session?
 :::
 ```
 
-This setup allowed me to easily move modules between sessions and ensured the wrap-up slides were always up-to-date with any content changes within modules.
+This setup allowed me to move modules between sessions easily and ensured the wrap-up slides were always up-to-date with any content changes within modules.
 
 ## Final rendered slides
 
