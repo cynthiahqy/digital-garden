@@ -23,6 +23,7 @@ website:
     right:
       - blog.qmd
       - gallery.qmd
+      - research.qmd
       - CV.qmd
       - icon: github
         href: https://github.com/cynthiahqy

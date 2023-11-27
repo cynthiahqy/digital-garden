@@ -1,0 +1,33 @@
+---
+title: Research
+listing:
+  - id: research
+    type: grid
+    grid-columns: 2
+    fields: [title, paper, slides, image, description]
+    image-height: 300px
+    field-links: [title]
+    contents:
+        - title: "Visualising Category Recoding and Redistributions"
+          description: |
+            Working paper presented at [(Vis+Prov) x Domain](https://visxprov.github.io) 2023, a workshop at IEEE VIS 2023
+          author: "Cynthia A. Huang"
+          date: 2023-10-23
+          category: [Working Paper, Talk]
+          image: "research/images/viz-anzsco22-isco8-bigraph-table.png"
+          image-alt: |
+            A crossmap for converting values observed using Australian occupation categories (ANZSCO22) into observations under the International Standard Classification of Occupations (ISCO8). Crossmaps are directed multipartite graph structures for capturing details of cross-taxonomy transformation. This crossmap is visualised using a two-layer bigraph layout, with ANZSCO22 codes forming the first source layer, and ISCO8 codes the second target layer. The weights on the links indicate what share of ANZSCO22 observed values are redistributed to corresponding ISCO8 codes.
+          path: https://arxiv.org/abs/2308.06535
+          paper: "[arXiv:2308.06535v1](https://arxiv.org/abs/2308.06535v1)"
+          slides: "[vis-prov](https://cynthiahuang.quarto.pub/vis-prov/)"
+        - title: "Advances in Ex-Post Harmonisation using Graph Representations of Cross-Taxonomy Transformations"
+          description: |
+            Initially presented at [IDWSDS 2023](https://www.idwsds.org) for the PhD contest on Oct 10, 2023, and then at NUMBATS group seminar on Oct 12, 2023.
+          author: "Cynthia A. Huang"
+          date: 2023-10-12
+          category: [Talk]
+          image: "research/images/ex-post-collect-clean-transform-merge.png"
+          path: https://cynthiahuang.quarto.pub/advances-expost-crossmap/
+          paper: "forthcoming"
+          slides: "[advances-expost-crossmap](https://cynthiahuang.quarto.pub/advances-expost-crossmap/)"
+---
