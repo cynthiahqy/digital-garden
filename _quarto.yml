@@ -29,6 +29,8 @@ website:
         href: https://github.com/cynthiahqy
       - icon: twitter
         href: https://twitter.com/cynthiahqy
+      - icon: envelope-at-fill
+        href: mailto:cynthia.huang@monash.edu
 
   page-footer:
     right: "This website is built with ❤️  and [Quarto](https://quarto.org/), by Cynthia Huang. License: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)."

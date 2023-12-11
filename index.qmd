@@ -14,6 +14,9 @@ about:
     - icon: github
       text: Github
       href: https://github.com/cynthiahqy
+    - icon: envelope-at-fill
+      text: Email
+      href: mailto:cynthia.huang@monash.edu
 ---
 
 🧙‍♀️ I am a hat collector with pronouns she/her. My many hats include economist, data scientist, research software engineer, teacher. Currently, my main hat is PhD student at Monash University working on principles and methods for data preparation and preprocessing, under the supervision of [Rob J Hyndman](https://robjhyndman.com), [Sarah Goodwin](https://research.monash.edu/en/persons/sarah-goodwin) and [Simon Angus](https://research.monash.edu/en/persons/simon-angus). My favourite side hats at the moment are co-host of the [Random Sample](https://www.therandomsample.com.au/) podcast, and [Quarto](https://quarto.org) evangelist and tinkerer.
