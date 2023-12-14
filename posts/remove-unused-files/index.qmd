@@ -1,0 +1,79 @@
+---
+title: 'Remove unused files from (quarto) markdown projects'
+description: 'A short note on how to clean up images and other files once they are no longer needed in a quarto document'
+date: '2023-12-15'
+date-modified: last-modified
+categories:
+  - quarto
+  - markdown
+  - how-to
+image: https://carbon.now.sh/?bg=rgba%28255%2C255%2C255%2C1%29&t=blackboard&wt=none&l=r&width=320&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=69px&ph=55px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=library%28pander%29%250Amy_table%2520%257C%253E%250A%2520%2520pander%253A%253Apander%28%29
+---
+
+Often when I remove images or files from a quarto markdown document I don't delete the actual files. This is particularly true if I've just "dragged and dropped" or "copy-pasted" an image into a document via visual mode. This can lead to unused images cluttering my `images/` folder. Here's how I cleaned up some "dangling" images that I was no longer using in my quarto slides.
+
+### Before/After
+
+Before pruning my project folder looked something like this:
+```bash
+.
+├── images
+│   ├── 3MT-slide-final-faculty.png
+│   ├── diagram-data-transform-script-v2.png
+│   ├── diagram-data-transform-script.png
+│   ├── diagram-data-transform-xmap-v2.png
+│   ├── diagram-data-transform-xmap.png
+│   ├── diagram_cross-tax.png
+│   ├── diagram_expost-tasks.png
+│   ├── icon-IEEE-VIS.png
+│   ├── icon-aus-src-data.png
+│   ├── icon-aus-target-data.png
+│   ├── icon-database.png
+│   ├── icon-official-stats.png
+│   ├── icon-official-stats.svg
+│   ├── isiccomb_rev3_TRUEonly.png
+│   ├── plot-anzsco-isco-bigraph-only.png
+│   ├── plot-anzsco-isco-bigraph.png
+│   ├── plot-isiccomb-by-income-groups.png
+│   └── plot-isiccomb-by-income-groups.svg
+├── references.bib
+├── slides.html
+└── slides.qmd
+```
+
+After clean-up:
+```bash
+.
+├── images
+│   ├── diagram-data-transform-script-v2.png
+│   ├── diagram-data-transform-xmap-v2.png
+│   ├── diagram_expost-tasks.png
+│   ├── plot-anzsco-isco-bigraph-only.png
+│   └── plot-isiccomb-by-income-groups.svg
+├── references.bib
+├── slides.html
+└── slides.qmd
+```
+
+### Code
+
+To clean up the unused images, I ran these zsh commands from inside my quarto project:
+```{.zsh code-line-numbers=true}
+mkdir images2
+for file in $(ggrep -oP '(?<=\]\()images/.*?(=\))' slides.qmd);
+	do mv -v $file images2/;
+done
+rm -rf images
+mv images2 images
+```
+
+### Explanation
+
+1. Make a temporary folder `images2`
+2. Extract all the relative paths to files in `images/` from `slides.qmd` and move these files into the temporary folder
+3. Remove the old `images/` folder that now only has unused images in it.
+4. Rename the temporary folder to `images/`
+
+### Requirements & Caveats
+
+The command in lines 2-5 requires GNU grep which supports Perl Compatible Regular Expressions, but by default macOS has BSD grep pre-installed. You can install GNU grep using Homebrew via: `brew install grep`. Also, I asked chatGPT to generate the regex for me, so no guarantees on performance or correctness. It worked for me in the projects I was cleaning up but that's all I can say.
