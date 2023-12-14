@@ -38,4 +38,11 @@ listing:
           categories: [Poster]
           image: "research/images/asc-poster.png"
           path: "research/assets/asc-poster.pdf"
+        - title: "Lasagne Recipes for Complex Data"
+          description: |
+            Slides and script for 2023 Three Minute Thesis (3MT) Competition at Monash University
+          author: "Cynthia A. Huang"
+          date: 2023-06-20
+          image: "https://cynthiahqy.github.io/talk_3MT-2023/3MT-2023-lasagne-v03.png"
+          path: "https://cynthiahqy.github.io/talk_3MT-2023/"
 ---
