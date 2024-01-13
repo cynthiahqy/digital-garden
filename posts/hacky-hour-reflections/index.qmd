@@ -1,0 +1,109 @@
+---
+title: 'Reflections on Community Building via Hacky Hours'
+description: 'Hacky hours, coding clubs, communities of practice... whatever you call them, here are some reflections on organising and growing an internal community around research software and open science.'
+date: '2024-01-13'
+date-modified: last-modified
+categories:
+  - NUMBATs
+  - hacky hour
+image: numbat-painted.png
+---
+
+### Background & Inception
+
+In semester 2 of 2023, I took over running an informal coding/research software meet-up started by Dr. Emi Tanaka. Emi ran two iterations of the "Data Science and Research Software Brown Bag" with slightly different formats before leaving Monash. The aim for all iterations of the meet-up was to develop a "Community of Practice" for students and faculty interested in (statistical) research software, open and reproducible research, and (statistical) computing more generally. This post covers my learnings and reflections from attending and organising these meet-ups.
+
+### Format & Target Audience
+
+The target audience for the meet-up was initially students working on (statistical) research software (in the R language). This roughly overlapped with students supervised by either Prof. Rob Hyndman or Prof. Di Cook in the [NUMBATs research group](https://numbat.space) in our department. The initial format in semester 2, 2022 was a weekly 1 hour session with up to two student presentations, where I presented twice -- once on using Quarto to build my PhD research compendium, and once on designing R Packages. These sessions were relatively well-attended by other PhD students, but filling up the presenter schedule was difficult at times. The following semester (2023), we relaxed the format to a fortnightly casual drop-in coding session with an optional show-and-tell at the end of each session. Unfortunately, despite the additional incentive of snacks, these sessions had quite mixed attendance. Sessions with at least 6+ people were quite lively, with lots of small group discussion, debugging, exchanging of ideas etc.
+
+In semester 2 last year (2023), I ran a mixture of:
+
+- presentations and skills workshops
+- semi-structured discussions and show-and-tell
+- informal shut-up-and-code/hacky hours.
+
+For shut up and code sessions, people could just show up and work on whatever they wanted, discuss ideas with others or ask for help. For sessions earlier in the semester, I also asked participants to introduce themselves and answer the following two questions:
+
+1. _What are you working on?_
+2. _What can you help others with?_
+
+The final program for Semester 2, 2023 was as follows:
+
+- Thurs 10 Aug, 9.30-11AM: **Welcome/introductions**
+- Thurs 17 Aug, 9.30-11AM: Shut up and code
+- Thurs 24 Aug, 10-11.30AM: **Workshop: ChatGPT tips and tricks by Michael**
+- Thurs 31 Aug, 9.30-11AM: Shut up and code (hosted by Sherry)
+- Thurs 7 Sep, 10-11.30AM: **Recent developments in R**
+    - _webR demo by Janith_;
+    - _S7 OOP system by Patrick_
+- Thurs 14 Sep, 10-11AM: Shut up and code
+- Thurs 21 Sep, 10-11.30AM: **Paper Discussion** lead by me on _A Nested Model for Visualization Design and Validation by Tamara Munzner (2010)._
+    - Group discussion of applications of the nested model to our own work and research software design more generally.
+- Thurs 28 Sep, 10-11AM: Shut up and code session + stories from posit::conf from Sherry!
+- Thurs 5 Oct, 10-11:30AM: **Show and Tell: Slidecraft**
+    — 5-10min slots. ^[I talked about Quarto Includes as documented in this [blog post](https://www.cynthiahqy.com/posts/slides-quarto-includes/)]
+- Thurs 12 Oct, 10-11AM: Shut up and code
+- Thurs 19 Oct, 10-11.30AM: Shut up and code
+- Thurs 26 Oct, 10-11AM: Shut up and code (hosted by Michael)
+- Thurs 2 Nov, 10-11.30AM: Shut up and code (hosted by Sherry)
+- Thurs 9 Nov, 10-11AM: Shut up and code
+- Thurs 16 Nov, 10-11.30AM: **Feedback session**
+- Weds 22 Nov, 11AM-12.30PM: **NUMBATS End of Year Celebration** hosted with NUMBATS seminar organiser Dr. Xiaoqian Wang
+    - Secret Santa[^longnote], pizza, and games
+
+[^longnote]: Secret Santa rules:
+
+    1. Everyone just brings a wrapped gift (<$20),
+    2. We generate a random order for people to pick gifts
+    3. The first person selects a gift and opens it
+    4. The second person either steals the open gift or opens a new one. If second person steals, first person opens another one.
+    3. The third person can steal an open gift or open a new one. If third person steals, then first/second person can open another one or steal.
+
+    The maximum number of steals is 2. Another cool extra rule would be to limit people to buying gifts from op shops or second-hand stores.
+
+Sessions varied in length from 1-1.5 hours and were all hosted by me unless otherwise stated.
+
+### Learnings and Observations
+
+**1. Logistics are a tedious, somewhat thankless, but necessary part of organising.** I wasn't really prepared to spend a non-trivial amount of time:
+
+- booking rooms, and then fending off requests to take over the room booking
+- sending reminders (optional, but probably improved attendance on the margins)
+- calendar invites (separate from the room bookings)
+
+**2. Piggy back off existing events**
+
+- post-covid WFH meant people were not in the office as regularly as they previously were.
+- I tried to make it as easy as possible for people to attend by scheduling hacky-hour sessions right before our fortnightly NUMBATS seminar, with longer show-and-tell / presentation sessions running on the off-weeks.
+
+**3. Balance structure with flexibility.**
+
+- I intended to run presentation sessions every second week, but the time and effort required to plan such sessions and/or coordinate speakers soon caught up to me. There was also the matter of competing somewhat for speakers with the actual NUMBATS seminar.
+- Instead of burning myself out trying to keep up, I pivoted to hosting more unstructured and semi-structured sessions.
+
+**4. Holding down the fort is part of community building (or so I tell myself)**
+
+- Some weeks, it was just me and one or two other people. This felt somewhat discouraging, but I tried to reframe it in terms of offering the public good of hosting an open space and the option of attendance.
+- 9.30AM also turned out to be way too early for our most of our target audience (PhD students), so I pushed the start time back to 10AM but left the option to come earlier (i.e. I kept coming in at 9.30am)
+
+**5. Find a co-host(s) to maintain momentum.**
+
+- Related to the previous point, for the weeks I wasn't available, I had someone else host the session. Thanks Dr. Sherry Zhang and Dr. Michael Lydeamore!
+
+### Future Directions
+
+Based on feedback from last semester's attendees, I'll be continuing to run Hacky Hour with some further tweaking of the format. If all goes well, the plan for the upcoming semester (S1 2024) is a mixture of:
+
+- informal shut-up-and-code session,
+- semi-structured themed show-and-tell sessions
+- guided workshops on specific topics or tasks (NEW!)
+
+The idea for the show-and-tell sessions is for people to share something they've been working on, a cool trick they've learnt, or a problem they've solved. I'm still thinking of ideas for themes but they might include:
+
+- Another slidecraft session
+- Research workflows
+- Document templates (esp. Quarto)
+- Git tricks
+
+The guided workshops will likely focus on ideas or skills that people were most interested in learning more about during the show-and-tell sessions.
