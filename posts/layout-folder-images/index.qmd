@@ -1,0 +1,90 @@
+---
+title: 'How to programmatically embed (and layout) a whole folder of images in Quarto document'
+description: |
+    Use 'asis' output from R code chunks to generate inline image links for an entire directory of images, AND arrange them using Quarto's custom figure layout syntax
+date: "2023-01-29"
+date-modified: last-modified
+categories:
+  - quarto
+  - how-to
+image: carbon.png
+        # https://carbon.now.sh/?bg=rgba%28255%2C255%2C255%2C1%29&t=blackboard&wt=none&l=r&width=442&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=69px&ph=55px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=library%28ls%29%250Alibrary%28glue%29%250Aimg_files%2520%253C-%2520dir_ls%28glob%253D%2522*.png%2522%29%250Acat%28%2522%253A%253A%253A%257Blayout-ncol%253D2%257D%2522%252C%250A%2520%2520%2520glue%28%2522%21%255B%255D%28%257Bimg_files%257D%29%255Cn%255Cn%255Cn%2522%29%252C%250A%2520%2520%2520%2522%253A%253A%253A%2522%252C%2520sep%2520%253D%2520%2522%2522%29
+---
+
+## The Task
+
+Say you have a folder of images you want to include in a custom figure layout within a Quarto document. Here's what such folder might look like:
+
+```terminal
+layout-folder-images/
+├── index.qmd
+└── images/
+    ├── image-001.png
+    ├── image-002.png
+```
+
+Let's say we want to include the `image-00*.png` images side-by-side. The Quarto markdown for this might look like:
+
+````{.md filename="index.qmd"}
+::: {layout-ncol=2}
+!()[images/image-001.png]
+
+!()[images/image-002.png]
+
+:::
+````
+
+## Code chunk magic
+
+Writing out markdown is fine for a few images, but it could get quickly get tedious (e.g. a whole folder). Instead, why not use an R code chunk to generate the markdown:
+
+```{{r}}
+#| output: asis
+img_files <- fs::dir_ls("images", glob="*.png")
+cat("::: {layout-ncol=2}\n",
+    glue::glue("![]({img_files})\n\n\n"),
+    ":::",
+    sep = ""
+)
+```
+
+## Example Output
+
+Here's some example output using some sketchnotes I drew many years ago:
+
+```{r}
+#| output: asis
+#| echo: false
+img_files <- fs::dir_ls("images", glob="*.png")
+cat("::: {layout-ncol=2}\n",
+    glue::glue("![]({img_files})\n\n\n"),
+    ":::",
+    sep = ""
+)
+```
+
+## Code Explanation
+
+And finally, an explanation of how the code works:
+
+```r
+img_files <- fs::dir_ls(images, glob="*.png") # <1>
+cat("::: {layout-ncol=3}\n",                  # <2>
+    glue::glue("![]({img_files})\n\n\n"),     # <3>
+    ":::",                                    # <3>
+    sep = ""                                  # <4>
+)
+```
+1. Get paths to all the image files in the `images/` folder.
+2. Use `cat()` to output the starting fence for the custom figure layout div.
+3. Use `glue()` to generate the inline image links for each image separated by new lines (required for custom layouts). Output the links with `cat()` and close the figure div.
+4. Set `cat()` to output each markdown component without any additional whitespace.
+
+## Notes and Extension Ideas
+
+- If your images have a natural order to them (as mine do in the example above), make sure your file names reflect this ordering. I think `dir_ls()` sorts alphabetically by default, so make sure to pad your numbering if you've got more than 9 files (i.e. to avoid `image-10.png` appearing before `image-9.png`).
+- Quarto allows you to specify custom layouts with non-equal columns/rows. See [Figures in the official Quarto Guide](https://quarto.org/docs/authoring/figures.html) for more.
+- My example doesn't support captions (i.e. the `[]` element is empty). You could easily rectify this by storing both file names and their captions in the same table, and using `glue::glue_data()` to generate a string from an expression like: `"![{caption}]({img_path})"`. See [this documentation](https://glue.tidyverse.org/reference/glue.html) from the `{glue}` package for more details.
+- **Note to future me:** the example images come from a pdf (also in the source folder). This is the zsh command I used to extract each page as separate images using imagemagick: `convert -quality 100 -density 200 ${filename}.pdf image-%02d.png`
+
+I wrote this code in order to bulk embed written notes I wrote at a few conferences last year into Quarto websites. I'll be writing about how I use Quarto as a personal knowledge management tool/scrapbook/research compendium in an upcoming blog post. Stay tuned!
