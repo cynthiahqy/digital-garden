@@ -36,7 +36,7 @@ Let's say we want to include the `image-00*.png` images side-by-side. The Quarto
 
 ## Code chunk magic
 
-Writing out markdown is fine for a few images, but it could get quickly get tedious (e.g. a whole folder). Instead, why not use an R code chunk to generate the markdown:
+Writing out markdown is fine for a few images, but it could get quickly get tedious (e.g. a whole folder). Instead, why not use an R code chunk^[based on this [stackover flow question](https://stackoverflow.com/questions/34185130/can-i-link-to-all-image-files-in-a-directory-in-rmd)] to generate the markdown:
 
 ```{{r}}
 #| output: asis
@@ -50,7 +50,7 @@ cat("::: {layout-ncol=2}\n",
 
 ## Example Output
 
-Here's some example output using some sketchnotes I drew many years ago:
+Here's some example output[^2] using some sketchnotes I drew many years ago:
 
 ```{r}
 #| output: asis
@@ -62,6 +62,8 @@ cat("::: {layout-ncol=2}\n",
     sep = ""
 )
 ```
+
+[^2]: **Note to future me:** the example images come from a pdf (also in the source folder). This is the zsh command I used to extract each page as separate images using imagemagick: `convert -quality 100 -density 200 ${filename}.pdf image-%02d.png`
 
 ## Code Explanation
 
@@ -85,6 +87,5 @@ cat("::: {layout-ncol=3}\n",                  # <2>
 - If your images have a natural order to them (as mine do in the example above), make sure your file names reflect this ordering. I think `dir_ls()` sorts alphabetically by default, so make sure to pad your numbering if you've got more than 9 files (i.e. to avoid `image-10.png` appearing before `image-9.png`).
 - Quarto allows you to specify custom layouts with non-equal columns/rows. See [Figures in the official Quarto Guide](https://quarto.org/docs/authoring/figures.html) for more.
 - My example doesn't support captions (i.e. the `[]` element is empty). You could easily rectify this by storing both file names and their captions in the same table, and using `glue::glue_data()` to generate a string from an expression like: `"![{caption}]({img_path})"`. See [this documentation](https://glue.tidyverse.org/reference/glue.html) from the `{glue}` package for more details.
-- **Note to future me:** the example images come from a pdf (also in the source folder). This is the zsh command I used to extract each page as separate images using imagemagick: `convert -quality 100 -density 200 ${filename}.pdf image-%02d.png`
 
 I wrote this code in order to bulk embed written notes I wrote at a few conferences last year into Quarto websites. I'll be writing about how I use Quarto as a personal knowledge management tool/scrapbook/research compendium in an upcoming blog post. Stay tuned!
