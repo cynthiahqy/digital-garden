@@ -1,12 +1,14 @@
 ---
-title: 'How to programmatically embed (and layout) a whole folder of images in Quarto document'
+title: 'Programmatically embed (and layout) a whole folder of images in Quarto document'
 description: |
-    Use 'asis' output from R code chunks to generate inline image links for an entire directory of images, AND arrange them using Quarto's custom figure layout syntax
+    How to use 'asis' output from R code chunks to generate inline image links for an entire directory of images, AND arrange them using Quarto's custom figure layout syntax
 date: "2024-01-29"
 date-modified: last-modified
 categories:
   - quarto
   - how-to
+  - markdown
+  - listings
 image: carbon.png
 ---
 
