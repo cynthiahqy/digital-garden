@@ -6,7 +6,7 @@ listing:
   type: default
   fields: [date, title, description, image, reading-time, categories]
   categories: true
-  sort-ui: [date]
+  sort-ui: false #[date, date-modified]
   filter-ui: [title, description]
 page-layout: full
 ---
