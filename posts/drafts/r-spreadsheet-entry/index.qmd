@@ -1,0 +1,39 @@
+---
+title: 'Use R to edit and save spreadsheets'
+description: 'How to use data.entry(), edit() and `{datapasta} to elegantly create, store and edit simple spreadsheets in R'
+date: '2024-01-30'
+date-modified: last-modified
+draft: true
+categories:
+  -
+image: https://carbon.now.sh/?bg=rgba%28255%2C255%2C255%2C1%29&t=blackboard&wt=none&l=r&width=320&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=69px&ph=55px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=library%28pander%29%250Amy_table%2520%257C%253E%250A%2520%2520pander%253A%253Apander%28%29
+---
+
+## Editing
+
+### edit()
+
+-   clunky, can't use copy/paste
+
+-   need to remember to ASSIGN IT since it edits a copy of `sheet`
+
+-   uses \`dataentry()\` for editing
+
+-   ![](images/paste-2.png)
+
+-   ![](images/paste-3.png)
+
+-   ![](images/paste-4.png)
+
+![](images/paste-1.png)
+
+### rhandsontable
+
+doesn't export back into the session
+
+### DataEditR
+
+1.  define
+2.  edit
+3.  synchronise
+4.  datapasta
