@@ -1,5 +1,5 @@
 ---
-title: 'Automated cropping and editing of scientific sketches and illustrations'
+title: 'Automating basic image edits with ImageMagick'
 description: 'A cheatsheet of ImageMagick commands I use to edit vector drawings from my iPad for inclusion in (Quarto markdown) documents, presentations and webpages'
 date: '2024-02-04'
 date-modified: last-modified
@@ -28,7 +28,7 @@ That last step is by far the most tedious. Luckily for me, tedium usually means 
 
 ## Install ImageMagick
 
-TLDR, ImageMagick is cool tool that you can use via the command line. Here's a description from the official website [imagemagick.org](https://imagemagick.org/):
+TL;DR: ImageMagick is cool tool that you can use via the command line. Here's a description from the official website [imagemagick.org](https://imagemagick.org/):
 
 > ImageMagick® is a free, open-source software suite, used for editing and manipulating digital images. It can be used to create, edit, compose, or convert bitmap images, and supports a wide range of file formats, including JPEG, PNG, GIF, TIFF, and PDF.
 
@@ -59,7 +59,7 @@ The next two sections give you commands to take two drawing files, `diagram_pane
 
 Let's start with a single page export `diagram_panel-map-sandwich-maker.png` from Notability:
 
-![](images/diagram_panel-map-sandwich-maker.png)
+![](images/screenshot-png-preview.png)
 
 Notice that there's a lot of whitespace underneath my sketch because the page size is fixed (usually to A4 or letter depending on your in-app settings). Let's get rid of the extra whitespace (using `-trim`) and turn background transparent (using `-transparent`):
 
@@ -68,9 +68,11 @@ filename="diagram_panel-map-sandwich-maker"
 convert ${filename}.png -trim -transparent white ${filename}_trim-trans.png
 ```
 
-This gives us a tightly cropped image with a transparent background:
+This gives us a tightly cropped image with a transparent background (which is only apparent when I make the webpage background red):
 
+:::{style="background-color: #f7d3cf;"}
 ![](images/diagram_panel-map-sandwich-maker_trim-trans.png)
+:::
 
 ### Multi-page sketches (`pdf`)
 
