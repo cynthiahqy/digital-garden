@@ -22,7 +22,7 @@ I'm a very visual thinker, and I often create diagrams, concept maps and "graphi
 
 [^1]: According to Wikipedia, graphical abstracts are graphics used to summarise major results or key ideas of a paper -- i.e. a visual equivalent of a written abstract.
 
-That last step is by far the most tedious. Luckily for me, tedium usually means there's an opportunity for automation! This post documents a few ImageMagick command line tricks for wrangling image files I use to reduce the friction between creating drawings (fun) and plugging them into my Quarto documents via markdown image links[^2].
+That last step is by far the most tedious. Luckily for me, tedium usually means there's an opportunity for automation! This post documents a few ImageMagick command line tricks for wrangling image files I use to reduce the friction between creating drawings (fun) and plugging them into my Quarto documents via markdown image links[^2] (boring!).
 
 [^2]: This is an inline image link: `![](cool-image.png)`
 
