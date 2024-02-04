@@ -1,0 +1,137 @@
+---
+title: 'Automated cropping and editing of scientific sketches and illustrations'
+description: 'A cheatsheet of ImageMagick commands I use to edit vector drawings from my iPad for inclusion in (Quarto markdown) documents, presentations and webpages'
+date: '2024-02-04'
+date-modified: last-modified
+categories:
+  - imagemagick
+  - cli
+  - how-to
+image: carbon.png
+---
+
+<!-- https://carbon.now.sh/?bg=rgba%28255%2C255%2C255%2C1%29&t=blackboard&wt=none&l=application%2Fx-sh&width=320&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=69px&ph=55px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=convert%2520input.png%2520-trim%2520-transparent%2520-fuzz%2520output.png -->
+
+## The Task
+
+I'm a very visual thinker, and I often create diagrams, concept maps and "graphical abstracts"[^1] to think through. Depending on what's available I might sketch my ideas with pen and paper, on a whiteboard, or using my iPad. With a bit of polish and editing (often using my iPad), I can also use my drawings to communicate my research ideas -- i.e. including them in presentations or even journal papers. However, getting my drawings into my documents has always been a bit of a clunky process that goes something like:
+
+1. **Make and polish the drawing**. On iPad, I generally use Notability for quick sketches, and Concepts for polishing illustrations.
+2. **Export or Scan drawing to image file**. Ideally, I'd like to scan/export to `png` files with a sensible naming convention, but sometimes only `pdf` is possible (e.g. when I've got multiple pages of sketches).
+3. **Edit the image file for inclusion**. This includes extracting `pdf` pages as separate `png` files, cropping, making the background transparent.
+
+[^1]: According to Wikipedia, graphical abstracts are graphics used to summarise major results or key ideas of a paper -- i.e. a visual equivalent of a written abstract.
+
+That last step is by far the most tedious. Luckily for me, tedium usually means there's an opportunity for automation! This post documents a few ImageMagick command line tricks for wrangling image files I use to reduce the friction between creating drawings (fun) and plugging them into my Quarto documents via markdown image links[^2].
+
+[^2]: This is an inline image link: `![](cool-image.png)`
+
+## Install ImageMagick
+
+TLDR, ImageMagick is cool tool that you can use via the command line. Here's a description from the official website [imagemagick.org](https://imagemagick.org/):
+
+> ImageMagick® is a free, open-source software suite, used for editing and manipulating digital images. It can be used to create, edit, compose, or convert bitmap images, and supports a wide range of file formats, including JPEG, PNG, GIF, TIFF, and PDF.
+
+If you are on macOS, you can install imagemagick using homebrew:
+
+```bash
+brew install imagemagick
+```
+
+## The Magick Commands
+
+The next two sections give you commands to take two drawing files, `diagram_panel-map-sandwich-maker.png` and `sketch_tidydata.pdf` and generate cropped, transparent background images, all of which can be found in the source directory for this blog post (i.e. on GitHub):
+```terminal
+.
+├── images
+│   ├*─ diagram_panel-map-sandwich-maker.png
+│   ├── diagram_panel-map-sandwich-maker_trim-trans.png
+│   ├── diagram_panel-map-sandwich-maker_trimmed.png
+│   ├*─ sketch_tidydata.pdf
+│   ├── sketch_tidydata-00.png
+│   ├── sketch_tidydata-01.png
+│   ├── transp_sketch_tidydata-00.png
+│   └── transp_sketch_tidydata-01.png
+└── index.qmd
+```
+
+### Single page vector drawings (`png`)
+
+Let's start with a single page export `diagram_panel-map-sandwich-maker.png` from Notability:
+
+![](images/diagram_panel-map-sandwich-maker.png)
+
+Notice that there's a lot of whitespace underneath my sketch because the page size is fixed (usually to A4 or letter depending on your in-app settings). Let's get rid of the extra whitespace (using `-trim`) and turn background transparent (using `-transparent`):
+
+```{.zsh filename="zsh: ~/.../images"}
+filename="diagram_panel-map-sandwich-maker"
+convert ${filename}.png -trim -transparent white ${filename}_trim-trans.png
+```
+
+This gives us a tightly cropped image with a transparent background:
+
+![](images/diagram_panel-map-sandwich-maker_trim-trans.png)
+
+### Multi-page sketches (`pdf`)
+
+Sometimes before you can trim your pages, you might need to extract them from a file like `sketch_tidydata.pdf`:
+
+![](images/screenshot-pdf-viewer.png)
+
+Here's the command to extract each page as a separate `png` file:
+
+```{.zsh filename="zsh: ~/.../images"}
+filename="sketch_tidydata"
+convert -quality 100 -density 200 ${filename}.pdf ${filename}-%02d.png
+```
+
+We include the two resulting files here using the R code chunk trick for generating inline image links that I wrote about in this [previous blog post](https://www.cynthiahqy.com/posts/layout-folder-images/):
+
+:::{style="background-color: #f7d3cf;"}
+```{r}
+#| output: asis
+#| echo: false
+img_files <- fs::dir_ls("images", glob="**/sketch*.png")
+cat("::: {layout-ncol=2}\n",
+    glue::glue("![]({img_files})\n\n\n"),
+    ":::",
+    sep = ""
+)
+```
+:::
+
+The two images were already trimmed, but what if we wanted to make the background transparent like this:
+
+:::{style="background-color: #f7d3cf;"}
+```{r}
+#| output: asis
+#| echo: false
+img_files <- fs::dir_ls("images", glob="**/transp_sketch*.png")
+cat("::: {layout-ncol=2}\n",
+    glue::glue("![]({img_files})\n\n\n"),
+    ":::",
+    sep = ""
+)
+```
+:::
+
+We could use a loop to achieve this:
+
+```{.zsh filename="zsh: ~/.../images"}
+for filepath in $(ls sketch*.png);
+do
+  filename=${filepath:r}
+  convert ${filename}.png -fuzz 20% -transparent white transp_${filename}.png;
+done
+```
+
+## Notes & Extensions
+
+### Single vector page
+- The `-transparent` flag turns any pixels that match the argument colour (e.g. `white`) and makes them transparent. If your background colour is not `white` you can replace the argument with the hexcode of the colour you want to make transparent.^[See: <https://stackoverflow.com/a/73571043>]
+- If you want padding around your image, you can always add it back using the relevant options for your document output format (e.g. CSS or LaTex figure options)
+
+### Multi-page pdf
+
+- The `-fuzz` flag specifies a distance around your target colour within which colours are considered equal. This is handy for scanned sketches that have a "white" background that only slightly differs from the target colour given to the `-transparent` flag.^[See <https://stackoverflow.com/questions/12424018/how-to-replace-white-background-color-with-transparent-of-an-image-in-imagemagic/12434319#12434319>]
+- If you search "how to split up a pdf using ImageMagick", you might come across commands that include the `-flatten` flag. Don't include this flag when using newer versions ImageMagick since it will just flatten all the pages onto into a single output image.^[See <https://github.com/ImageMagick/ImageMagick/discussions/6294>]
