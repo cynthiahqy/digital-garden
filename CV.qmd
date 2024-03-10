@@ -18,9 +18,10 @@ cynthia.huang@monash.edu
 
 **Doctor of Philosophy -- Econometrics and Business Statistics** <br> *Monash University* [*Aug 2021 --- Present*]{.cvdate}
 
--   New principles and methods for complex data preparation and integration, with applications to official statistics, web-scrapped data and satellite raster images
+-   Principles and methods for complex data preparation and integration, with applications to official statistics, web-scrapped data and satellite raster images
 -   Monash Data Futures Institute PhD Top-Up Scholarship (2021-2024)
--   Expected submission date: Nov 2024
+-   Statistical Society of Australia Top-Up Scholarship (2023)
+-   Expected submission date: Feb 2025
 
 **Bachelor of Commerce (Honours) -- Economics**<br> *The University of Melbourne* [*Feb 2016 --- Nov 2016*]{.cvdate}
 
@@ -52,7 +53,7 @@ Providing data collection, pre-processing, exploratory analysis and modelling se
 
 ### Research Assistant
 
-***Monash Addiction Research Center, Monash University*** [March 2023 -- Present]{.cvdate} <br> ***SoDa Laboratories, Monash University*** [July 2019 -- Present]{.cvdate} <br> ***Dept. of Economics, Monash University*** [Nov 2019 -- Present]{.cvdate} <br> ***Dept. of Econometrics and Business Statistics, Monash University*** [Oct 2020 -- Dec 2020]{.cvdate} <br> ***Dept. of Economics, University of Melbourne*** [Mar 2018 -- Dec 2018]{.cvdate}
+***Monash Addiction Research Center, Monash University*** [March 2023 -- Present]{.cvdate} <br> ***Dept. of Economics, Monash University*** [Nov 2019 -- Jul 2023]{.cvdate} <br> ***SoDa Laboratories, Monash University*** [Jul 2019 -- Dec 2022]{.cvdate} <br> ***Dept. of Econometrics and Business Statistics, Monash University*** [Oct 2020 -- Dec 2020]{.cvdate} <br> ***Dept. of Economics, University of Melbourne*** [Mar 2017 -- Dec 2018]{.cvdate}
 
 Supporting multiple projects with dataset design, data collection and pre-processing, exploratory visualisation, and preliminary analysis tasks. Project supervisors included:
 
@@ -71,7 +72,7 @@ Supporting multiple projects with dataset design, data collection and pre-proces
 
 ### Academic Tutor
 
-***Dept. of Econometrics and Business Statistics, Monash University*** [Mar 2020 -- July 2020]{.cvdate} <br> ***Faculty of Business and Economics, University of Melbourne*** [Jul 2016 -- Nov 2019]{.cvdate}
+***Dept. of Econometrics and Business Statistics, Monash University*** [Mar 2020 -- Dec 2023]{.cvdate} <br> ***Faculty of Business and Economics, University of Melbourne*** [Jul 2016 -- Nov 2019]{.cvdate}
 
 Preparing and delivering in-person and online tutorials and workshops for undergraduate and masters students. Subject areas taught include:
 
@@ -116,6 +117,7 @@ other_exp <- tibble::tribble(
 )
 ```
 
+-   Talk: [Silver linings: how a harmonisation mishap turned into a PhD thesis](https://datamishapsnight.com) (7 Mar 2024, Data Mishaps Night)
 -   Workshop: [Meeting AEA Replication Standards using Quarto](https://github.com/cynthiahqy/monash-quarto-aea) (18-20 Aug 2023, Monash University)
 -   Talk: [Misadventures with Reproducibility in R](https://github.com/cynthiahqy/rladies-2022-11) (30 Nov 2022, R Ladies Melbourne Meetup)
 -   Talk: [Designing R Packages](https://github.com/cynthiahqy/design-r-magic_2022-10) (4 Oct 2022, Monash EBS Data Science Research Software Study Group)
