@@ -12,17 +12,16 @@ categories:
 image: featured.png
 ---
 
-## Flexibility and Confusion in Quarto
+## Power and Confusion in Quarto
 
-The powerful flexibility of Quarto is one of the main reasons I love using it. There's always something new to experiment with from different templates for blogs, websites and books to alternative formats, themes and, styling and, even custom rendering or document features.
+The powerful flexibility and extensibility of Quarto is one of the main reasons I love using it. There's always something new to experiment with from different templates for blogs, websites and books to alternative formats, themes and, styling and, even custom rendering or document features.
 
 However, there are often multiple ways to achieve the same outcome and even more ways to reuse modifications or customisation in a single document or multi-document projects. Unfortunately, this can lead to some confusion about things like the difference between document/project templates, custom formats, and extension features; or how to use the various `quarto create/use/add` commands.
 
 This post attempts to untangle these differences, understand the different types of Quarto extensions and, provides some notes on using the associated `quarto-cli` commands and `.qmd` YAML options.
 
 > **DISCLAIMER:**
-> Much of what follows comes from snooping around existing Quarto extensions, reading the official Quarto [Creating Extensions](https://quarto.org/docs/extensions/creating.html) documentation, and attempting to author my own templates and extensions. I make no claims of accuracy or completeness.
-
+> Much of what follows comes from snooping around existing Quarto extensions, reading the official Quarto [Creating Extensions](https://quarto.org/docs/extensions/creating.html) documentation, and attempting to author my own templates and extensions. Please excuse any inaccuracies. Corrections are welcome.
 
 ## TL;DR Cheatsheet for Using Extensions
 
