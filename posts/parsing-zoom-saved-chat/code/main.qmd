@@ -37,22 +37,50 @@ send_from_to = [re.sub(regex_time, "", line).strip() for line in events]
 ## extract message lines for each event
 n_events = len(events)
 msgs = [[] for i in range(n_events)]
+interacts = [[] for i in range(n_events)]
+line_types = [[] for i in range(n_events)]
 i = -1
 
 for (idx, line) in enumerate(string_data):
-    if not re.match("\t",line):
-        i += 1
-    if re.match("\t", line):
-        msgs[i].append(line)
-
-## collapse multi-line messages
-for (idx, item) in enumerate(msgs):
-    if len(item) != 1:
-        msgs[idx] = "".join(item)
+    if line.strip():
+        if not re.match("\t",line):
+            i += 1
+        if re.match("\t", line):
+            if re.match("\tReplying to", line):
+                interacts[i].append(line)
+                line_types[i].append("reply")
+            elif re.match("\tReacted to", line):
+                interacts[i].append(line)
+                line_types[i].append("reaction")
+            elif re.match("\tRemoved", line):
+                interacts[i].append(line)
+                line_types[i].append("remove")
+            else:
+                msgs[i].append(line)
+                line_types[i].append("message")
 ```
 
 ```{python}
-chat_dict = {'time' : send_time, 'message' : msgs, 'sender' : send_from_to}
+## collapse interacts
+interacts = ["".join(item) for item in interacts]
+msgs = ["".join(item) for item in msgs]
+event_lines = [len(item) for item in line_types]
+event_type = [item[0] for item in line_types]
+assert(unique(event_type) == 4)
+
+## strip leading and trailing whitespace
+interacts = [item.strip() for item in interacts]
+msgs = [item.strip() for item in msgs]
+```
+
+```{python}
+chat_dict = {
+    'time' : send_time,
+    'sender' : send_from_to,
+    'lines' : event_lines,
+    'type' : event_type,
+    'interacts': interacts,
+    'message' : msgs, }
 
 ## unnest message column & make sure it doesn't add extra rows
 chat_df = pd.DataFrame(chat_dict).explode('message')
@@ -62,36 +90,4 @@ assert(len(events) == chat_df.shape[0])
 ```{python}
 ## save the parsed file
 chat_df.to_json("do-not-track/chat_df.json", orient = "records")
-chat_df[["time", "message"]]
-```
-
-## Analysis
-
-```{r}
-# jsonlite::fromJSON(txt = "chat_df.json")
-library(jsonlite)
-library(tidyverse)
-read_json("chat_df.json", simplifyVector = TRUE) -> chat_df
-
-chat_date <- "2024-03-08"
-chat_tz <- "Australia/Melbourne"
-chat_df |>
-    as_tibble() |>
-    mutate(datetime = {
-        paste(chat_date, time) |>
-        ymd_hms(tz = chat_tz)
-        }) |>
-    select(datetime, sender, message) -> msg_df
-
-prev_talk_end <- ymd_hm(paste(chat_date, "12:52"), tz = chat_tz)
-my_talk_start
-
-msg_df |>
-    filter(!str_detect(message, "Reacted to")) |>
-    filter(!str_detect(message, "Replying to")) |>
-    filter(!str_detect(message, "Removed a")) |>
-    filter(datetime > prev_talk_end) |>
-    View()
-    filter(str_detect(message, regex("thank", ignore_case = TRUE)))
-
 ```
