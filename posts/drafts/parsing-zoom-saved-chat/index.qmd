@@ -1,0 +1,23 @@
+---
+title: ''
+description: ''
+date: ''
+date-modified: last-modified
+draft: true
+engine: jupyter
+categories:
+  -
+image: https://carbon.now.sh/?bg=rgba%28255%2C255%2C255%2C1%29&t=blackboard&wt=none&l=r&width=320&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=69px&ph=55px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=library%28pander%29%250Amy_table%2520%257C%253E%250A%2520%2520pander%253A%253Apander%28%29
+---
+
+I recently had the privilege of speaking at Data Mishaps Night 2024 about the mishap that led to my PhD research on data harmonisation. I also got to hear all about other data mishaps from industry to academia and everywhere in between. It was an amazing night and I'd highly recommend attending next year if you have the chance. As a virtual event with a packed schedule, the Zoom chat box was the main way for people to comment on and ask questions about the presentation.
+
+```{.zsh}
+meeting_saved_chat.txt | head -n 5
+```
+
+Getting reactions with context:
+
+```{.zsh}
+grep -I -B 1 "Reacted to" meeting_saved_chat.txt | head -n 10
+```

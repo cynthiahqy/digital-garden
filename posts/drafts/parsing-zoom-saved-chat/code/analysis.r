@@ -1,5 +1,6 @@
 library(jsonlite)
 library(tidyverse)
+library(emoji)
 
 chat_df <- read_json("do-not-track/chat_df.json", simplifyVector = TRUE)
 chat_date <- "2024-03-08"
@@ -64,17 +65,19 @@ msg_mins <- msg_ehm |>
     ) |>
     mutate(diff_n_events = n_events - lag(n_events))
 
-ggplot(
-    msg_mins,
-    aes(x = dt_hm, y = n_events)
-) +
-    geom_point(
-        data = filter(msg_mins, has_clap == TRUE),
-        mapping = aes(y = n_claps),
-        fill = "pink",
-        colour = "pink"
+msg_mins |>
+    ungroup() |>
+    ggplot(
+        aes(x = dt_hm, y = n_events)
     ) +
-    geom_line()
+    geom_density()
+geom_point(
+    data = filter(msg_mins, has_clap == TRUE),
+    # mapping = aes(y = n_events),
+    fill = "pink",
+    colour = "pink"
+) +
+    geom_density()
 # scale_y_sqrt()
 # geom_line() +
 # geom_point(aes(colour = has_clap))
