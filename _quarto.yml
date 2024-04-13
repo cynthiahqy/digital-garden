@@ -34,6 +34,8 @@ website:
         href: https://twitter.com/cynthiahqy
       - icon: envelope-at-fill
         href: mailto:cynthia.huang@monash.edu
+      - icon: rss
+        href: index.xml
 
   sidebar:
     - id: gallery
