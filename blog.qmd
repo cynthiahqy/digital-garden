@@ -8,5 +8,6 @@ listing:
   categories: true
   sort-ui: false #[date, date-modified]
   filter-ui: [title, description]
+  feed: true
 page-layout: full
 ---
