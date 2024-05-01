@@ -1,6 +1,6 @@
 ---
-title: 'Layer arguments for ggplot2 wrapper functions'
-description: 'An opinionated take on how to package `ggplot2` recipes'
+title: 'Designing better wrapper functions with a ggplot2 case study'
+description: 'An opinionated take on how to write better wrapper functions for reusing `ggplot2` recipes'
 #'Opinionated design principles for wrapping ggplot2 pipelines into reusable functions'
 date: '2024-04-30'
 date-modified: last-modified
@@ -10,80 +10,28 @@ categories:
   - software design
 image: https://ggplot2.tidyverse.org/logo.png
 code-summary: "Show code"
-execute: 
+execute:
   eval: false
 callout-icon: false
 code-link: true
 ---
 
-## Summary
-
-There are multiple ways to reuse ggplot2 recipes, including writing wrapper functions. However, wrapper functions that return complete ggplots often obscure the underlying ggplot2 syntax. This opacity can make it frustratingly difficult for users to produce even slight variations on default plots, and often requires learning plot-specific arguments rather than modifying ggplot components in familar ways. The proper solution would be to create new ggplot2 components that are consistent with the grammar of graphics framework and philosophy. However, designing and implementing a proper solution is not feasible for most people. An alternative partial solution is to design wrapper functions for ggplot2 recipes according to the following principles:
-
-- separate data transformation steps from ggplot construction
-- expose as much of the internal ggplot2 construction syntax as possible. I suggest doing this with list inputs to “layer” arguments.
-- explicitly document the internal workings of the wrapper function
-
-I show how I used these principles to design functions in the package `ggtilecal`.
-
-## Don't Repeat Yourself for `{ggplot2}` code
-
-There are a few ways to package and reuse `ggplot2` code:
-
-- copying and pasting, changing arguments as needed
-- lists of layers, or functions that return lists of layers
-- wrapper functions like [`autoplot()`](https://ggplot2.tidyverse.org/reference/autoplot.html), which provide all-in-one
-- "proper" grammar-of-graphics consistent components:
-	- data transformation via stats, 
-	- geometries or combinations of geometries via geoms
-	- scale, coord, positions, facets
-	- theme
-- ggplot2 extensions packages, which can include any combination of lists, wrapper functions and new ggplot2 components.
-
-Copying and pasting is pretty self-explanatory, but very quickly fails the DRY (Don't Repeat Yourself) principle for writing clean code and scripts.
-
-Lists work particularly well for sharing non-data layers between multiple related plots ^[See this [StackOverflow question](https://stackoverflow.com/a/44721060) for example], and can support some customisation via function arguments. For example, the following variation on a [StackOverflow answer](https://stackoverflow.com/a/56990160) adds two point geoms to the left and right of a specified `x_val`, with the same `color`.
-
-:::{.callout-note collapse="true"}
-
-## Show Example: Layer List
-
-```{r}
-#| eval: true
-library(ggplot2)
-p <- ggplot(data = data.frame(x = 0, y = 0), aes(x = x, y = y)) +
-      geom_point()
-
-add_points <- function(x_val, color = "red") {
-   list(geom_point(aes(x = x_val - 1, y = 0), color = color),
-        geom_point(aes(x = x_val + 1, y = 0), color = color))
-    }
-
-p + add_points(0)
-```
-
-:::
-
-Wrapper functions, as the name suggests, wrap up all the code needed to produce a particular ggplot into a single command. Think of them as all-in-one ggplot printers for reusuing arbritrarily long or complex `ggplot2` recipes. Unlike lists of layers, wrapper functions can package up code for reshaping data or calculating additional variables that might be needed to create a particular ggplot. However, the flexibility of wrapper functions comes with quite a few downsides that led me to thinking about the design of wrapper functions (i.e. the topic of this post).
-
-Extending `ggplot2` through new components ranges from relatively straightforward for new `theme()` layers, to frustratingly complex for new `ggproto` objects, which requires a non-trivial amount of design thinking and fairly advanced R programming skills. The design considerations and technical implementation of new components are way beyond the scope of this post, but you can learn more from this [ggplot2 vignette](https://ggplot2.tidyverse.org/articles/extending-ggplot2.html) and these [chapters](https://ggplot2-book.org/extending) in *ggplot2: Elegant Graphics for Data Analysis (3e)*.
-
-<!-- On the design side, you should figure out how the code you want to reuse corresponds to components in the grammar of graphics, and how the new component should interact with existing components. And then on the implemenation side... well  -->
-
 ## The Problem with Wrappers
 
-The all-in-one power of wrapper functions appears to be easy and quick solution for reusing `ggplot2` recipes. However, the bespoke nature of wrapper functions gives rise to a design vacuum, whereby the choice of arguments is left completely to the author of the wrapper function. This unconstrained freedom can be seen in the S3 generic `autoplot()` provided in `ggplot2` for creating "a complete ggplot appropriate to a particular data type". The generic function specifies only two arguments, one for the S3 `object` to be plotted, and dots (`...`) for all "other arguments passed to specific methods".
+Wrapper functions make long or complex tasks easier by abstracting away underlying implementation details. Multiple conceptually distinct sub-tasks are *wrapped* together under the single interface of a wrapper function. In the context of `ggplot2`, wrapper functions can be considered all-in-one ggplot printers for reusing arbitrary long or complex `ggplot2` recipes.
 
-Unfortunately, the lack of design guardrails can lead to quite varied and opaque function interfaces that hide the elegant flexibility of `ggplot2` layers behind, often long, lists of plot specific arguments. For example, consider the following three interfaces for producing calendar plots in R. Can you tell:
+Unlike lists of components^[See this [StackOverflow question](https://stackoverflow.com/a/44721060) for example], wrapper functions are not limited to defining reusable ggplot2 components. Wrapper functions can also perform preparatory tasks like reshaping data or calculating additional variables needed to create a particular ggplot. The flexibility of wrapper functions makes them an appealing solution for reusing `ggplot2` recipes.
+
+However, the unconstrained flexibility of wrapper functions gives rise to a design vacuum, whereby the choice of arguments is left completely to the author of the wrapper function. The lack of design guidance results in quite varied and opaque function interfaces that hide the elegant flexibility of `ggplot2` behind, often long, lists of plot-specific arguments. For example, consider the following three interfaces for producing calendar plots in R. Can you tell:
 
 - which of these functions use `ggplot2`?
 - what data, if any, are required from the user?
 - what data preparation steps are performed within the function?
-- what `ggplot2` layers were used to construct the ggplots?
-- what additional `ggplot2` layers are compatible with the returned plots?
+- what `ggplot2` components were used to construct the ggplots?
+- what additional `ggplot2` components are compatible with the returned plots?
 - which standard `ggplot2` functions like `theme()` or `labs()` the wrapper arguments are passed to?
 
-:::{.callout-note collapse="true"}
+:::{.callout-note collapse="show"}
 
 ## Show Examples: Calendar Plot Wrappers
 
@@ -126,53 +74,41 @@ ggcal(dates, fills)
 :::
 :::
 
-It's almost impossible to figure out the answers to the above questions without digging into the source code. Wrapper functions abstract away the grammar of graphics, replacing complex but powerful `ggplot2` layer syntax with plot-specific function interfaces and plot-specific arguments. However, unlike `ggplot2`, which uses abstraction to hide away plot rendering details and facilitate layered plot composition, plot-specific abstraction tends to create more problems than it solves.
+It is almost impossible to determine the answers to the above questions without digging into the source code. These wrapper functions abstract away the grammar of graphics, replacing complex but powerful `ggplot2` layer syntax with plot-specific function interfaces and plot-specific arguments. Unfortunately, plot-specific abstractions can create more problems than they solve.
+<!--- In a similar vein, `ggplot2` uses abstraction to hide away plot rendering details and facilitate layered plot composition. --->
 
-The all-in-one approach of most `ggplot2` wrapper functions severely limits the scope of reuse and customisation. Although all the above functions return ggplot objects, customisation is much more complex than editing a ggplot2 function. Instead of adding ggplot2 layers with consistent syntax and behaviours, a user must learn plot-specific arguments such as `font.family` or `font_base_family`. Both of these arguments are passed through to similar `element_text()` calls within the `calendR::calendR()` and `ggweekly::ggweek_planner()`.
+The all-in-one approach of most `ggplot2` wrapper functions severely limits the scope of reuse and customisation. Although all the above functions return ggplot objects, customisation is much more complex than editing a ggplot2 function. Instead of adding ggplot2 components with consistent syntax and behaviours, users must learn plot-specific arguments such as `font.family` or `font_base_family`. Both of these arguments are passed through to similar `element_text()` calls within `calendR::calendR()` and `ggweekly::ggweek_planner()`.
 
-The opaque abstraction creates unnecessary work for both the developer, through an ever expanding list of pass-through arguments for customisation, the end user who quickly finds they need to understand both the plot-specific interface and the underlying ggplot2 recipe to implement and debug even small plot customisations. 
+Plot-specific arguments creates unnecessary work for both the developer and user. The developer finds themselves maintaining an ever-expanding list of pass-through arguments for customisation, while the end user quickly finds they need to understand both the plot-specific interface and the underlying ggplot2 recipe to implement and/or debug even minor plot customisations.
 
-The "proper" solution to this limitation is really to add new ggplot2 components:
+An alternative to these opaque wrapper functions is to instead convert the underlying recipe into new `ggplot2` components using `ggplot2`'s internal object-orientated system `ggproto`. However, not everyone has the time, skill, or appetite for such an undertaking.
 
-> ... there are a great many graphs which are only a step or two extension from an existing ggplot2 geom. When these situations come up, I can typically put together enough objects to do something once, but what if I need the same plot a few dozen times? What if other people like it and want to use it--now they have to kludge through the same process each time they want that graph. It seems to me that the proper solution is to add in a `stat_heatplot` and `geom_heatplot`, or to add a `geom_Tuftebox` for [Tufte box plots](https://stackoverflow.com/questions/6973394/functions-available-for-tufte-boxplots-in-r), etc...  
-> -- *Ari B. Friedman via [StackOverflow](https://stackoverflow.com/q/7029906)*
-
-However, not everyone has the time, skill or appetite to implement a proper solution. Still, wouldn't it be nice to have *some* unifying design principles to follow when writing wrapper functions to reuse ggplot2 recipes? Ideally, a well designed wrapper function would:
+Still, wouldn't it be nice to have *some* unifying design principles to follow when writing wrapper functions to reuse `ggplot2` recipes? Ideally, a well-designed wrapper function would:
 
 - offer the convenience of single-command plotting,
 - avoid plot-specific customisation arguments,
 - expose a "sensible" amount of internal ggplot2 recipe,
-- expose ggplot2 rather than function specific errors for debugging purposes,
-- integrate in predictable ways with additional ggplot2 layers.
+- expose ggplot2 error messages rather than function specific errors for debugging purposes,
+- integrate in predictable ways with additional ggplot2 components.
 
-## A Partial Design Solution
+## Design Case Study: `{ggtilecal}`
 
-I recently ran into this exact design dilemma when I decided to package up some code I had written to make `ggplot2` calendars with interactive tiles. The "proper" solution would have been to map the calendar layout to the grammar of graphics, and create new ggplot components as required.
+I recently encountered this design dilemma when packaging up code I had written to make `ggplot2` calendars with interactive tiles. The "proper" solution was probably to map the calendar layout to the grammar of graphics, and create new `ggplot2` components as required.
 
-Unfortunately, it turns out defining a temporal grammar of graphics requires  working through some mind-bogglingly complex quirks of time and calendars^[These quirks are complex enough to warrant entire thesis chapters on them -- see [`{sugrrants}`](https://pkg.earo.me/sugrrants/) and [`{gravitas}`](https://sayani07.github.io/gravitas/), both from the NUMBATs group at Monash and supervised by my amazing supervisor Rob Hyndman], and that's before we get to all the complexity under the hood of `ggplot2`, so implementing the "proper" solution was not an option for me.^[Also, I have a thesis to finish, and this calendar plot thing was just a little side experiment I used make planning an upcoming research trip less mind-numbingly boring and tedious.]
+Unfortunately, it turns out defining a plot composition system specialised for temporal plots requires working through some mind-bogglingly complex quirks of time and calendars^[These quirks are complex enough to warrant entire thesis chapters on them -- see [`{sugrrants}`](https://pkg.earo.me/sugrrants/) and [`{gravitas}`](https://sayani07.github.io/gravitas/), both from the NUMBATs group at Monash and supervised by my amazing supervisor Rob Hyndman], and that's before we get to all the complexity under the hood of `ggplot2`, so implementing new components was not an option for me.^[Also, I have a thesis to finish, and this calendar plot thing was just a little side experiment.]
 
-In the end, I had to write a wrapper function. However, I think managed to achieve most of the above goals through a combination of modularisation and opinionated interface design. My "partial" solution, and the design I think most ggplot2 wrapper functions should follow, was to:
+In the end, I had to write a wrapper function. However, I managed to achieve most of the above design goals through a combination of modularisation and opinionated interface design. My solution, and the design I think most `ggplot2` wrapper functions should follow, was to:
 
 - separate data transformation steps from ggplot construction
-- expose as many layers of the ggplot2 recipe as possible as default list inputs to "layer" arguments of the wrapper function
+- expose as many components of the `ggplot2` recipe as possible
+- minimise the number of plot-specfic arguments by using lists of components to accept ggplot2 customisation options
 - explicitly document the internal workings of wrapper function
 
-### ASIDE: *Tailoring plots to particular data types* in ggplot2
-
-While writing this article, I discovered that `ggplot2` provides some guidance on designing wrapper functions in the documentation for [`automatic-plotting`](https://ggplot2.tidyverse.org/reference/automatic_plotting.html) which covers:
-
-- `fortify()` for data preparation
-- `autolayer()` to return a list of layers
-- `autoplot()` to return a complete plot
-
-The design advice is somewhat hidden by the framing of `autoplot()` as a extension mechanism to making plotting particular data types (e.g. S3 objects) easier. However, it seems to follow the same principle of separating data prepation (i.e. via `fortify()`) from ggplot construction (i.e. `autolayer()` and `autoplot()`)
-
-
-## Applying Layered Wrapper Design in  `ggtilecal`
+As an aside, the utility of this style of solution is not limited to writing `ggplot2` wrappers. Modularisation and clearly defined sub-functions are good practices for writing any wrapper function. However, the conceptual and technical complexity of `ggplot2` and the grammar of graphics make the consequences of poorly designed wrapper functions more acute.
 
 ### Unwrapped `ggplot2` recipes for calendar layouts
 
-The original ggplot2 recipe that I wanted to package up involved:
+The original `ggplot2` recipe that I wanted to package up involved:
 
 - data import (not shown, completed via `source()` call)
 - data wrangling:
@@ -180,8 +116,8 @@ The original ggplot2 recipe that I wanted to package up involved:
     - creating new variables (e.g. using `countrycode` to get emojis for each country)
     - adding missing days (i.e. non-travel days)
     - calculating faceting and layout variables (e.g. `Month`, `Month_week`)
-- ggplot2 layers:
-    - scale, coord and facets layers to layout the calendar
+- `ggplot2` components:
+    - scale, coord and facets to layout the calendar
     - theme modification to style the plot as a calendar
     - interactive geoms from `{girafe}`
 
@@ -196,19 +132,21 @@ The original ggplot2 recipe that I wanted to package up involved:
 ![Screenshot of interactive calendar plot](code-blocks/ggtilecal-travelcal.png)
 :::
 
-In accordance with the design principles above, I split up the code above into different types of functions with specific jobs:
+In accordance with the design principles above, I split up the code above into different types of functions with specific jobs[^2]:
 
 1. **Data preparation helpers** to fill in missing days and calculate layout variables. These helpers take data frames, do something to them, and return data frames.
-2. **Wrapper functions for ggplot2 recipes with layer arguments** for specific calendar layouts. These functions take in data and output a ggplot, but achieve the design aims above through "layer" arguments and explicit documentation of the internal ggplot2 recipe.
-3. A **Custom ggplot2 theme** for calendar layouts^[See <https://ggplot2.tidyverse.org/articles/extending-ggplot2.html#creating-your-own-theme> and <https://ggplot2-book.org/extensions#new-themes>]
+2. **Wrapper functions for ggplot2 recipes with component arguments** for specific calendar layouts. These functions take in data and output a ggplot, but achieve the design aims above through component arguments and explicit documentation of the internal ggplot2 recipe.
+3. A **Custom ggplot2 theme** for calendar layouts
 
-### Wrapper Interface and Layer Arguments
+[^2]: See the [`ggtilecal` Function Reference](https://cynthiahqy.github.io/ggtilecal/reference/index.html) for details on the data preparation helpers and theme function.
 
-This is the final interface design I decided to use in my package `{ggtilecal}`. It has notability fewer arguments than the wrapper functions from `calendR` and `ggweekly` above, and retains some ggplot syntax through the layer arguments `.geom`, `.scale_coord`, `.theme` and `.layers`.
+### List (of Component) arguments
 
-The layer arguments are initialised with sensible defaults, and inherit aesthetic mappings from the "fixed" internal layers. The "fixed" layers are the "improper" part of the solution, in so far as they should probably be replaced by new ggplot2 Stat and Facet objects.
+The final wrapper interface design in `ggtilecal` has notability fewer arguments than the wrapper functions from `calendR` and `ggweekly` above. The design also retains some ggplot syntax through the component arguments `.geom`, `.scale_coord`, `.theme` and `.other`. The component arguments are initialised with sensible defaults, and inherit aesthetic mappings from the "fixed" internal components. The "fixed" components are the "improper" part of the solution, as they could probably be replaced by new `ggplot2` Stat and Facet objects.
 
-::: panel-tabset
+Lists arguments essentially bind together user inputs that all go into the same place inside the wrapper function (e.g. elements in `.geom` are added before `.scale_coord`, which comes before `.theme` and the final the catch-all `.other`). This design allow users to access the flexibility of `ggplot2` by passing customisations down into the wrapper function, rather than using ad-hoc and plot-specific customisation options. By constrast, the long list of arguments in `calendR` is a symptom of trying to expose customisation at the interface level.
+
+::: layout-ncol="2"
 
 ### Function Interface
 ```{r}
@@ -228,7 +166,7 @@ gg_facet_wrap_months(
     scale_x_discrete(position = "top"),
     coord_fixed(expand = TRUE)),
   .theme = list(theme_bw_tilecal()),
-  .layers = list()
+  .other = list()
 )
 ```
 
@@ -249,7 +187,7 @@ gg_facet_wrap_months <- function(...){
     .geom +
     .scale_coord +
     .theme +
-    .layers
+    .others
 
   base_plot
 }
@@ -280,7 +218,7 @@ make_empty_month_days(c("2024-01-05", "2024-06-30")) |>
                        )
 ```
 
-This design also allows for the use of geoms from other packages without the package depending on the other packages, (i.e. `ggiraph` is not a dependency of `ggtilecal`). Additional layers and geoms can be added as normal using `+`:
+This design also supports using geoms from other packages without depending on additional packages directly, (i.e. `ggiraph` is not a dependency of `ggtilecal`). Additional components can be added as normal using `+`:
 
 ```{r}
 #| eval: true
@@ -312,7 +250,7 @@ girafe(ggobj = gi)
 
 ### Documenting Hidden Details
 
-In addition to exposing the ggplot2 layers as list arguments, I also document the data preparation steps that the wrapper function is performing:
+In addition to exposing the `ggplot2` components as list arguments, I also document the data preparation steps that the wrapper function is performing:
 
 ``` r
 #' Make Monthly Calendar Facets
@@ -323,10 +261,10 @@ In addition to exposing the ggplot2 layers as list arguments, I also document th
 #' - Returning a ggplot object as per Details.
 ```
 
-And how the ggplot2 recipe works:
+and how the ggplot2 recipe works:
 
 ``` r
-#' Returns a ggplot with the following fixed layers using calculated layout variables:
+#' Returns a ggplot with the following fixed components using calculated layout variables:
 #' - `aes()` mapping:
 #'    - `x` is day of week,
 #'    - `y` is week in month,
@@ -334,7 +272,7 @@ And how the ggplot2 recipe works:
 #' - `facet_wrap()` by month
 #' - `labs()` to remove axis labels for calculated layout variables
 #'
-#' and default customisable layers:
+#' and default customisable components:
 #' - `geom_tile()`, `geom_text()` to label each day which inherit calculated variables
 #' - `scale_y_reverse()` to order day in month correctly
 #' - `scale_x_discrete()` to position weekday labels
@@ -346,16 +284,17 @@ And how the ggplot2 recipe works:
 and how to modify the plot:
 
 ``` r
-#' To modify layers alter the `.geom` and `.scale_coord`,
+#' To modify components alter the `.geom` and `.scale_coord`,
 #' which inherit the calculate layout mapping by default
 #' (via the ggplot2 `inherit.aes` argument).
 #'
-#' To add layers use the ggplot `+` function as normal,
-#' or pass layers to the `.layers` argument.
+#' To add components use the ggplot `+` function as normal,
+#' or pass components to the `.other` argument.
 #' This can be used to add interactive geoms (e.g. from `ggiraph`)
 #'
 #' To modify the theme, use the ggplot `+` function as normal,
 #' or add additional elements to the list in `.theme`.
 #'
-#' To remove any of the optional layers, set the argument to any empty `list()`
+#' To remove any of the optional components,
+#' set the argument to any empty `list()`
 ```
