@@ -68,7 +68,7 @@ Supporting multiple projects with dataset design, data collection and pre-proces
 -   Pre-processing of data including parsing XML data into tabular form, writing scripts and managing local resource usage for accessing big data archives such as Wikipedia dumps
 -   Merging multiple data releases into a single consistent panel including preparing and applying concordance tables to harmonise between ISIC (International Standard Industrial Classifications of All Economic Activities) revisions
 -   Reshaping data tables and pre-selection of key variables from DHS (Demographic and Health Survey) data for use with machine learning approaches
--   Preparation of data summaries and visualisations highlighting key dataset features and preliminary exploratory insights and analysis"
+-   Preparation of data summaries and visualisations highlighting key dataset features and preliminary exploratory insights and analysis
 
 ### Academic Tutor
 
