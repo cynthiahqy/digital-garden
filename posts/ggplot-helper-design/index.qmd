@@ -2,12 +2,13 @@
 title: 'Design Principles for Plot Helper Functions'
 description: 'An opinionated take on writing better `ggplot2` helper functions with calendar plots as a design case study'
 #'Opinionated design principles for wrapping ggplot2 pipelines into reusable functions'
-date: '2024-04-30'
+date: '2024-05-25'
 date-modified: last-modified
 draft: false
 categories:
   - ggplot2
-  - software design
+  - code style
+  - design
 image: https://ggplot2.tidyverse.org/logo.png
 code-summary: "Show code"
 execute:
