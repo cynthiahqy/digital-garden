@@ -1,3 +1,14 @@
+---
+title: ''
+description: ''
+date: ''
+date-modified: last-modified
+draft: true
+categories:
+  -
+image: https://carbon.now.sh/?bg=rgba%28255%2C255%2C255%2C1%29&t=blackboard&wt=none&l=r&width=320&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=69px&ph=55px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=library%28pander%29%250Amy_table%2520%257C%253E%250A%2520%2520pander%253A%253Apander%28%29
+---
+
 ## Using git submodules to track research graphics
 
 I like to use scientific graphics and conceptual maps to explain and communicate my research. Often I use the same images across multiple talks, papers and even posters. This makes versioning them a bit of a nightmare -- i.e. constant copy and paste.
