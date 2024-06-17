@@ -1,0 +1,15 @@
+{
+  "hash": "3bbed85150a0a374db78fc38e35c6786",
+  "result": {
+    "engine": "knitr",
+    "markdown": "## Using git submodules to track research graphics\n\nI like to use scientific graphics and conceptual maps to explain and communicate my research. Often I use the same images across multiple talks, papers and even posters. This makes versioning them a bit of a nightmare -- i.e. constant copy and paste. \n\nThen I thought, what if I used git submodules to keep all my images related to the same project or core idea together in the same place? Here are some notes on my attempt to do just that.\n\n### Setting up a Git Repo to version control my images\n\nThis is the directory structure I'm using for images I've created for my thesis:\n```\n.\n├── README.md\n├── README.qmd\n├── illustrations\n│   ├── diagram_crossmap-transform-latex.png\n│   ├── diagram_current-prov.png\n│   ├── ...\n│   ├── icon-database.png\n│   └── icon-official-stats.png\n├── plots\n│   ├── ...\n│   └── plot-isiccomb-split-by-income-groups.png\n└── screenshots\n    └── asc-poster.png\n```\n\nA bit of R magic lets me generate a README that displays all of these images:\n````{.md filename=\"README.qmd\"}\n---\ntitle: Images for Crossmaps Project\nformat: gfm\n---\n\n::: {.cell}\n\n```{.r .cell-code}\n#| output: asis\n\n#| echo: false\n\ndirs <- fs::dir_ls(type = \"directory\")\n\n  \n\ncatImages <- function(folder){\n\nimg_files <- fs::dir_ls(folder) |> sort()\n\ncat(glue::glue(\"{img_files}\\n\\n\\n![{img_files}]({img_files})\\n\\n\\n\"))\n\n}\n\n  \n\nfor (folder in dirs){\n\ncat(\"## \", stringr::str_to_title(folder), \"\\n\\n\\n\", sep = \"\")\n\ncatImages(folder)\n\n}\n```\n:::\n````\n\n\n\nThis is where images live:\n```\nmkdir collection_crossmap-images\ncd collection_crossmap-images\ngit init\n...\ngit add\n...\ngh repo create\ngit push \n```\n\nTo add the repo as the `images/` folder in another project\n```\ngit submodule add <repo url> images\n```\n\nWhich gives\n```\n<directory>\n```\n\nIf you update the original repo (e.g. adding an image) and want to pull the changes into this repo:\n\n```\ngit submodule update --remote --merge\n```\n\nIt's probably good practice to tag specific commits as \"releases\" or \"versions\" of images attached to particular presentations, but not strictly necessary since the `.gitsubmodules` file will list the exact submodule commit that is checked out. The only thing to be careful of then is to not `git push --force` or `git rebase` and lose that commit hash.",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}

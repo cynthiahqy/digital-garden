@@ -1,0 +1,81 @@
+## Using git submodules to track research graphics
+
+I like to use scientific graphics and conceptual maps to explain and communicate my research. Often I use the same images across multiple talks, papers and even posters. This makes versioning them a bit of a nightmare -- i.e. constant copy and paste.
+
+Then I thought, what if I used git submodules to keep all my images related to the same project or core idea together in the same place? Here are some notes on my attempt to do just that.
+
+### Setting up a Git Repo to version control my images
+
+This is the directory structure I'm using for images I've created for my thesis:
+```
+.
+├── README.md
+├── README.qmd
+├── illustrations
+│   ├── diagram_crossmap-transform-latex.png
+│   ├── diagram_current-prov.png
+│   ├── ...
+│   ├── icon-database.png
+│   └── icon-official-stats.png
+├── plots
+│   ├── ...
+│   └── plot-isiccomb-split-by-income-groups.png
+└── screenshots
+    └── asc-poster.png
+```
+
+A bit of R and Quarto magic lets me generate a `README.md` that displays all of these images:
+
+````{.md filename="README.qmd"}
+---
+title: Images for Crossmaps Project
+format: gfm
+---
+
+```{r}
+#| output: asis
+#| echo: false
+dirs <- fs::dir_ls(type = "directory")
+catImages <- function(folder){
+    img_files <- fs::dir_ls(folder) |> sort()
+    cat(glue::glue("{img_files}\n\n\n![{img_files}]({img_files})\n\n\n"))
+}
+
+for (folder in dirs){
+    cat("## ", stringr::str_to_title(folder), "\n\n\n", sep = "")
+    catImages(folder)
+}
+```
+````
+
+## Using the image collection in multiple repositories
+
+This is where images live:
+```
+mkdir collection_crossmap-images
+cd collection_crossmap-images
+git init
+...
+git add
+...
+gh repo create
+git push
+```
+
+To add the repo as the `images/` folder in another project
+```
+git submodule add <repo url> images
+```
+
+Which gives
+```
+<directory>
+```
+
+If you update the original repo (e.g. adding an image) and want to pull the changes into this repo:
+
+```
+git submodule update --remote --merge
+```
+
+It's probably good practice to tag specific commits as "releases" or "versions" of images attached to particular presentations, but not strictly necessary since the `.gitsubmodules` file will list the exact submodule commit that is checked out. The only thing to be careful of then is to not `git push --force` or `git rebase` and lose that commit hash.
