@@ -21,6 +21,7 @@ website:
 
   navbar:
     right:
+      - now.qmd
       - blog.qmd
       - gallery.qmd
       - research.qmd

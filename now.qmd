@@ -1,0 +1,19 @@
+# Now
+
+This is a [now page](https://nownownow.com/about), where I occasionally update where I am, what I'm doing, and/or what I'm *trying* to focus on.
+
+## June 2024
+
+**📍 Munich, Germany**
+
+After jumping through what felt like endless hoops of approval processes, funding changes and decision fatigue, I've finally started my many months long research trip across Europe & North America. Some upcoming highlights include:
+
+- 🇩🇪 Visiting SoDa group at LMU (Jun 13-26)
+- 🇦🇹 Presenting on *ex-post harmonisation and the `{xmap}` package* at UseR!, Salzburg (Jul 8-11)
+- 🇺🇸 Presenting on *assessing statisical programming skills* at JSM, Portland (Aug 3-9)
+- 🇺🇸 Presenting on *Quarto for Knowledge Management* in the *Level up your Data Science Skills* session at posit::conf(2024), Seattle (Aug 12-14)
+- 🇨🇦 Visiting the InfoVis group at UBC, Vancouver, (Jul-Nov)
+
+It's hard to express how grateful I am for this opportunity and the support I've gotten, especially from my supervisors, to not only expand my research network, but also to experience so many new cities and countries 🥰.
+
+On great experiences, I may have found one of my favourite Vietnamese restaurants (ever, and that's saying a lot coming from Melbourne) after getting caught in the rain in Amsterdam last week and striking up a conversation with the stranger I was sharing my table with at Saint Jean Deli. The sticky rice Xôi bowl at [bonjour càphê](https://bonjourcaphe.com) is just the perfect blend of textural variety and flavour balance was just *chef's kiss*. I had the fish & dill bowl, and the sticky rice felt amazingly light with just the right amount of bite, while the pickled mango gave the dish a sweet and acidic brightness that just perfectly tied together the slightly saltiness of the fish the aroma of the herbs and chilli. My only regret is that I only found this place on Monday when I was leaving the next morning, and their tasting menu is not available on Monday nights 🥲. I'm seriously considering when/how I might get myself back to Amsterdam to try it.
