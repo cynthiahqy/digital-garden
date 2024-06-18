@@ -61,7 +61,7 @@ After clean-up:
 To clean up the unused images, I ran these Bash/Zsh commands from inside my quarto project^[You could also put them into a script and run the script, or even alias it in your shell profile, but I couldn't be bothered]:
 ```{.zsh code-line-numbers=true}
 mkdir images2
-for file in $(ggrep -oP '(?<=\]\()images/.*?(=\))' slides.qmd);
+for file in $(ggrep -oP '(?<=\]\()images/.*?(?=\))' slides.qmd);
 	do mv -v $file images2/;
 done
 rm -rf images
