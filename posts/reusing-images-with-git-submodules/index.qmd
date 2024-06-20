@@ -1,23 +1,46 @@
 ---
-title: ''
-description: ''
-date: ''
+title: 'Managing and reusing research graphics with git'
+description: 'Notes on using git and git submodules to version control and share images across across multiple research papers and presentations'
+date: '2024-06-20'
 date-modified: last-modified
-draft: true
 categories:
-  -
-image: https://carbon.now.sh/?bg=rgba%28255%2C255%2C255%2C1%29&t=blackboard&wt=none&l=r&width=320&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=69px&ph=55px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=library%28pander%29%250Amy_table%2520%257C%253E%250A%2520%2520pander%253A%253Apander%28%29
+  - markdown
+  - images
+  - git
+  - how-to
+  - workflows
+image: carbon.png
+# https://carbon.now.sh/?bg=rgba%28255%2C255%2C255%2C1%29&t=blackboard&wt=none&l=application%2Fx-sh&width=320&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=69px&ph=55px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=git%2520submodule%2520add%2520...%2520images%252F%250A%250Agit%2520submodule%2520update%2520--remote%2520--merge
 ---
 
-## Using git submodules to track research graphics
+## Creating and organising research graphics
 
-I like to use scientific graphics and conceptual maps to explain and communicate my research. Often I use the same images across multiple talks, papers and even posters. This makes versioning them a bit of a nightmare -- i.e. constant copy and paste.
+I like to use scientific graphics and conceptual maps to explain and communicate my research -- so much so I recently interviewed Jess Hopf, a scientific graphic designer on The Random Sample podcast^[Find the episode wherever you listen to podcasts or via <https://www.therandomsample.com.au/podcast/scientific-graphic-design/>].
 
-Then I thought, what if I used git submodules to keep all my images related to the same project or core idea together in the same place? Here are some notes on my attempt to do just that.
+Now, I often use the same images across multiple talks, papers and even posters. This raises a few problems/inconveniences:
 
-### Setting up a Git Repo to version control my images
+1. Constant **copying and pasting** of images from previous documents and older folders into new ones. Updating or correcting mistakes in images across multiple documents also involves an annoying amount of copying and pasting.
+2. **Finding images** across various documents is tedious at best since I can't just search for them in the same way as you can with text. Often tracking down a particular graphic involves looking through all my rendered documents, and then going back into the source document to either find and save the image, or get the file path of that image.
+3. I have **no version control** for my graphics. I'm not even particularly diligent at using unique affixs to name variants -- often I just overwrite the old image to avoid having to go through and change the image links in my markdown documents. If I'm feeling particularly lazy, I might even copy and paste images straight from my iPad (usually drawing in Notability or Concepts) into my documents, resulting in file names like `paste-01.png`.
 
-This is the directory structure I'm using for images I've created for my thesis:
+<!-- These challenges are made slightly easier by the fact that  -->
+
+Although in the grand scheme of things, these are all minor annoyances, they unfortunately increase the cost of incorporating graphics into my research documents -- and that's in addition to the time taken to design and create the graphics in the first place.
+
+In order to reduce these frictions, and make implementing good research (communication) practices smoother and less time-consuming, I decided set up a `git` based solution for version controlling and reusing my various research graphics.
+
+Some notes before we proceed:
+
+- I don't have time to explain what `git` or `git submodules` are, but I can direct you to a very fun way to learn about git: the [_How Git Works_](https://wizardzines.com/zines/git/) zine by Julia Evans (`@b0rk`), and the bonus comic on [submodules](https://wizardzines.com/comics/submodules/).
+- I author (almost) all my documents in markdown rather than WYSIWYG editors like Microsoft Word or Powerpoint. This means reusing or updating images is mostly a matter of adding or replacing the relevant source image files into the folder I'm rendering my document in (i.e. by adding or updating submodule), not scrolling through a whole Word or Powerpoint document.
+
+## Version Controlling Images with git
+
+Even if the git submodules idea below seems a little too scary for you, create a git repository collecting all your project graphics is still great for the version control benefits. Just remember to commit each time you add or update an image.
+
+I made a repository for all the images I've created for my research on Ex-Post Harmonisation: [cynthiahqy/collection_crossmap-images](https://github.com/cynthiahqy/collection_crossmap-images/)
+
+The directory structure looks something like this:
 ```
 .
 ├── README.md
@@ -32,18 +55,41 @@ This is the directory structure I'm using for images I've created for my thesis:
 │   ├── ...
 │   └── plot-isiccomb-split-by-income-groups.png
 └── screenshots
+    ├── ...
     └── asc-poster.png
 ```
 
-A bit of R and Quarto magic lets me generate a `README.md` that displays all of these images:
+I use the loose structure of `illustrations/` for images I draw on my iPad, `plots/` for images generated with code (e.g. ggplots), and `screenshots/` for images of things displayed on my screen including figures from other papers, or as the name suggests, screenshots of websites.
 
-````{.md filename="README.qmd"}
+The commit history reminds me of what I've added to the directory and edits I've made:
+
+```
+* 106e031 add indstat ctry/year plot
+* 2533d70 update crossmap approach overview image to correct numbers
+* c31d119 add asc-poster
+* 4a35794 add crossmap aus/usa example, vis icons
+* 294acbd initial setup .gitignore
+```
+
+Finally, a bit of Quarto and R magic lets me generate a `README.md` that displays all of these images on associated GitHub repo:
+
+::: {.columns}
+
+::: {.column}
+
+![](images/screenshot_repo-image-collection.png)
+
+:::
+
+::: {.column}
+
+````{.yaml filename="README.qmd"}
 ---
 title: Images for Crossmaps Project
 format: gfm
 ---
 
-```{r}
+```{{r}}
 #| output: asis
 #| echo: false
 dirs <- fs::dir_ls(type = "directory")
@@ -59,34 +105,64 @@ for (folder in dirs){
 ```
 ````
 
-## Using the image collection in multiple repositories
+:::
+:::
 
-This is where images live:
-```
-mkdir collection_crossmap-images
-cd collection_crossmap-images
-git init
-...
-git add
-...
-gh repo create
-git push
-```
+Now I have a centralised place to store and find current and past version of my images 🎉.
+
+## Submodule-ing Images into Other Repositories
+
+Now for the submodule magic. Let's say I wanted to use the images in the repository above in some slides on my ex-post harmonisation work. I can use git submodules to add them as follows:
 
 To add the repo as the `images/` folder in another project
-```
+```zsh
 git submodule add <repo url> images
 ```
 
-Which gives
-```
-<directory>
-```
+To update the contents of `images/` to match updates in the original repo (e.g. adding an image)^[You can also update it from inside the `images/` directory via `git fetch/merge` or `git pull`. See the [Submodules chapter of the Pro Git Book](https://git-scm.com/book/en/v2/Git-Tools-Submodules)]:
 
-If you update the original repo (e.g. adding an image) and want to pull the changes into this repo:
-
-```
+```zsh
 git submodule update --remote --merge
 ```
 
-It's probably good practice to tag specific commits as "releases" or "versions" of images attached to particular presentations, but not strictly necessary since the `.gitsubmodules` file will list the exact submodule commit that is checked out. The only thing to be careful of then is to not `git push --force` or `git rebase` and lose that commit hash.
+Then the images are available for me to include as inline image links wherever I want in my slides.
+
+I implemented this submodule solution to add images into the repo for my upcoming talk at UseR! 2024: [cynthiahqy/talk_useR-20240709](https://github.com/cynthiahqy/talk_useR-20240709).
+
+Locally, my slides repo looks like:
+
+```
+./
+├── .git/
+├── .gitignore
+├── .gitmodules
+├── README.md
+├── _extensions/
+│   └── quarto-monash/
+├── images/                 ## added via submodule ##
+│   ├── .git
+│   ├── .gitignore
+│   ├── README.md
+│   ├── README.qmd
+│   ├── illustrations/
+│   ├── plots/
+│   └── screenshots/
+├── talk_useR-20240709.html
+└── talk_useR-20240709.qmd
+```
+
+and on GitHub.com:
+
+![](images/screenshot_user-slide-repo.png)
+
+<!-- ::: callout-tip
+It's probably good practice to tag specific commits as "releases" or "versions" of images attached to particular presentations. But I'm not yet that diligent, and it might not be strictly necessary since the `.gitmodules` file lists the exact commit of the original image repo which gets checked out into my slides repo:
+
+```{.yaml filename=".gitmodules"}
+[submodule "images"]
+	path = images
+	url = https://github.com/cynthiahqy/collection_crossmap-images.git
+```
+::: -->
+
+<!-- The only thing to be careful of then is to not `git push --force` or `git rebase` and lose that commit hash. -->
