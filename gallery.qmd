@@ -25,10 +25,11 @@ page-layout: full
 #title-block-banner: true
 ---
 
-## Podcast Episodes
+## Podcast Episodes {#podcast-episodes}
 
 Episodes of [The Random Sample](https://www.therandomsample.com.au/) hosted by yours truly:
 
+-   [EP 96: Scientific Graphic Design for Communicating Research with Dr Jess Hopf](https://www.therandomsample.com.au/podcast/scientific-graphic-design/)
 -   [EP 94: Understanding Math Struggles with Dr. Jacob Paul](https://www.therandomsample.com.au/podcast/understanding-maths-struggles/)
 -   [EP 87: What you need to know about Referendum Polling with Professor Simon Jackman](https://www.therandomsample.com.au/podcast/referendum-polling/)
 -   [EP 86: Communicating Statistics & Probability with Professor Jeffrey Rosenthal](https://www.therandomsample.com.au/podcast/jeffrey-rosenthal/)
