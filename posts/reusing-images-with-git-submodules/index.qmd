@@ -15,7 +15,7 @@ image: carbon.png
 
 ## Creating and organising research graphics
 
-I like to use scientific graphics and conceptual maps to explain and communicate my research -- so much so I recently interviewed Jess Hopf, a scientific graphic designer on The Random Sample podcast^[Find the episode wherever you listen to podcasts or via <https://www.therandomsample.com.au/podcast/scientific-graphic-design/>].
+I like to use scientific graphics and conceptual maps to explain and communicate my research -- so much so I recently interviewed Jess Hopf, a scientific graphic designer on The Random Sample podcast^[Find this episode and others I've hosted [here](/gallery.qmd#podcast-episodes)].
 
 Now, I often use the same images across multiple talks, papers and even posters. This raises a few problems/inconveniences:
 
