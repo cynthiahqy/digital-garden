@@ -7,10 +7,14 @@ categories:
   - imagemagick
   - cli
   - how-to
-image: carbon.png
+image: carbon-3.png
 ---
 
-<!-- https://carbon.now.sh/?bg=rgba%28255%2C255%2C255%2C1%29&t=blackboard&wt=none&l=application%2Fx-sh&width=320&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=69px&ph=55px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=convert%2520input.png%2520-trim%2520-transparent%2520-fuzz%2520output.png -->
+<!-- https://carbon.now.sh/?bg=rgba%28255%2C255%2C255%2C1%29&t=blackboard&wt=none&l=application%2Fx-sh&width=320&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=69px&ph=55px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=magick%2520input.png%2520-trim%2520-transparent%2520-fuzz%2520output.png -->
+
+::: {.callout-note}
+The code chunks in this post were updated on Jul 22, 2024 to use `magick` instead of `convert` as per ImageMagick v7
+:::
 
 ## The Task
 
@@ -63,9 +67,12 @@ Let's start with a single page export `diagram_panel-map-sandwich-maker.png` fro
 
 Notice that there's a lot of whitespace underneath my sketch because the page size is fixed (usually to A4 or letter depending on your in-app settings). Let's get rid of the extra whitespace (using `-trim`) and turn background transparent (using `-transparent`):
 
-```{.zsh filename="zsh: ~/.../images"}
+```{.zsh}
 filename="diagram_panel-map-sandwich-maker"
-convert ${filename}.png -trim -transparent white ${filename}_trim-trans.png
+```
+
+```{.zsh filename="zsh: ~/.../images"}
+magick ${filename}.png -trim -transparent white ${filename}_trim-trans.png
 ```
 
 This gives us a tightly cropped image with a transparent background (which is only apparent when I make the webpage background red):
@@ -82,9 +89,12 @@ Sometimes before you can trim your pages, you might need to extract them from a 
 
 Here's the command to extract each page as a separate `png` file:
 
-```{.zsh filename="zsh: ~/.../images"}
+```{.zsh}
 filename="sketch_tidydata"
-convert -quality 100 -density 200 ${filename}.pdf ${filename}-%02d.png
+```
+
+```{.zsh filename="zsh: ~/.../images"}
+magick -quality 100 -density 200 ${filename}.pdf ${filename}-%02d.png
 ```
 
 We include the two resulting files here using the R code chunk trick for generating inline image links that I wrote about in this [previous blog post](https://www.cynthiahqy.com/posts/layout-folder-images/):
@@ -123,7 +133,7 @@ We could use a loop to achieve this:
 for filepath in $(ls sketch*.png);
 do
   filename=${filepath:r}
-  convert ${filename}.png -fuzz 20% -transparent white transp_${filename}.png;
+  magick ${filename}.png -fuzz 20% -transparent white transp_${filename}.png;
 done
 ```
 
