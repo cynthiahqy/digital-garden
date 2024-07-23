@@ -1,0 +1,15 @@
+{
+  "hash": "c952324860fb30d9f9a8d392b6efd3e6",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Sketchbook\"\nlightbox:\n  match: auto\n  loop: true\nengine: knitr\nfilters:\n  - masonry\ninclude-in-header:\n  - text: |\n      <style>\n        .grid-item {\n          width: 25%;\n          float: left;\n          background: #FFFFFF;\n          border: 2px solid #333;\n          border-color: hsla(0, 0%, 0%, 0.5);\n          border-radius: 5px;\n        }\n        figcaption {\n          display: none; // removes caption but keeps alt text\n          font-size: 8px;\n        }\n        .quarto-figure {\n          margin-bottom: 0px; // removes spacing under images\n          }\n      </style>\n---\n\n\n## Europe Research Trip Jun-Jul 2024\n\nSketched while travelling Germany, Austria, Switzerland & France.\n\n:::::{.column-body-outset}\n\n:::: {.grid data-masonry='{ \"itemSelector\": \".grid-item\", \"gutter\": 0 }'}\n\n\n\n```\nRows: 12 Columns: 2\n── Column specification ────────────────────────────────────────────────────────\nDelimiter: \",\"\nchr (2): img_path, alt_text\n\nℹ Use `spec()` to retrieve the full column specification for this data.\nℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.\n```\n\n:::{.grid-item}\n![Relaxing in Munich, (Jun 15-18)](202407-Europe/images/2024-07-16_europe-sketches-00.png){group='sketches'}\n:::\n:::{.grid-item}\n![Views in and around Innsbruck, (Jun 27-28)](202407-Europe/images/2024-07-16_europe-sketches-01.png){group='sketches'}\n:::\n:::{.grid-item}\n![Bern-Interlaken-Lucerne by Train (Jun 29)](202407-Europe/images/2024-07-16_europe-sketches-02.png){group='sketches'}\n:::\n:::{.grid-item}\n![Walking in Käferberdg, Zurich (Jun 30)](202407-Europe/images/2024-07-16_europe-sketches-03.png){group='sketches'}\n:::\n:::{.grid-item}\n![After dinner in Dijon (Jul 3)](202407-Europe/images/2024-07-16_europe-sketches-04.png){group='sketches'}\n:::\n:::{.grid-item}\n![Scenes on top of Innsbruck (Jul 5-6)](202407-Europe/images/2024-07-16_europe-sketches-05.png){group='sketches'}\n:::\n:::{.grid-item}\n![Berchtesgaden & Konigsee (Jul 6-7)](202407-Europe/images/2024-07-16_europe-sketches-06.png){group='sketches'}\n:::\n:::{.grid-item}\n![Before Dinner in Salzburg (Jul 11)](202407-Europe/images/2024-07-16_europe-sketches-07.png){group='sketches'}\n:::\n:::{.grid-item}\n![Gateway Gardens in Frankfurt (Jul 12)](202407-Europe/images/2024-07-16_europe-sketches-08.png){group='sketches'}\n:::\n:::{.grid-item}\n![Römer Platz in Frankfurt (Jul 12)](202407-Europe/images/2024-07-16_europe-sketches-09.png){group='sketches'}\n:::\n:::{.grid-item}\n![After dinner by the river in Frankfurt (Jul 12)](202407-Europe/images/2024-07-16_europe-sketches-10.png){group='sketches'}\n:::\n:::{.grid-item}\n![During dinner at Emma Metzler in Frankfurt (Jul 13)](202407-Europe/images/2024-07-16_europe-sketches-11.png){group='sketches'}\n:::\n\n\n::::\n:::::",
+    "supporting": [],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
