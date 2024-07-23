@@ -1,1 +1,1 @@
-weasyprint==59.0
+weasyprint==62.3
