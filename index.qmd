@@ -22,3 +22,10 @@ about:
 🧙‍♀️ I am a hat collector with pronouns she/her. My many hats include economist, data scientist, research software engineer, teacher. Currently, my main hat is PhD student at Monash University working on principles and methods for data preparation and preprocessing, under the supervision of [Rob J Hyndman](https://robjhyndman.com), [Sarah Goodwin](https://research.monash.edu/en/persons/sarah-goodwin) and [Simon Angus](https://research.monash.edu/en/persons/simon-angus). My favourite side hats at the moment are co-host of the [Random Sample](https://www.therandomsample.com.au/) podcast, and [Quarto](https://quarto.org) evangelist and tinkerer.
 
 🤹🏻This blog is a seed nursery for holding ideas, thoughts and projects I'm juggling while I build my [digital garden](https://maggieappleton.com/garden-history). Expect anything from machine learning, data wrangling, reproducible workflows, teaching pedagogy to half-formed opinions on social issues, personal data-viz, and winding journeys through my special interests of the moment.
+
+<!-- ## Interviews and Profiles
+
+About me, published by:
+
+-   Australian Research Data Commons (May 2023): [Shaping Research Software: An Interview With Cynthia Huang](https://ardc.edu.au/article/shaping-research-software-an-interview-with-cynthia-huang/)
+-   Monash Data Future Institute (Mar 2022): [Monash Data Futures Institute PhD Students](https://www.monash.edu/data-futures-institute/about-us/people/monash-data-futures-institute-phd-students) -->

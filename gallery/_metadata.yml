@@ -1,5 +1,7 @@
 # options specified here will apply to all posts in this folder
 
+sidebar: false
+
 ## toc must be false for .column-page to be properly centered
 format:
   html:
