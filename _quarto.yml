@@ -23,7 +23,7 @@ website:
     right:
       - now.qmd
       - blog.qmd
-      - gallery.qmd
+      - sidebar:gallery
       - research.qmd
       - CV.qmd
       - icon: github
@@ -33,6 +33,14 @@ website:
       - icon: envelope-at-fill
         href: mailto:cynthia.huang@monash.edu
 
+  sidebar:
+    - id: gallery
+      title: "Gallery"
+      contents:
+        - gallery.qmd
+        - gallery/sketchbook/index.qmd
+        - gallery/podcasts.qmd
+
   page-footer:
     right: "This website is built with ❤️  and [Quarto](https://quarto.org/), by Cynthia Huang. License: [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)."
 
@@ -41,6 +49,3 @@ format:
     theme: simplex
     css: styles.css
     from: markdown+emoji
-
-
-
