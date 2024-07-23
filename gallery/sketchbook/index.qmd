@@ -1,0 +1,55 @@
+---
+title: "Sketchbook"
+lightbox:
+  match: auto
+  loop: true
+engine: knitr
+filters:
+  - masonry
+include-in-header:
+  - text: |
+      <style>
+        .grid-item {
+          width: 25%;
+          float: left;
+          background: #FFFFFF;
+          border: 2px solid #333;
+          border-color: hsla(0, 0%, 0%, 0.5);
+          border-radius: 5px;
+        }
+        figcaption {
+          display: none; // removes caption but keeps alt text
+          font-size: 8px;
+        }
+        .quarto-figure {
+          margin-bottom: 0px; // removes spacing under images
+          }
+      </style>
+---
+
+## Europe Research Trip Jun-Jul 2024
+
+Sketched while travelling Germany, Austria, Switzerland & France.
+
+:::::{.column-body-outset}
+
+:::: {.grid data-masonry='{ "itemSelector": ".grid-item", "gutter": 0 }'}
+
+```{r}
+#| output: asis
+#| echo: false
+#| message: false
+img_meta <- readr::read_csv("202407-Europe/image-meta.csv")
+img_files <- img_meta$img_path
+img_captions <- img_meta$alt_text
+cat(
+  glue::glue("
+    :::{{.grid-item}}
+    ![{img_captions}](202407-Europe/{img_files}){{group='sketches'}}
+    :::"),
+  sep = "\n"
+)
+```
+
+::::
+:::::
