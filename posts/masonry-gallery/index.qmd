@@ -1,0 +1,146 @@
+---
+title: Creating a Pinterest-style image gallery in Quarto
+description: |
+  How I, with no javascript skills whatsoever, _used_ lightbox.js and masonry.js via Quarto extensions to layout images in a cascading grid.
+code-annotations: hover
+---
+
+## TL;DR - What I made and How
+
+I am sucker for aesthetics and visual flow. In contests between function and form, I definitely lean towards form, though (hopefully) usually not at the expense of function. The upshot of this is that when I decided to share some sketches I made during my recent travels in Europe, I could not bring myself to just post them in a standard grid layout. It just didn't look right. But lucky for the stubborn stylist in me, with a bit of Quarto extension magic, I managed to make a cascading layout instead.
+
+::::{.column-body-outset}
+
+:::{layout-ncol="2"}
+![](images/Screenshot_std-grid.png)
+
+![](images/Screenshot_cascading-grid.png)
+:::
+
+::::
+
+TO see the YAML options and markdown that I used to make this happen, go look at the source code for my gallery page:
+
+TODO: INSERT Permalink window to gallery code
+
+```{.yml}
+---
+title: "Europe Research Trip Jun-Jul 2024"
+subtitle: "Sketches while travelling Germany, Austria, Switzerland & France"
+engine: markdown
+filters:
+  - masonry
+include-in-header:
+  - text: |
+      <style>
+        .grid-item {
+          width: 200px;
+          float: left;
+          background: #FFFFFF;
+          border: 2px solid #333;
+          border-color: hsla(0, 0%, 0%, 0.5);
+          border-radius: 5px;
+        }
+        figcaption {
+          display: none; // removes caption but keeps alt text
+          font-size: 8px;
+        }
+        .quarto-figure {
+          margin-bottom: 0px; // removes spacing under images
+          }
+      </style>
+---
+```
+
+```{.md}
+## Cascading Grid
+
+:::: {.grid data-masonry='{ "itemSelector": ".grid-item", "gutter": 0 }'}
+
+::: {.grid-item}
+![Relaxing in Munich, (Jun 15-18)](images/2024-07-16_europe-sketches-00.png){group='sketches'}
+:::
+
+::: {.grid-item}
+![Views in and around Innsbruck, (Jun 27-28)](images/2024-07-16_europe-sketches-01.png){group='sketches'}
+:::
+
+::: {.grid-item}
+![Bern-Interlaken-Lucerne by Train (Jun 29)](images/2024-07-16_europe-sketches-02.png){group='sketches'}
+:::
+
+...
+```
+
+## Bridging my Taste > Skill mismatch with Quarto Extensions
+
+With my very rudimentary front-end web development knowledge, I knew implementing the layout I wanted would involve some combination of HTML, CSS, Javascript type things. At first I didn't even know what the layout was called, but a quick conversation in GitHub CoPilot about "Pinterest style image galleries" lead me to "Cascading Grid Layouts" and the `masonry.js` library.
+
+Still, there was no way I was using said library with my beginner level web skills. Fortunately, `@mcanouil` has created an Quarto extension filter for using `masonry.js` in `.qmd` documents. The repo says it's experimental, but it was the best option on offer for me. So, I went ahead and added the extension to my Quarto project:
+
+```{.zsh}
+quarto add mcanouil/quarto-masonry
+```
+
+Now all that was left was to look at the `example.qmd`, pull across the relevant divs and styles, and then tweak until I was satisified / got too hungry and had to go get tacos for dinner.
+
+## The Tweaking Process
+
+Getting everything working was pretty easy, but I had to go through a few iterations of modifying the example CSS styles and inspecting the rendered page to:
+
+- change the tile size from fixed to flexible
+- change the tile background colour
+- hide the figure captions from the tiles, but retain the text for alt-text, hover-over and lightbox descriptions
+- remove the space between the bottom of the images and the bottom edge of the tiles
+
+::::{.column-body-outset}
+
+:::{layout-ncol="3"}
+#### Screenshots of the tweaks
+
+![Fixed tile size and pink background](images/Screenshot_masonry-style-01.png)
+
+![Flexibly sized white tiles, but ugly figure captions](images/Screenshot_masonry-style-02.png)
+
+![No figure captions, but hanging margin underneath images in tiles](images/Screenshot_masonry-style-03.png)
+:::
+::::
+
+Here is an annotated version of the CSS in the `<style>` tag explaining how I made these tweaks:
+
+
+```{.yaml}
+.grid-item {
+    width: 200px; # <1>
+    float: left;
+    background: #FFFFFF; # <2>
+    border: 2px solid #333;
+    border-color: hsla(0, 0%, 0%, 0.5);
+    border-radius: 5px;
+}
+figcaption {
+    display: none; # <3>
+}
+.quarto-figure {
+    margin-bottom: 0px; # <4>
+    }
+```
+1. Not speficying `height` means the tiles expand with the image size
+2. Controls the color of tile background
+3. Controls display of text in `<figcaption>` element without affecting other attributes like `alt-text`
+4. Modifies the margins of the `.quarto-figure` class add by Quarto when rendering inline image references
+
+### Bonus Automation with {glue}
+
+I wrote in a previous blog post about using `{glue}` to generate layouts for collections of images programmatically. I adapted the idea to generate the grid items for the cascading layout instead of typing out each div and inline image reference by hand. Here's a reference code snippet, referencing images in this post, in case you want to do the same. The double braces `{{}}` are used to escape the special characters `{}`.
+
+```{r}
+img_files <- fs::dir_ls("images", glob="*.png")
+img_captions <- paste0("example-caption-0", seq_along(img_files))
+cat(glue::glue("
+  :::{{.grid-item}}
+  ![{img_captions}]({img_files}){{group='sketches'}}
+  :::"),
+  sep = "\n"
+)
+```
