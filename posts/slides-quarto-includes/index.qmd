@@ -126,7 +126,7 @@ library(countdown)
 
 At the end of each session, I showed summary slides with key takeaways from each module. I used the `{{< include >}}` shortcode to pull in the content from each module's `_wrap-up.qmd` file:
 
-```{.md filename="01d-wrap-up/slides.qmd" code-line-numbers="true"}
+````{.md filename="01d-wrap-up/slides.qmd" code-line-numbers="true"}
 ---
 title: "Wrap-Up"
 subtitle: "Session 1: Getting to Know Quarto"
@@ -136,11 +136,11 @@ metadata-files:
   - ../_slides.yml
 ---
 
-{{< include ../01a-hello-quarto/_wrap-up.qmd >}}
+{{{< include ../01a-hello-quarto/_wrap-up.qmd >}}}
 
-{{< include ../01b-formats/_wrap-up.qmd >}}
+{{{< include ../01b-formats/_wrap-up.qmd >}}}
 
-{{< include ../01c-articles/_wrap-up.qmd >}}
+{{{< include ../01c-articles/_wrap-up.qmd >}}}
 
 # Before lunch...
 
@@ -153,7 +153,7 @@ Any questions / anything you'd like to review or learn before we wrap up the wor
 ::: task
 Suggestions / requests for things to cover in Thursday's session?
 :::
-```
+````
 
 This setup allowed me to move modules between sessions easily and ensured the wrap-up slides were always up-to-date with any content changes within modules.
 
@@ -167,6 +167,6 @@ Here's the rendered version of the `01d-wrap-up/slides.qmd` file shown above:
 <iframe width="100%" height="500" src="https://cynthiahqy.github.io/monash-quarto-aea/01d-wrap-up/slides.html#/title-slide" title="Wrap Up Slides Example"></iframe>
 ```
 
-:::
+::::
 
 You can find the rest of the workshop content and slides here: [cynthiahqy.github.io/monash-quarto-aea](https://cynthiahqy.github.io/monash-quarto-aea). All the source files for the workshop content are also available in this repo: [github.com/cynthiahqy/monash-quarto-aea](https://github.com/cynthiahqy/monash-quarto-aea/tree/main)
