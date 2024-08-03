@@ -12,6 +12,7 @@ execute:
 website:
   title: "Cynthia Huang"
   site-url: https://www.cynthiahqy.com
+  description: "Cynthia Huang's Website"
   open-graph: true
   twitter-card:
     creator: "@cynthiahqy"
