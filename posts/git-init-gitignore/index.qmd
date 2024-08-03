@@ -1,0 +1,167 @@
+---
+title: 'Initialising git repositories with sensible .gitignore files'
+description: 'How I use git aliases and gitignore.io to always add a .gitignore file to my repositories before commiting other files or folders'
+date: '2024-08-03'
+date-modified: last-modified
+categories:
+  - git
+  - workflow
+  - how-to
+image: featured.png
+---
+
+## .gitignore early, ideally first.
+
+Good practice dictates that you shouldn't commit operating system files like `.DS_Store` to your git repositories. It's easy to avoid this if you initialise and populate your `.gitignore` file BEFORE commiting anything else. In practice, this is an easy thing to forget to do when you just want to quickly initialise a git repo to commit all the work you've being doing.
+
+With the help of Toptal's wonderful [gitignore.io](http://gitignore.io), I'm generally pretty good at adding `.gitignore` files as my initial commit.
+
+## Hooray for Templates!
+
+gitignore.io helps you create sensible `.gitignore` files by providing templates for different programming languages, IDEs and operating systems.
+
+Once you've installed the command line or git aliases (following [these instructions](https://docs.gitignore.io/install/command-line)), you can get templates using the following command:
+```{.zsh}
+gi macos
+git ignore macos
+```
+
+Which both return:
+```{.md code-fold="true"}
+# Created by https://www.toptal.com/developers/gitignore/api/macos,r
+# Edit at https://www.toptal.com/developers/gitignore?templates=macos,r
+
+### macOS ###
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+### macOS Patch ###
+# iCloud generated files
+*.icloud
+
+### R ###
+# History files
+.Rhistory
+.Rapp.history
+
+# Session Data files
+.RData
+.RDataTmp
+
+# User-specific files
+.Ruserdata
+
+# Example code in package build process
+*-Ex.R
+
+# Output files from R CMD build
+/*.tar.gz
+
+# Output files from R CMD check
+/*.Rcheck/
+
+# RStudio files
+.Rproj.user/
+
+# produced vignettes
+vignettes/*.html
+vignettes/*.pdf
+
+# OAuth2 token, see https://github.com/hadley/httr/releases/tag/v0.3
+.httr-oauth
+
+# knitr and R markdown default cache directories
+*_cache/
+/cache/
+
+# Temporary files created by R markdown
+*.utf8.md
+*.knit.md
+
+# R Environment Variables
+.Renviron
+
+# pkgdown site
+docs/
+
+# translation temp files
+po/*~
+
+# RStudio Connect folder
+rsconnect/
+
+### R.Bookdown Stack ###
+# R package: bookdown caching files
+/*_files/
+
+# End of https://www.toptal.com/developers/gitignore/api/macos,r
+```
+
+So, my typical git initalisation goes like this:
+
+```{.zsh}
+# do a bunch of stuff, realise I haven't initialised a repo yet...
+git init
+git ignore macos,r >> .gitignore
+git add .gitignore
+git ci -m "Initial commit with .gitignore"
+# now add other files
+```
+
+Wouldn't it be nice though to combine all of these commands into one single command?
+
+## git ginit to init and ignore
+
+Here's how I define this single command in my git config:
+
+```{.zsh}
+[alias]
+    ginit = "!f() { \
+       if [ -z \"$1\" ]; then \
+         echo \"Usage: git ginit <templates>\nFor available templates: git ignore list\"; \
+         return 1; \
+       fi; \
+       git ignore $@ > .gitignore; \
+       head -n 1 .gitignore | sed 's/# Created by/Created .gitignore by/g'; \
+       git init; \
+       git add .gitignore; \
+       git commit -m \"Initial commit with .gitignore\"; \
+       echo \"Git repository initialised with .gitignore file\"; \
+    }; f"
+    ignore = "!gi() { curl -L -s https://www.gitignore.io/api/$@ ;}; gi"
+```
+
+So now instead of `git init`, I run `git ginit macos,r` and get:
+
+```{.zsh}
+Created .gitignore by https://www.toptal.com/developers/gitignore/api/macos,r
+Initialized empty Git repository in ~/important-work/.git
+[main (root-commit) a51907c] Initial commit with .gitignore
+ 1 file changed, 91 insertions(+)
+ create mode 100644 .gitignore
+Git repository initialised with .gitignore file
+```
