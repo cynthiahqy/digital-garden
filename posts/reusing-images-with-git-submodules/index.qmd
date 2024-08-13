@@ -9,6 +9,7 @@ categories:
   - git
   - how-to
   - workflows
+  - quarto
 image: carbon.png
 # https://carbon.now.sh/?bg=rgba%28255%2C255%2C255%2C1%29&t=blackboard&wt=none&l=application%2Fx-sh&width=320&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=69px&ph=55px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=git%2520submodule%2520add%2520...%2520images%252F%250A%250Agit%2520submodule%2520update%2520--remote%2520--merge
 ---
