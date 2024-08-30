@@ -49,6 +49,7 @@ Here is a a very simple document based on the example in `mcanouil/quarto-masonr
 ````{.md}
 ---
 title: "My Cascading Gallery"
+lightbox: true
 filters:
   - masonry
 include-in-header:
