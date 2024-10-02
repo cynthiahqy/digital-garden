@@ -4,9 +4,9 @@ This is a [now page](https://nownownow.com/about), where I occasionally update w
 
 ## Aug 2024
 
-**📍 Vancouver, Canada**
+**📍 Vancouver, Canada**, (updated Sep 2024)
 
-I'm finished with conference travel for now and settling into Vancouver until late Oct. Mostly working on get a hold of the various definitions of _provenance_ and _provenance-related tools_ across computer science, applied statistics and data science.
+~~I'm finished with conference travel for now and settling into Vancouver until late Oct~~. I added another conference to my trip (SmallDataSF -- which was amazing!), and extended my stay in Vancouver through to the end of Nov. Still working on synthesising various definitions of _provenance_ and _provenance-related tools_ across computer science, applied statistics and data science.
 
 I have some gripes with my past-self for over-packing my travel schedule, but really can't complain about my first-time experiences at JSM, posit::conf(2024) and tidy-dev-day! I connected with so many amazing people in the data science and stats community, successfully delivered two new talks and even got to squeeze in a spot of outdoor climbing while in Seattle thanks to an old friend.
 
