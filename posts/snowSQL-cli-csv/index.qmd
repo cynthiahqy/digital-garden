@@ -1,0 +1,96 @@
+---
+title: 'Writing Snowflake queries to CSV using snowSQL'
+description: 'A note on exporting Snowflake SQL query results to CSV files'
+date: '2024-10-03'
+date-modified: last-modified
+categories:
+  - how-to
+  - databases
+  - cli
+image: snowflake-bug-color-rgb@1x.png
+---
+
+This is a note (mostly to myself) on how to install and use Snowflake's SnowSQL CLI tool to retrieve queries and save the results in CSV files. ***Why or When might you want to do this?***
+
+- To extract data for downstream analysis or visualisation in other tools, when it is not practical to give downstream users direct access to the database
+- When you don't want to use cloud compute to run queries you could easily run locally
+- When you have been given limited guest rights to the database with 300M+ rows in the main table. These limited provisions mean even simple queries take 10 years to run, but you've heard too many snowflake bill shock stories to risk the highly limited grant funding of your research team on spinning up your own snowflake instance...
+
+Long story short, I needed a programmatic way to get data out of Snowflake, and I wanted to both version control the retrieval queries, and cache the results for local exploration.
+
+Most of the existing resources I could find are guides to connecting to snowflake via a database driver, sending queries (mostly for whole tables) and loading the results into a R/python as dataframe objects for further analysis/exploration. In particular, there were quite a few scripts and guides out in the wild on how to use the Snowflake Python connector. I chose not go down that path because a) I don't write Python often, b) managing Python enviroments is always a nightmare, c) and I much prefer the simplicity and elegance of scripting with CLI tools.
+
+A quick disclaimer before I get into the instructions, lest anyone think my data management and access plans involve reproducing 300M+ rows from a database as CSV files: it's not. I'm experimenting with using DuckDB and Motherduck to prepare, organise and share analysis ready datasets, and will get around to writing about this (at some point).
+
+## Installing SnowSQL
+
+Follow these [instructions](https://docs.snowflake.com/en/user-guide/snowsql-install-config) to install SnowSQL.
+
+I used:
+```zsh
+brew install --cask snowflake-snowsql
+```
+
+Run `snowsql -v` to confirm successful installation. This also generates a default configuration file in a [default location](https://docs.snowflake.com/en/user-guide/snowsql-config#modify-the-snowsql-configuration-file)
+
+## Configuring Connection
+
+Add a [named connection](https://docs.snowflake.com/en/user-guide/snowsql-start#using-named-connections) to the SnowSQL config file:
+
+```bash
+[connections.my_example_connection]
+accountname = myorganization-myaccount
+username = jsmith
+password = xxxxxxxxxxxxxxxxxxxx
+dbname = mydb
+schemaname = public
+```
+
+The `username` and `password` are what you use to login into the snowflake web interface. You can find the `accountname` in settings inside the web interface.
+
+## Connecting an Interactive Session
+
+To connect using this named configuration:
+
+```bash
+snowsql -c my_example_connection
+```
+
+This starts an interactive session, where you can directly paste in SQL queries, or use [commands](https://docs.snowflake.com/en/user-guide/snowsql-use#executing-commands) starting an exclamation point (`!`). The `!set` command lets you configure things like console output format and specify an file to pipe output into.
+
+```sql
+!set output_format=csv
+!set output_file=output.csv
+```
+
+Note that by default *everything* returned to the console gets piped to the output file (including informational messages). Nevertheless, interactive sessions are good for developing and debugging queries. You can also read queries from standalone files:
+
+```sql
+!source my_query.sql
+```
+
+## Exporting data programmatically
+
+To run a set of SQL queries from named files (`code/*.sql`) and store the results in CSV files with the same name (`data/*.csv`), I used the `-o` options parameter of `snowsql`, and some `zsh` modifiers^[see the [Modifiers section of the zsh manual](https://linux.die.net/man/1/zshexpn)]:
+
+```zsh
+for file in code/*.sql; do
+    snowsql -c shopgrok -f $file -o output_format=csv -o header=true -o timing=false -o friendly=false > data/${file:t:r}.csv
+done
+```
+
+The `header`, `timing` and `friendly` options control the printing of the header text, splash text, timing, and goodbye message as explained in the [SnowSQL > Using > Exporting data](https://docs.snowflake.com/en/user-guide/snowsql-use#exporting-data) section of the Snowflake docs.
+
+This structure allows me to version control the queries I used to retrieve the data, while not tracking the data itself:
+
+```zsh
+.
+├── code
+│   ├── query01.sql
+│   ├── query02.sql
+│   └── query03.sql
+└── data
+    ├── query01.csv
+    ├── query02.csv
+    └── query03.csv
+```
