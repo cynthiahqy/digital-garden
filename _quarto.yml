@@ -25,6 +25,8 @@ website:
       - blog.qmd
       - sidebar:gallery
       - research.qmd
+      - text: Talks
+        href: https://talks.cynthiahqy.com
       - CV.qmd
       - icon: github
         href: https://github.com/cynthiahqy
