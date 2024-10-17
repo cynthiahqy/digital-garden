@@ -5,7 +5,7 @@ date: "2022-08-10"
 categories:
   - markdown
   - teaching
-tags: 
+tags:
   - r markdown
   - reveal.js
   - quarto

@@ -9,7 +9,7 @@ params:
   date_drawn: 2022-09-16
   draw_type: "visual summary"
   interactive: FALSE
-  main_alt_text: 
+  main_alt_text:
 ---
 
 ::: column-page

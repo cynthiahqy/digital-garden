@@ -3,7 +3,7 @@ project:
   render:
     - "*.qmd"
     - "!posts/drafts/**/*.qmd"
-  resources: 
+  resources:
     - "_redirects"
 
 execute:
@@ -13,9 +13,9 @@ website:
   title: "Cynthia Huang"
   site-url: https://www.cynthiahqy.com
   open-graph: true
-  twitter-card: 
+  twitter-card:
     creator: "@cynthiahqy"
-  
+
   repo-url: https://github.com/cynthiahqy/digital-garden
   repo-actions: [edit, issue]
 

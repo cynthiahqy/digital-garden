@@ -1,2 +1,1 @@
 This `r dtype` was drawn with `r dtool_link` in `r format(ddate, "%b %Y")` and edited with [Inkscape](https://inkscape.org). (Cynthia Huang © `r format(ddate, "%Y")`, [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/))
-

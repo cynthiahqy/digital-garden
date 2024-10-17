@@ -18,4 +18,4 @@ editor: visual
 ## helpers and linters
 
 -   📦[jakeasmith/commit](https://github.com/jakeasmith/commit) cli for composing git commit messages
--   
+-

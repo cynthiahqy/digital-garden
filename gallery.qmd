@@ -2,7 +2,7 @@
 title: "Sketchnotes"
 listing:
   - id: sketchnotes
-    contents: 
+    contents:
       - "gallery/sketchnotes/"
     type: grid
     image-height: 350px
@@ -15,7 +15,7 @@ listing:
   - id: templates
     contents:
       - "gallery/templates/"
-    type: default 
+    type: default
     image-align: left
     image-height: 200px
     image-placeholder: "templates/placeholder.png"

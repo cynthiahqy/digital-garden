@@ -10,4 +10,3 @@ Description of `r dtype`:
 > `r params$main_alt_text`
 
 Links related to this `r dtype`:
-

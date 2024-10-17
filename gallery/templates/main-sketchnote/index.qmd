@@ -2,7 +2,7 @@
 title: "Example Note"
 subtitle: ":headphones: Example Podcast"
 category: podcasts
-date: 2022-10-31 
+date: 2022-10-31
 draft: TRUE
 
 image: "images/featured.png"
@@ -13,7 +13,7 @@ resources:
 
 params:
   drawing_tool: "notability"
-  date_drawn: 2022-10-31 
+  date_drawn: 2022-10-31
   draw_type: "visual summary"
   interactive: TRUE
   main_alt_text: "Black and white hand-drawn visual notes summarising the episode ' ' from the podcast ' '. The top half of the sketchnote illustrates... The key takeaway is written at the bottom of the sketchnote: 'Remember, everyone want you to pitch them the best idea they've ever heard'"

@@ -14,4 +14,3 @@ resources:
   - "images/main.svg"
 
 engine: knitr
-

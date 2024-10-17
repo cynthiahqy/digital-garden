@@ -10,4 +10,3 @@ Description of `r dtype`:
 > `r params$main_alt_text`
 
 `r if(params$interactive) {"Links embedded in the graphic:"}`
-

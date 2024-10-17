@@ -5,7 +5,7 @@ date: "2022-05-16"
 categories:
   - markdown
   - text-editing
-tags: 
+tags:
   - emoji
   - quarto
   - rstudio visual mode

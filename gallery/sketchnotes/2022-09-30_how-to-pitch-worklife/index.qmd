@@ -1,7 +1,7 @@
 ---
 title: "How to Pitch Your Best Ideas"
 based-on: ":headphones: WorkLife with Adam Grant"
-categories: podcasts 
+categories: podcasts
 date: 2022-10-31
 image: "images/featured.png"
 image-alt: "A hand-drawn illustration/sketchnote described in this article"
@@ -26,4 +26,3 @@ params:
 - [Episode Transcript](https://www.ted.com/podcasts/worklife/how-to-pitch-your-best-ideas-transcript)
 
 {{< include ../../_snippet-drawtools.qmd >}}
-

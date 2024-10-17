@@ -4,7 +4,7 @@ date: 2022-11-02
 
 image: "images/featured.png"
 image-alt: "alt-text for featured image"
-  
+
 format:
   html:
     code-tools: true
@@ -25,11 +25,11 @@ At the moment, all alt-text is provided below the image itself, as I'm not sure 
   - `alt-text` for the sketchnote is defined in `params: main_alt_text:` and provides a description of key illustration elements.
   - `aria-label` is used for interactive elements. Any link embedded in the image is also provided underneath the image
   -
-  
+
 Resources List:
 
 -   [Writing Alt Text for Data Visualisation by Amy Cesal](https://medium.com/nightingale/writing-alt-text-for-data-visualization-2a218ef43f81)
 -   [accessible data viz is better data viz by Cole Nussbaumer Knaflic](http://www.storytellingwithdata.com/blog/2018/6/26/accessible-data-viz-is-better-data-viz)
 
-  
+
 :::

@@ -12,7 +12,7 @@ format:
 engine: knitr
 ---
 
-These notes accompany my templates for posting different types of visual content: 
+These notes accompany my templates for posting different types of visual content:
 
 -   [sketchnotes](../sketchnotes/)
 -   dataviz (coming soon)
@@ -60,7 +60,7 @@ params:
   main_alt_text: "" ## write this using the relevant alt-text strategy ##
 ```
 
-Include only if you want to override the default values `gallery/_metadata.yml`: 
+Include only if you want to override the default values `gallery/_metadata.yml`:
 
 - just save images/objects using the correct name (`featured.*`, `main.*`)
 - add any resources embedded using HTML tags to the `resources:` list. If not, they won't get copied into the output directory.
@@ -174,7 +174,7 @@ Use some or all of the following elements to describe the purpose, content and "
     - illlustration
     - (line) plot
     - visual representations
-- **Description of visual elements with position context**: 
+- **Description of visual elements with position context**:
     - On the left...
     - A row of...
     - Left panel... Right panel...
@@ -187,7 +187,7 @@ Use some or all of the following elements to describe the purpose, content and "
 - **Clarification of key message or takeaway**
     - The point being: ...
     - Main text:
-    
+
 _Strategy and examples adapted from [Allison Horst's Stats Illustrations](https://github.com/allisonhorst/stats-illustrations)_
 
 :::

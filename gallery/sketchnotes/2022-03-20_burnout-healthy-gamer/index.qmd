@@ -1,5 +1,5 @@
 ---
-title: "You are Burned Out and Don't Even Know It" 
+title: "You are Burned Out and Don't Even Know It"
 subtitle: ":tv: [HealthyGamerGG](https://www.youtube.com/watch?v=jqONINYF17M)"
 category: "lectures"
 date: 2022-11-07
@@ -8,7 +8,7 @@ draft: TRUE
 params:
   drawing_tool: "notability"
   date_drawn: 2022-11-01
-  draw_type: "visual summary" 
+  draw_type: "visual summary"
   interactive: TRUE
   main_alt_text: ""
 ---

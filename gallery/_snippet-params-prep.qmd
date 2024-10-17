@@ -14,4 +14,3 @@ ddate <- as.Date(params$date_drawn)
 
 dtype <- params$draw_type
 ```
-
