@@ -8,9 +8,9 @@ about:
     - icon: twitter
       text: Twitter
       href: https://twitter.com/cynthiahqy
-    # - icon: linkedin
-    #   text: LinkedIn
-    #   href: https://linkedin.com/cynthiahqy
+    - icon: linkedin
+      text: LinkedIn
+      href: https://linkedin.com/cynthiahqy
     - icon: github
       text: Github
       href: https://github.com/cynthiahqy
