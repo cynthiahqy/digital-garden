@@ -31,10 +31,12 @@ website:
       - CV.qmd
       - icon: github
         href: https://github.com/cynthiahqy
-      - icon: twitter
-        href: https://twitter.com/cynthiahqy
-      - icon: envelope-at-fill
-        href: mailto:cynthia.huang@monash.edu
+      - icon: linkedin
+        href: https://www.linkedin.com/in/cynthiahqy/
+      # - icon: twitter
+      #   href: https://twitter.com/cynthiahqy
+      # - icon: envelope-at-fill
+      #   href: mailto:cynthia.huang@monash.edu
       - icon: rss
         href: blog.xml
 
