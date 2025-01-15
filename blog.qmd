@@ -8,7 +8,9 @@ listing:
   categories: true
   sort-ui: false #[date, date-modified]
   filter-ui: [title, description]
-  feed: true
+  feed:
+    title: Cynthia Huang on Data Science, R, Quarto & more
+    description: Blog posts by Cynthia Huang to do with data science, research, R, Quarto
 page-layout: full
 ---
 
