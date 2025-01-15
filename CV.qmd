@@ -3,11 +3,11 @@ title: "CV"
 format:
   html:
     toc: true
-  # pdf:
-  #   author: Cynthia A Huang
-  #   pdf-engine: weasyprint
+  pdf:
+    author: Cynthia A Huang
+    pdf-engine: weasyprint
 css: cv.css
-# format-links: [pdf]
+format-links: [pdf]
 ---
 
 ::: {.print-only .contact-block}
