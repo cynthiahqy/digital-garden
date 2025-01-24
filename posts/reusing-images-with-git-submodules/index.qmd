@@ -37,6 +37,11 @@ Some notes before we proceed:
 
 ## Version Controlling Images with git
 
+::: callout-note
+## Update: 2025-01-24
+I made a GitHub template repository to make setting this up simpler: <https://github.com/cynthiahqy/template-image-collection.git>. Click the "Use this template". The template also includes an code for a [pre-commit hook](https://git-scm.com/book/ms/v2/Customizing-Git-Git-Hooks) that renders the README every time you make a commit (i.e. every time you add a new image)
+:::
+
 Even if the git submodules idea below seems a little too scary for you, create a git repository collecting all your project graphics is still great for the version control benefits. Just remember to commit each time you add or update an image.
 
 I made a repository for all the images I've created for my research on Ex-Post Harmonisation: [cynthiahqy/collection_crossmap-images](https://github.com/cynthiahqy/collection_crossmap-images/)
