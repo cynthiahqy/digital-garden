@@ -2,6 +2,15 @@
 
 This is a [now page](https://nownownow.com/about), where I occasionally update where I am, what I'm doing, and/or what I'm *trying* to focus on.
 
+## Apr 2025
+
+I'm finally (almost) PhD-done! I submitted my thesis for examination after a long but rewarding 3 years and 8 months. Although, I wish I had a bit more time to digest it all, I'm grateful to be leaving Melbourne shortly for a very exciting research trip to:
+
+- 🇹🇼 Present recent work on an *integrative framework for investigating and assessing web-scraped datasets for research applications* at National Tsinghua University (Apr 14-18).
+- 🇯🇵 Present *'TableCanoniser: Interactive Grammar-Powered Transformation of Messy, Non-Relational Tables to Canonical Tables'* at CHI25 (Apr 27-May 1).
+
+When I get back I'll be continuing to work as a Research Fellow under the wonderful supervision of Rob J Hyndman on tools for ex-post harmonisation, and leveraging LLMs for data preparation.
+
 ## Aug 2024
 
 **📍 Vancouver, Canada**, (updated Sep 2024)
