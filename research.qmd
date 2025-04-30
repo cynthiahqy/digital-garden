@@ -8,6 +8,17 @@ listing:
     image-height: 300px
     field-links: [title]
     contents:
+        - title: "TableCanoniser: Interactive Grammar-Powered Transformation of Messy, Non-Relational Tables to Canonical Tables"
+          description: "CHI25 Honorable Mention awarded Full Paper"
+          author:
+            - "Kai Xiong"
+            - "Cynthia A. Huang"
+            - "YingCai Wu"
+            - "Michael Wybrow"
+          date: 2025-04-30
+          categories: [Full Paper, Talk]
+          image: research/images/chi25_tablecanoniser.png
+          path: https://doi.org/10.1145/3706598.3714321
         - title: "PRITES: An integrative framework for investigating and assessing web-scraped datasets for research applications"
           description: "Working paper"
           author: "Cynthia A. Huang"
