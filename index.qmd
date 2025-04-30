@@ -19,9 +19,12 @@ about:
       href: mailto:cynthia.huang@monash.edu
 ---
 
-🧙‍♀️ I am a hat collector with pronouns she/her. My many hats include economist, data scientist, research software engineer, teacher. Currently, my main hat is PhD student at Monash University working on principles and methods for data preparation and preprocessing, under the supervision of [Rob J Hyndman](https://robjhyndman.com), [Sarah Goodwin](https://research.monash.edu/en/persons/sarah-goodwin) and [Simon Angus](https://research.monash.edu/en/persons/simon-angus). My favourite side hats at the moment are co-host of the [Random Sample](https://www.therandomsample.com.au/) podcast, and [Quarto](https://quarto.org) evangelist and tinkerer.
+🧙‍♀️ I am an interdisciplinary researcher with pronouns she/her. I work at the intersection of social science, computational statistics and human-centered computing. My many hats include economist, data scientist, research software engineer, and teacher. Currently, my main hat is Research Fellow in the Department of Econometrics and Business Statistics at Monash University, working on principles and methods for data preparation and preprocessing, under the supervision of [Rob J Hyndman](https://robjhyndman.com). My PhD thesis **_Unified Principles and Tools for Complex Datasets and Data-Driven Workflows_** is currently under examination and was co-supervised by Rob, [Simon Angus](https://research.monash.edu/en/persons/simon-angus), and [Sarah Goodwin](https://research.monash.edu/en/persons/sarah-goodwin).
 
-🤹🏻This blog is a seed nursery for holding ideas, thoughts and projects I'm juggling while I build my [digital garden](https://maggieappleton.com/garden-history). Expect anything from machine learning, data wrangling, reproducible workflows, teaching pedagogy to half-formed opinions on social issues, personal data-viz, and winding journeys through my special interests of the moment.
+Check out my [now page](now.qmd) for semi-frequent updates on what I'm working on and thinking about. My favourite side hats at the moment are co-host of the [Random Sample](https://www.therandomsample.com.au/) podcast, and [Quarto](https://quarto.org) evangelist and tinkerer.
+
+
+<!-- 🤹🏻This blog is a seed nursery for holding ideas, thoughts and projects I'm juggling while I build my [digital garden](https://maggieappleton.com/garden-history). Expect anything from machine learning, data wrangling, reproducible workflows, teaching pedagogy to half-formed opinions on social issues, personal data-viz, and winding journeys through my special interests of the moment. -->
 
 <!-- ## Interviews and Profiles
 
