@@ -6,14 +6,16 @@ title: "Podcasts"
 
 Episodes of [The Random Sample](https://www.therandomsample.com.au/) hosted by yours truly:
 
--   [EP 100: The Challenges of Publishing Interdisciplinary Research with Prof Xiao-Li Meng](https://www.therandomsample.com.au/podcast/the-publication-puzzle-part-2/)
+-   [EP 111: Bridging the interdisciplinary gap with Stats & Data Science – with Professor Galit Shmueli](https://www.therandomsample.com.au/podcast/interdisciplinary-research-galit-shmueli/)
+-   [EP 109: Designing the Tools that Shape Data Science – with Dr Hadley Wickham](https://www.therandomsample.com.au/podcast/hadley-wickham/)
+-   [EP 100: The Challenges of Publishing Interdisciplinary Research with Professor Xiao-Li Meng](https://www.therandomsample.com.au/podcast/the-publication-puzzle-part-2/)
 -   [EP 96: Scientific Graphic Design for Communicating Research with Dr Jess Hopf](https://www.therandomsample.com.au/podcast/scientific-graphic-design/)
--   [EP 94: Understanding Math Struggles with Dr. Jacob Paul](https://www.therandomsample.com.au/podcast/understanding-maths-struggles/)
+-   [EP 94: Understanding Math Struggles with Dr Jacob Paul](https://www.therandomsample.com.au/podcast/understanding-maths-struggles/)
 -   [EP 87: What you need to know about Referendum Polling with Professor Simon Jackman](https://www.therandomsample.com.au/podcast/referendum-polling/)
 -   [EP 86: Communicating Statistics & Probability with Professor Jeffrey Rosenthal](https://www.therandomsample.com.au/podcast/jeffrey-rosenthal/)
 -   [EP 81: Open-sourcing Data Science Education with Professor Mine Çetinkaya-Rundel](https://www.therandomsample.com.au/podcast/open-education/)
--   [EP 79: Law & Stats: What's a Statistician Doing in Court? with Ian Gordon](https://www.therandomsample.com.au/podcast/statisticians-in-legal-cases/)
--   [EP 75: Probing Large Language Models & ChatGPT with Simon Angus](https://www.therandomsample.com.au/podcast/chatgpt/)
+-   [EP 79: Law & Stats: What's a Statistician Doing in Court? with Professor Ian Gordon](https://www.therandomsample.com.au/podcast/statisticians-in-legal-cases/)
+-   [EP 75: Probing Large Language Models & ChatGPT with Professor Simon Angus](https://www.therandomsample.com.au/podcast/chatgpt/)
 -   [EP 72: Future Proofing as Data Changes the World with Dana Ma](https://www.therandomsample.com.au/podcast/future-proofing/)
 -   [EP 70: The Statistical Society of Australia's 60th Birthday with Ian Gordon and Jessica Kasza](https://www.therandomsample.com.au/podcast/ssa-60th/)
 
