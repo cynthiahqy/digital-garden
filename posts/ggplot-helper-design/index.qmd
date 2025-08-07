@@ -60,7 +60,7 @@ The lack of design constraints results in quite varied and opaque interfaces tha
 - Package Repo: <https://github.com/gadenbuie/ggweekly>
 - Function Reference: <https://rdrr.io/github/gadenbuie/ggweekly/man/ggweek_planner.html>
 
-![Example plot from Package Repo [(permalink)](https://github.com/gadenbuie/ggweekly/blob/5197c02cb296aa882377fd8e3424024bbf1eff21/man/figures/README-year-week-1.png)](code-blocks/README-year-week-1.png)
+![Example plot from Package Repo [(permalink)](https://github.com/gadenbuie/ggweekly/blob/5197c02cb296aa882377fd8e3424024bbf1eff21/man/figures/README-year-week-1.png)](code-blocks/ggweekly-README-year-week-1.png)
 
 
 ### `{jayjacobs/ggcal}`
