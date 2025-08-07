@@ -1,0 +1,98 @@
+---
+title: 'Styling emphasised text consistently in quarto markdown with pandoc lua filters'
+description: 'How pandoc spans & filters help me use emphasise styles like boldface and italics consistently throughout my documents.'
+date: '2025-08-07'
+date-modified: last-modified
+# draft: true
+categories:
+  - pandoc
+  - quarto
+  - markdown
+image: featured.png
+## https://carbon.now.sh/?bg=rgba%28255%2C255%2C255%2C1%29&t=blackboard&wt=none&l=markdown&width=320&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=69px&ph=55px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=%255Bemphasise%2520this%2520term%255D%257B.def%257D%250A
+---
+
+## Problem: Not so straightforward text emphasis
+
+Writing interdisciplinary papers often requires referencing terminology from multiple fields, clarifying distinctions, and sometimes even defining new terms to capture additional nuances. Naturally, it makes sense to use typographic emphasis and/or punctuation to [highlight]{.mark} 'confusing', **new**, or [important]{.smallcaps} _terms_ --- and help readers keep track of them. However, during the process of writing, it's easy to lose track of choices I (or co-authors) have made about the 'meaning' of particular formatting choices.
+
+For example, while writing a paper about assessing the statistical quality of web-scraping, I wanted to distinguish between **explicitly defined terms**, where specific definitional nuances and distinctions were particularly important to the rest of the paper, and references to _other terms_ that were either less important, already had well-established definitions, or would be defined later on.
+
+Of course, when explained like this it seems straight forward to style these terms using the standard markdown syntax of `**boldface**` and `_italics_`. However, I often forgot or mixed up which style I was using for each case. I also ended up adding a **_third_** type of emphasis at some point: quotation marks for 'confusing terms'. These terms had some significant definitional conflict or ambiguity in usage between different disciplines that needed addressing.[^1]
+
+[^1]: reading over the paper again, it seems some other inconsistencies also escaped my notice... but that's a different Cynthia's problem.
+
+Long story short, it turns out a simple _"find and replace `**term**` with `_term_`"_ wasn't sufficient to achieve consistency across the paper. But my brain also couldn't just ignore it... Luckily, I knew just enough about pandoc and quarto extensions that I thought _"pandoc bracketed spans and lua filters can probably solve this!"._
+
+## Solution: Pandoc lua (and LLMs) to the rescue
+
+Even more fortunately, most LLMs can write lua much better and faster than I can (which isn't difficult when I have written basically zero lua ever). So, I asked Claude to:
+
+> Please write a pandoc lua filter which styles spans with the classes `.def ` in italics, and `.term` in boldface italics.
+
+And voila! I had a pandoc filter that I could call in my `.qmd` file that would consistently style all text with the same class (across **both** pdf and html formats). Here's what that looked like:
+
+### Directory structure
+
+```
+paper/
+├── example.qmd
+└── style/
+    └── emphasis-spans.lua
+```
+
+### Example Document
+
+```{.md filename="example.qmd"}
+---
+title: Paper with consistent emphasis styles 😎
+filters:
+- style/emphasis-spans.lua
+---
+
+Here was a [definition]{.def}. And here was a [term]{.term}.
+
+```
+### Lua filter
+
+This is the lua script specified in yaml above under the `filters:` argument. It gets called during the rendering process and handles the formatting magic.
+
+```{.lua filename="style/emphasis-spans.lua"}
+-- A filter to style spans with .def and .def-emp classes independently
+
+function Span(el)
+    -- Check for .def first (bold italics)
+    if el.classes:includes("def") then
+      el.content = {pandoc.Strong(el.content)}
+      return el
+    end
+
+    -- Then check for .term (italics)
+    if el.classes:includes("term") then
+      el.content = {pandoc.Emph(el.content)}
+      return el
+    end
+
+    return el
+  end
+```
+
+## What even are Pandoc Spans & Filters?
+
+[Bracketed spans](https://pandoc.org/demo/example33/8.18-divs-and-spans.html) let you add classes and attributes to bits of inline text using this syntax: `[inline text]{.class style="red"}`[^2]. In general, the effect of the class and attributes depends on what output format you're rendering to -- i.e. when rendering to HTML the example in the previous sentence is parsed into `<span style="color: red">some text</span>`. This requires the output format you're parsing to to know what your classes and attributes mean -- i.e. no styles are applied to `inline text` when rendering to pdf via LaTex. This is where [pandoc lua filters](https://pandoc.org/lua-filters.html) come in.
+
+Exactly how filters work requires some understanding of how pandoc works, which really isn't that necessary for this post to be useful. But basically, the `pandoc.Strong()` and `pandoc.Emph()` above constructors handle generating the correct HTML, latex or other format syntax to apply each style of emphasis in the corresponding output format. Other inline constructors include `.SmallCaps()` and `.Strikeout()` spans[^4].
+
+The combination of spans and filters means I can easily change my mind later about how to style words that I had enclosed in each type of span (e.g. modifying or swapping the styling of terms with the `.def` and `.term` classes). In fact, you can do all sorts of cool things once you've wrapped up things in these special spans -- including generating a glossary of all terms with a particular class[^3].
+
+[^3]: Andrew Bray's quarto extension: [`andrewpbray/glossary`](https://github.com/andrewpbray/glossary) implements exactly this!
+
+[^2]: See this post by Mine Çetinkaya-Rundel for examples in Quarto: [Spans, A Quarto tip a day](https://mine-cetinkaya-rundel.github.io/quarto-tip-a-day/posts/11-spans/)
+
+[^4]: See the Pandoc Lua Filters documentation for more details: <https://pandoc.org/lua-filters.html#module-pandoc>
+
+## Key Takeaways
+
+- Inconsistent typographic emphasis makes me sad, (and hurts to try and manually correct)
+- Pandoc lua filters and bracketed spans help by separating the choice of which text should all have the same styling (using spans), and defining what that styling should be (using pandoc constructors).
+- LLMs can help you write lua filters so don't be scared!
