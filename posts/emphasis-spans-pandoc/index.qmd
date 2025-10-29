@@ -1,6 +1,6 @@
 ---
-title: 'Consistent text emphasis with Pandoc Lua filters'
-description: 'How pandoc spans & filters help me use emphasise styles like boldface and italics consistently throughout my Quarto markdown documents.'
+title: 'Consistent text styling with Pandoc Lua filters'
+description: 'Using pandoc spans & filters to style classes of text in Quarto markdown documents.'
 date: '2025-08-07'
 date-modified: last-modified
 # draft: true
