@@ -1,6 +1,6 @@
 ---
-title: 'Styling emphasised text consistently in quarto markdown with pandoc lua filters'
-description: 'How pandoc spans & filters help me use emphasise styles like boldface and italics consistently throughout my documents.'
+title: 'Consistent text styling with Pandoc Lua filters'
+description: 'Using pandoc spans & filters to style classes of text in Quarto markdown documents.'
 date: '2025-08-07'
 date-modified: last-modified
 # draft: true
@@ -58,16 +58,16 @@ Here was a [definition]{.def}. And here was a [term]{.term}.
 This is the lua script specified in yaml above under the `filters:` argument. It gets called during the rendering process and handles the formatting magic.
 
 ```{.lua filename="style/emphasis-spans.lua"}
--- A filter to style spans with .def and .def-emp classes independently
+-- A filter to style text spans using custom classes
 
 function Span(el)
-    -- Check for .def first (bold italics)
+  -- boldface
     if el.classes:includes("def") then
-      el.content = {pandoc.Strong(el.content)}
+      el.content = {pandoc.Emph(el.content)}
       return el
     end
 
-    -- Then check for .term (italics)
+  -- italics
     if el.classes:includes("term") then
       el.content = {pandoc.Emph(el.content)}
       return el
@@ -76,6 +76,7 @@ function Span(el)
     return el
   end
 ```
+
 
 ## What even are Pandoc Spans & Filters?
 
