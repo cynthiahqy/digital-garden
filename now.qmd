@@ -2,7 +2,30 @@
 
 This is a [now page](https://nownownow.com/about), where I occasionally update where I am, what I'm doing, and/or what I'm *trying* to focus on.
 
+## Dec 2025
+
+**📍 Melbourne, Australia**
+
+It's official! As of Aug 20, 2025, I hold a doctoral degree in Mathematics and Statistics from Monash University. My thesis _Unified Principles And Tools For Complex Datasets And Data-Driven Workflows_ was passed with minor revisions and is available online via [Monash University's Library](https://bridges.monash.edu/articles/thesis/Unified_Principles_and_Tools_for_Complex_Datasets_and_Data-Driven_Workflows/29763449?file=56790638).
+
+Since my last update, I've:
+
+- 👩🏻‍🏫 Delivered a guest lecture, ["LLMs for Preparing Data in R"](https://github.com/cynthiahqy/lecture_llms-preparing-data-ellmer), in the _Wild Caught Data_ unit at Monash University
+- 🧰 Attended the LMU-NYU-Workshop "Making Data Work: Tools for Better Statistical Practice” in Munich
+<!-- - 🕸️ Presented PRITES at internal SoDa workshop -->
+- 👩🏻‍🏫 Delivered my ["Quarto for Economists"](https://github.com/cynthiahqy/monash-quarto-aea) workshop for the third time!
+- 🐻 co-chairing [WOMBAT2025](https://wombat2025.numbat.space/) (Sep 29-30) -- a two day conference bringing together data folks from industry, academia and government for tutorials and talks on this year's theme of "Designing Data-Driven Discoveries".
+- 🇦🇹 Attended VIS2025 (Nov 1-7) in Vienna -- *'Out of the Loop: Enhancing Documentation and Transparency in Collaborative Causal Loop Diagrams to Capture Multiple Perspectives'*
+
+Research wise, I've been thinking a lot about opportunities for dialogue between information visualisation and statistical graphics, while continuing to work on adapting LLMs for data cleaning.
+
+Finally, I'm excited to be joining the [Social Data Science and AI Lab](https://www.stat.lmu.de/soda/en/) at LMU Munich as a post-doctoral researcher from Jan, 2026!
+
+<!-- WOMBAT2025; IEEEVIS 2025 -->
+
 ## Apr 2025
+
+**📍 Melbourne, Australia**
 
 I'm finally (almost) PhD-done! I submitted my thesis for examination after a long but rewarding 3 years and 8 months. Although, I wish I had a bit more time to digest it all, I'm grateful to be leaving Melbourne shortly for a very exciting research trip to:
 
@@ -19,13 +42,13 @@ When I get back I'll be continuing to work as a Research Fellow under the wonder
 
 I have some gripes with my past-self for over-packing my travel schedule, but really can't complain about my first-time experiences at JSM, posit::conf(2024) and tidy-dev-day! I connected with so many amazing people in the data science and stats community, successfully delivered two new talks and even got to squeeze in a spot of outdoor climbing while in Seattle thanks to an old friend.
 
-## June 2024
+## Jun 2024
 
 **📍 Munich, Germany**
 
 After jumping through what felt like endless hoops of approval processes, funding changes and decision fatigue, I've finally started my many months long research trip across Europe & North America. Some upcoming highlights include:
 
-- 🇩🇪 Visiting SoDa group at LMU (Jun 13-26)
+- 🇩🇪 Visiting SODA group at LMU (Jun 13-26)
 - 🇦🇹 Presenting on *ex-post harmonisation and the `{xmap}` package* at UseR!, Salzburg (Jul 8-11)
 - 🇺🇸 Presenting on *assessing statisical programming skills* at JSM, Portland (Aug 3-9)
 - 🇺🇸 Presenting on *Quarto for Knowledge Management* in the *Level up your Data Science Skills* session at posit::conf(2024), Seattle (Aug 12-14)
