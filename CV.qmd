@@ -20,12 +20,11 @@ _Last updated May 1, 2024_
 
 ## EDUCATION
 
-**Doctor of Philosophy -- Econometrics and Business Statistics** <br> *Monash University* [*Aug 2021 --- Present*]{.cvdate}
+**Doctor of Philosophy -- Econometrics and Business Statistics** <br> *Monash University* [*Aug 2021 --- Aug 2025]{.cvdate}
 
 -   Principles and methods for complex data preparation and integration, with applications to official statistics, web-scrapped data and satellite raster images
 -   Monash Data Futures Institute PhD Top-Up Scholarship (2021-2024)
 -   Statistical Society of Australia Top-Up Scholarship (2023)
--   Expected submission date: Feb 2025
 
 **Bachelor of Commerce (Honours) -- Economics**<br> *The University of Melbourne* [*Feb 2016 --- Nov 2016*]{.cvdate}
 
