@@ -2,20 +2,39 @@
 
 This is a [now page](https://nownownow.com/about), where I occasionally update where I am, what I'm doing, and/or what I'm *trying* to focus on.
 
+## Jan 2026
+
+**📍 Munich, Germany**
+
+👋 Goodbye Australia/2025, Hello Germany/2026!
+
+I'm now three weeks into postdoc life at LMU Munich. Despite some minor road bumps, I'm settling in well:
+
+* My colleagues have all been super welcoming 🍻,
+* I have somewhere to live (until September at least...) 🏡,
+* I (think) all my paperwork is order ✔️,
+* I've found a regular yoga studio 🧘🏻‍♀️,
+* I had my first experience of walking to work in the snow! ❄️,
+* I had some hardware related 'black swan' moments -- I learnt that the new M5 macbooks do not come with power adapters, and that when you ask for an "English" keyboard you might receive a British QWERTY keyboard with 105 keys, a short left shift key, and tall enter key, instead of the 104-key ANSI US English keyboard you were expecting 💻,
+* I learnt that in German, when ordering a filled sandwich -- you should ask for "ham and egg" and not "egg and ham" 🔀.
+
+On the research side, I've been thinking a lot about opportunities for collaboration and cross-pollination between Information Visualisation and Statistical Graphics research. Although both fields research the visualisation of data, and even shared some intellectual ancestry, the relationship between the two fields seems to be mostly coloured by confusion, talking past each other, and missed opportunities. During his opening keynote for IEEE VIS26, Hans-Christian Hege mused on the need for more principled visual arguments in InfoVis and SciVis. Statistics, and particularly the practice of constructing statistical arguments and inference, seem (to me) to be a perfect match for answering this call for an "argumentative basis" for visualisation interpretation. I'm not the first person to notice this<!-- ^[See Graphical Inference @wickhamGraphicalInferenceInfovis2010]-->, so why is this potential is untapped, and what could activate it?
+
 ## Dec 2025
 
 **📍 Melbourne, Australia**
 
 It's official! As of Aug 20, 2025, I hold a doctoral degree in Mathematics and Statistics from Monash University. My thesis _Unified Principles And Tools For Complex Datasets And Data-Driven Workflows_ was passed with minor revisions and is available online via [Monash University's Library](https://bridges.monash.edu/articles/thesis/Unified_Principles_and_Tools_for_Complex_Datasets_and_Data-Driven_Workflows/29763449?file=56790638).
 
-Since my last update, I've:
+Since my last update, I:
 
 - 👩🏻‍🏫 Delivered a guest lecture, ["LLMs for Preparing Data in R"](https://github.com/cynthiahqy/lecture_llms-preparing-data-ellmer), in the _Wild Caught Data_ unit at Monash University
 - 🧰 Attended the LMU-NYU-Workshop "Making Data Work: Tools for Better Statistical Practice” in Munich
 <!-- - 🕸️ Presented PRITES at internal SoDa workshop -->
 - 👩🏻‍🏫 Delivered my ["Quarto for Economists"](https://github.com/cynthiahqy/monash-quarto-aea) workshop for the third time!
-- 🐻 co-chairing [WOMBAT2025](https://wombat2025.numbat.space/) (Sep 29-30) -- a two day conference bringing together data folks from industry, academia and government for tutorials and talks on this year's theme of "Designing Data-Driven Discoveries".
+- 🐻 Co-chaired [WOMBAT2025](https://wombat2025.numbat.space/) (Sep 29-30) -- a two day conference bringing together data folks from industry, academia and government for tutorials and talks on this year's theme of "Designing Data-Driven Discoveries".
 - 🇦🇹 Attended VIS2025 (Nov 1-7) in Vienna -- *'Out of the Loop: Enhancing Documentation and Transparency in Collaborative Causal Loop Diagrams to Capture Multiple Perspectives'*
+- 🐻 Co-organised the 2026 NUMBAT Hackathon,
 
 Research wise, I've been thinking a lot about opportunities for dialogue between information visualisation and statistical graphics, while continuing to work on adapting LLMs for data cleaning.
 
