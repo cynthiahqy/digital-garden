@@ -1,0 +1,280 @@
+---
+title: Writing custom Quarto template based on existing template
+engine: knitr
+---
+
+Custom templates and multi-format publishing in Quarto are some of my favourite features of Quarto. However, despite custom templates promising the elegance of building documents like Lego, I think a more apt description of my experience is some combination of self-satisfaction and utter frustration of hacking IKEA furniture into more than the assembly manuals and promotional images depict. In theory, connecting existing format specific templates to Quarto is pretty straightforward -- just take the latex / Typst or other template, and replace the **right** bits with Pandoc conditionals and variables. A few small issues with this:
+
+1. knowing which bits to replace and which to keep as is, generally requires knowing something about how the original format compiles and renders;
+2. Pandoc/Quarto/Extensions cleverness can often result in unexpected behavior that is not "wrong" per se, but definitely not what you wanted and debugging requires isolating exactly where unwanted commands are being brought in;
+3. What happens when the upstream template changes? Does this totally break your template? What's the best way to incorporate upstream changes in both Quarto and a specific template?
+
+Given all of these problems, why bother with templates? Why not just use overleaf and write in latex? Well, for me, there's quite a bit of payoff in always being able to write in Quarto markdown only, and not switching between latex/typst/msword/html. As an interdisciplinary researcher, my work often spans multiple possible publication venues, which makes specializing in a single journal template and workflow not feasible. I need flexibility. Besides, I also enjoy the tinkering and being able to do things like multi-format CVs, and having a go-to template for revealjs slides.
+
+## General workflow and setup
+
+1. Set up a new repository for your template -- I usually call mine something like `quarto-<format>-<template>` (e.g. `quarto-typst-tvcg` for a template based on the official TVCG Typst template.
+2. Add the reference template as a submodule. This helps with versioning.
+3. Go look at a few reference templates from the Quarto team
+
+## Writing a Word Template inside a single repository
+
+I recently prepared a submission for the HDSR, which provides an official MSWord template. There is also a LaTex template, but you're only allowed to use that if your paper contains mathematical equations.^[Having already written my paper in Quarto markdown outputting to pdf via LaTex, and having some experience with LaTex templates in Quarto, but none with DOCX templates, I considered for a brief moment whether I could include some mathematical equations to avoid having to download MS Word.] Luckily, Quarto (via Pandoc) outputs to DOCX, and supports providing custom styles via a custom reference document.^[[Word Templates, Quarto Official Documentation](https://quarto.org/docs/output-formats/ms-word-templates.html)]
+
+My 'template' setup looked like this:
+```
+.
+├── _quarto.yml
+├── _utilities
+│   ├── HDSR Article Manuscript Template-61737489435302.docx
+│   └── hdsr-custom-reference-doc.docx
+├── index.qmd
+├── references.bib
+└── submissions
+    └── hdsr
+        ├── 20260216-merged-HDSR-PRITES.docx
+        ├── coverpage.docx
+        ├── index.docx
+        └── REVIEWS
+
+```
+
+My development loop went something like this:
+
+1. Initialise custom reference doc via:
+```zsh
+quarto pandoc -o hdsr-custom-reference-doc.docx \ --print-default-data-file reference.docx`
+```
+
+2. Copy and paste relevant formats from the official template `HDSR Article Manuscript Template-61737489435302.docx` as custom styles in `hdsr-custom-reference-doc.docx` (ignore any that you don't use).
+
+3. Render my paper `index.qmd` with the following YAML:
+```yaml
+format:
+  docx:
+    reference-doc: '_utilities/hdsr-custom-reference-doc.docx'
+```
+
+4. Compare the output file `index.docx` with the template, and tweak.
+
+::: callout-tip
+## Editing Custom Styles in MS Word
+
+![Use the Style Pane with the 'Show styles guide' option selected](images/msword-hdsr-style-guides.png)
+
+:::
+
+## Packaging a template as a Quarto extension
+
+```md
+./
+├── _extension/
+│   └── ieee-vgtc/
+│       ├── _extension.yml
+│       ├── **typst-conf-show.typ**
+│       └── **typst-journal-show.typ**
+├── ieee-vgtc-typst/ <!-- SUBMODULE -->
+│   ├── CONTRIBUTING.md
+│   ├── LICENSE
+│   ├── README.md
+│   ├── assets/
+│   │   ├── diamondrule.svg
+│   │   └── orcid.svg
+│   ├── lib.typ
+│   ├── link.ps1
+│   ├── link.sh*
+│   ├── preview.pdf
+│   ├── template/
+│   │   ├── conference.typ
+│   │   ├── conference_latex_ref.pdf
+│   │   ├── figs/
+│   │   ├── journal.typ
+│   │   ├── journal_latex_ref.pdf
+│   │   └── refs.bib
+│   ├── thumbnail.png
+│   └── typst.toml
+├── template-conf.qmd
+└── template-journal.qmd
+```
+
+::: callout-tip
+## ASIDE: Typst package manifests
+An aside on Typst packages^[https://github.com/typst/packages/blob/main/README.md] -- all Typst packages have a manifest in the file `typst.toml` that looks something like (truncated for clarity):
+
+```toml
+[package]
+name = "ieee-vgtc"
+version = "0.0.3"
+...
+entrypoint = "lib.typ"
+repository = "https://github.com/ieeevgtc/ieee-vgtc-typst"
+...
+
+[template]
+path = "template"
+entrypoint = "journal.typ"
+thumbnail = "thumbnail.png"
+```
+
+The important things to note are the package and template `entrypoint` -- the first is the main Typst file that is evaluated when the package is imported via `#import` statements; and the second is generally what you'll adapt into a quarto/pandoc template.
+:::
+
+<!-- TODO: aside about the relationship between quarto & pandoc - link to a good explainer -->
+
+We can go ahead and start creating the Quarto extension template using the Typst template:
+
+1. Copy the template into the extension folder (e.g. `typst-conf-show.typ`), set the `_extension.yml` to use this as the typst format template.
+1. Figure out what is sample body text -- replace this with `$body$`
+2. Pass the `show()` statement through Claude and ask it to replace variables with Pandoc conditionals and variables. Making sure that the variables match Quarto YAML variables (authors is trickiest in my experience).
+3. Populate your `template-*.qmd` doc with the relevant variables and content.
+4. Render and debug -- repeating until it works.
+
+Debugging strategies:
+
+- set `keep-typ:` to true, and copy the `.typ` output into a Typst universe project to get better hints and error messages. Make sure to transfer fixes back into your `_extension/` files.
+- look at the Quarto typst partials as explained in the [Typst Custom Format guide in the official Quarto docs](https://quarto.org/docs/output-formats/typst-custom.html#advanced-customization)
+
+
+::: callout-tip
+## Aside on partials vs. template replacement
+If you don't replace the template completely, you can get conflicting injections. You might find it helpful to snoop around in the [Quarto Typst partials](https://quarto.org/docs/journals/templates.html#typst-partials) to figure out what is going on.
+
+For example, I spent some time debugging a multiple bilbiographies not supported error, that was due to both Quarto and the Typst IEEE TVCG package adding `bibiliography()` calls. The relevant partial was [`biblio.typ`](https://github.com/quarto-dev/quarto-cli/blob/main/src/resources/formats/typst/pandoc/quarto/biblio.typ), which was called by the main Quarto Typst template [`template.typ`](https://github.com/quarto-dev/quarto-cli/blob/main/src/resources/formats/typst/pandoc/quarto/template.typ). To get around this, I completely replaced the main Quarto Typst template with one I created myself based on the template in the Typst package I was adapting.
+<!-- TODO: link to Quarto docs -->
+:::
+
+### Example files
+
+::: {.panel-tabset}
+### Extension YAML
+
+The `_extension.yml` file specifies YAML options that get merged into your main `index.qmd` when you specify `format: <extension-format>`:
+
+```{.yaml filename='_extensions/_extension.yml'}
+title: IEEE Typst Template
+author: Cynthia Huang
+version: "0.0.2"
+quarto-required: ">=1.4.11"
+contributes:
+  formats:
+    common:
+    typst+conf:
+      template: typst-conf-show.typ
+    typst+journal:
+      template: typst-journal-show.typ
+```
+
+### Typst Template
+
+I generated this by passing Claude `ieee-vgtc-typst/template/conference.typ` and tweaking against Quarto Typst templates and my own experiments. A few tips:
+
+- Make sure to replace any sample Typst content (e.g. that was in `conference.typ`) with `$body$` to grab the content from your Quarto markdown file.
+- You can map Quarto metadata fields to Typst fields even if the names don't exactly match (e.g. I mapped Quarto `affiliation` details to the `organization:` field in the official Typst template). You could alternatively provide different author metadata just for these formats using [profiles](https://quarto.org/docs/projects/profiles.html) (but that's a different post)
+- I would recommend debugging with the help of an LLM, but for completeness you might refer to the [Pandoc Template Syntax](https://www.pandoc.org/demo/example33/6.1-template-syntax.html)
+
+```{.typst .code-overflow-wrap filename='_extensions/typst-conf-show.typ'}
+#import "@preview/ieee-vgtc:0.0.2": conference
+
+#show: conference.with(
+  $if(review)$
+  review: $review$,
+  $endif$
+  $if(submission-id)$
+  submission-id: $submission-id$,
+  $endif$
+  $if(category)$
+  category: "$category$",
+  $endif$
+  $if(paper-type)$
+  paper-type: "$paper-type$",
+  $endif$
+  $if(title)$
+  title: [$title$],
+  $endif$
+  $if(abstract)$
+  abstract: [$abstract$],
+  $endif$
+  $if(by-author)$
+  authors: (
+$for(by-author)$
+$if(it.name.literal)$
+    ( name: "$it.name.literal$",
+      organization: [$for(it.affiliations)$$it.name$$sep$, $endfor$],
+      orcid: "$it.orchid$",
+      email: "$it.email$" ),
+$endif$
+$endfor$
+    ),
+$endif$
+  $if(teaser)$
+  teaser: (
+    $if(teaser.image)$
+    image: image("$teaser.image$", alt: "$teaser.image-alt$"),
+    $endif$
+    $if(teaser.caption)$
+    caption: "$teaser.caption$"
+    $endif$
+  ),
+  $endif$
+  $if(index-terms)$
+  index-terms: ($for(index-terms)$"$it$"$sep$, $endfor$),
+  $endif$
+  $if(bibliography)$
+  bibliography: bibliography("$bibliography$"$if(csl)$, style: "$csl$"$endif$),
+  $endif$
+)
+
+$body$
+```
+
+### Quarto Template
+
+This is the file you actually write in. I try to include all variables that could be read into `_extensions/typst-conf-show.typ` in the YAML header for reference.
+
+````{.md filename="template-conf.qmd"}
+---
+format: ieee-vgtc-typst+conf
+review: false
+submission-id: 1234
+category: "Research"
+paper-type: "algorithm/technique"
+title: "Global Illumination for Fun and Profit"
+abstract: "... "
+authors:
+  - name: "Josiah S. Carberry"
+    organization: "Brown University"
+    orcid: "0000-0002-1825-0097"
+    email: "jcarberry@example.com"
+  - name: "Ed Grimley"
+    organization: "Grimley Widgets, Inc."
+    email: "ed.grimley@example.com"
+  - name: "Martha Stewart"
+    organization: "Martha Stewart Enterprises at Microsoft Research"
+    email: "martha.stewart@example.com"
+teaser:
+  image: "figs/clouds.jpg"
+  image-alt: "A view of clouds with orange sunrays shining through from behind."
+  caption: "Dramatic evening clouds. Note that the teaser may not be wider than the abstract block."
+index-terms:
+  - "Radiosity"
+  - "global illumination"
+  - "constant time"
+bibliography: "refs.bib"
+---
+
+# Introduction
+
+I can write normal Quarto markdown here.
+
+You can prevent Quarto (and Pandoc) from parsing content by using [Pandoc's raw attribute](https://pandoc.org/MANUAL.html#extension-raw_attribute).
+
+```{=typst}
+= Raw Content
+
+This is useful for content that should be passed through directly into the Typst file (which can then be compiled into PDF).
+```
+````
+
+## Debugging Tips
+
+- **Compiliation and rendering errors:** It turns out that the Typst package I was using required a more recent version of Typst than what Quarto bundles. There's a thread about this type of lagging in the [quarto-dev discussions](https://github.com/orgs/quarto-dev/discussions/11142). Long story short, the Quarto dev team prioritises stability, but you can specify non-standard configurations via the `QUARTO_TYPST` global variable.
