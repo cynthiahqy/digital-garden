@@ -11,12 +11,6 @@ Custom templates and multi-format publishing in Quarto are some of my favourite 
 
 Given all of these problems, why bother with templates? Why not just use overleaf and write in latex? Well, for me, there's quite a bit of payoff in always being able to write in Quarto markdown only, and not switching between latex/typst/msword/html. As an interdisciplinary researcher, my work often spans multiple possible publication venues, which makes specializing in a single journal template and workflow not feasible. I need flexibility. Besides, I also enjoy the tinkering and being able to do things like multi-format CVs, and having a go-to template for revealjs slides.
 
-## General workflow and setup
-
-1. Set up a new repository for your template -- I usually call mine something like `quarto-<format>-<template>` (e.g. `quarto-typst-tvcg` for a template based on the official TVCG Typst template.
-2. Add the reference template as a submodule. This helps with versioning.
-3. Go look at a few reference templates from the Quarto team
-
 ## Writing a Word Template inside a single repository
 
 I recently prepared a submission for the HDSR, which provides an official MSWord template. There is also a LaTex template, but you're only allowed to use that if your paper contains mathematical equations.^[Having already written my paper in Quarto markdown outputting to pdf via LaTex, and having some experience with LaTex templates in Quarto, but none with DOCX templates, I considered for a brief moment whether I could include some mathematical equations to avoid having to download MS Word.] Luckily, Quarto (via Pandoc) outputs to DOCX, and supports providing custom styles via a custom reference document.^[[Word Templates, Quarto Official Documentation](https://quarto.org/docs/output-formats/ms-word-templates.html)]
@@ -65,6 +59,14 @@ format:
 :::
 
 ## Packaging a template as a Quarto extension
+
+My general strategy was:
+
+1. Set up a new repository for the Quarto template -- I usually call mine something like `quarto-<format>-<template>` (e.g. `quarto-typst-tvcg` for a template based on the official TVCG Typst template.
+2. Add the reference template as a submodule. This helps with versioning.
+3. Go look at a few reference templates from the Quarto team -- and the ones below
+
+Repository structure:
 
 ```md
 ./
@@ -140,7 +142,6 @@ Debugging strategies:
 If you don't replace the template completely, you can get conflicting injections. You might find it helpful to snoop around in the [Quarto Typst partials](https://quarto.org/docs/journals/templates.html#typst-partials) to figure out what is going on.
 
 For example, I spent some time debugging a multiple bilbiographies not supported error, that was due to both Quarto and the Typst IEEE TVCG package adding `bibiliography()` calls. The relevant partial was [`biblio.typ`](https://github.com/quarto-dev/quarto-cli/blob/main/src/resources/formats/typst/pandoc/quarto/biblio.typ), which was called by the main Quarto Typst template [`template.typ`](https://github.com/quarto-dev/quarto-cli/blob/main/src/resources/formats/typst/pandoc/quarto/template.typ). To get around this, I completely replaced the main Quarto Typst template with one I created myself based on the template in the Typst package I was adapting.
-<!-- TODO: link to Quarto docs -->
 :::
 
 ### Example files
