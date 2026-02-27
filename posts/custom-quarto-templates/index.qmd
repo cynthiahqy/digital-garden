@@ -3,11 +3,11 @@ title: Custom Quarto templates based on format-specific templates
 description:  Tips on creating Quarto custom formats to output QMD files to existing format templates -- with examples using MS Word reference documents and Typst templates.
 date: 2025-02-26
 date-modified: last-modified
-draft: true
+# draft: true
 categories:
   - quarto
   - markdown
-image: https://carbon.now.sh/?bg=rgba%28255%2C255%2C255%2C1%29&t=blackboard&wt=none&l=r&width=320&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=69px&ph=55px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=library%28pander%29%250Amy_table%2520%257C%253E%250A%2520%2520pander%253A%253Apander%28%29
+image: featured.png
 ---
 
 ## Customisation promises and perils
@@ -18,15 +18,15 @@ Custom templates and multi-format publishing in Quarto promises the elegance of 
 2. Pandoc and Quarto parsing cleverness can result in unexpected behaviour that is not "wrong" per se, but definitely not what you wanted. Debugging requires isolating exactly where unwanted commands are being brought in, which again requires non-trivial understanding of how Pandoc and Quarto work.
 3. Even if you figure out how to set things up so your Quarto renders to the custom template. What happens when the upstream template changes? Does this totally break your workflow? What's the best way to incorporate upstream changes?
 
-Given all of these problems, why bother with templates? Why not just use Overleaf and write directly in LaTex? Well, sometimes I do (usually when collaborating). However, being able to write in Quarto markdown only and not switching between LaTex, Typst, MS Word, and HTML is oh-so-satisfying. My work often spans multiple possible publication venues with different templates and submission requirements. This variety makes specializing in a single journal template and workflow inefficient and overly rigid -- which also makes resubmitting a rejected paper to a new venue that much more painful. But probably most importantly, I enjoy the tinkering and *really enjoy* the satisfaction of hacking my way out of having to copy, paste or edit text just for formatting purposes.
+Given all of these problems, why bother with templates? Why not just use Overleaf and write directly in LaTeX? Well, sometimes I do (usually when collaborating). However, being able to write in Quarto markdown only and not switching between LaTeX, Typst, MS Word, and HTML is oh-so-satisfying. My work often spans multiple possible publication venues with different templates and submission requirements. This variety makes specializing in a single journal template and workflow inefficient and overly rigid -- which also makes resubmitting a rejected paper to a new venue that much more painful. But probably most importantly, I enjoy the tinkering and *really enjoy* the satisfaction of hacking my way out of having to copy, paste or edit text just for formatting purposes.
 
-In this post, I share two recent custom format + Quarto hack jobs, and some general tips for incorporating format-specific templates into Quaerto.
+In this post, I share two recent custom format + Quarto hack jobs, and some general tips for incorporating format-specific templates into Quarto.
 
 <!-- being able to do things like multi-format CVs, and having a go-to template for RevealJS slides.  -->
 
 ## MS Word Templates for an existing Quarto document
 
-I recently prepared a submission for a journal which provides an official MSWord template. There is also a LaTex template, but you're only allowed to use that if your paper contains mathematical equations.^[Having already written my paper in Quarto markdown outputting to pdf via LaTex, and having some experience with LaTex templates in Quarto, but none with DOCX templates, I considered for a brief moment whether I could include some mathematical equations to avoid having to download MS Word.] Luckily, Quarto (via Pandoc) outputs to DOCX, which also supports custom styles via a custom reference document.^[[Word Templates, Quarto Official Documentation](https://quarto.org/docs/output-formats/ms-word-templates.html)]
+I recently prepared a submission for a journal which provides an official MS Word template. There is also a LaTeX template, but you're only allowed to use that if your paper contains mathematical equations.^[Having already written my paper in Quarto markdown outputting PDF via LaTeX, and having some experience with LaTeX templates in Quarto, but none with DOCX templates, I considered for a brief moment whether I could include some mathematical equations to avoid having to download MS Word.] Luckily, Quarto (via Pandoc) outputs to DOCX, which also supports custom styles via a custom reference document.^[[Word Templates, Quarto Official Documentation](https://quarto.org/docs/output-formats/ms-word-templates.html)]
 
 I ended up with a workflow that rendered most of the contents of my original QMD file (`index.qmd`) into DOCX, using styles defined via a custom reference document (`custom-reference-doc.docx`), which I eventually combined with a few manually entered elements (`manual-elements.docx`) into my final submission (`merged-submission.docx`). My folder directory looked something like:
 
@@ -78,7 +78,7 @@ See the 'Modifying the styles' section of this [taonaw.com blog post](https://ta
 
 ## Quarto Custom Format Extensions
 
-The MS Word template above was saved in the same repository as the QMD file I was rendering. However, sometimes, you might want to reuse the same custom format template in multiple projects. This is where Quarto Custom Format extensions come in handy. Custom Format extensions bundle up all the inputs and settings needed to specific a custom format easily as a single argument to the `format:` variable in the YAML header of QMD files.^[I've written previously about what exactly constitutes a Custom Format extension in the Quarto extension world in this [blog post](https://www.cynthiahqy.com/posts/quarto-extensions-explainer/)].  Custom Format extensions publicly hosted on GitHub (e.g `github.com/cynthiahqy/quarto-typst-tvcg`[https://github.com/cynthiahqy/quarto-typst-tvcg]) can be easily added to any Quarto repository via `quarto add <extension>` (e.g. ).
+The MS Word template above was saved in the same repository as the QMD file I was rendering. However, sometimes, you might want to reuse the same custom format template in multiple projects. This is where Quarto Custom Format extensions come in handy. Custom Format extensions bundle up all the inputs and settings needed to specific a custom format easily as a single argument to the `format:` variable in the YAML header of QMD files.^[I've written previously about what exactly constitutes a Custom Format extension in the Quarto extension world in this [blog post](https://www.cynthiahqy.com/posts/quarto-extensions-explainer/)].  Custom Format extensions publicly hosted on GitHub (e.g=. `github.com/cynthiahqy/quarto-typst-tvcg`[https://github.com/cynthiahqy/quarto-typst-tvcg]) can be easily added to any Quarto repository via `quarto add <extension>`.
 
 Although there is documentation on what custom formats should contain and numerous examples on the [Custom Formats](https://quarto.org/docs/extensions/formats.html) and [Journal Formats](https://quarto.org/docs/journals/formats.html) pages of the official Quarto Docs, these examples are relatively simple and straightforward. In reality, I find adapting an existing template to work with Quarto requires quite a bit of trial and error, perseverance and ideally expert resources on Quarto, Pandoc and whatever format you're working with easily available. The latter I cannot help with, but I can share my general workflow strategy:
 
@@ -158,7 +158,7 @@ Next, let's create the Quarto Custom Format -- prepare for lots of iterations:
 
 The three main files that you'll need to write to get a custom format working are the YAML settings contributed by the format (`_extension.yml`), the Pandoc template for the format you're rendering to (e.g. `typ-conf-show.typ`), and an example QMD file that uses your custom format (optional, but a very useful future reference on how to use this format when you've forgotten everything you knew while hacking it together).
 
-The following tabset shows these three files for a custom Quarto format based on the official IEEE-TVCG Typst template.
+The following tabset shows these three files for a custom Quarto format based on the official IEEE TVCG Typst template.
 
 ::: {.panel-tabset}
 ### Extension YAML
@@ -267,7 +267,7 @@ authors:
     email: "martha.stewart@example.com"
 teaser:
   image: "figs/clouds.jpg"
-  image-alt: "A view of clouds with orange sunrays shining through from behind."
+  image-alt: "A view of clouds with orange sun rays shining through from behind."
   caption: "Dramatic evening clouds. Note that the teaser may not be wider than the abstract block."
 index-terms:
   - "Radiosity"
@@ -293,6 +293,6 @@ This is useful for content that should be passed through directly into the Typst
 ## General Tips & Tricks
 
 - **Leverage LLMs**: Pass the original format template statement through and LLM and ask it to create a Pandoc Template. You'll need to make sure that the variables match Quarto YAML variables (authors is trickiest in my experience).
- **Understand Quarto partials**: Famililarise yourself with how [Quarto template partials work](https://quarto.org/docs/journals/templates.html#template-partials).^[There may also be additional docs on how the partials for a particular format work -- e.g. in the [Typst Custom Format guide](https://quarto.org/docs/output-formats/typst-custom.html#advanced-customization).] Looking at the source code of the templates will show you what Quarto is injecting alongside the format template you wrote when rendering your QMD file. If you use partials rather than replacing Quarto's base format templates completely, you can get conflicting or duplicate injections.^[For example, I spent some time debugging a multiple bilbiographies not supported error, that was due to both Quarto and the Typst IEEE TVCG package adding `bibiliography()` calls. The relevant partial was [`biblio.typ`](https://github.com/quarto-dev/quarto-cli/blob/main/src/resources/formats/typst/pandoc/quarto/biblio.typ), which was called by the main Quarto Typst template [`template.typ`](https://github.com/quarto-dev/quarto-cli/blob/main/src/resources/formats/typst/pandoc/quarto/template.typ). To get around this, I completely replaced the main Quarto Typst template with one I created myself based on the template in the Typst package I was adapting.]
-- **Use Intermediate Output for Debugging**: Set `keep-*:` to true in your example QMD, and the render that intermediate output to debug your template. The intermediate file will show you how Quarto is combining content from your QMD using the pandoc template you provided and any applicable partials. For example, I copied the intermediate `.typ` into a Typst universe project to get better hints and error messages. You could do the same with `.tex` files and debug them on Overleaf. Make sure to transfer any fixes back into your local source files.
-- **Compiliation and rendering errors:** It turns out that the IEEE-TVCG Typst package required a more recent version of Typst than what Quarto bundles. There's a thread about this type of lagging in the [quarto-dev discussions](https://github.com/orgs/quarto-dev/discussions/11142). Long story short, the Quarto dev team prioritises stability, but you can specify non-standard configurations via the `QUARTO_TYPST` global variable.
+ **Understand Quarto partials**: Famililarise yourself with how [Quarto template partials work](https://quarto.org/docs/journals/templates.html#template-partials).^[There may also be additional docs on how the partials for a particular format work -- e.g. in the [Typst Custom Format guide](https://quarto.org/docs/output-formats/typst-custom.html#advanced-customization).] Looking at the source code of the templates will show you what Quarto is injecting alongside the format template you wrote when rendering your QMD file. If you use partials rather than replacing Quarto's base format templates completely, you can get conflicting or duplicate injections.^[For example, I spent some time debugging multiple bibliographies not supported error, that was due to both Quarto and the Typst IEEE TVCG package adding `bibliography()` calls. The relevant partial was [`biblio.typ`](https://github.com/quarto-dev/quarto-cli/blob/main/src/resources/formats/typst/pandoc/quarto/biblio.typ), which was called by the main Quarto Typst template [`template.typ`](https://github.com/quarto-dev/quarto-cli/blob/main/src/resources/formats/typst/pandoc/quarto/template.typ). To get around this, I completely replaced the main Quarto Typst template with one I created myself based on the template in the Typst package I was adapting.]
+- **Use Intermediate Output for Debugging**: Set `keep-*:` to true in your example QMD, and the render that intermediate output to debug your template. The intermediate file will show you how Quarto is combining content from your QMD using the Pandoc template you provided and any applicable partials. For example, I copied the intermediate `.typ` into a Typst universe project to get better hints and error messages. You could do the same with `.tex` files and debug them on Overleaf. Make sure to transfer any fixes back into your local source files.
+- **Compilation and rendering errors:** It turns out that the IEEE TVCG Typst package required a more recent version of Typst than what Quarto bundles. There's a thread about this type of lagging in the [quarto-dev discussions](https://github.com/orgs/quarto-dev/discussions/11142). Long story short, the Quarto dev team prioritises stability, but you can specify non-standard configurations via the `QUARTO_TYPST` global variable.
