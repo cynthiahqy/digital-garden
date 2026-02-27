@@ -1,0 +1,16 @@
+{
+  "cSpell.words": [],
+  "cSpell.customDictionaries": {
+    "project-words": {
+      "name": "project-words",
+      "path": "${workspaceFolder}/.vscode/project-words.txt",
+      "scope": "workspace",
+      "addWords": true
+    },
+  },
+  "ltex.dictionary": {
+    "en-GB": [
+      ":${workshopFolder}/.vscode/project-words.txt"
+    ]
+  },
+}
