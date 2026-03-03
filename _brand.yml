@@ -1,0 +1,81 @@
+meta:
+  name: Cynthia Huang
+  link:
+    home: https://cynthiahqy.com
+
+color:
+  palette:
+    # ── Earthy accents ──
+    clay:        "#C4785A"
+    terracotta:  "#A85C3E"
+    ochre:       "#C9963A"
+    sage:        "#7A8C6E"
+    moss:        "#4E5E42"
+
+    # ── Meadow Bloom backgrounds ──
+    plum-deep:   "#2A1E2E"
+    heather:     "#3B2840"
+    plum-card:   "#4A3255"
+    dusty-rose:  "#C4A0B4"
+    blush:       "#D4A0B8"
+    blossom:     "#F5EEF0"
+
+    # ── Pastel florals ──
+    wild-rose:   "#E8C8D0"
+    wisteria:    "#C8C0DC"
+    chamomile:   "#D4C0A8"
+    lichen:      "#B8C8B0"
+
+  foreground: heather
+  background: plum-deep
+  primary:    clay
+  secondary:  dusty-rose
+  tertiary:   heather
+  success:    sage
+  info:       wisteria
+  warning:    ochre
+  danger:     terracotta
+  light:      wild-rose
+  dark:       plum-deep
+
+typography:
+  fonts:
+    - family: Cormorant Garamond
+      source: google
+      # weight: [300, 400, 500, 600]
+      style: [normal, italic]
+    - family: Lora
+      source: google
+      # weight: [400, 500]
+      style: [normal, italic]
+    - family: Source Code Pro
+      source: google
+      # weight: [300, 400]
+      style: [normal]
+
+  base:
+    family: Lora
+    # weight: 400
+    # size: 16px
+    # line-height: 1.7
+
+  headings:
+    family: Cormorant Garamond
+    # weight: 300
+    style: normal
+    # line-height: 1.1
+    color: moss
+
+  monospace:
+    family: Source Code Pro
+    # weight: 400
+    # size: 0.9em
+
+  link:
+    color: blush
+    decoration: none
+
+defaults:
+  bootstrap:
+    enable-rounded: false
+    navbar-bg: $brand-sage
