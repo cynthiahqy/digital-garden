@@ -3,79 +3,79 @@ meta:
   link:
     home: https://cynthiahqy.com
 
+#// https://coolors.co/393659-564e58-904e55-f0ece5-252627
+#// https://coolors.co/6c67a2-f28f3b-904e55-f0ece5-252627
+#// https://coolors.co/6c67a2-ca2e55-f28f3b-f0ece5-252627
+#// darkmode: https://coolors.co/2b3a67-af5d63-f28f3b-f0ece5-252627
+
 color:
   palette:
-    # ── Earthy accents ──
-    clay:        "#C4785A"
-    terracotta:  "#A85C3E"
-    ochre:       "#C9963A"
-    sage:        "#7A8C6E"
-    moss:        "#4E5E42"
+    ## custom theme colours
+    dusty-mauve: "#AF5D63"
+    burnt-red:  "#904E55"
+    carbon-black: "#252627"
 
-    # ── Meadow Bloom backgrounds ──
-    plum-deep:   "#2A1E2E"
-    heather:     "#3B2840"
-    plum-card:   "#4A3255"
-    dusty-rose:  "#C4A0B4"
-    blush:       "#D4A0B8"
-    blossom:     "#F5EEF0"
+    ## bootstrap colours
+    blue:       "#20A4F3"
+    indigo:     "#2B3A67" #"#252672"
+    purple:     "#6C67A2"
+    pink:       "#D4A0B8"
+    red:        "#B80C09"
+    orange:     "#F28F3B"
+    # yellow:
+    green:      "#66A182" #053b06"
+    teal:       "#15796E"
+    # cyan:
+    white:      "#F0ECE5"
+    black:      carbon-black
+    # gray:
+    # gray-dark:
 
-    # ── Pastel florals ──
-    wild-rose:   "#E8C8D0"
-    wisteria:    "#C8C0DC"
-    chamomile:   "#D4C0A8"
-    lichen:      "#B8C8B0"
 
-  foreground: heather
-  background: plum-deep
-  primary:    clay
-  secondary:  dusty-rose
-  tertiary:   heather
-  success:    sage
-  info:       wisteria
-  warning:    ochre
-  danger:     terracotta
-  light:      wild-rose
-  dark:       plum-deep
+  foreground:
+    light: indigo      # Main text on dark backgrounds
+    dark: orange
+  background:
+    light: white    # Primary dark background
+    dark:  indigo
+  primary:
+    light: burnt-red            # Main accent — warm, earthy terracotta
+    dark:  dusty-mauve
+  secondary:
+    light: purple
+    dark:  burnt-red   # Lighter text, secondary labels
+  tertiary: pink        # Card / section background alternative
+  success: teal            # Positive states — earthy green
+  info: blue             # Neutral informational — soft green
+  warning: orange           # Cautionary — warm amber
+  danger: red       # Errors / strong emphasis
+  # light: white           # High-contrast on dark elements
+  # dark: heather          # High-contrast on light elements
 
 typography:
   fonts:
     - family: Cormorant Garamond
-      source: google
-      # weight: [300, 400, 500, 600]
+      source: bunny
       style: [normal, italic]
     - family: Lora
-      source: google
-      # weight: [400, 500]
+      source: bunny
       style: [normal, italic]
     - family: Source Code Pro
-      source: google
-      # weight: [300, 400]
+      source: bunny
       style: [normal]
 
   base:
     family: Lora
-    # weight: 400
-    # size: 16px
-    # line-height: 1.7
 
   headings:
     family: Cormorant Garamond
-    # weight: 300
     style: normal
-    # line-height: 1.1
-    color: moss
 
   monospace:
     family: Source Code Pro
-    # weight: 400
-    # size: 0.9em
+    background-color:
+      dark: black
 
-  link:
-    color: blush
-    decoration: none
-
-defaults:
-  bootstrap:
-    enable-rounded: false
-    navbar-bg: $brand-sage
+  # link:
+  #   color:
+  #     dark: pink
