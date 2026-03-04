@@ -5,6 +5,7 @@ project:
     - "!posts/drafts/**/*.qmd"
   resources:
     - "_redirects"
+    - "CynthiaHuang-CV.pdf"
 
 execute:
   freeze: true
@@ -29,7 +30,7 @@ website:
       - text: Talks
         href: https://talks.cynthiahqy.com
       - text: CV
-        href: CV.qmd
+        href: CynthiaHuang-CV.pdf
       - icon: github
         href: https://github.com/cynthiahqy
       - icon: linkedin
