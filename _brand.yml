@@ -1,0 +1,81 @@
+meta:
+  name: Cynthia Huang
+  link:
+    home: https://cynthiahqy.com
+
+#// https://coolors.co/393659-564e58-904e55-f0ece5-252627
+#// https://coolors.co/6c67a2-f28f3b-904e55-f0ece5-252627
+#// https://coolors.co/6c67a2-ca2e55-f28f3b-f0ece5-252627
+#// darkmode: https://coolors.co/2b3a67-af5d63-f28f3b-f0ece5-252627
+
+color:
+  palette:
+    ## custom theme colours
+    dusty-mauve: "#AF5D63"
+    burnt-red:  "#904E55"
+    carbon-black: "#252627"
+
+    ## bootstrap colours
+    blue:       "#20A4F3"
+    indigo:     "#2B3A67" #"#252672"
+    purple:     "#6C67A2"
+    pink:       "#D4A0B8"
+    red:        "#B80C09"
+    orange:     "#F28F3B"
+    # yellow:
+    green:      "#66A182" #053b06"
+    teal:       "#15796E"
+    # cyan:
+    white:      "#F0ECE5"
+    black:      carbon-black
+    # gray:
+    # gray-dark:
+
+
+  foreground:
+    light: indigo      # Main text on dark backgrounds
+    dark: orange
+  background:
+    light: white    # Primary dark background
+    dark:  indigo
+  primary:
+    light: burnt-red            # Main accent — warm, earthy terracotta
+    dark:  dusty-mauve
+  secondary:
+    light: purple
+    dark:  burnt-red   # Lighter text, secondary labels
+  tertiary: pink        # Card / section background alternative
+  success: teal            # Positive states — earthy green
+  info: blue             # Neutral informational — soft green
+  warning: orange           # Cautionary — warm amber
+  danger: red       # Errors / strong emphasis
+  # light: white           # High-contrast on dark elements
+  # dark: heather          # High-contrast on light elements
+
+typography:
+  fonts:
+    - family: Cormorant Garamond
+      source: bunny
+      style: [normal, italic]
+    - family: Lora
+      source: bunny
+      style: [normal, italic]
+    - family: Source Code Pro
+      source: bunny
+      style: [normal]
+
+  base:
+    family: Lora
+
+  headings:
+    family: Cormorant Garamond
+    style: normal
+
+  monospace:
+    family: Source Code Pro
+    background-color:
+      dark: black
+
+  # link:
+  #   color:
+  #     dark: pink
