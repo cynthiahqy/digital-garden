@@ -2,6 +2,21 @@
 
 This is a [now page](https://nownownow.com/about), where I occasionally update where I am, what I'm doing, and/or what I'm *trying* to focus on.
 
+## Apr 2026
+
+**📍 Munich, Germany**
+
+How time flies when you're ~~having fun~~ settling into a new country, city, job and moving apartments (hopefully the next move is the last...). Some highlights so far:
+
+- 🇦🇹 Presented some Grammar of Graphics related work at the [Vienna International Workshop on Visualization in Statistics and Data Analysis](https://www.osg.or.at/main.asp?VID=1&kat1=108&kat2=716&kat3=559&DDate=17042026&NID=7340)
+- 👩🏻‍🏫 Taught my first lecture at LMU for [Advanced Statistical Programming in R](https://soda-lmu.github.io/StatProg2-2026-SoSe/) & also kicked-off a research seminar 'Human-AI Collaboration in Statistical Reasoning and Data Science' 😮‍💨
+- 🙌 The first [Grand Unified Grammar of Graphics](https://gugog-vis.github.io/2026/) workshop was accepted to IEEE VIS2026 in Boston.
+
+Upcoming talks and travel:
+
+- 🎨 Talking about ggplot2 helper functions at 🇵🇱 UseR! 2026, Warsaw Poland (Jul 7-9), then again at 🇺🇸 posit::conf(2026), Houston, Texas (Sep 15-16)
+- 🇺🇸 Discussing 'The Past, Present, and Future of ggplot2 Extension Packages' at JSM 2026, Boston, USA (Aug 1-8)
+
 ## Jan 2026
 
 **📍 Munich, Germany**
@@ -30,7 +45,6 @@ Since my last update, I:
 
 - 👩🏻‍🏫 Delivered a guest lecture, ["LLMs for Preparing Data in R"](https://github.com/cynthiahqy/lecture_llms-preparing-data-ellmer), in the _Wild Caught Data_ unit at Monash University
 - 🧰 Attended the LMU-NYU-Workshop "Making Data Work: Tools for Better Statistical Practice” in Munich
-<!-- - 🕸️ Presented PRITES at internal SoDa workshop -->
 - 👩🏻‍🏫 Delivered my ["Quarto for Economists"](https://github.com/cynthiahqy/monash-quarto-aea) workshop for the third time!
 - 🐻 Co-chaired [WOMBAT2025](https://wombat2025.numbat.space/) (Sep 29-30) -- a two day conference bringing together data folks from industry, academia and government for tutorials and talks on this year's theme of "Designing Data-Driven Discoveries".
 - 🇦🇹 Attended VIS2025 (Nov 1-7) in Vienna -- *'Out of the Loop: Enhancing Documentation and Transparency in Collaborative Causal Loop Diagrams to Capture Multiple Perspectives'*
