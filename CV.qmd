@@ -11,123 +11,250 @@ format-links: [pdf]
 ---
 
 ::: {.print-only .contact-block}
-cynthia.huang@monash.edu
+cynthiahqy@gmail.com | cynthia.huang@lmu.de | cynthiahqy.com | github.com/cynthiahqy
 :::
 
 ::: {.no-print}
-_Last updated May 1, 2024_
+_Last updated June 1, 2026_
+
+Munich, Germany
+
+cynthiahqy@gmail.com | cynthia.huang@lmu.de | [cynthiahqy.com](https://cynthiahqy.com) | [github.com/cynthiahqy](https://github.com/cynthiahqy)
 :::
 
-## EDUCATION
+## Research Interests
 
-**Doctor of Philosophy -- Econometrics and Business Statistics** <br> *Monash University* [*Aug 2021 --- Aug 2025]{.cvdate}
+I am an interdisciplinary researcher working across statistics, computer science and the social sciences to advance and improve data-driven research. I support the application of novel methods and data sources in the social sciences, and collaborate with leading researchers in computer science and statistics on conceptual frameworks and workflow tools which respect statistical, computational and domain-specific validity, efficiency and usability considerations. Currently, I work on transparent and trustworthy applications of LLMs for social data science, statistical properties of multi-source datasets, and domain specific languages for information visualisation and statistical graphics.
 
--   Principles and methods for complex data preparation and integration, with applications to official statistics, web-scrapped data and satellite raster images
--   Monash Data Futures Institute PhD Top-Up Scholarship (2021-2024)
--   Statistical Society of Australia Top-Up Scholarship (2023)
+## Education
 
-**Bachelor of Commerce (Honours) -- Economics**<br> *The University of Melbourne* [*Feb 2016 --- Nov 2016*]{.cvdate}
+**Monash University**, Melbourne, Australia [2021 -- 2025]{.cvdate}
 
--   Graduated with First Class Honours
--   Completed research essay modelling information escrows for victims of domestic violence
+*Ph.D. in Mathematics and Statistics*
 
-**Bachelor of Commerce -- Economics & Management** <br> *The University of Melbourne* [*Mar 2012 --- Oct 2014*]{.cvdate}
+- Thesis: Unified Principles and Tools for Complex Datasets and Data-Driven Workflows
+- Supervisors: Rob J. Hyndman, Simon D. Angus, Sarah Goodwin
+- Affiliations: Dep. Econometrics and Business Statistics (EBS), Non-Uniform Business Analytics Team (NUMBAT), SoDa Laboratories (SoDa Labs), Monash Data Futures Institute (MDFI), Embodied Visualisation Group (EmVis)
 
--   Graduated with First Class Honours, and inclusion on Dean's Honours List
+**University of Melbourne**, Melbourne, Australia [2016]{.cvdate}
 
-**Summer School: EC307 Development Economics** <br> *London School of Economics* [*Jul 2014 --- Aug 2014*]{.cvdate}
+*B.Com Honours in Economics*
 
--   Final Result: A
+**University of Melbourne**, Melbourne, Australia [2012 -- 2014]{.cvdate}
 
-**Victorian Certificate of Education** <br> *The Mac.Robertson Girls' High School* [*Feb 2009 --- Nov 2011*]{.cvdate}
+*B.Com in Economics and Management*
 
--   Australian Tertiary Admission Rank (ATAR): 98.95
+## Appointments and Research Experience
 
-## WORK EXPERIENCE{style="page-break-before: always"}
+**Ludwig-Maximillian University, Munich** [Jan 2026 -- Present]{.cvdate}
 
-### Data Scientist
+*Postdoctoral Researcher, Chair of Statistics and Social Data Science, Institute of Statistics*
 
-***Freelance, Multiple Clients*** [Jan 2020 -- June 2021]{.cvdate}
+Working with Frauke Kreuter in the Social Data and AI Lab (SODA) on AI-Human collaboration in statistical reasoning and data science. Affiliate at Munich Center for Machine Learning (MCML).
 
-Providing data collection, pre-processing, exploratory analysis and modelling services to clients in the early R&D stages of developing data driven products. Projects include:
+**Monash University** [Mar 2025 -- Dec 2025]{.cvdate}
 
--   Data description and preliminary product feasibility insights for a start-up real estate bond platform; including assessing suitability of various property transaction databases for use in initial product prototype.
--   Development of statistical anomaly detection regimes and key historical insights from internet quality time-series data for use in parametric insurance products, including documenting analysis tools in an R package.
+*Research Fellow, Department of Econometrics and Business Statistics*
 
-### Research Assistant
+Worked with Rob J. Hyndman on visualisation principles and software for time-series data.
 
-***Monash Addiction Research Center, Monash University*** [March 2023 -- Present]{.cvdate} <br> ***Dept. of Economics, Monash University*** [Nov 2019 -- Jul 2023]{.cvdate} <br> ***SoDa Laboratories, Monash University*** [Jul 2019 -- Dec 2022]{.cvdate} <br> ***Dept. of Econometrics and Business Statistics, Monash University*** [Oct 2020 -- Dec 2020]{.cvdate} <br> ***Dept. of Economics, University of Melbourne*** [Mar 2017 -- Dec 2018]{.cvdate}
+**University of British Columbia, Vancouver** [Jul 2024 -- Nov 2024]{.cvdate}
 
-Supporting multiple projects with dataset design, data collection and pre-processing, exploratory visualisation, and preliminary analysis tasks. Project supervisors included:
+*Visiting Researcher, Department of Computer Science*
 
--   Monash University: Assoc. Prof. Nathaniel Lane (Uni. of Oxford), Prof. Paul Raschky, Assoc. Prof. Laura Puzzello, Assoc. Prof. Simon Angus, Dr. Patricia Menendez and Dr. Klaus Ackermann.
--   University of Melbourne: Prof. David Byrne and Prof. Phillip McCalman.
+Hosted by Tamara Munzner in the InfoVis group. Collaborated on reconciling visualisation and provenance approaches from HCI, InfoVis and Statistics.
 
-*Key skills and achievements include:*
+**Ludwig-Maximillian University, Munich** [Jun 2024]{.cvdate}
 
--   Processing archival microfiche and web-scraped data to construct chronological record of US spectrum license trading, including selecting harmonised variables and coordinating data entry by other team members.
--   Sourcing archival magazines to collect produce and price information for the Laser Printer market from 1984 onwards
--   Sourcing data online from Wikimedia, UNIDO, FedScope and DHS Program databases, including construction of SPARQL and REST API queries, writing reproducible web scraping and/or file download scripts
--   Pre-processing of data including parsing XML data into tabular form, writing scripts and managing local resource usage for accessing big data archives such as Wikipedia dumps
--   Merging multiple data releases into a single consistent panel including preparing and applying concordance tables to harmonise between ISIC (International Standard Industrial Classifications of All Economic Activities) revisions
--   Reshaping data tables and pre-selection of key variables from DHS (Demographic and Health Survey) data for use with machine learning approaches
--   Preparation of data summaries and visualisations highlighting key dataset features and preliminary exploratory insights and analysis
+*Visiting Researcher, Institute of Statistics*
 
-### Academic Tutor
+Hosted by Anna-Carolina Haensch in the Social Data and AI Lab (SODA). Collaborated on generating crosswalks for ex-post harmonisation with LLMs.
 
-***Dept. of Econometrics and Business Statistics, Monash University*** [Mar 2020 -- Dec 2023]{.cvdate} <br> ***Faculty of Business and Economics, University of Melbourne*** [Jul 2016 -- Nov 2019]{.cvdate}
+**Monash Addiction Research Center** [2023 -- 2025]{.cvdate}
 
-Preparing and delivering in-person and online tutorials and workshops for undergraduate and masters students. Subject areas taught include:
+*Research Assistant*
 
--   Data collection and wrangling, Open Data principles, Data Analysis in R
--   Microeconomics, Macroeconomics, Game Theory, Computational Economics in SAS and MATLAB
--   Quantitative Methods, Business Analytics, and Business Case Analysis
+Adaption of web-scraped price data from commercial partner for public health policy research. Exploratory analysis and visualisations for research outputs and grant applications. Worked with Tina Lam.
 
-Additional support provided beyond the standard teaching responsibilities included:
+**SoDa Labs, Monash Business School** [2019 -- 2023]{.cvdate}
 
--   Creating supplementary resources to support students at various levels
--   Providing feedback on assignment and overall subject design as an experienced tutor
--   Preparing and delivering subject review lectures
--   Designing marking guides, and ensuring consistency across all markers
+*Research Assistant*
 
-### Analyst
+Supporting multiple empirical economics projects with dataset design, collection, and pre-processing, exploratory visualisation, and preliminary analysis tasks. Worked with Nathaniel Lane, Paul Raschky, Laura Puzzello, Simon D. Angus & Klaus Ackermann.
 
-***Australian Competition and Consumer Commission (Intern)*** [*Jan 2017 -- Feb 2017*]{.cvdate}
+**University of Melbourne** [2016 -- 2018]{.cvdate}
 
-Assisted in research, analysis and drafting tasks for study of competition and consumer issues in the Australian communications sector. Contributions included:
+*Research Assistant, Department of Economics*
 
--   Researching and drafting a framework for synthesising vertical and horizontal competition issues
--   Preparing supporting visuals including graphs and flowcharts
--   Attended regular training sessions on all aspects of ACCC work
+Data extraction and curation from archival sources such as microfiche and magazine scans, including selecting harmonised variables and coordinating data entry by other team members. Worked with David Byrne & Phillip McCalman.
 
-***Grant Thornton Thailand*** [Feb 2015 -- Feb 2016]{.cvdate} <br> ***Grant Thornton Thailand (Intern)*** [Sep 2014 -- Dec 2014]{.cvdate}
+## Publications
 
-Worked collaboratively to deliver work in Corporate Finance, Forensic Investigations, and Business Strategy Planning. Project geographies included Thailand, Myanmar, and China. Industries included infrastructure, natural resources and financial services. Research skills such as market research, needs analysis, and strategy recommendations were used to deliver projects such as:
+1. Lam, T., **Huang, C. A.**, Torney, A., Callinan, S., Vandenberg, B., Xia, T., Angus, C., Room, R., Ogeil, R., Cowper, A., Pettigrew, S., Rowland, B., Keric, D., Lubman, D. I., & Nielsen, S. (2026). Leveraging web-scraped data to examine alcohol pricing: An Australian feasibility study with retail data. *International Journal of Drug Policy*, 148, 105115. <https://doi.org/10.1016/j.drugpo.2025.105115> *(Journal Article)*
 
--   Digital marketing strategy and implementation plan including identification of key platforms, competitor and industry analysis, target client activity, resourcing, and risk analysis.
--   People and Culture Review including recommendations on intranet design, staff engagement, and internal communication tools and policy.
+2. Nassar, J. B., Yio, Y. X., Athukorala, N., Simran, Fan, S., **Huang, C. A.**, Bartram, L., Dwyer, T., & Goodwin, S. (2025). Out of the Loop: Enhancing Documentation and Transparency in Collaborative Causal Loop Diagrams to Capture Multiple Perspectives. *2025 IEEE Visualization and Visual Analytics (VIS)*, 111–115. <https://doi.org/10.1109/VIS60296.2025.00028> *(Conference Paper, Best Paper Honorable Mention)*
 
-::: {.no-print}
-## PRESENTATIONS AND WORKSHOPS
+3. Xiong, K., **Huang, C. A.**, Wybrow, M., & Wu, Y. (2025). TableCanoniser: Interactive Grammar-Powered Transformation of Messy, Non-Relational Tables to Canonical Tables. *Proceedings of the 2025 CHI Conference on Human Factors in Computing Systems*, 1–20. <https://doi.org/10.1145/3706598.3714321> *(Conference Paper, Best Paper Honorable Mention)*
 
-```{r echo=FALSE}
-other_exp <- tibble::tribble(
-  ~type, ~title, ~date, ~host, ~link,
-  "Talk", "Misadventures with Reproducibility in R", 20221130, "R Ladies Melbourne Meetup", "https://github.com/cynthiahqy/rladies-2022-11",
-  "Talk", "Quarto Websites as Research Compendiums", 20220816, "Monash EBS Data Science Research Software Study Group", "https://github.com/cynthiahqy/quarto-wiki-template",
-  "Talk", "Designing R Packages", 20221004, "Monash EBS Data Science Research Software Study Group", "https://github.com/cynthiahqy/design-r-magic_2022-10",
-  "Workshop", "Writing academic papers with Rmarkdown and friends", 20220909, "Dept. of Economics, Monash University", "https://www.cynthiahqy.com/posts/r-markdown-and-friends/"
-)
-```
+4. Ma, B., **Huang, C. A.**, & Haensch, A.-C. (2025). Can Large Language Models Advance Crosswalks? The Case of Danish Occupation Codes. *Proceedings of the 2025 Conference of the Nations of the Americas Chapter of the Association for Computational Linguistics: Human Language Technologies (Volume 4: Student Research Workshop)*, 392–399. <https://doi.org/10.18653/v1/2025.naacl-srw.38> *(Workshop Paper)*
 
--   Talk: [Silver linings: how a harmonisation mishap turned into a PhD thesis](https://datamishapsnight.com) (7 Mar 2024, Data Mishaps Night)
--   Workshop: [Meeting AEA Replication Standards using Quarto](https://github.com/cynthiahqy/monash-quarto-aea) (18-20 Aug 2023, Monash University)
--   Talk: [Misadventures with Reproducibility in R](https://github.com/cynthiahqy/rladies-2022-11) (30 Nov 2022, R Ladies Melbourne Meetup)
--   Talk: [Designing R Packages](https://github.com/cynthiahqy/design-r-magic_2022-10) (4 Oct 2022, Monash EBS Data Science Research Software Study Group)
--   Talk: [Quarto Websites as Research Compendiums](https://github.com/cynthiahqy/quarto-wiki-template) (16 Aug 2022, Monash EBS Data Science Research Software Study Group)
--   Workshop: [Writing academic papers with Rmarkdown and friends](https://www.cynthiahqy.com/posts/r-markdown-and-friends/) (9 Aug 2022, Monash University)
+5. **Huang, C. A.** (2023, October 23). Visualising category recoding and numeric redistributions. *1st IEEE Workshop on Visualization and Provenance Across Domains*. <https://doi.org/10.48550/arXiv.2308.06535> *(Workshop Paper)*
 
-:::
+## Preprints and Manuscripts Under Review
+
+1. **Huang, C. A.**, O'Hara-Wild, M., Hyndman, R. J., & Kay, M. (2025). ggtime: A Grammar of Temporal Graphics (arXiv:2510.25656). arXiv. <https://doi.org/10.48550/arXiv.2510.25656> *(Preprint)*
+
+2. **Huang, C. A.**, & Lam, T. (2025). PRITES: An integrative framework for investigating and assessing web-scraped HTTP-response datasets for research applications. <https://doi.org/10.48550/arXiv.2511.13773> *(Preprint, under review at Harvard Data Science Review)*
+
+3. **Huang, C. A.** (2024). Crossmaps: A Unified Statistical And Computational Framework For Ex-Post Harmonisation Of Aggregate Statistics. <https://doi.org/10.48550/arXiv.2406.14163> *(Preprint, R&R at ACM/IMS Journal of Data Science)*
+
+## Presentations
+
+### Invited Talks and Panels
+
+- 'The Past, Present, and Future of ggplot2 Extension Packages', 2026 Joint Statistical Meetings (JSM), Boston, MA, USA, Aug 2026 *(Invited Panel, forthcoming)*
+- 'Semantics and Composition in Grammar of Graphics Inspired Systems', Vienna International Workshop on Visualization in Statistics and Data Analysis (vistda 2026), Vienna, Austria, Apr 2026 *(Invited Talk)*
+- 'The Challenges and Opportunities of AI for Unstructured Data', Data Quality Workshop: Unstructured Data and the Need for Quality Metrics, Munich, Germany, Jan 2026 *(Invited Panel)*
+- 'Improving ex-post data harmonisation with xmap', Making Data Work: Tools for Better Statistical Practice, LMU-NYU Workshop, Munich, Germany, Jun 2025 *(Invited Talk)*
+- 'Webscraping in FinEco Research: Risks and Opportunities', Department of Banking and Finance, Annual Retreat, Inverlock, VIC, Australia, Apr 2024 *(Invited Talk)*
+- 'Web-scraping for Health Policy Research', Monash Econometrics and Business Statistics Industry Engagement Workshop, Melbourne, Australia, Aug 2023 *(Invited Talk)*
+
+### Guest Seminars and Lectures
+
+- 'An integrative framework for investigating and assessing web-scraped datasets for research applications', Institute of Service Science, National Tsinghua University, Hsinchu, Taiwan, Apr 2025
+- 'Visualising Category Recoding Graphs in Data Harmonisation', Department of Computer Science, University of British Columbia, Vancouver, Canada, Oct 2024
+- 'LLMs for Preparing Data in R', Guest Lecture for Wild-Caught Data (ETC5512), Department of Econometrics and Business Statistics, Monash University, Melbourne, Australia, May 2025
+
+### Contributed Talks and Posters
+
+- 'Scalable self-paced e-learning of statistical programming with fine-grained feedback and assessment', 2024 Joint Statistical Meetings (JSM), Portland, OR, USA, Aug 2024
+- 'Xmap: Unified Tools for Ex-Post Data Harmonisation', useR! Conference, Salzburg, Austria, Jul 2024
+- 'Leveraging web-scraped retail prices with an industry data partner', Workshop on Advanced Analytical Methods Using Big Data, Monash Business School and Monash Data Futures Institute, Melbourne, Australia, Apr 2024
+- 'Visualising Category Recoding and Redistributions', 12th conference of the Asian Regional Section of the International Association for Statistical Computing (IASC-ARS), Sydney, Australia, Dec 2023
+- 'Crossmaps: A principled approach to ex-post data harmonisation and dataset integration', 2023 Australian Statistical Conference (ASC), Wollongong, Australia, Dec 2023 *(Best Rapid Poster Award)*
+- 'Advances in Ex-Post Harmonisation using Graph Representations of Cross-Taxonomy Transformations', Monash EBS PhD Contest, International Day of Women in Statistics and Data Science, Online, Oct 2023 *(Best Talk Award)*
+
+## Awards, Honours and Funding
+
+**Di Cook Award Honorable Mention**, Statistical Society of Australia [2025]{.cvdate}
+
+Awarded for R package 'xmap'
+
+**LMU Mentoring Program**, LMU Munich [2026]{.cvdate}
+
+€1,500 EUR research funds
+
+**LMU Postdoc Support Fund**, LMU Munich [2026]{.cvdate}
+
+€3,900 EUR relocation and start-up grant
+
+**Best Short Paper Honorable Mention**, IEEE VIS 2025 [2025]{.cvdate}
+
+Awarded for "Out of the Loop: Enhancing Documentation and Transparency in Collaborative Causal Loop Diagrams..."
+
+**Best Full Paper Honorable Mention**, ACM CHI 2025 [2025]{.cvdate}
+
+Awarded for "TableCanoniser: Interactive Grammar-Powered Transformation..."
+
+**Speaker Support**, Posit PBC [2024]{.cvdate}
+
+$1,800 USD accommodation and travel grant to attend posit::conf(2024)
+
+**Enhanced International Research Experience Award**, Monash Business School [2023]{.cvdate}
+
+$8,000 AUD for research visit to UBC, Vancouver
+
+**PhD Top-Up Scholarship**, Statistical Society of Australia [2023]{.cvdate}
+
+$2,500 AUD sponsored by Australian Bureau of Statistics
+
+**PhD Top-Up Scholarship**, Monash Data Futures Institute [2021 -- 2025]{.cvdate}
+
+$8,000 AUD stipend top-up and $3,000 AUD travel grant per year
+
+**Monash Graduate Scholarship**, Monash University [2021 -- 2025]{.cvdate}
+
+Full doctoral scholarship covering tuition and living stipend
+
+## Teaching and Supervision
+
+**Teaching Associate**, Monash Business School, Monash University [2020 -- 2023]{.cvdate}
+
+Led weekly tutorials for undergraduate and masters courses. Received teaching excellence awards for ECC2800 and ETC5512 based on student evaluations.
+
+- ETC5523: Communicating with data (2023)
+- ETC1010: Introduction to data analysis (2022)
+- ECC2800: Prosperity, poverty and sustainability in a globalised world (2022)
+- BEX2421: Harnessing big data for business and society (2022)
+- ETX2250/ETF5922: Data visualisation & analytics (2022)
+- ETC5512: Wild-caught data (2020)
+
+**Academic Tutor**, Faculty of Business and Economics, University of Melbourne [2014 -- 2019]{.cvdate}
+
+Led weekly tutorials for undergraduate courses in Economics and Management. Developed assignments and marking rubrics. Preparation and delivery of subject review lectures.
+
+- ECON10005: Quantitative Methods (2019)
+- ECON10004: Introductory Microeconomics (2017)
+- ECON10003: Introductory Macroeconomics (2014, 2016, 2017, 2018, 2019)
+- ECON20002: Intermediate Microeconomics (2019)
+- ECON20001: Intermediate Macroeconomics (2018)
+- ECON20005: Competition and Strategy (2017, 2018)
+- ECON30025: Computational Economics and Business (2019)
+- ECON40002: Advanced Macroeconomics (2017)
+- MGMT20012: Business Case Analysis (2019)
+
+### Supervision and Mentoring
+
+**Research Internship Supervisor**, Monash University [2025]{.cvdate}
+
+Supervised 2 Masters of Business Analytics students working on LLMs for data cleaning
+
+**Peer Mentor**, Williams Centre for Learning Advancement, University of Melbourne [2018 -- 2019]{.cvdate}
+
+Peer support for new tutors in the Faculty of Business and Economics
+
+## Service, Outreach and Public Engagement
+
+### Open-Source Software Contributions
+
+- Contributor, R Dev Day, Melbourne, Australia, Nov 2025
+- Contributor, Tidy Dev Day, Seattle, WA, USA, Aug 2024
+- R package maintainer: xmap, ggtilecal
+
+### Service
+
+- Organising Committee Member, NUMBAT Hackathon, Melbourne, Australia, Nov 2025
+- Co-Chair, WOMBAT2025 Conference, Melbourne, Australia, Sep 2025
+- Organiser, Monash NUMBATs Research Software Study Group, Monash University, 2023-2024
+
+### Research Skills Workshops
+
+Delivered to graduate students and faculty at Monash Business School:
+
+- Reproduciblity in Economics Research (May 2024, Sep 2025)
+- Meeting AEA replication standards using Quarto (Aug 2023)
+- Designing R Packages (Oct 2022)
+- Quarto websites as research compendiums (Aug 2022)
+- Writing academic papers with Rmarkdown and friends (Aug 2022)
+
+### Public Talks and Meetups
+
+- 'Reusing ggplot2 code: how to design better plot helper functions', Statistical Society of Australia (SSA) Vic & Tas Branch and R Users of Melbourne Network (MelbURN) Meetup, Melbourne, Australia, Aug 2025
+- 'Quarto for Knowledge Management', posit::conf(2024), Seattle, WA, USA, Aug 2024
+- 'Silver Linings: How a Data Harmonisation Mishap Turned into a PhD Thesis', Data Mishaps Night, Online, Mar 2024
+- 'Australia's Rising WiDS Stars!', WiDS @ Australian Data Science Network, Online, Mar 2023
+- 'Misadventures with Reproducibility in R', R Ladies Melbourne Meetup, Melbourne, Australia, Nov 2022
+
+### Science Communication
+
+- Presenter, *3 Minute Thesis Competition*, Monash University, Jun 2023 *(2nd Place in Faculty Heat)*
+- Podcast Interview Host, *The Random Sample*, 2022-2025
+
+### Media Appearances
+
+- Podcast Guest, 'Why Host a Podcast?', *The Random Sample*, Dec 2023. Available at: <https://www.therandomsample.com.au/podcast/why-host-a-podcast/>
+- Featured in 'Crimes against spaghetti and other three minute tales win over judges', *Monash Business School*, Jun 2023. Available at: <https://www.monash.edu/business/news/2023/crimes-against-spaghetti-and-other-three-minute-tales-win-over-judges>
+- Interview, 'Shaping Research Software: An Interview with Cynthia Huang', *Australian Research Data Commons*, May 2023. Available at: <https://ardc.edu.au/article/shaping-research-software-an-interview-with-cynthia-huang/>
 
 ::: {.print-only}
 ## References
