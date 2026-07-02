@@ -16,7 +16,7 @@ about:
       href: https://github.com/cynthiahqy
     - icon: envelope-at-fill
       text: Email
-      href: mailto:cynthia.huang@monash.edu
+      href: mailto:cynthia.huang@lmu.de
 ---
 
 🧙‍♀️ I am an interdisciplinary researcher with pronouns she/her. I work at the intersection of social data science, statistical programming and human-centered computing, with a particular focus on data quality, provenance and visualisation in data science workflows. Currently, I am a Postdoctoral Researcher in the [Social Data Science and AI Lab at LMU Munich](https://www.stat.lmu.de/soda/en/), working with [Frauke Kreuter](https://www.stat.lmu.de/soda/en/team/contact-page/frauke-kreuter-825909f7.html). I completed my PhD in the Department of Econometrics and Business Statistics at Monash University under the supervision of [Rob J Hyndman](https://robjhyndman.com), [Simon Angus](https://research.monash.edu/en/persons/simon-angus), and [Sarah Goodwin](https://research.monash.edu/en/persons/sarah-goodwin).
