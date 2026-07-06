@@ -1,4 +1,4 @@
-# Understanding ggplot2 helper functions
+# How R users design ggplot2 helper functions and extensions
 
 We're trying to understand how people design 'ggplot2' extensions — with a particular focus on how people design helper functions out of existing plotting code. We're interested in your experience regardless of how much or little you've done this: whether you've written one throwaway function for yourself or maintain a published package, your perspective is useful to us.
 
