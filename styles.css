@@ -8,6 +8,26 @@
 }
 
 
+/*---surveys---*/
+
+.survey-button {
+  display: inline-block;
+  padding: 0.6em 1.5em;
+  background-color: var(--bs-primary, #904E55);
+  color: var(--bs-body-bg, #F0ECE5);
+  border-radius: 0.375em;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.survey-button:hover,
+.survey-button:focus {
+  background-color: var(--bs-secondary, #6C67A2);
+  color: var(--bs-body-bg, #F0ECE5);
+  text-decoration: none;
+}
+
+
 /*---cv---*/
 
 .cvdate {

@@ -3,6 +3,7 @@ project:
   render:
     - "*.qmd"
     - "!posts/drafts/**/*.qmd"
+    - "survey.qmd"
   resources:
     - "_redirects"
     - "CynthiaHuang-CV.pdf"

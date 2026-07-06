@@ -1,0 +1,9 @@
+# How R users design ggplot2 helper functions and extensions
+
+We're trying to understand how people design 'ggplot2' extensions — with a particular focus on how people design helper functions out of existing plotting code. We're interested in your experience regardless of how much or little you've done this: whether you've written one throwaway function for yourself or maintain a published package, your perspective is useful to us.
+
+This survey takes about 5-10 minutes. Your responses are anonymous and will be used in academic research (including a paper on this topic). At the end, you'll have the option to leave contact details if you're willing to be interviewed in more depth — this is entirely optional and won't affect the rest of your responses.
+
+::: {.text-center}
+[Take the survey](https://survey.ifkw.lmu.de/ggplot2_and_helpers/){.survey-button target="_blank"}
+:::
