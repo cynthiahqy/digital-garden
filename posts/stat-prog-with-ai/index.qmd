@@ -1,0 +1,63 @@
+---
+title: 'Teaching Statistical Programming in the Age of AI'
+description: 'Reflections on redesigning an intermediate R course at LMU around group projects, collaborative git and friction.'
+date: 2026-07-14
+date-modified: last-modified
+categories:
+  - teaching
+  - generative-ai
+  - r
+image: featured.png
+---
+
+I recently redesigned an intermediate statistical programming elective for students taking a minor in statistics at LMU Munich. This post is a rundown of how the course came together, the philosophy behind its structure, and some preliminary reflections — particularly about students' use of generative AI in an ungraded group project. All the teaching materials are available on the [course website](https://soda-lmu.github.io/StatProg2-2026-SoSe/).
+
+I also wrote this post to acknowledge and thank Monash NUMBATs, and other members of R community for making various teaching materials available online -- materials that heavily inspired both the course design and particular lectures. In no particular order:
+
+- [Di Cook](https://www.dicook.org/)
+- [Emi Tanaka](https://emitanaka.org/)
+- [Nick Tierney](https://www.njtierney.com/)
+- [Michael Lydeamore](https://www.michaellydeamore.com/)
+- [Kate Saunders](https://research.monash.edu/en/persons/kate-saunders)
+- [Shannon Pileggi](https://www.pipinghotdata.com/)
+- [Mine Çetinkaya-Rundel](https://mine-cr.com/)
+
+## Teaching Context
+
+The course 'Fortgeschrittene Statistische Software für Nebenfachstudierende' (Advanced Statistical Software for Students Minoring in Statistics) is a follow-up elective to an introductory R course for students taking a minor in statistics from a wide range of majors including sociology, communication studies and computer science. As such, the range of programming experience varies greatly between students. The two other prerequisites for the course are statistics 1 and 2, which, as the names suggest, are introductory and intermediate statistics courses. The course has 3 contact hours a week, split across a 1.5 hour lecture and 1.5 hour practical exercise, over a 15 week semester.
+
+As someone entirely new to teaching at LMU, I relied on my teaching team (Leonhard Kestel & Lisa Bondo Andersen) and some of my own snooping to understand what I could reasonably expect students to have been exposed to previously — base R, tidyverse, linear regression, hypothesis testing. From here, I was mostly free to redesign the course as I saw fit within the loose bounds of the course objectives. This kind of freedom was completely novel for me compared to my prior teaching experiences at the University of Melbourne and Monash University. It is also a rather small course, with about 60 students registered for the final exam (though I saw no more than 30 at any given lecture -- with an average closer to 10-15).
+
+I relied heavily on Claude Code to help me expand, populate and format the Quarto course website, group project, and lecture slides, though that workflow is a post for another time. One quick tip is to install [Posit's Quarto authoring skill](https://github.com/posit-dev/skills/tree/main#quarto).
+
+## Course Philosophy & Design
+
+_You can read the [full course rationale](https://soda-lmu.github.io/StatProg2-2026-SoSe/syllabus.html#course-rationale) (shared with students) on the course website._
+
+In my opinion, intermediate courses are significantly more difficult to design and teach compared to introductory courses, where no background knowledge is assumed, and advanced courses, where prerequisites can be quite focused and comprehensive. What exactly constitutes 'intermediate', especially for students from both computer science and humanities? One possible answer is to treat intermediate R courses as a chance to introduce students to R packages and programming concepts that couldn't quite fit in the introductory course, but this can lead to a somewhat scattered 'bag of packages' style syllabus — which feels lacking in the age of LLMs being able to generate working code for almost any package within seconds.
+
+So, rather than introducing students to a grab bag of additional R packages, I wanted to create structure for students to find and learn new R skills as they needed, and to engage deeply, perhaps for the first time, with the complete data science workflow in an integrated manner. To facilitate this, I split the course into two phases. The first half of the course was intentionally fast-paced and content-dense, and focused on exposing students to general programming skills (incl. functions, debugging), reproducibility and collaborative coding (incl. git, Quarto and renv). The second half was structured around an applied (but ungraded) group exploratory data analysis project based on a dataset chosen by the students themselves. We transitioned away from programming concepts to instead review basic data analysis principles along with introducing a small selection of useful/fun packages (e.g. [`gt`](https://gt.rstudio.com/) for pretty tables, [`infer`](https://infer.tidymodels.org/) for hypothesis testing). Each week, the students had the opportunity to develop their group projects in the practical session and hopefully experience some friction from group coordination and git conflicts, to counterbalance the ease of code generation with LLMs.
+
+In addition to the group project, we heavily encouraged students to write and commit answers to weekly reflection questions based on that week's content. The idea of both the group project and reflection questions was to create learning activities that would be somewhat pointless or silly to feed to an AI, thereby encouraging students to use their own brains and actively engage in the abstraction and implementation processes in statistical programming and data science.
+
+## Group Project & Oral Exam
+
+_You can visit the course website for the [full project guidelines](https://soda-lmu.github.io/StatProg2-2026-SoSe/group-project-guidelines.html)._
+
+The project guidelines started with a rather broad set of objectives and a loose idea based around the [ModernDive term project](https://moderndive.github.io/moderndive_labs/index.html#Term_Project). In brief, the project required students to find an open dataset, familiarise themselves with it, explore a few potential patterns or hypotheses, and present their findings using Quarto. Each of these phases was connected to 1-2 lectures, where we reviewed core concepts like the difference between initial data analysis, exploratory data analysis and confirmatory analysis, as well as good statistical visualisation and communication practices. We also gave suggestions on how to use tools from the first half of the course to extend their group projects to include relevant outputs at each stage. The goal of the projects was to practice engaging with data, while the actual Quarto output served as a bonus portfolio piece that the students could potentially add to their CVs.
+
+Thanks to some quirks in how assessment works at LMU^[Per my understanding, grades for coursework can only be assigned via one of three methods -- 6 in-semester assignments, a 100% written exam, or a 100% oral exam. Mixing examination formats is also prohibited.], the group project had to be ungraded, with the final grade completely determined in an end-of-semester oral exam (that I'm designing with Claude Code as I draft this post). We tried to incentivise students to do the group project by promising to connect it to the oral exam — students who complete the group project will be examined based on their own projects, while students who don't complete a group project will be examined on a random project in the exam. One major benefit of this setup was that we had the freedom to refine the group project during the semester. This allowed us to adapt the scope of the project based on how students were engaging, and provide additional structure to encourage them to focus on the process rather than the output. The guidelines were refined and expanded with help from Claude Code over the course of the semester.
+
+## Evolving at the Speed of Generative AI
+
+One such last-minute change was an additional submission checkpoint that we added after reviewing the initial project proposals. I personally reviewed the initial submissions, and (unsurprisingly) they had many signs of uncritical AI-generation. About 50% of the ~20 project proposals we received had the kind of glossy appearance coupled with a total lack of substance that makes me want to scratch my eyes out. Instead of giving feedback to each group as we initially planned, we pivoted to providing about 30 minutes of in-depth but combined feedback in the weekly lecture, and adding another checkpoint two weeks later, where we committed to providing group-specific feedback. This way, I avoided the soul-crushing exercise of giving feedback to AI-generated slop, and the students had an opportunity to iterate based on broadly applicable feedback points. We also reiterated that the project was ungraded and, therefore, purely intended as a learning exercise — for which using an LLM to generate a report-like artefact was a waste of both their time and the teaching team's time. Based on positive teaching evaluations collected directly in the lecture where I provided this general feedback, and my initial sampling of the revised submissions, it seems students were rather receptive to my pleas (and to the overall structure of the course).
+
+A particularly interesting preliminary observation I made when looking at the revised submissions was that they actually seemed crappier and less polished than the initial submissions — which, contrary to pre-gen-AI expectations, I took as a positive indication of the students' engagement with the critical thinking goals of the course. We actively encouraged students to include ideas that they didn't know how to implement or build, as well as to document discussions about modelling or analysis choices, as part of their submissions. This led to some rather messy repository structures, but did provide opportunities for students to think outside what they could easily generate, and to engage with the entire data science workflow from an architectural level rather than just as a code-generation exercise.
+
+## (Interim) Takeaways
+
+- Group project and collaborative git are promising tools for introducing friction into statistical programming classes — hopefully slowing students down enough to actually develop some degree of mastery beyond surface-level imitation.
+- This entire course redesign, providing group-specific feedback, and writing group-specific exam questions would not be possible without agentic tools like Claude Code (especially given the limited size of our teaching team).
+- Designing group-specific oral exam questions is something of a crazy thing to try and do, but so far it looks like we'll be able to pull it off. We've planned a flexible, but comprehensive assessment rubric across 5 questions sampled from a possible 16 subtopics. I've also (in the time it took to write this post, plus a bit more) drafted generic project assets and questions for each subtopic with Claude Code, which at first glance look reasonable. What remains is the generation of group-specific questions, a bit of polish, and mustering up the mental endurance to do a full 7.5-hour day of oral exams.
+
+If nothing else, this course has convinced me that designing for "intermediate" R students is exactly as hard as I expected going in — and that the friction of group work and git conflicts might be doing more to teach statistical programming than any package I could have added to the syllabus.
