@@ -7,8 +7,7 @@ categories:
   - teaching
   - generative-ai
   - r
-  - how-to
-# image:
+image: featured.png
 ---
 
 I recently redesigned an intermediate statistical programming elective for students taking a minor in statistics at LMU Munich. This post is a rundown of how the course came together, the philosophy behind its structure, and some preliminary reflections — particularly about students' use of generative AI in an ungraded group project. All the teaching materials are available on the [course website](https://soda-lmu.github.io/StatProg2-2026-SoSe/).
