@@ -1,19 +1,14 @@
 ---
-title: ''What I learnt from serving on the useR! 2026 Code of Conduct team"
-description: ''
-date: ''
+title: "Not the police! Reflections from Serving on a Code of Conduct Team"
+description: "Why I almost didn't volunteer, what the role actually involves, and why jokes about it undermine the volunteers doing CoC work."
+date: '2026-07-21'
 date-modified: last-modified
-draft: true
-categories:
-  -
-image: https://carbon.now.sh/?bg=rgba%28255%2C255%2C255%2C1%29&t=blackboard&wt=none&l=r&width=320&ds=false&dsyoff=20px&dsblur=68px&wc=true&wa=false&pv=69px&ph=55px&ln=false&fl=1&fm=Hack&fs=14px&lh=133%25&si=false&es=2x&wm=false&code=library%28pander%29%250Amy_table%2520%257C%253E%250A%2520%2520pander%253A%253Apander%28%29
+image: featured.png
 ---
 
+This post is an attempt to document my own personal reflections on deciding to volunteer and my experience serving on the CoC response team for UseR! 2026. Thankfully, we had no reported incidents at, or after the conference, so my reflections are very much more about documenting my own learnings about the role of a CoC response team in fostering and maintaining a safe and inclusive community, and balancing a sense of service and responsibility with a healthy sense of entitlement to our own conference experience as volunteers on the team.
 
-
-This post is an attempt to document my own personal reflections on deciding to volunteer and my experience serving on the CoC response team for UseR! 2026. Thankfully, we had no reported incidents at, or after the conference, so my reflections are very much more about documenting my own learnings about the role of a CoC response team in fostering and maintaining a safe and inclusive community, and balancing a sense of service and responsibility with maintaining a healthy entitlement for our own conference experience as a volunteers on the team.
-
-Hopefully, some of these reflections will help someone else overcome the hesitations and apprehensions I had when joining the CoC response team, and demystify some broader misconceptions. This post is also partly motivated by some reflections on some jokes that someone made about reporting me to the CoC team, along the lines of 'how do you report the police to the police?'. Such jokes seems harmless in the moment, but can work against the goals of having a CoC, and unfortunately somewhat trivialize the contribution of CoC volunteers.
+Hopefully, some of these reflections will help someone else overcome the hesitations and apprehensions I had when joining the CoC response team, and demystify some broader misconceptions. This post is also partly motivated by some reflections on some jokes that someone made about reporting me to the CoC team, along the lines of 'how do you report the police to the police?'. Such jokes can feel harmless in the moment, but they work against the goals of having a CoC, and trivialize the contribution of CoC volunteers.
 
 Before I begin, I have to thank the amazing Ella Kaye, for stepping up to lead the CoC response team, Tina Roszo, for her sensible and measured restraint in preventing us from taking on excessive responsibilities, and Mitchell O'Hara-Wild for agreeing to join the CoC response team on short notice. It was a privilege to learn and serve the community together.
 
@@ -22,8 +17,6 @@ Before I begin, I have to thank the amazing Ella Kaye, for stepping up to lead t
 I think it's safe for me to say that I have a tendency to commit first, evaluate capacity later (I'm working on it!), but even so, I erred when the call for CoC response team volunteers came up in the UseR! DEIA committee meetings. I had only a vague idea of what a CoC response team was. That vague idea was roughly along the lines of "enforcing rules around community conduct" -- and that volunteering to lead or serve on a CoC team was basically announcing or at least sheepishly admitting "I want to police people! Give me the rule book!".
 
 >  Most people don't want to be involved in high-stress, high emotional labor like listening to complaints of harassment or assault, and don't want to take actions that may result in them being personally criticized or attacked. Like most emotional labor, if no one is assigned to do this work, it often falls to the more marginalized members of your community to do it without support or reward; they will then be more likely to leave under the stress.  -- _How to Respond to Code of Conduct Reports, Valerie Aurora and Mary Gardiner_
-
-<!-- It turns out, as explained in the amazing <CoC book>, equating CoC response team to enforcement, is basically a recipe for volunteer burnout, community discord, and invitation for turning everyone off serving as CoC responders except power and authority hungry sociopaths, or well-intentioned but overly rigid and judgmental "social justice warriors". -->
 
 ## What exactly is a CoC team then?
 
@@ -35,7 +28,7 @@ Without a CoC team, it's almost better not having a Code of Conduct at all -- as
 
 As explained in the book "How to Respond to Code of Conduct Reports", CoC teams are not:
 
-* rapid response teams
+* Rapid response teams
 * Secuirty guards
 * Law enforcement
 * Mediation or adjudication teams
@@ -44,27 +37,37 @@ Instead, the role of the CoC team is to establish, maintain and, if needed, acti
 
 ## Working together as a CoC team
 
-It was really quite relieving and grounding to shift from vague monitoring-based notions of what a CoC team should be responsible for, to a much more constructive and inclusive notion of service embedded in the community that agrees to a specific Code of Conduct. The CoC team is not supposed to be elevated above the rest of the community, and charged with policing bad behaviour from a place of authority. Instead, we were simply members of the community, volunteering our time and energy to promote and maintain the Code of Conduct, and handle potential CoC issues and violations on behalf the community.
+It was really quite relieving and grounding to shift from vague monitoring-based notions of what a CoC team should be responsible for, to a much more constructive and inclusive notion of service embedded in the community that agrees to a specific Code of Conduct. The CoC team is not supposed to be elevated above the rest of the community, and charged with policing bad behaviour from a place of authority. Instead, we were simply members of the community, volunteering our time and energy to maintain and enforce the Code of Conduct, and handle potential CoC issues and violations on behalf the community.
 
 Much of our work as a CoC team was completed before the conference -- setting up the reporting form, coordinating on who would monitor the inbox, discussing different potential situations, drafting preliminary responses and announcements in case of an incident, making sure the CoC and CoC reporting processes were adequately communicated and visible to participants.
 
-One particularly memorable conversation in the lead up to the conference was about if and how we should intervene or respond if we became aware of a CoC violation happening in real time (e.g. in a talk one of us were attending). There was discussion about whether other team members should try to join as soon as possible, and even some notion of taking "shifts" to be responsible for responding in person to incidents. If any of this sounds suspiciously close to what a rapid response or intervention team would be responsible for, that's because they are. Thankfully we all realised this and consciously decided not to take on any such responsibilities and instead allow ourselves to attend the conference first and foremost as participants.
+One particularly memorable conversation in the lead up to the conference was about if and how we should intervene or respond if we became aware of a CoC violation happening in real time (e.g. in a talk one of us were attending). There was discussion about whether other team members should try to join as soon as possible, and even some notion of taking "shifts" to be responsible for responding in person to incidents. If any of this sounds suspiciously close to what a rapid response or intervention team would be responsible for, that's because it is. Thankfully we all realised this and consciously decided not to take on any such responsibilities and instead allow ourselves to attend the conference first and foremost as participants.
 
 ## Security theatre and joking about CoC reports
 
-The concept of "Security Theatre" refers to <!-- TODO: finish definition--->. In many ways, a CoC team is also security theatre. We have no jurisdiction to actually enforce any consequences for CoC violations beyond referring an incident for further investigation, recommending revoking an individual's access to community resources, events or physical and/or digital spaces.
+The concept of "Security Theatre" refers to measures that are designed to make people *feel* safer, without necessarily doing much to actually improve their safety (the term was popularised by security technologist Bruce Schneier, who used airport security screening -- confiscating water bottles and nail clippers -- as a canonical example: highly visible, reassuring to travellers, but of limited value against a determined attacker). In many ways, a CoC team is also security theatre. The consequences we can enforce only reach within the boundaries of the community itself (e.g., removal from the conference, bans on future attendance); someone determined to cause harm elsewhere is beyond our reach.
 
-Nevertheless, it's useful and maybe even important, that people see the CoC team as a meaningful resource for navigating CoC issues, and that they can trust the volunteer team to handle reports in a transparent and accountable manner with empathy and appropriate discretion. To this end, joking about CoC violations, even in a nominally playful and casual social setting, has the unfortunate side-effect of diminishing the value of CoC work.
+Therefore, it's useful and important, that people see the CoC team as a meaningful resource for navigating CoC issues, and that they can trust the volunteer team to handle reports in a transparent and accountable manner with empathy and appropriate discretion. We may have no police powers, but publicly visible consequences such as:
 
-If CoC reports are a joke, and CoC members are portrayed as pretend police with a penchant for power trip, it's easy for CoC issues themselves to be trivialised as individuals being "snitches" and making too much of a fuss, or being too sensitive. Moreover, it likely increases people's reluctance to serve on CoC teams -- who wants to volunteer to be play police against a joke issues?
+- a formal warning to stop harassing behaviour
+- expulsion from the conference
+- removal of sponsor displays or conference posters
+- cancellation or early termination of talks or other contributions to the program
+
+Through these consequences, a community can demonstrate their commitment to enforcing the Code of Conduct. Unfortunately, joking about CoC violations, even in a nominally playful and casual social setting, works against the goals of a CoC and trivialises the contribution of CoC volunteers.
 
 Although, it felt rather small in the moment, hearing someone joke that I shouldn't be on the CoC team because I had said or done something they didn't like, did make me reconsider (if even for a moment) if I should have just minded my own business and not volunteered for CoC. It's a funny thing to think about, but I would have much preferred a meaner or more direct jab at my own expense, without reference to my volunteer role on the a CoC team.
 
-Standing up a CoC team is, as with most filling many other kind of volunteer service roles, often rather difficult. When the call for volunteers came up in a DEIA committee meeting, Tina and I both somewhat hesitantly put our hands up to be part of the team. However, neither of us had any prior CoC experience and definitely did not feel equipped to lead the CoC response team. Thankfully, Ella stepped up and led us through the genuinely enjoyable and enriching process of serving as the CoC team for useR! 2026. Mitchell also joined us and helped a lot with the technical infrastructure that we hadn't given much thought to -- including setting up push notifications from the reporting email inbox to slack so no one had to be on inbox monitoring duty.
+If CoC reports are treated as a joke, it's easy for CoC issues themselves to be trivialised -- individuals reporting harm get recast as "snitches" making too much of a fuss, or being too sensitive. It also makes the role a harder sell: fewer people want to volunteer for work already being laughed at.
+
+Standing up a CoC team is, like filling most volunteer service roles, often difficult. When the call for volunteers came up in a DEIA committee meeting, Tina and I both somewhat hesitantly put our hands up to be part of the team. However, neither of us had any prior CoC experience and definitely did not feel equipped to lead the CoC response team. Thankfully, Ella stepped up and led us through the genuinely enjoyable and enriching process of serving as the CoC team for useR! 2026. Mitchell also joined us and helped a lot with the technical infrastructure that we hadn't given much thought to -- including setting up push notifications from the reporting email inbox to slack so no one had to be on inbox monitoring duty.
+
 
 ## Shared trust, responsibility and joy
 
 Although we did not handle any CoC reports during the conference, I felt confident that we would have navigated any incidents well as a team. This is not just because the team are nice people who like each other, but because we trusted each other's judgement and ability to navigate differences in opinion, and had a shared commitment to jointly sign-off on any statements and decisions.
+
+> Committee members must commit to upholding the confidentiality of the committee publicly even if they disagree with its decisions. If a committee member feels that they can't support the decision of the committee, they should resign from the committee but not speak publicly about the process unless absolutely necessary. In general, it is harmful for a committee member to publicly disagree with any decision they were privy to. -- _How to Respond to Code of Conduct Reports, Valerie Aurora and Mary Gardiner_
 
 Joint sign-off is another one of those seemingly small but ultimately important procedural details. As a volunteer signing up to interpret and uphold the code of conduct on behalf of the community, it's a daunting to imagine having to answer for a statement or decision alone. Luckily I didn't have to because that's not how CoC teams work.
 
