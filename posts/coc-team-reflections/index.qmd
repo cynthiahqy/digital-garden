@@ -1,5 +1,5 @@
 ---
-title: "Not the police! Reflections from Serving on a Code of Conduct Team"
+title: "Not the police! Demystifying Code of Conduct Teams"
 description: "Why I almost didn't volunteer, what the role actually involves, and why jokes about it undermine the volunteers doing CoC work."
 date: '2026-07-21'
 date-modified: last-modified
