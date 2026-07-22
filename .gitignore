@@ -262,3 +262,4 @@ rsconnect/
 /.luarc.json
 
 **/*.quarto_ipynb
+posts/coc-team-reflections/cocguide.pdf
