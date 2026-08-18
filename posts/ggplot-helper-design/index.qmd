@@ -193,8 +193,8 @@ List arguments bind together user inputs that all go into the same place inside 
 
 #### Plot Helper Body
 
-```{r}
-gg_facet_wrap_months <- function(...){
+```r
+gg_facet_wrap_months <- function([arguments and defaults as shown above in 'Plot Helper Interface']){
   ## Data Helpers
   cal_data <- .events_long |>
     fill_missing_units({{ date_col }}) |>
