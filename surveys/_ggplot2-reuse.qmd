@@ -1,0 +1,11 @@
+# How R users turn ggplot2 code into reusable functions
+
+We're trying to understand situations when 'ggplot2' users consider creating reusable helper functions, what they actually implement, and how they reflect on it afterwards. We're interested in your experience regardless of your expertise level — whether you've written one throwaway function for yourself or maintain a published package, your perspective is useful to us.
+
+This survey takes about 7 minutes, or up to 15 minutes if you choose to describe several occasions. Responses are collected anonymously — no participant identifiers, IP addresses, or linking information are recorded, so once you submit the survey we cannot locate or delete your specific responses. Any code excerpts you share may appear in publications in anonymized form, with variable and function names altered to protect project or organizational identities.
+
+If you have questions before participating, you can contact the Principal Investigator, Cynthia Huang, at cynthia.huang@lmu.de.
+
+::: {.text-center}
+[Take the survey](https://survey.ifkw.lmu.de/ggplot2_reuse/){.survey-button target="_blank"}
+:::
