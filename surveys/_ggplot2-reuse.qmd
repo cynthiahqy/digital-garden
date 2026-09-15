@@ -4,6 +4,8 @@ We're trying to understand situations when 'ggplot2' users consider creating reu
 
 This survey takes about 7 minutes, or up to 15 minutes if you choose to describe several occasions. Responses are collected anonymously — no participant identifiers, IP addresses, or linking information are recorded, so once you submit the survey we cannot locate or delete your specific responses. Any code excerpts you share may appear in publications in anonymized form, with variable and function names altered to protect project or organizational identities.
 
+The survey will close on **31 December 2026**.
+
 If you have questions before participating, you can contact the Principal Investigator, Cynthia Huang, at cynthia.huang@lmu.de.
 
 ::: {.text-center}
